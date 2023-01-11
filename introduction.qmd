@@ -1,80 +1,47 @@
-# Overview
+# Introduction 
 
-Block 1 - Introduction - 30 Jan - Dani & Elisabetta 9-12
-* Lecture: Introduction to the module
-* Lab 1: Getting up to speed for web mapping - Lab 2 can go in Lab 1 (Lab 2: Powerful examples
-    * Discussion about interactive map)
+* Lab 2 can go in Lab 1 (Lab 2: Powerful examples \* Discussion about interactive map)
 
-## Aims
+# Slides
 
-This module aims to:
+HTML
+PDF
 
+* As a [pdf document](https://gdsl-ul.github.io/wma/lecture_02.pdf)
 
+References:
 
-## Learning Outcomes
+For an excellent coverage of “visualisation literacy”, Chapter 11 of Andy Kirk’s “Data Visualisation” is a great start.
+Lab: Getting up to speed for web mapping
 
-By the end of the module, students should be able to:
+# Lab: Powerful examples 
 
+This lab has two main components: the first one will require you to find a partner and work together with her/him; and the second one will involve group discussion.
 
-## Feedback
+## Paired activity
+In pairs, find three examples where web maps are used to communi- cate an idea. Complete the following sheet for each example:
 
-*Formal assessment of two computational essays*. Written assignment-specific feedback will be provided within three working weeks of the submission deadline. Comments will offer an understanding of the mark awarded and identify areas which can be considered for improvement in future assignments.
+* Substantive
+  + Title: Title of the map/project
+  + Author: Who is behind the project?
+  + Big idea: a “one-liner” on what the project tries to accomplish – Message: what does the map try to get accross
 
-*Verbal face-to-face feedback*. Immediate face-to-face feedback will be provided during computer, discussion and clinic sessions in interaction with staff. This will take place in all live sessions during the semester.
+* Technical
+  + URL:
+  + Interactivity: does the map let you interact with it in any
+way? Yes/No
+  + Zoomable: can you explore the map at different scales? Yes/No
+  + Tooltips:
+  + Basemap: Is there an underlying map providing geographical
+context? Yes/No. If so, who is it provided by?
+  + Technology: can you guess what technology does this map rely
+on?
 
-*Online forum*. Asynchronous written feedback will be provided via an online forum. Students are encouraged to contribute by asking and answering questions relating to the module content. Staff will monitor the forum Monday to Friday 9am-5pm, but it will be open to students to make contributions at all times. Response time will vary depending on the complexity of the question and staff availability.
+Post each sheet as a separate item on the Teams channel for Lab No.2
+As an example, here’s the sheet for the project “A map of every building in America”
 
-## Computational Environment
+# Other
 
-To reproduce the code in the book, you need the following software packages:
+A comprehensive overview of computational notebooks and how they relate to modern scientific work is available on Ch.1 of the GDS book, currently in progress. https://geographicdata.science/book/notebooks/01_geospatial_computational_environment.html
 
--   R-4.2.2
--   RStudio 2022.12.0-353
--   Quarto 1.2.280
--   the list of libraries in the next section
-
-To check your version of:
-
--   R and libraries run `sessionInfo()`
--   RStudio click `help` on the menu bar and then `About`
--   Quarto check the `version` file in the quarto folder on your computer.
-
-To install and update:
-
--   R, download the appropriate version from [The Comprehensive R Archive Network (CRAN)](https://cran.r-project.org)
--   RStudio, download the appropriate version from [Posit](https://posit.co/download/rstudio-desktop/)
--   Quarto, download the appropriate version from [the Quarto website](https://quarto.org/docs/get-started/)
-
-### List of libraries
-
-The list of libraries used in this book is provided below:
-
--   `tidyverse`
--   `viridis`
--   `viridisLite`
-
-You need to ensure you have installed the list of libraries used in this book, running the following code:
-
-> list.of.packages.cran \<- c( "tidyverse", "viridis", "viridisLite", "ggthemes", "patchwork", "showtext", "RColorBrewer", "lubridate", "tmap", "sjPlot", "sf", "sp", "kableExtra")
-
-> new.packages.cran \<- list.of.packages.cran\[!(list.of.packages.cran %in% installed.packages()\[,"Package"\])\] if(length(new.packages.cran)) install.packages(new.packages.cran)
-
-> for(i in 1:length(list.of.packages.cran)) { library(list.of.packages.cran\[i\], character.only = T) }
-
-## Assessment
-
-The final module mark is composed of the *two computational essays*. Together they are designed to cover the materials introduced in the entirety of content covered during the semester. A computational essay is an essay whose narrative is supported by code and computational results that are included in the essay itself. Each teaching week, you will be required to address a set of questions relating to the module content covered in that week, and to use the material that you will produce for this purpose to build your computational essay.
-
-**Assignment 1 (50%)** refer to the set of questions at the end of Chapters @sec-chp2, @sec-chp3, @sec-chp4 and @sec-chp5. You are required to use your responses to build your computational essay. Each chapter provides more specific guidance of the tasks and discussion that you are required to consider in your assignment.
-
-**Assignment 2 (50%)** refer to the set of questions at the end of Chapters @sec-chp6, @sec-chp7, @sec-chp8, @sec-chp9 and @sec-chp10. You are required to use your responses to build your computational essay. Each chapter provides more specific guidance of the tasks and discussion that you are required to consider in your assignment.
-
-### Format Requirements
-
-Both assignments will have the same requirements:
-
-Maximum word count: 2,000 words, excluding figures and references. Up to three maps, plot or figures (a figure may include more than one map and/or plot and will only count as one but needs to be integrated in the figure) Up to two tables. Assignments need to be prepared in R Notebook format and then converted into a self-contained HTML file that will then be submitted via Turnitin. The notebook should only display content that will be assessed. Intermediate steps do not need to be displayed. Messages resulting from loading packages, attaching data frames, or similar messages do not need to be included as output code. Useful resources to customise your R notebook can be found on the R Markdown website from RStudio: \* A Guide \* R Markdown: The Definitive Guide by Xie, Allaire, and Grolemund (2018) \* R Markdown Reference Guide
-
-Two R Notebook templates will be available via the module Canvas site.
-
-Submission is electronic only via Turnitin on Canvas.
+A more recent overview of notebooks in Geography is available in Boeing & Arribas-Bel (2021)

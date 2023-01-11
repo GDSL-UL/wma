@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Web Mapping and Analysis - 1&nbsp; Overview</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./introduction.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+<meta name="twitter:title" content="Web Mapping and Analysis - 1&nbsp; Overview">
+<meta name="twitter:description" content="This module aims to:">
+<meta name="twitter:creator" content="@EPietrostefani">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Web Mapping and Analysis</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/GDSL-UL/wma" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Download" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-download"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Web-Mapping-and-Analysis.pdf">
+            <i class="bi bi-bi-file-pdf pe-1"></i>
+          Download PDF
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="./Web-Mapping-and-Analysis.epub">
+            <i class="bi bi-bi-journal pe-1"></i>
+          Download ePub
+          </a>
+        </li>
+    </ul>
+    <a href="" title="Share" id="sidebar-tool-dropdown-1" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-1">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./overview.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./webarch.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dataarch.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./apis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mapdesign.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./interact.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./choro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dashboards.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./techgallery.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#aims" id="toc-aims" class="nav-link active" data-scroll-target="#aims"><span class="toc-section-number">1.1</span>  Aims</a></li>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link" data-scroll-target="#learning-outcomes"><span class="toc-section-number">1.2</span>  Learning Outcomes</a></li>
+  <li><a href="#feedback" id="toc-feedback" class="nav-link" data-scroll-target="#feedback"><span class="toc-section-number">1.3</span>  Feedback</a></li>
+  <li><a href="#computational-environment" id="toc-computational-environment" class="nav-link" data-scroll-target="#computational-environment"><span class="toc-section-number">1.4</span>  Computational Environment</a>
+  <ul class="collapse">
+  <li><a href="#list-of-libraries" id="toc-list-of-libraries" class="nav-link" data-scroll-target="#list-of-libraries"><span class="toc-section-number">1.4.1</span>  List of libraries</a></li>
+  </ul></li>
+  <li><a href="#assessments" id="toc-assessments" class="nav-link" data-scroll-target="#assessments"><span class="toc-section-number">1.5</span>  Assessments</a>
+  <ul class="collapse">
+  <li><a href="#assignment-i" id="toc-assignment-i" class="nav-link" data-scroll-target="#assignment-i"><span class="toc-section-number">1.5.1</span>  Assignment I</a></li>
+  <li><a href="#assignment-ii" id="toc-assignment-ii" class="nav-link" data-scroll-target="#assignment-ii"><span class="toc-section-number">1.5.2</span>  Assignment II</a></li>
+  </ul></li>
+  <li><a href="#marking-criteria" id="toc-marking-criteria" class="nav-link" data-scroll-target="#marking-criteria"><span class="toc-section-number">1.6</span>  Marking Criteria</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/GDSL-UL/wma/edit/main/overview.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="aims" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="aims"><span class="header-section-number">1.1</span> Aims</h2>
+<p>This module aims to:</p>
+</section>
+<section id="learning-outcomes" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="learning-outcomes"><span class="header-section-number">1.2</span> Learning Outcomes</h2>
+<p>By the end of the module, students should be able to:</p>
+</section>
+<section id="feedback" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="feedback"><span class="header-section-number">1.3</span> Feedback</h2>
+<p><del><em>Formal assessment of one computational essays and one dashboard</em>. Written assignment-specific feedback will be provided within three working weeks of the submission deadline. Comments will offer an understanding of the mark awarded and identify areas which can be considered for improvement in future assignments.</del></p>
+<p><em>Verbal face-to-face feedback</em>. Immediate face-to-face feedback will be provided during computer, discussion and clinic sessions in interaction with staff. This will take place in all live sessions during the semester.</p>
+<p><em>Online forum</em>. Asynchronous written feedback will be provided via an online forum. Students are encouraged to contribute by asking and answering questions relating to the module content. Staff will monitor the forum Monday to Friday 9am-5pm, but it will be open to students to make contributions at all times. Response time will vary depending on the complexity of the question and staff availability.</p>
+</section>
+<section id="computational-environment" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="computational-environment"><span class="header-section-number">1.4</span> Computational Environment</h2>
+<p>To reproduce the code in the book, you need the following software packages:</p>
+<ul>
+<li>R-4.2.2</li>
+<li>RStudio 2022.12.0-353</li>
+<li>Quarto 1.2.280</li>
+<li>the list of libraries in the next section</li>
+</ul>
+<p>To check your version of:</p>
+<ul>
+<li>R and libraries run <code>sessionInfo()</code></li>
+<li>RStudio click <code>help</code> on the menu bar and then <code>About</code></li>
+<li>Quarto check the <code>version</code> file in the quarto folder on your computer.</li>
+</ul>
+<p>To install and update:</p>
+<ul>
+<li>R, download the appropriate version from <a href="https://cran.r-project.org">The Comprehensive R Archive Network (CRAN)</a></li>
+<li>RStudio, download the appropriate version from <a href="https://posit.co/download/rstudio-desktop/">Posit</a></li>
+<li>Quarto, download the appropriate version from <a href="https://quarto.org/docs/get-started/">the Quarto website</a></li>
+</ul>
+<section id="list-of-libraries" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="list-of-libraries"><span class="header-section-number">1.4.1</span> List of libraries</h3>
+<p>The list of libraries used in this book is provided below:</p>
+<ul>
+<li><code>tidyverse</code></li>
+<li><code>viridis</code></li>
+<li><code>viridisLite</code></li>
+</ul>
+<p>You need to ensure you have installed the list of libraries used in this book, running the following code:</p>
+<blockquote class="blockquote">
+<p>list.of.packages.cran &lt;- c( “tidyverse”, “viridis”, “viridisLite”, “ggthemes”, “patchwork”, “showtext”, “RColorBrewer”, “lubridate”, “tmap”, “sjPlot”, “sf”, “sp”, “kableExtra”)</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>new.packages.cran &lt;- list.of.packages.cran[!(list.of.packages.cran %in% installed.packages()[,“Package”])] if(length(new.packages.cran)) install.packages(new.packages.cran)</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>for(i in 1:length(list.of.packages.cran)) { library(list.of.packages.cran[i], character.only = T) }</p>
+</blockquote>
+</section>
+</section>
+<section id="assessments" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="assessments"><span class="header-section-number">1.5</span> Assessments</h2>
+<section id="assignment-i" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="assignment-i"><span class="header-section-number">1.5.1</span> Assignment I</h3>
+<p><strong>Title:</strong> Combining (geo-)data in an interactive map <strong>Type:</strong> Coursework * Due date: Thursday March 2nd, Week 5 * 50% of the final mark * Chance to be reassessed * Electronic submission only In this assessment, you will have the opportunity to explore different sources and combine them in a single tileset that can be explored interactively through a web browser. The assignment aims to evaluate your knowledge and aptitude in the following areas:</p>
+<p>Understanding of core “backend” concepts in web mapping such as tilesets, client-server architecture, or APIs. Ability to use the web as a resource for original data. Design skills to present effectively a diverse set of geospatial data in a web map. This assignment requires you to source data from the web in different formats, assemble them into a tileset, and document the process. To be successful, you will need to demonstrate your understanding not only of the technical aspects involved in the process, but also of the conceptual notions that underpin them. Below are described the required components for your submission.</p>
+<p>First, the design. Start by designing a map for an area you are interested in. There are no clear restrictions but, to ensure you are on the right path, check on your ideas with the module leader, who will be able to assess whether potential problems may arise from your choices. This stage should draw some inspiration from the first weeks of the course, where we looked for examples of web maps and spent time disussing what made them good and why.</p>
+<p>Second, the data. Draft a list of potential data that would be ideal to use for your map, and try to find out whether they exist and are available. This will be a good guide for which data you will actually end up using. Do not worry about spending a significant amount of time on this aspect; identifying good data takes time and is at the core of this task. Make sure you include both data you can access from direct downloads (e.g.&nbsp;CDRC) and those you download through an API. Once you know which datasets you need, go ahead and do the work required to download them for the map you want to build.</p>
+<p>Third, the assemblage. With all data you have at your disposal from the previous stage, create a tileset that allows to embed the map in an HTML file and explore it through the browser. Pay attention to the design aspects involved in this step too. For example, what is the extent of your map (not necessarily the extent of each of your data)? What are the zoom levels your map will allow? Do you have the same “map” for every zoom level? These are questions you will have to ask (and answer!) yourself to complete this stage successfully.</p>
+<p>Finally, presentation of your work. Once you have created your map, you will need to present it. An important aspect of this stage is that it is not really the map you need to present, but the process of creation you have followed and the design choices you have made that should go into the text. Additionally, you will need to provide evidence that you understand the concepts behind some of the technologies you have used. Write up to 1,000 words and include the following:</p>
+<p>Map brief About 250 words introducing the map. This should cover what it tries to represent (what is it about?) and the choices you have made along the way to take that idea into fruition. About 250 words discussing and motivating the sources of data you have used. Here you should engage not only with what data you are using but why and what they bring to the map. Everything should be in the map for a reason, make sure to spell it out clearly. Conceptual background About 250 words with your description of what an API is, how it works and how it has made your map possible. About 250 words with your description of how tile-based maps work. Once completed, you will need to submit the following:</p>
+<p>A static HTML version of a Jupyter notebook that includes two parts: All your narrative about the map brief and conceptual background. A second section with any code you may have used to complete the assignment, documented in detail. NOTE: this section will not contribute towards the word count. A compressed .zip file containing you tileset and a HTML file that allows a user to browse through the tileset. The assignment will be evaluated based on four main pillars, on which you will have to be successful to achieve a good mark:</p>
+<p>Map design abilities. This includes ideas that were discussed in the course in Blocks 1 and 2. Technical skills. This includes your ability to master technologies that allow you to create a compelling map, but also to access interesting and sophiticated data sources. Overall narrative. This assesses your aptitude to introduce, motivate and justify your map, as well as you ability to bring each component of the assignment into a coherent whole that “fits together”. Conceptual understanding of key technologies presented in the course, in particular of APIs and tile-based mapping. How is this assignment useful?</p>
+<p>This assessment includes several elements that will help you improve critical aspects of your web mapping skills:</p>
+<p>Design: this is not about making maps, this is about making good maps. And behind every good map there is a set of conscious choices that you will have to think throug to be successful (what map? what data? how to present the data? etc.). Technology: at the end of the day, building good web maps requires solid understanding of current technology that goes beyond what the average person can be expected to know. In this assignment, you will need to demonstrate you are proficient in a series of tasks manipulating geospatial data in a web environment. Presentation: in many real-world contexts, your work is as good as it can come across to the audience it is intended to. This means that it is vital to be able to communicate not only what you are doing but why and on what building blocks it is based on.</p>
+</section>
+<section id="assignment-ii" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="assignment-ii"><span class="header-section-number">1.5.2</span> Assignment II</h3>
+<p><strong>Title:</strong> A dashboard of IMD <strong>Due date:</strong> Thursday April 27th, Week 10 * 50% of the final mark * Chance to be reassessed * Electronic submission only</p>
+<p><del>This assignment requires you to build a dashboard for the Index of Multiple Deprivation. To be successful, you will need to demonstrate your understanding not only of technical elements, but of the design process required to create a product that can communicate complex ideas effectively. There are three core building blocks you will have to assemble to build your dashboard: basemap, main map(s), and widgets. Let us explore each of them more in detail.</del></p>
+<p>First, the basemap. Design your own basemap using Mapbox. Think about the data in the background, which colors, the zoom levels that will be allowed, and how it all comes together to create a backdrop for your main message that is conducent to the experience you want to create. The basemap is like a good side dish: it’s there to make you like the main course even more.</p>
+<p>Second, the main map(s). One you have your own basemap from Mapbox, connect it to CARTO using this trick and continue building there. This is where the core of your dashboard should come to shine. What you want to show, how, which interactive elements you will allow the user to access and how they will let them modify the experience of your dashboard. The main course of the meal, make it count!</p>
+<p>Third, additional widgets. One of the advantages of dashboards in comparison to standard web maps is that they allow to bring elements of analysis to a more finished product. Think about what you want your users to be able to analyse, why, and how that will modify the main map. This is the icing on the cake!</p>
+<p>Once completed, you will submit a report through Turnitin that includes the following:</p>
+<p>A link to the published dashboard, which needs to be reachable online About 250 words for the overall idea of the dashboard. What do you want to communicate? What is the story you want to tell? About 250 words for the data used. Which datasets are you using? Why? What new information do they bring and how they complement each other? About 250 words to describe your design choices in the basemap and other layers presented (e.g.&nbsp;choropleths). About 250 words to describe your design choices around interactivity, including both cartographic elements (e.g.&nbsp;zooming, panning) as well as additional interactivity built around components such as widgets. The assignment will be evaluated based on…</p>
+<p>Overall design of the experience. It is very important you think through every step of preparing this assignment as if it was part of something bigger towards which it contributes. Because that is exactly what it is. Everything should have a reason to be there, and every aspect of the dashboard should be connected to each other following a common thread. And, of course, make this connection and holistic approach come alive in your report. (Base)map design. Critically introduce every aspect you have thought about when designing the maps, and explicitly connect it to the overal aim of the dashboard. Be clear in your descriptions and critical in how you engage every design choice. Interactivity design. Your dashboard should use interactivity when necessary to deliver a more compelling and fuller experience that better gets your message across. Be sure to clearly lay out in your report which elements are used and why. Narrative around the description of the process. Finally, the final mark will also take into account not only how good your dashboard is, but how well you are able to introduce it. Start with the key goals, and then unpack every element in an integrated and compelling way. How is this assignment useful?</p>
+<p>This assignment combines several elements that will help you improve critical aspects of web mapping:</p>
+<p>Design: this is not about making maps, this is about making good maps. And behind every good map there is a set of conscious choices that you will have to think throug to be successful (what map? what data? how to present the data? etc.). Technology: at the end of the day, building good web maps requires familiarity with the state-of-the-art in terms of web mapping tools. In this assignment, you will need to demonstrate your mastering of some of the key tools that are leading both industry and academia. Presentation: in many real-world contexts, your work is as good as it can come across to the audience it is intended to. This means that it is vital to be able to communicate not only what you are doing but why and on what building blocks it is based on.</p>
+</section>
+</section>
+<section id="marking-criteria" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="marking-criteria"><span class="header-section-number">1.6</span> Marking Criteria</h2>
+<p>This course follows the standard marking criteria (the general ones and those relating to GIS assignments in particular) set by the School of Environmental Sciences. Please make sure to check the student handbook and familiarise with them. In addition to these generic criteria, the following specific criteria will be used in cases where computer code is part of the work being assessed:</p>
+<ul>
+<li>0-15: the code does not run and there is no documentation to follow it.</li>
+<li>16-39: the code does not run, or runs but it does not produce the expected outcome. There is some documentation explaining its logic.</li>
+<li>40-49: the code runs and produces the expected output. There is some documentation explaining its logic.</li>
+<li>50-59: the code runs and produces the expected output. There is extensive documentation explaining its logic.</li>
+<li>60-69: the code runs and produces the expected output. There is extensive documentation, properly formatted, explaining its logic.</li>
+<li>70-79: all as above, plus the code design includes clear evidence of skills presented in advanced sections of the course (e.g.&nbsp;custom methods, list comprehensions, etc.).</li>
+<li>80-100: all as above, plus the code contains novel contributions that extend/improve the functionality the student was provided with (e.g.&nbsp;algorithm optimizations, novel methods to perform the task, etc.).</li>
+</ul>
+<p>Submission is electronic only via Turnitin on Canvas.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./introduction.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Web Mapping and Analysis was written by Elisabetta Pietrostefani and Dani Arribas-Bel.</div>   
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>

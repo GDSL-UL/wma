@@ -25,6 +25,7 @@ book:
   downloads: [pdf, epub]
   chapters:
     - index.qmd
+    - overview.qmd
     - introduction.qmd
     - webarch.qmd
     - dataarch.qmd

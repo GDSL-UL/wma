@@ -7,7 +7,7 @@
 HTML
 PDF
 
-* As a [pdf document](https://gdsl-ul.github.io/wma/lecture_02.pdf)
+* As a [pdf document](https://github.com/GDSL-UL/wma/raw/main/lecture_02.pdf)
 
 References:
 

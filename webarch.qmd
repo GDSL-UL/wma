@@ -1,0 +1,5 @@
+# Overview
+
+Block 2 Data Backends I - 6 Feb - Dani
+* Lecture: The Web’s architecture and Economy
+* Lab 2: Non-spatial APIs - tidycensus - TO DO! Unpacking what that function is doing. What the API is actually doing? Wanted to understand - abstracts everything away. Unpack. REST type of API. Function web address. DO THIS! 

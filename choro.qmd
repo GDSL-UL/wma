@@ -1,0 +1,7 @@
+#Overview
+
+Block 8 - Frontend Topics III - 20 March - Dani
+* Lecture: Statistical visualisation
+* Lab: Choropleths in CARTO - Kepler
+
+—> Interactivity with Mapbox ? Not sure need to investigate this further

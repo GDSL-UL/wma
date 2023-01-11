@@ -1,21 +1,50 @@
 project:
-  type: website
-  output-dir: docs
+  type: book
+  output-dir: _book
 
-website:
+book:
   title: "Web Mapping and Analysis"
-  
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+  author: "Elisabetta Pietrostefani and Dani Arribas-Bel"
+  date: today
+
+  page-footer:
+    left: |
+      Web Mapping and Analysis was written by Elisabetta Pietrostefani and Dani Arribas-Bel.
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
+  search: true
+  site-url:  https://gdsl-ul.github.io/wma
+  repo-url: https://github.com/GDSL-UL/wma
+  repo-actions: [edit]
+  sharing: [twitter, facebook]
+  twitter-card:
+    creator: "@EPietrostefani"
+  sidebar:
+    style: docked
+    background: light
+  downloads: [pdf, epub]
+  chapters:
+    - index.qmd
+    - introduction.qmd
+    - webarch.qmd
+    - dataarch.qmd
+    - apis.qmd
+    - mapdesign.qmd
+    - interact.qmd
+    - choro.qmd
+    - dashboards.qmd
+    - techgallery.qmd
+    
+bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme: zephyr
     css: styles.css
-    toc: true
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
 
 
 

@@ -1,0 +1,8 @@
+# Overview
+
+Block 4 Data Backends III - 20 Feb - Elisabetta
+* Lecture: APIs
+* Lab 4: Acquiring data from the web (advanced API stuff), More interesting on APIs in geo. Get to something a bit more interesting. 
+
+—> Could probably be expanded into 2 sessions I think, but not sure I will have time to do this this year, but definitely next year. 
+Assignment: Block 

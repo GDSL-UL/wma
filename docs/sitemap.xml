@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://gdsl-ul.github.io/wma/index.html</loc>
-    <lastmod>2023-01-11T22:48:45.848Z</lastmod>
+    <lastmod>2023-01-18T15:58:45.673Z</lastmod>
   </url>
   <url>
     <loc>https://gdsl-ul.github.io/wma/overview.html</loc>
-    <lastmod>2023-01-11T22:48:44.986Z</lastmod>
+    <lastmod>2023-01-18T15:58:56.737Z</lastmod>
   </url>
   <url>
     <loc>https://gdsl-ul.github.io/wma/introduction.html</loc>
@@ -38,10 +38,14 @@
   </url>
   <url>
     <loc>https://gdsl-ul.github.io/wma/dashboards.html</loc>
-    <lastmod>2023-01-11T22:48:44.989Z</lastmod>
+    <lastmod>2023-01-18T15:59:01.975Z</lastmod>
   </url>
   <url>
     <loc>https://gdsl-ul.github.io/wma/techgallery.html</loc>
     <lastmod>2023-01-11T22:48:44.990Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gdsl-ul.github.io/wma/assess.html</loc>
+    <lastmod>2023-01-18T15:59:05.070Z</lastmod>
   </url>
 </urlset>

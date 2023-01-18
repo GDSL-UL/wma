@@ -1,7 +1,9 @@
 # Dashboards
 
-Block 9 Dashboards - 17 April - Dani
-* Lecture: Dashboards: bringing analysis to the web
-* Lab: Building Dashboards - Shiny (but Python unstable)
+-   Block 9 - Dashboards (Dani)
 
-—> Co-develop it ( what it would do? From Carto to Shiny) - 
+    -   Lecture: Dashboards: bringing analysis to the web
+
+    -   Lab: Building Dashboards (Shiny)
+
+—> Co-develop it (Shiny)  

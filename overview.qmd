@@ -1,4 +1,4 @@
-# Overview
+# Overview {.unnumbered}
 
 ## Aims
 
@@ -23,97 +23,32 @@ By the end of the module, students should be able to:
 
 ## Feedback
 
-*Formal assessment*
-
--   Two pieces of coursework (50%/50%)
--   Equivalent to 2,500 words each
+[*Formal assessment*](https://gdsl-ul.github.io/wma/assess.html). Two pieces of coursework (50%/50%). Equivalent to 2,500 words each
 
 *Verbal face-to-face feedback*. Immediate face-to-face feedback will be provided during computer, discussion and clinic sessions in interaction with staff. This will take place in all live sessions during the semester.
 
 *Teams Forum*. Asynchronous written feedback will be provided via Teams. Students are encouraged to contribute by asking and answering questions relating to the module content. Staff will monitor the forum Monday to Friday 9am-5pm, but it will be open to students to make contributions at all times. Response time will vary depending on the complexity of the question and staff availability.
 
-## Course Structure
-
--   Block 1
-
-    -   Introduction Lecture: Introduction to the module
-
-    -   Lab: Powerful examples & Discussion about interactive map
-
-### Data Backends
-
--   Block 2 - Data Backends I
-
-    -   Lecture: The Web's architecture and Economy
-
-    -   Lab: Non-spatial APIs - What do APIs actually do?
-
--   Block 3 - Data Backends II
-
-    -   Lecture: Data architechtures & formats
-
-    -   Lab: Creating, manipulating, and integrating web geospatial data
-
--   Block 4 - Data Backends III
-
-    -   Lecture: APIs
-
-    -   Lab: Acquiring data from the web
-
-### Assignment I
-
--   Block 5 - Assignment I
-
-    -   Lecture: Q&A
-
-    -   Lab: Clinic
-
-    -   **Assignment I:** *Combining (geo-)data in an interactive map*
-
-### Frontend Topics
-
--   Block 6 - Frontend Topics I
-
-    -   Lecture: Map design
-
-    -   Lab: Designing maps with Mapbox Studio
-
--   Block 7 - Frontend Topics II
-
-    -   Lecture: Interactivity
-
-    -   Lab: Designing for interactivity (Kepler)
-
--   Block 8 - Frontend Topics III
-
-    -   Lecture: Statistical visualization
-
-    -   Lab: Choropleths in Kepler
-
--   Block 9 - Dashboards
-
-    -   Lecture: Dashboards: bringing analysis to the web
-
-    -   Lab: Building Dashboards (Shiny)
-
-### Assignment II
-
--   Block 10 - Assignment I
-
-    -   Lecture: Technology gallery
-
-    -   Lab: clinic
-
-    -   **Assignment II:** *A dashboard of IMD*
-
 ## Computational Environment
 
-To reproduce the code in the book, you need the following software packages:
+This course can be followed by anyone with access to a bit of technical infrastructure. This section details the set of local and online requirements you will need to be able to follow along, as well as instructions or pointers to get set up on your own. This is a centralized section that lists *everything* you will require, but keep in mind that different blocks do not always require everything all the time.
 
+### Software
+
+To run the analysis and reproduce the code, you need the following software:
+
+-   QGIS- the stable version (3.22 LTR at the time of writing) is OK, any more recent version will also work.
 -   R-4.2.2
 -   RStudio 2022.12.0-353
 -   Quarto 1.2.280
 -   the list of libraries in the next section
+
+To install and update:
+
+-   QGIS, download the appropriate version from [QGIS.org](https://www.qgis.org/en/site/forusers/download.html)
+-   R, download the appropriate version from [The Comprehensive R Archive Network (CRAN)](https://cran.r-project.org)
+-   RStudio, download the appropriate version from [Posit](https://posit.co/download/rstudio-desktop/)
+-   Quarto, download the appropriate version from [the Quarto website](https://quarto.org/docs/get-started/)
 
 To check your version of:
 
@@ -121,13 +56,7 @@ To check your version of:
 -   RStudio click `help` on the menu bar and then `About`
 -   Quarto check the `version` file in the quarto folder on your computer.
 
-To install and update:
-
--   R, download the appropriate version from [The Comprehensive R Archive Network (CRAN)](https://cran.r-project.org)
--   RStudio, download the appropriate version from [Posit](https://posit.co/download/rstudio-desktop/)
--   Quarto, download the appropriate version from [the Quarto website](https://quarto.org/docs/get-started/)
-
-### List of libraries
+### R List of libraries
 
 The list of libraries used in this book is provided below:
 
@@ -142,3 +71,11 @@ You need to ensure you have installed the list of libraries used in this book, r
 > new.packages.cran \<- list.of.packages.cran\[!(list.of.packages.cran %in% installed.packages()\[,"Package"\])\] if(length(new.packages.cran)) install.packages(new.packages.cran)
 
 > for(i in 1:length(list.of.packages.cran)) { library(list.of.packages.cran\[i\], character.only = T) }
+
+### Online accounts
+
+-   CDRC Data: we will use some of the data provided by the CDRC, so a (free) account with them will be necessary.
+
+-   Mapbox: Mapbox is one of the industry leaders in web mapping. Their free tier is rather generous so will more than suffice for what we will do within the course. You can sign up for a new (free) account here.
+
+-   Kepler:

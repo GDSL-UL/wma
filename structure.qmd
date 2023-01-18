@@ -1,0 +1,77 @@
+# Course Structure {.unnumbered}
+
+## Course Structure
+
+### Introduction
+
+-   Block 1
+
+    -   Introduction Lecture: Introduction to the module
+
+    -   Lab: Powerful examples & Discussion about interactive map
+
+### Data Backends
+
+-   Block 2 - Data Backends I
+
+    -   Lecture: The Web's architecture and Economy
+
+    -   Lab: Non-spatial APIs - What do APIs actually do?
+
+-   Block 3 - Data Backends II
+
+    -   Lecture: Data architechtures & formats
+
+    -   Lab: Creating, manipulating, and integrating web geospatial data
+
+-   Block 4 - Data Backends III
+
+    -   Lecture: APIs
+
+    -   Lab: Acquiring data from the web
+
+### Assignment I
+
+-   Block 5 - Assignment I
+
+    -   Lecture: Q&A
+
+    -   Lab: Clinic
+
+    -   **Assignment I:** *Combining (geo-)data in an interactive map*
+
+### Frontend Topics
+
+-   Block 6 - Frontend Topics I
+
+    -   Lecture: Map design
+
+    -   Lab: Designing maps with Mapbox Studio
+
+-   Block 7 - Frontend Topics II
+
+    -   Lecture: Interactivity
+
+    -   Lab: Designing for interactivity (Kepler)
+
+-   Block 8 - Frontend Topics III
+
+    -   Lecture: Statistical visualization
+
+    -   Lab: Choropleths in Kepler
+
+-   Block 9 - Dashboards
+
+    -   Lecture: Dashboards: bringing analysis to the web
+
+    -   Lab: Building Dashboards (Shiny)
+
+### Assignment II
+
+-   Block 10 - Assignment I
+
+    -   Lecture: Technology gallery
+
+    -   Lab: clinic
+
+    -   **Assignment II:** *A dashboard of IMD*

@@ -4,74 +4,74 @@
 
 ### Introduction
 
--   Block 1
+**Block 1**
 
-    -   Introduction Lecture: Introduction to the module
+-   Introduction Lecture: Introduction to the module
 
-    -   Lab: Powerful examples & Discussion about interactive map
+-   Lab: Powerful examples & Discussion about interactive map
 
 ### Data Backends
 
--   Block 2 - Data Backends I
+**Block 2 - Data Backends I**
 
-    -   Lecture: The Web's architecture and Economy
+-   Lecture: The Web's architecture and Economy
 
-    -   Lab: Non-spatial APIs - What do APIs actually do?
+-   Lab: Non-spatial APIs - What do APIs actually do?
 
--   Block 3 - Data Backends II
+**Block 3 - Data Backends II**
 
-    -   Lecture: Data architechtures & formats
+-   Lecture: Data architechtures & formats
 
-    -   Lab: Creating, manipulating, and integrating web geospatial data
+-   Lab: Creating, manipulating, and integrating web geospatial data
 
--   Block 4 - Data Backends III
+**Block 4 - Data Backends III**
 
-    -   Lecture: APIs
+-   Lecture: APIs
 
-    -   Lab: Acquiring data from the web
+-   Lab: Acquiring data from the web
 
 ### Assignment I
 
--   Block 5 - Assignment I
+**Block 5 - Assignment I**
 
-    -   Lecture: Q&A
+-   Lecture: Q&A
 
-    -   Lab: Clinic
+-   Lab: Clinic
 
-    -   **Assignment I:** *Combining (geo-)data in an interactive map*
+**Assignment I:** *Combining (geo-)data in an interactive map*
 
 ### Frontend Topics
 
--   Block 6 - Frontend Topics I
+**Block 6 - Frontend Topics I**
 
-    -   Lecture: Map design
+-   Lecture: Map design
 
-    -   Lab: Designing maps with Mapbox Studio
+-   Lab: Designing maps with Mapbox Studio
 
--   Block 7 - Frontend Topics II
+**Block 7 - Frontend Topics II**
 
-    -   Lecture: Interactivity
+-   Lecture: Interactivity
 
-    -   Lab: Designing for interactivity (Kepler)
+-   Lab: Designing for interactivity (Kepler)
 
--   Block 8 - Frontend Topics III
+**Block 8 - Frontend Topics III**
 
-    -   Lecture: Statistical visualization
+-   Lecture: Statistical visualization
 
-    -   Lab: Choropleths in Kepler
+-   Lab: Choropleths in Kepler
 
--   Block 9 - Dashboards
+**Block 9 - Dashboards**
 
-    -   Lecture: Dashboards: bringing analysis to the web
+-   Lecture: Dashboards: bringing analysis to the web
 
-    -   Lab: Building Dashboards (Shiny)
+-   Lab: Building Dashboards (Shiny)
 
 ### Assignment II
 
--   Block 10 - Assignment I
+**Block 10 - Assignment I**
 
-    -   Lecture: Technology gallery
+-   Lecture: Technology gallery
 
-    -   Lab: clinic
+-   Lab: clinic
 
-    -   **Assignment II:** *A dashboard of IMD*
+**Assignment II:** *A dashboard of IMD*

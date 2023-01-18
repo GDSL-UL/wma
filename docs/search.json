@@ -178,8 +178,8 @@
     "objectID": "introduction.html#references",
     "href": "introduction.html#references",
     "title": "1  Introduction",
-    "section": "2.3 References",
-    "text": "2.3 References\n\nFor an excellent coverage of “visualisation literacy”, Chapter 11 of Andy Kirk’s “Data Visualisation” is a great start. Lab: Getting up to speed for web mapping\nA comprehensive overview of computational notebooks and how they relate to modern scientific work is available on Ch.1 of the GDS book.\nA recent overview of notebooks in Geography is available in Boeing & Arribas-Bel (2021)"
+    "section": "1.3 References",
+    "text": "1.3 References\n\nFor an excellent coverage of “visualisation literacy”, Chapter 11 of Andy Kirk’s “Data Visualisation” is a great start. Lab: Getting up to speed for web mapping\nA comprehensive overview of computational notebooks and how they relate to modern scientific work is available on Ch.1 of the GDS book.\nA recent overview of notebooks in Geography is available in Boeing & Arribas-Bel (2021)"
   },
   {
     "objectID": "introduction.html#lecture",
@@ -193,6 +193,153 @@
     "href": "introduction.html#lab-powerful-examples",
     "title": "1  Introduction",
     "section": "1.2 Lab: Powerful examples",
-    "text": "1.2 Lab: Powerful examples\nThis lab has two main components:\n\nThe first one will require you to find a partner and work together with her/him\nAnd the second one will involve group discussion.\n\n\n1.2.1 Paired activity\nIn pairs, find three examples where web maps are used to communicate an idea. Complete the following sheet for each example:\n\nSubstantive\n\nTitle: Title of the map/project\nAuthor: Who is behind the project?\nBig idea: a “one-liner” on what the project tries to accomplish –\nMessage: what does the map try to get accross\n\nTechnical\n\nURL:\nInteractivity: does the map let you interact with it in any way? Yes/No\nZoomable: can you explore the map at different scales? Yes/No\nTooltips:\nBasemap: Is there an underlying map providing geographical context? Yes/No. If so, who is it provided by?\nTechnology: can you guess what technology does this map rely on?\n\n\nPost each sheet as a separate item on the Teams channel for Lab No.1\nAs an example, below is the sheet for the project “A map of every building in America” \n\nSubstantive\n\nTitle: A map of every building in America\nAuthor: The New York Times\nBig idea: Show patterns in the built environment through building footprints\nMessage: The project displays a map of the US where only building footprints are shown. This element is used to show a) how much buildings tell about places and the build environment, and b) some interesting specific examples that illustrate large trends in society (e.g. urban sprawl)\n\nTechnical\n\nURL: https://www.nytimes.com/interactive/2018/10/12/us/map-of-every-building-in-the-united-states.html\nInteractivity: Yes\nZoomable: Yes\nTooltips: No\nBasemap: Yes, Mapbox/OpenStreetMap\nTechnology: MapboxGL\n\n\n\n\n1.2.2 Class discussion\nWe will select a few examples posted and collectively discuss (some of) the following questions:\n\nWhat makes them powerful, what “speaks” to us?\nWhat could be improved, what is counter-intuitive?\nWhat design elements do they rely on?\nWhat technology do they use?\n\n\n\n1.2.3 References\n\nFor an excellent coverage of “visualisation literacy”, Chapter 11 of Andy Kirk’s “Data Visualisation” is a great start. Lab: Getting up to speed for web mapping\nA comprehensive overview of computational notebooks and how they relate to modern scientific work is available on Ch.1 of the GDS book.\nA recent overview of notebooks in Geography is available in Boeing & Arribas-Bel (2021)"
+    "text": "1.2 Lab: Powerful examples\nThis lab has two main components:\n\nThe first one will require you to find a partner and work together with her/him\nAnd the second one will involve group discussion.\n\n\n1.2.1 Paired activity\nIn pairs, find three examples where web maps are used to communicate an idea. Complete the following sheet for each example:\n\nSubstantive\n\nTitle: Title of the map/project\nAuthor: Who is behind the project?\nBig idea: a “one-liner” on what the project tries to accomplish –\nMessage: what does the map try to get accross\n\nTechnical\n\nURL:\nInteractivity: does the map let you interact with it in any way? Yes/No\nZoomable: can you explore the map at different scales? Yes/No\nTooltips:\nBasemap: Is there an underlying map providing geographical context? Yes/No. If so, who is it provided by?\nTechnology: can you guess what technology does this map rely on?\n\n\nPost each sheet as a separate item on the Teams channel for Lab No.1\nAs an example, below is the sheet for the project “A map of every building in America” \n\nSubstantive\n\nTitle: A map of every building in America\nAuthor: The New York Times\nBig idea: Show patterns in the built environment through building footprints\nMessage: The project displays a map of the US where only building footprints are shown. This element is used to show a) how much buildings tell about places and the build environment, and b) some interesting specific examples that illustrate large trends in society (e.g. urban sprawl)\n\nTechnical\n\nURL: https://www.nytimes.com/interactive/2018/10/12/us/map-of-every-building-in-the-united-states.html\nInteractivity: Yes\nZoomable: Yes\nTooltips: No\nBasemap: Yes, Mapbox/OpenStreetMap\nTechnology: MapboxGL\n\n\n\n\n1.2.2 Class discussion\nWe will select a few examples posted and collectively discuss (some of) the following questions:\n\nWhat makes them powerful, what “speaks” to us?\nWhat could be improved, what is counter-intuitive?\nWhat design elements do they rely on?\nWhat technology do they use?"
+  },
+  {
+    "objectID": "webarch.html#lecture",
+    "href": "webarch.html#lecture",
+    "title": "2  Web architecture",
+    "section": "2.1 Lecture",
+    "text": "2.1 Lecture\nSlides can be downloaded here"
+  },
+  {
+    "objectID": "webarch.html#lab-what-do-apis-actually-do",
+    "href": "webarch.html#lab-what-do-apis-actually-do",
+    "title": "2  Web architecture",
+    "section": "2.2 Lab: What do APIs actually do?",
+    "text": "2.2 Lab: What do APIs actually do?\nLab 2: Non-spatial APIs - tidycensus - TO DO! Unpacking what that function is doing. What the API is actually doing? Wanted to understand - abstracts everything away. Unpack. REST type of API. Function web address. DO THIS!\n\n2.2.1 Paired activity\n\n\n2.2.2 Class discussion"
+  },
+  {
+    "objectID": "dataarch.html#lecture",
+    "href": "dataarch.html#lecture",
+    "title": "3  Data architectures",
+    "section": "3.1 Lecture",
+    "text": "3.1 Lecture\nSlides can be downloaded here"
+  },
+  {
+    "objectID": "dataarch.html#lab-what-do-apis-actually-do",
+    "href": "dataarch.html#lab-what-do-apis-actually-do",
+    "title": "3  Data architectures",
+    "section": "3.2 Lab: What do APIs actually do?",
+    "text": "3.2 Lab: What do APIs actually do?\nLab 2: Non-spatial APIs - tidycensus - TO DO! Unpacking what that function is doing. What the API is actually doing? Wanted to understand - abstracts everything away. Unpack. REST type of API. Function web address. DO THIS!\n\n3.2.1 Paired activity\n\n\n3.2.2 Class discussion"
+  },
+  {
+    "objectID": "apis.html#lecture",
+    "href": "apis.html#lecture",
+    "title": "4  APIs",
+    "section": "4.1 Lecture",
+    "text": "4.1 Lecture\nSlides can be downloaded here"
+  },
+  {
+    "objectID": "apis.html#lab-what-do-apis-actually-do",
+    "href": "apis.html#lab-what-do-apis-actually-do",
+    "title": "4  APIs",
+    "section": "4.2 Lab: What do APIs actually do?",
+    "text": "4.2 Lab: What do APIs actually do?\nLab 2: Non-spatial APIs - tidycensus - TO DO! Unpacking what that function is doing. What the API is actually doing? Wanted to understand - abstracts everything away. Unpack. REST type of API. Function web address. DO THIS!\n\n4.2.1 Paired activity\n\n\n4.2.2 Class discussion"
+  },
+  {
+    "objectID": "mapdesign.html#lecture",
+    "href": "mapdesign.html#lecture",
+    "title": "5  Map design",
+    "section": "5.1 Lecture",
+    "text": "5.1 Lecture\nSlides can be downloaded here"
+  },
+  {
+    "objectID": "mapdesign.html#lab-designing-maps-with-mapbox-studio-take-out-carto",
+    "href": "mapdesign.html#lab-designing-maps-with-mapbox-studio-take-out-carto",
+    "title": "5  Map design",
+    "section": "5.2 Lab: Designing maps with Mapbox Studio (take out Carto)",
+    "text": "5.2 Lab: Designing maps with Mapbox Studio (take out Carto)\n\n5.2.1 Paired activity\n\n\n5.2.2 Class discussion"
+  },
+  {
+    "objectID": "dashboards.html#lecture",
+    "href": "dashboards.html#lecture",
+    "title": "8  Dashboards",
+    "section": "8.1 Lecture",
+    "text": "8.1 Lecture\nSlides can be downloaded here"
+  },
+  {
+    "objectID": "dashboards.html#lab",
+    "href": "dashboards.html#lab",
+    "title": "8  Dashboards",
+    "section": "8.2 Lab:",
+    "text": "8.2 Lab:"
+  },
+  {
+    "objectID": "dashboards.html#references",
+    "href": "dashboards.html#references",
+    "title": "8  Dashboards",
+    "section": "8.3 References",
+    "text": "8.3 References"
+  },
+  {
+    "objectID": "choro.html#lecture",
+    "href": "choro.html#lecture",
+    "title": "7  Statistical visualisation",
+    "section": "7.1 Lecture",
+    "text": "7.1 Lecture\nSlides can be downloaded here"
+  },
+  {
+    "objectID": "choro.html#lab",
+    "href": "choro.html#lab",
+    "title": "7  Statistical visualisation",
+    "section": "7.2 Lab:",
+    "text": "7.2 Lab:"
+  },
+  {
+    "objectID": "choro.html#references",
+    "href": "choro.html#references",
+    "title": "7  Statistical visualisation",
+    "section": "7.3 References",
+    "text": "7.3 References"
+  },
+  {
+    "objectID": "interact.html#lecture",
+    "href": "interact.html#lecture",
+    "title": "6  Interactivity",
+    "section": "6.1 Lecture",
+    "text": "6.1 Lecture\nSlides can be downloaded here"
+  },
+  {
+    "objectID": "interact.html#lab",
+    "href": "interact.html#lab",
+    "title": "6  Interactivity",
+    "section": "6.2 Lab:",
+    "text": "6.2 Lab:"
+  },
+  {
+    "objectID": "interact.html#references",
+    "href": "interact.html#references",
+    "title": "6  Interactivity",
+    "section": "6.3 References",
+    "text": "6.3 References"
+  },
+  {
+    "objectID": "mapdesign.html#references",
+    "href": "mapdesign.html#references",
+    "title": "5  Map design",
+    "section": "5.3 References",
+    "text": "5.3 References"
+  },
+  {
+    "objectID": "apis.html#references",
+    "href": "apis.html#references",
+    "title": "4  APIs",
+    "section": "4.3 References",
+    "text": "4.3 References\nArribas-Bel, D. (2014) “Accidental, Open and Everywhere: Emerging Data Sources for the Understanding of Cities”. Applied Geography, 49: 45-53. Goodchild, M. F. (2007). Citizens as sensors: the world of volunteered geography. GeoJournal, 69(4), 211-221. Lazer, D., & Radford, J. (2017). Data ex machina: introduction to big data. Annual Review of Sociology, 43, 19-39. Lab: Acquiring data from the web Notes:"
+  },
+  {
+    "objectID": "dataarch.html#references",
+    "href": "dataarch.html#references",
+    "title": "3  Data architectures",
+    "section": "3.3 References",
+    "text": "3.3 References\nChapter 3 of the GDS book (in progress) covers traditional and more modern approaches to represent Geography as data. Kitchin, R. (2014). The data revolution: Big data, open data, data infrastructures and their consequences. Sage. Maptiler documents on map tiles and map vector tiles. Lab: Creating, manipulating, and integrating web geospatial data Notes:\nHTML PDF Other R’s sf cheatsheet is a good reference for manipulation operations/spatial predicates with simple features (see also a similar list in Python’s geopandas)"
+  },
+  {
+    "objectID": "webarch.html#references",
+    "href": "webarch.html#references",
+    "title": "2  Web architecture",
+    "section": "2.3 References",
+    "text": "2.3 References\n\nBrief History of the Internet, by the Internet Society, is a handy (and free!) introduction to how it all came to be.\nHaklay, M., Singleton, A., Parker, C. “Web Mapping 2.0: The Neogeography of the GeoWeb”. Geography Compass, 2(6):2011–2039\nA blog post from Joe Morrison commenting on the recent change of licensing for some of the core software from Mapbox"
   }
 ]

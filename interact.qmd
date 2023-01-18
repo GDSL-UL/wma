@@ -1,5 +1,18 @@
 # Interactivity
 
-Block 7 - Frontend Topics II - 13 March - Elisabetta
-* Lecture: Interactivity
-* Lab: Designing for interactivity - (Kepler)
+Elisabetta Pietrostefani
+
+**Lecture**: Interactivity
+
+**Lab**: Designing for interactivity - (Kepler)
+
+## Lecture
+
+Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_07.pdf)
+
+## Lab: 
+
+
+
+
+## References

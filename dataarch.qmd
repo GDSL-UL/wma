@@ -1,17 +1,28 @@
 # Data architectures
 
--   Block 3 - Data Backends II (Elisabetta)
+Elisabetta Pietrostefani
 
-    -   Lecture: Data architechtures & formats
+**Lecture**: Data architectures & formats
 
-    -   Lab: Creating, manipulating, and integrating web geospatial data (ADD bit more on APIs (webtiles) specific examples. Add Tiles)
+**Lab**: Creating, manipulating, and integrating web geo-spatial data (ADD bit more on APIs (webtiles) specific examples. Add Tiles)
 
-Lecture: Data architechtures & formats
-Slides:
+## Lecture
 
-HTML
-PDF
-References:
+Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_03.pdf)
+
+## Lab: What do APIs actually do?
+
+Lab 2: Non-spatial APIs - tidycensus - TO DO! Unpacking what that function is doing. What the API is actually doing? Wanted to understand - abstracts everything away. Unpack. REST type of API. Function web address. DO THIS!
+
+
+### Paired activity
+
+
+### Class discussion
+
+
+
+## References
 
 Chapter 3 of the GDS book (in progress) covers traditional and more modern approaches to represent Geography as data.
 Kitchin, R. (2014). The data revolution: Big data, open data, data infrastructures and their consequences. Sage.

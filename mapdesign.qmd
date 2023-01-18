@@ -1,5 +1,23 @@
 # Map design
 
-Block 6 Frontend Topics I - 6 March - Dani
-* Lecture: Map design
-* Lab: Designing maps with Mapbox Studio (take out Carto)
+Dani Arribas-Bel
+
+**Lecture**: Map design
+
+**Lab**: Designing maps with Mapbox Studio (take out Carto)
+
+## Lecture
+
+Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_06.pdf)
+
+## Lab: Designing maps with Mapbox Studio (take out Carto)
+
+### Paired activity
+
+
+### Class discussion
+
+
+
+## References
+

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Web Mapping and Analysis - 4&nbsp; Overview</title>
+<title>Web Mapping and Analysis - 3&nbsp; Data architectures</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,8 +63,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.css">
-<meta name="twitter:title" content="Web Mapping and Analysis - 4&nbsp; Overview">
-<meta name="twitter:description" content="Block 3 Data Backends II - 13 Feb - Elisabetta * Lecture: Data architectures &amp; formats * Lab 3: Creating, manipulating, and integrating web geospatial data bit more on APIs (webtiles) specific…">
+<meta name="twitter:title" content="Web Mapping and Analysis - 3&nbsp; Data architectures">
+<meta name="twitter:description" content="Elisabetta Pietrostefani">
 <meta name="twitter:creator" content="@EPietrostefani">
 <meta name="twitter:card" content="summary">
 </head>
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Overview</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data architectures</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -138,52 +138,62 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./overview.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  <a href="./structure.html" class="sidebar-item-text sidebar-link">Course Structure</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  <a href="./overview.html" class="sidebar-item-text sidebar-link">Overview</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./webarch.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  <a href="./assess.html" class="sidebar-item-text sidebar-link">Assessments</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dataarch.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./apis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  <a href="./webarch.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Web architecture</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mapdesign.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  <a href="./dataarch.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data architectures</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./interact.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  <a href="./apis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">APIs</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./choro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  <a href="./mapdesign.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Map design</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dashboards.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  <a href="./interact.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Interactivity</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./techgallery.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  <a href="./choro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Statistical visualisation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dashboards.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dashboards</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./techgallery.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Overview</span></a>
   </div>
 </li>
     </ul>
@@ -191,14 +201,26 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture"><span class="toc-section-number">3.1</span>  Lecture</a></li>
+  <li><a href="#lab-what-do-apis-actually-do" id="toc-lab-what-do-apis-actually-do" class="nav-link" data-scroll-target="#lab-what-do-apis-actually-do"><span class="toc-section-number">3.2</span>  Lab: What do APIs actually do?</a>
+  <ul class="collapse">
+  <li><a href="#paired-activity" id="toc-paired-activity" class="nav-link" data-scroll-target="#paired-activity"><span class="toc-section-number">3.2.1</span>  Paired activity</a></li>
+  <li><a href="#class-discussion" id="toc-class-discussion" class="nav-link" data-scroll-target="#class-discussion"><span class="toc-section-number">3.2.2</span>  Class discussion</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">3.3</span>  References</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/GDSL-UL/wma/edit/main/dataarch.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Overview</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data architectures</span></h1>
 </div>
 
 
@@ -213,15 +235,30 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Block 3 Data Backends II - 13 Feb - Elisabetta * Lecture: Data architectures &amp; formats * Lab 3: Creating, manipulating, and integrating web geospatial data bit more on APIs (webtiles) specific examples. Add Tiles</p>
-<p>Lecture: Data architechtures &amp; formats Lab: Creating, manipulating, and integrating web geospatial data</p>
-<p>Block 3 Data Backends II</p>
-<p>Lecture: Data architechtures &amp; formats Slides:</p>
-<p>HTML PDF References:</p>
+<p>Elisabetta Pietrostefani</p>
+<p><strong>Lecture</strong>: Data architectures &amp; formats</p>
+<p><strong>Lab</strong>: Creating, manipulating, and integrating web geo-spatial data (ADD bit more on APIs (webtiles) specific examples. Add Tiles)</p>
+<section id="lecture" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="lecture"><span class="header-section-number">3.1</span> Lecture</h2>
+<p>Slides can be downloaded <a href="https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_03.pdf">here</a></p>
+</section>
+<section id="lab-what-do-apis-actually-do" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="lab-what-do-apis-actually-do"><span class="header-section-number">3.2</span> Lab: What do APIs actually do?</h2>
+<p>Lab 2: Non-spatial APIs - tidycensus - TO DO! Unpacking what that function is doing. What the API is actually doing? Wanted to understand - abstracts everything away. Unpack. REST type of API. Function web address. DO THIS!</p>
+<section id="paired-activity" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="paired-activity"><span class="header-section-number">3.2.1</span> Paired activity</h3>
+</section>
+<section id="class-discussion" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="class-discussion"><span class="header-section-number">3.2.2</span> Class discussion</h3>
+</section>
+</section>
+<section id="references" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="references"><span class="header-section-number">3.3</span> References</h2>
 <p>Chapter 3 of the GDS book (in progress) covers traditional and more modern approaches to represent Geography as data. Kitchin, R. (2014). The data revolution: Big data, open data, data infrastructures and their consequences. Sage. Maptiler documents on map tiles and map vector tiles. Lab: Creating, manipulating, and integrating web geospatial data Notes:</p>
 <p>HTML PDF Other R’s sf cheatsheet is a good reference for manipulation operations/spatial predicates with simple features (see also a similar list in Python’s geopandas)</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -360,12 +397,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./webarch.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Overview</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Web architecture</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./apis.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Overview</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">APIs</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

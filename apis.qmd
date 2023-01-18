@@ -1,27 +1,28 @@
 # APIs
 
--   Block 4 - Data Backends III (Elisabetta)
+Elisabetta Pietrostefani
 
-    -   Lecture: APIs
+**Lecture**: APIs
 
-    -   Lab: Acquiring data from the web (advanced API stuff), More interesting on APIs in geo. Get to something a bit more interesting.
+**Lab**: Acquiring data from the web (advanced API stuff), More interesting on APIs in geo. Get to something a bit more interesting.
 
----\> Could probably be expanded into 2 sessions I think, but not sure I will have time to do this this year, but definitely next year.
+## Lecture
 
-Assignment: Block
+Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_04.pdf)
 
-Lecture: APIs
-Lab: Acquiring data from the web
+## Lab: What do APIs actually do?
 
-Block 4
-Data Backends III
+Lab 2: Non-spatial APIs - tidycensus - TO DO! Unpacking what that function is doing. What the API is actually doing? Wanted to understand - abstracts everything away. Unpack. REST type of API. Function web address. DO THIS!
 
-Lecture: APIs
-Slides:
 
-HTML
-PDF
-References:
+### Paired activity
+
+
+### Class discussion
+
+
+
+## References
 
 Arribas-Bel, D. (2014) “Accidental, Open and Everywhere: Emerging Data Sources for the Understanding of Cities”. Applied Geography, 49: 45-53.
 Goodchild, M. F. (2007). Citizens as sensors: the world of volunteered geography. GeoJournal, 69(4), 211-221.
@@ -29,5 +30,3 @@ Lazer, D., & Radford, J. (2017). Data ex machina: introduction to big data. Annu
 Lab: Acquiring data from the web
 Notes:
 
-HTML
-PDF

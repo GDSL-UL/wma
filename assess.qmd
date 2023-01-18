@@ -74,7 +74,8 @@ Design: this is not about making maps, this is about making good maps. And behin
 ## Assignment II
 
 -   **Title:** *A dashboard of IMD*
--   **Due date:** Thursday April 27th, Week 10
+-   **Type:** Coursework
+-   Due date**:** **Thursday April 27th, Week 10**
 -   50% of the final mark
 -   Chance to be reassessed
 -   Electronic submission only

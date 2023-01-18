@@ -1,47 +1,85 @@
-# Introduction 
+# Introduction
 
-* Lab 2 can go in Lab 1 (Lab 2: Powerful examples \* Discussion about interactive map)
+Dani Arribas-Bel
 
-# Slides
+**Lecture**: Introduction to the module
 
-HTML
-PDF
+**Lab**: Powerful examples & Discussion about interactive map
 
-* As a [pdf document](https://github.com/GDSL-UL/wma/raw/main/lecture_02.pdf)
+## Lecture
 
-References:
+Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/lecture_02.pdf)
 
-For an excellent coverage of “visualisation literacy”, Chapter 11 of Andy Kirk’s “Data Visualisation” is a great start.
-Lab: Getting up to speed for web mapping
+# Lab: Powerful examples
 
-# Lab: Powerful examples 
+This lab has two main components:
 
-This lab has two main components: the first one will require you to find a partner and work together with her/him; and the second one will involve group discussion.
+1.  The first one will require you to find a partner and work together with her/him
+
+2.  And the second one will involve group discussion.
 
 ## Paired activity
-In pairs, find three examples where web maps are used to communi- cate an idea. Complete the following sheet for each example:
 
-* Substantive
-  + Title: Title of the map/project
-  + Author: Who is behind the project?
-  + Big idea: a “one-liner” on what the project tries to accomplish – Message: what does the map try to get accross
+In pairs, find three examples where web maps are used to communicate an idea. Complete the following sheet for each example:
 
-* Technical
-  + URL:
-  + Interactivity: does the map let you interact with it in any
-way? Yes/No
-  + Zoomable: can you explore the map at different scales? Yes/No
-  + Tooltips:
-  + Basemap: Is there an underlying map providing geographical
-context? Yes/No. If so, who is it provided by?
-  + Technology: can you guess what technology does this map rely
-on?
+-   **Substantive**
 
-Post each sheet as a separate item on the Teams channel for Lab No.2
-As an example, here’s the sheet for the project “A map of every building in America”
+    -   `Title`: Title of the map/project
+    -   `Author`: Who is behind the project?
+    -   `Big idea`: a "one-liner" on what the project tries to accomplish --
+    -   `Message`: what does the map try to get accross
 
-# Other
+-   **Technical**
 
-A comprehensive overview of computational notebooks and how they relate to modern scientific work is available on Ch.1 of the GDS book, currently in progress. https://geographicdata.science/book/notebooks/01_geospatial_computational_environment.html
+    -   `URL`:
+    -   `Interactivity`: does the map let you interact with it in any way? Yes/No
+    -   `Zoomable`: can you explore the map at different scales? Yes/No
+    -   `Tooltips`:
+    -   `Basemap`: Is there an underlying map providing geographical context? Yes/No. If so, who is it provided by?
+    -   `Technology`: can you guess what technology does this map rely on?
 
-A more recent overview of notebooks in Geography is available in Boeing & Arribas-Bel (2021)
+Post each sheet as a separate item on the Teams channel for Lab No.1
+
+As an example, below is the sheet for the project "A map of every building in America" !["A map of every building in America"](https://github.com/GDSL-UL/wma/raw/main/figs/buildamerica.png)
+
+-   **Substantive**
+
+    -   `Title`: A map of every building in America
+
+    -   `Author`: The New York Times
+
+    -   `Big idea`: Show patterns in the built environment through building footprints
+
+    -   `Message`: The project displays a map of the US where only building footprints are shown. This element is used to show a) how much buildings tell about places and the build environment, and b) some interesting specific examples that illustrate large trends in society (e.g. urban sprawl)
+
+-   **Technical**
+
+    -   `URL`: [`https://www.nytimes.com/interactive/2018/10/12/us/map-of-every-building-in-the-united-states.html`](https://www.nytimes.com/interactive/2018/10/12/us/map-of-every-building-in-the-united-states.html)
+
+    -   `Interactivity`: Yes
+
+    -   `Zoomable`: Yes
+
+    -   `Tooltips`: No
+
+    -   `Basemap`: Yes, Mapbox/OpenStreetMap
+
+    -   `Technology`: MapboxGL
+
+## Class discussion
+
+We will select a few examples posted and collectively discuss (some of) the following questions:
+
+1.  What makes them powerful, what "speaks" to us?
+
+2.  What could be improved, what is counter-intuitive?
+
+3.  What design elements do they rely on?
+
+4.  What technology do they use?
+
+## References
+
+-   For an excellent coverage of "visualisation literacy", Chapter 11 of Andy Kirk's ["Data Visualisation"](https://www.visualisingdata.com/book/) is a great start. Lab: Getting up to speed for web mapping
+- A comprehensive overview of computational notebooks and how they relate to modern scientific work is available on [Ch.1 of the GDS book](https://geographicdata.science/book/notebooks/01_geo_thinking.html).
+- A recent overview of notebooks in Geography is available in [Boeing & Arribas-Bel (2021)](https://gistbok.ucgis.org/bok-topics/gis-and-computational-notebooks)

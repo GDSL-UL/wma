@@ -10,7 +10,7 @@ Dani Arribas-Bel
 
 Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_01.pdf)
 
-# Lab: Powerful examples
+## Lab: Powerful examples
 
 This lab has two main components:
 
@@ -18,7 +18,7 @@ This lab has two main components:
 
 2.  And the second one will involve group discussion.
 
-## Paired activity
+### Paired activity
 
 In pairs, find three examples where web maps are used to communicate an idea. Complete the following sheet for each example:
 
@@ -66,7 +66,7 @@ As an example, below is the sheet for the project "A map of every building in Am
 
     -   `Technology`: MapboxGL
 
-## Class discussion
+### Class discussion
 
 We will select a few examples posted and collectively discuss (some of) the following questions:
 
@@ -78,7 +78,7 @@ We will select a few examples posted and collectively discuss (some of) the foll
 
 4.  What technology do they use?
 
-## References
+### References
 
 -   For an excellent coverage of "visualisation literacy", Chapter 11 of Andy Kirk's ["Data Visualisation"](https://www.visualisingdata.com/book/) is a great start. Lab: Getting up to speed for web mapping
 - A comprehensive overview of computational notebooks and how they relate to modern scientific work is available on [Ch.1 of the GDS book](https://geographicdata.science/book/notebooks/01_geo_thinking.html).

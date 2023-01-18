@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -206,10 +269,9 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture"><span class="toc-section-number">3.1</span>  Lecture</a></li>
-  <li><a href="#lab-what-do-apis-actually-do" id="toc-lab-what-do-apis-actually-do" class="nav-link" data-scroll-target="#lab-what-do-apis-actually-do"><span class="toc-section-number">3.2</span>  Lab: What do APIs actually do?</a>
+  <li><a href="#lab-creating-manipulating-and-integrating-web-geo-spatial-data" id="toc-lab-creating-manipulating-and-integrating-web-geo-spatial-data" class="nav-link" data-scroll-target="#lab-creating-manipulating-and-integrating-web-geo-spatial-data"><span class="toc-section-number">3.2</span>  Lab: Creating, manipulating, and integrating web geo-spatial data</a>
   <ul class="collapse">
-  <li><a href="#paired-activity" id="toc-paired-activity" class="nav-link" data-scroll-target="#paired-activity"><span class="toc-section-number">3.2.1</span>  Paired activity</a></li>
-  <li><a href="#class-discussion" id="toc-class-discussion" class="nav-link" data-scroll-target="#class-discussion"><span class="toc-section-number">3.2.2</span>  Class discussion</a></li>
+  <li><a href="#geojson" id="toc-geojson" class="nav-link" data-scroll-target="#geojson"><span class="toc-section-number">3.2.1</span>  GeoJSON</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">3.3</span>  References</a></li>
   </ul>
@@ -242,20 +304,36 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="3.1" class="anchored" data-anchor-id="lecture"><span class="header-section-number">3.1</span> Lecture</h2>
 <p>Slides can be downloaded <a href="https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_03.pdf">here</a></p>
 </section>
-<section id="lab-what-do-apis-actually-do" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="lab-what-do-apis-actually-do"><span class="header-section-number">3.2</span> Lab: What do APIs actually do?</h2>
-<p>Lab 2: Non-spatial APIs - tidycensus - TO DO! Unpacking what that function is doing. What the API is actually doing? Wanted to understand - abstracts everything away. Unpack. REST type of API. Function web address. DO THIS!</p>
-<section id="paired-activity" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="paired-activity"><span class="header-section-number">3.2.1</span> Paired activity</h3>
-</section>
-<section id="class-discussion" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="class-discussion"><span class="header-section-number">3.2.2</span> Class discussion</h3>
+<section id="lab-creating-manipulating-and-integrating-web-geo-spatial-data" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="lab-creating-manipulating-and-integrating-web-geo-spatial-data"><span class="header-section-number">3.2</span> Lab: Creating, manipulating, and integrating web geo-spatial data</h2>
+<p>In this lab, we will explore and familiarise with some of the most common data formats for web mapping: GeoJSON and Mbtiles. To follow this session, you will need to be able to access the following:</p>
+<ul>
+<li>The internet</li>
+<li>QGIS. Any version should work in this context, but if you are installing it on your computer, QGIS 3.22 is recommended</li>
+<li>The R libraries listed in the <a href="https://gdsl-ul.github.io/wma/overview.html#computational-environment">computational environment</a> setup of the course.</li>
+</ul>
+<section id="geojson" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="geojson"><span class="header-section-number">3.2.1</span> GeoJSON</h3>
+<p>To get familiar with the format, we will start by creating a GeoJSON file from scratch. Head over to the following website:</p>
+<p><a href="https://geojson.io/">https://geojson.io/</a></p>
+<p>In there, we will create together a small example to better understand the building blocks of this file format.</p>
+<p><img src="https://github.com/GDSL-UL/wma/raw/main/figs/geojson.png" class="img-fluid"></p>
+<p>We will pay special attention to the following aspects:</p>
+<ul>
+<li>Readability</li>
+<li>Coordinate system</li>
+<li>Ability to add non-spatial information attached to each record</li>
+<li>How to save it as a file</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>R’s <code>sf</code> <a href="https://github.com/rstudio/cheatsheets/blob/main/sf.pdf">cheatsheet</a> is a good reference for manipulation operations/spatial predicates with simple features.</p>
 </section>
 </section>
 <section id="references" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="references"><span class="header-section-number">3.3</span> References</h2>
-<p>Chapter 3 of the GDS book (in progress) covers traditional and more modern approaches to represent Geography as data. Kitchin, R. (2014). The data revolution: Big data, open data, data infrastructures and their consequences. Sage. Maptiler documents on map tiles and map vector tiles. Lab: Creating, manipulating, and integrating web geospatial data Notes:</p>
-<p>HTML PDF Other R’s sf cheatsheet is a good reference for manipulation operations/spatial predicates with simple features (see also a similar list in Python’s geopandas)</p>
+<p><a href="https://geographicdata.science/book/notebooks/03_spatial_data.html">Chapter 3</a> of the GDS book (in progress) covers traditional and more modern approaches to represent Geography as data. Kitchin, R. (2014). <a href="https://www.perlego.com/book/860829/the-data-revolution-big-data-open-data-data-infrastructures-and-their-consequences-pdf?utm_source=google&amp;utm_medium=cpc&amp;campaignid=15781033413&amp;adgroupid=134828831187&amp;gclid=CjwKCAiAzp6eBhByEiwA_gGq5Otph9MDAPkgkT_yBOH3u8Z0rRiL8TLCr32xzW5pY_uIIjTV7r4S7RoCMXsQAvD_BwE">The data revolution: Big data, open data, data infrastructures and their consequences.</a> Sage. <a href="https://www.maptiler.com/">Maptiler.com</a> documents on <a href="https://www.maptiler.com/google-maps-coordinates-tile-bounds-projection/#3/15.00/50.00">map tiles</a> and <a href="https://www.maptiler.com/news/2019/02/what-are-vector-tiles-and-why-you-should-care/">map vector tiles</a>.</p>
 
 
 </section>

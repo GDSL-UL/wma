@@ -12,7 +12,12 @@ Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lect
 
 ## Lab: What do APIs actually do?
 
-Lab 2: Non-spatial APIs - tidycensus - TO DO! Unpacking what that function is doing. What the API is actually doing? Wanted to understand - abstracts everything away. Unpack. REST type of API. Function web address. DO THIS!
+TO DO Non-spatial APIs - tidycensus 
+- Unpacking what that function is doing. 
+- What the API is actually doing? 
+- Wanted to understand - abstracts everything away. Unpack. 
+- REST type of API. 
+- Function web address. 
 
 
 ### Paired activity

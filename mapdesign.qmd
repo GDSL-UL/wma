@@ -1,5 +1,5 @@
-# Overview
+# Map design
 
 Block 6 Frontend Topics I - 6 March - Dani
 * Lecture: Map design
-* Lab: Designing maps with Mapbox Studio 
+* Lab: Designing maps with Mapbox Studio (take out Carto)

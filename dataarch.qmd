@@ -1,12 +1,10 @@
-# Overview
+# Data architectures
 
-Block 3 Data Backends II - 13 Feb - Elisabetta \* Lecture: Data architectures & formats \* Lab 3: Creating, manipulating, and integrating web geospatial data bit more on APIs (webtiles) specific examples. Add Tiles
+-   Block 3 - Data Backends II (Elisabetta)
 
-Lecture: Data architechtures & formats
-Lab: Creating, manipulating, and integrating web geospatial data
+    -   Lecture: Data architechtures & formats
 
-Block 3
-Data Backends II
+    -   Lab: Creating, manipulating, and integrating web geospatial data (ADD bit more on APIs (webtiles) specific examples. Add Tiles)
 
 Lecture: Data architechtures & formats
 Slides:

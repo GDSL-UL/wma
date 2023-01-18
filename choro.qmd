@@ -1,4 +1,4 @@
-#Overview
+# Statistical visualisation
 
 Block 8 - Frontend Topics III - 20 March - Dani
 * Lecture: Statistical visualisation

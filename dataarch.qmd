@@ -1,36 +1,185 @@
+---
+editor: 
+  markdown: 
+    wrap: 72
+---
+
 # Data architectures
 
 Elisabetta Pietrostefani
 
 **Lecture**: Data architectures & formats
 
-**Lab**: Creating, manipulating, and integrating web geo-spatial data (ADD bit more on APIs (webtiles) specific examples. Add Tiles)
+**Lab**: Creating, manipulating, and integrating web geo-spatial data
+(ADD bit more on APIs (webtiles) specific examples. Add Tiles)
 
 ## Lecture
 
-Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_03.pdf)
+Slides can be downloaded
+[here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_03.pdf)
 
-## Lab: What do APIs actually do?
+## Lab: Creating, manipulating, and integrating web geo-spatial data
 
-Lab 2: Non-spatial APIs - tidycensus - TO DO! Unpacking what that function is doing. What the API is actually doing? Wanted to understand - abstracts everything away. Unpack. REST type of API. Function web address. DO THIS!
+In this lab, we will explore and familiarise with some of the most
+common data formats for web mapping: GeoJSON and Mbtiles. To follow this
+session, you will need to be able to access the following:
+
+-   The internet
+-   QGIS. Any version should work in this context, but if you are
+    installing it on your computer, QGIS 3.22 is recommended
+-   The R libraries listed in the [computational
+    environment](https://gdsl-ul.github.io/wma/overview.html#computational-environment)
+    setup of the course.
+
+### GeoJSON
+
+To get familiar with the format, we will start by creating a GeoJSON
+file from scratch. Head over to the following website:
+
+<https://geojson.io/>
+
+In there, we will create together a small example to better understand
+the building blocks of this file format.
+
+![geojson.io](https://github.com/GDSL-UL/wma/raw/main/figs/geojson.png){width="80%"}
+
+We will pay special attention to the following aspects:
+
+-   Readability
+-   Coordinate system
+-   Ability to add non-spatial information attached to each record
+-   How to save it as a file
+
+**EXERCISE**
+
+Create a GeoJSON file for the following data and save them to separate
+files:
+
+1.  Your five favorite spots in Liverpool
+
+2.  A polygon of what you consider to be the boundary of the
+    neighbourhood where you live and the city centre of Liverpool. Name
+    each.
+
+3.  A route that captures one of your favorite walks around the
+    Liverpool region
+
+If you are comfortable, upload the files to Microsoft Teams to share
+them with peers.
+
+### GeoJSON in R
+
+With the files from the exercise at hand, we will then learn how to open
+them in `R-markdown`. Create a new `R-markdown` and save it to something
+you'll remember, like `web_mapping_lab_03.Rmd`.
+
+Then let's start by calling the libraries `sf` and `geojsonsf` :
+
+```{r}
+#| warning: false
+library(sf) #simple features, a standardized way to encode spatial vector data
+library(geojsonsf) #converts Between GeoJSON and simple feature objects
+
+```
+
+Now, place the .geojson files you have created in the same folder where you are storing the `R-markdown`, or somewhere reachable. For this example, we will assume that the file is called `map.geojson` and it is stored in the `data` folder, accessible from the same location where the notebook is. We can read the file as:
+
+```{r}
+#| warning: false
+liverpool <- geojson_sf("data/map.geojson")
+```
+
+We can inspect the file to see what it contains:
+```{r}
+#| warning: false
+head(liverpool)
+```
+If you are familiar with `sf` objects, this is exactly it, read straight from a GeoJSON file (if you need a refresher, you can check out [introduction to `sf`](https://r-spatial.org/book/07-Introsf.html)) in the [Spatial Data Science](https://r-spatial.org/book/) book.
+
+\index{sf!point}
+A point is single point geometry: `POINT (5 2)`
+
+\index{sf!linestring}
+A line string is a sequence of points with a straight line connecting the points: `LINESTRING (1 5, 4 4, 4 1, 2 2, 3 2)`
+
+\index{sf!polygon}
+A polygon is a sequence of points that form a closed ring without intersection. Closed means that the first and the last point of a polygon have the same coordinates: `POLYGON ((1 5, 2 2, 4 1, 4 4, 1 5))`
+
+Let's quickly plot the `sf` object to visualise it in R.
+```{r}
+#| warning: false
+library(mapview) # provides functions to very quickly and conveniently create interactive visualisations of spatial data.
+mapview(liverpool)
+```
 
 
-### Paired activity
+Once read, the geojson behaves exactly like any `sf` objects, we can therefore operate on it and tap into the functionality from `sf`. For example, we can inspect the Coordinate Reference System (CRS) in which it is expressed:
+
+```{r}
+#| warning: false
+st_crs(liverpool)
+```
+Using some of `sf`’s functionality. We can reproject it to express it in metres:
+```{r}
+#| warning: false
+liverpool_bng <- st_transform(liverpool, st_crs(27700)) # transform to British National Grid
+```
+
+When we inspected our geojson with `head(liverpool)` we noted that the spatial data is stored in the following format: `POINT (-2.977367 53.40753)`. This is called “well known text” (`wkt`) and is a representation that spatial databases like PostGIS use as well. Another way to store spatial data as text for storage or transfer, less (human) readable but more efficient is the “well known blurb” (`wkb`):
+
+```{r}
+#| warning: false
+library(wkb) #Convert Between Spatial Objects and Well-Known Binary Geometry
+
+#select just polygons
+#liverpool_wkb <- writeWKB(liverpool) #Converts Spatial objects to well-known binary (WKB) geometry representations.
+```
+
+But the underlying data (point coordinates) can also be extracted directly within R. If we want to pull out the x coordinate for each point, we can access it under geometry.x:
+
+Another benefit of reading data with sf is we can use its analytical capabilities. For example, we can calculate the length of line:
+```{r}
+#| warning: false
+#st_length(x, ...)
+```
+
+Given the the line is expressed in metres (check out EPSG:27700), we can conclude the line spans about 88m.
+
+Once we are happy with the data as we will hypothetically need it, we can write it out to any other file format supported in `sf`.
+For example, we can create a Geopackge file with the same information:
+
+The file name is taken as the data source name. The default for the layer name is the basename (filename without path) of the the data source name. For this, st_write needs to guess the driver. The above command is, for instance, equivalent to:
+```{r}
+#| warning: false
+st_write(liverpool_bng, dsn = "data/test.gpkg", layer = "data/test.gpkg", driver = "GPKG", delete_dsn = TRUE)
+## Writing layer `liverpool_bng' to data source `test.gpkg' using driver `Geopackge'
+```
+
+R's `sf`
+[cheatsheet](https://github.com/rstudio/cheatsheets/blob/main/sf.pdf) is
+a good reference for manipulation operations/spatial predicates with
+simple features.
+
+**EXERCISE**
+- Read the `GeoJSON` created for your favorite walks in Liverpool and calculate their length
+- **Pro**: explore the geopandas documentation and try to extract the area for the polygon covering your neighbourhood
 
 
-### Class discussion
-
-
+### Tilesets and `Mbtiles`
 
 ## References
 
-Chapter 3 of the GDS book (in progress) covers traditional and more modern approaches to represent Geography as data.
-Kitchin, R. (2014). The data revolution: Big data, open data, data infrastructures and their consequences. Sage.
-Maptiler documents on map tiles and map vector tiles.
-Lab: Creating, manipulating, and integrating web geospatial data
-Notes:
+-   [Chapter
+    3](https://geographicdata.science/book/notebooks/03_spatial_data.html)
+    of the GDS book (in progress) covers traditional and more modern
+    approaches to represent Geography as data.
 
-HTML
-PDF
-Other
-R’s sf cheatsheet is a good reference for manipulation operations/spatial predicates with simple features (see also a similar list in Python’s geopandas)
+-   Kitchin, R. (2014). [The data revolution: Big data, open data, data
+    infrastructures and their
+    consequences.](https://www.perlego.com/book/860829/the-data-revolution-big-data-open-data-data-infrastructures-and-their-consequences-pdf?utm_source=google&utm_medium=cpc&campaignid=15781033413&adgroupid=134828831187&gclid=CjwKCAiAzp6eBhByEiwA_gGq5Otph9MDAPkgkT_yBOH3u8Z0rRiL8TLCr32xzW5pY_uIIjTV7r4S7RoCMXsQAvD_BwE)
+    Sage.
+
+-   [Maptiler.com](https://www.maptiler.com/) documents on [map
+    tiles](https://www.maptiler.com/google-maps-coordinates-tile-bounds-projection/#3/15.00/50.00)
+    and [map vector
+    tiles](https://www.maptiler.com/news/2019/02/what-are-vector-tiles-and-why-you-should-care/).

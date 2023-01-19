@@ -60,6 +60,9 @@ To check your version of:
 
 The list of libraries used in this book is provided below:
 
+-   `sf`
+-   `geojsonsf`
+-   `mapview`
 -   `tidyverse`
 -   `viridis`
 -   `viridisLite`

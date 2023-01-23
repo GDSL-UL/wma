@@ -12,23 +12,14 @@ Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lect
 
 ## Lab: What do APIs actually do?
 
-TO DO Non-spatial APIs - tidycensus 
-- Unpacking what that function is doing. 
-- What the API is actually doing? 
-- Wanted to understand - abstracts everything away. Unpack. 
-- REST type of API. 
-- Function web address. 
-
+TO DO Non-spatial APIs - tidycensus - Unpacking what that function is doing. - What the API is actually doing? - Wanted to understand - abstracts everything away. Unpack. - REST type of API. - Function web address.
 
 ### Paired activity
 
-
 ### Class discussion
-
-
 
 ## References
 
-- [Brief History of the Internet](https://www.internetsociety.org/resources/doc/2017/brief-history-internet/), by the Internet Society, is a handy (and free!) introduction to how it all came to be.
-- Haklay, M., Singleton, A., Parker, C. [“Web Mapping 2.0: The Neogeography of the GeoWeb”](https://compass.onlinelibrary.wiley.com/doi/abs/10.1111/j.1749-8198.2008.00167.x). Geography Compass, 2(6):2011–2039
-- [A blog post from Joe Morrison](https://joemorrison.medium.com/death-of-an-open-source-business-model-62bc227a7e9b) commenting on the recent change of licensing for some of the core software from Mapbox 
+-   [Brief History of the Internet](https://www.internetsociety.org/resources/doc/2017/brief-history-internet/), by the Internet Society, is a handy (and free!) introduction to how it all came to be.
+-   Haklay, M., Singleton, A., Parker, C. ["Web Mapping 2.0: The Neogeography of the GeoWeb"](https://compass.onlinelibrary.wiley.com/doi/abs/10.1111/j.1749-8198.2008.00167.x). Geography Compass, 2(6):2011--2039
+-   [A blog post from Joe Morrison](https://joemorrison.medium.com/death-of-an-open-source-business-model-62bc227a7e9b) commenting on the recent change of licensing for some of the core software from Mapbox

@@ -10,9 +10,6 @@ Elisabetta Pietrostefani
 
 Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_07.pdf)
 
-## Lab: 
-
-
-
+## Lab:
 
 ## References

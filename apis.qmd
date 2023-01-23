@@ -14,19 +14,10 @@ Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lect
 
 Lab 2: Non-spatial APIs - tidycensus - TO DO! Unpacking what that function is doing. What the API is actually doing? Wanted to understand - abstracts everything away. Unpack. REST type of API. Function web address. DO THIS!
 
-
 ### Paired activity
-
 
 ### Class discussion
 
-
-
 ## References
 
-Arribas-Bel, D. (2014) “Accidental, Open and Everywhere: Emerging Data Sources for the Understanding of Cities”. Applied Geography, 49: 45-53.
-Goodchild, M. F. (2007). Citizens as sensors: the world of volunteered geography. GeoJournal, 69(4), 211-221.
-Lazer, D., & Radford, J. (2017). Data ex machina: introduction to big data. Annual Review of Sociology, 43, 19-39.
-Lab: Acquiring data from the web
-Notes:
-
+Arribas-Bel, D. (2014) "Accidental, Open and Everywhere: Emerging Data Sources for the Understanding of Cities". Applied Geography, 49: 45-53. Goodchild, M. F. (2007). Citizens as sensors: the world of volunteered geography. GeoJournal, 69(4), 211-221. Lazer, D., & Radford, J. (2017). Data ex machina: introduction to big data. Annual Review of Sociology, 43, 19-39. Lab: Acquiring data from the web Notes:

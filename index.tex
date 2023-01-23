@@ -1,0 +1,1627 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Web Mapping and Analysis},
+  pdfauthor={Elisabetta Pietrostefani and Dani Arribas-Bel},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Web Mapping and Analysis}
+\author{Elisabetta Pietrostefani and Dani Arribas-Bel}
+\date{1/23/23}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, interior hidden, boxrule=0pt, frame hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, breakable]}{\end{tcolorbox}}\fi
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\bookmarksetup{startatroot}
+
+\hypertarget{welcome}{%
+\chapter*{Welcome}\label{welcome}}
+\addcontentsline{toc}{chapter}{Welcome}
+
+\markboth{Welcome}{Welcome}
+
+This is the website for ``Web Mapping and Analysis'' for the module
+\textbf{ENVS456} at the University of Liverpool. This is course designed
+and delivered by Dr.~Elisabetta Pietrostefani and Professor Dani
+Arribas-Bel from the Geographic Data Science Lab at the University of
+Liverpool, United Kingdom. The module has two main aims. First, it seeks
+to to provide hands-on experience and training in the design and
+generation of web-based mapping and geographical information tools.
+Second, it seeks to provide hands-on experience and training in the use
+of software to access, analyse and visualize web-based geographical
+information.
+
+The website is \textbf{free to use} and is licensed under the
+\href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{Attribution-NonCommercial-NoDerivatives
+4.0 International}. A compilation of this web course is hosted as a
+GitHub repository that you can access:
+
+\begin{itemize}
+\tightlist
+\item
+  As a
+  \href{https://github.com/GDSL-UL/wma/archive/refs/heads/main.zip}{download}
+  of a \texttt{.zip} file that contains all the materials.
+\item
+  As an \href{https://gdsl-ul.github.io/wma}{html website}.
+\item
+  As a \href{https://gdsl-ul.github.io/wma.pdf}{pdf document}
+\item
+  As a \href{https://github.com/GDSL-UL/wma}{GitHub repository}.
+\end{itemize}
+
+\hypertarget{contact}{%
+\section*{Contact}\label{contact}}
+\addcontentsline{toc}{section}{Contact}
+
+\markright{Contact}
+
+\begin{quote}
+Dani Arribas-Bel - darribas {[}at{]} liverpool.ac.uk Professor in
+Geographic Data Science Office 6xx, Roxby Building, University of
+Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.
+\end{quote}
+
+\begin{quote}
+Elisabetta Pietrostefani - e.pietrostefani {[}at{]} liverpool.ac.uk
+Lecturer in Geographic Data Science Office 6xx, Roxby Building,
+University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United
+Kingdom.
+\end{quote}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{course-structure}{%
+\chapter*{Course Structure}\label{course-structure}}
+\addcontentsline{toc}{chapter}{Course Structure}
+
+\markboth{Course Structure}{Course Structure}
+
+\hypertarget{course-structure-1}{%
+\section*{Course Structure}\label{course-structure-1}}
+\addcontentsline{toc}{section}{Course Structure}
+
+\markright{Course Structure}
+
+\hypertarget{introduction}{%
+\subsection*{Introduction}\label{introduction}}
+\addcontentsline{toc}{subsection}{Introduction}
+
+\textbf{Block 1}
+
+\begin{itemize}
+\item
+  Introduction Lecture: Introduction to the module
+\item
+  Lab: Powerful examples \& Discussion about interactive map
+\end{itemize}
+
+\hypertarget{data-backends}{%
+\subsection*{Data Backends}\label{data-backends}}
+\addcontentsline{toc}{subsection}{Data Backends}
+
+\textbf{Block 2 - Data Backends I}
+
+\begin{itemize}
+\item
+  Lecture: The Web's architecture and Economy
+\item
+  Lab: Non-spatial APIs - What do APIs actually do?
+\end{itemize}
+
+\textbf{Block 3 - Data Backends II}
+
+\begin{itemize}
+\item
+  Lecture: Data architechtures \& formats
+\item
+  Lab: Creating, manipulating, and integrating web geospatial data
+\end{itemize}
+
+\textbf{Block 4 - Data Backends III}
+
+\begin{itemize}
+\item
+  Lecture: APIs
+\item
+  Lab: Acquiring data from the web
+\end{itemize}
+
+\hypertarget{assignment-i}{%
+\subsection*{Assignment I}\label{assignment-i}}
+\addcontentsline{toc}{subsection}{Assignment I}
+
+\textbf{Block 5 - Assignment I}
+
+\begin{itemize}
+\item
+  Lecture: Q\&A
+\item
+  Lab: Clinic
+\end{itemize}
+
+\textbf{Assignment I:} \emph{Combining (geo-)data in an interactive map}
+
+\hypertarget{frontend-topics}{%
+\subsection*{Frontend Topics}\label{frontend-topics}}
+\addcontentsline{toc}{subsection}{Frontend Topics}
+
+\textbf{Block 6 - Frontend Topics I}
+
+\begin{itemize}
+\item
+  Lecture: Map design
+\item
+  Lab: Designing maps with Mapbox Studio
+\end{itemize}
+
+\textbf{Block 7 - Frontend Topics II}
+
+\begin{itemize}
+\item
+  Lecture: Interactivity
+\item
+  Lab: Designing for interactivity (Kepler)
+\end{itemize}
+
+\textbf{Block 8 - Frontend Topics III}
+
+\begin{itemize}
+\item
+  Lecture: Statistical visualization
+\item
+  Lab: Choropleths in Kepler
+\end{itemize}
+
+\textbf{Block 9 - Dashboards}
+
+\begin{itemize}
+\item
+  Lecture: Dashboards: bringing analysis to the web
+\item
+  Lab: Building Dashboards (Shiny)
+\end{itemize}
+
+\hypertarget{assignment-ii}{%
+\subsection*{Assignment II}\label{assignment-ii}}
+\addcontentsline{toc}{subsection}{Assignment II}
+
+\textbf{Block 10 - Assignment I}
+
+\begin{itemize}
+\item
+  Lecture: Technology gallery
+\item
+  Lab: clinic
+\end{itemize}
+
+\textbf{Assignment II:} \emph{A dashboard of IMD}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{overview}{%
+\chapter*{Overview}\label{overview}}
+\addcontentsline{toc}{chapter}{Overview}
+
+\markboth{Overview}{Overview}
+
+\hypertarget{aims}{%
+\section*{Aims}\label{aims}}
+\addcontentsline{toc}{section}{Aims}
+
+\markright{Aims}
+
+This module aims to:
+
+\begin{itemize}
+\tightlist
+\item
+  Provide hands-on experience and training in the design and generation
+  of web-based mapping and geographical information tools.
+\item
+  Provide hands-on experience and training in the use of software to
+  access, analyse and visualize web-based geographical information.
+\end{itemize}
+
+\hypertarget{learning-outcomes}{%
+\section*{Learning Outcomes}\label{learning-outcomes}}
+\addcontentsline{toc}{section}{Learning Outcomes}
+
+\markright{Learning Outcomes}
+
+By the end of the module, students should be able to:
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  Experience using tile rendering tools to generate content for
+  map-based web sites.
+\item
+  Knowledge of web based mapping infrastructure
+\item
+  Web-based data collection techniques (accessing Twitter, Facebook,
+  Google and OpenStreetmap information)
+\item
+  Network analysis
+\item
+  Programming skills to enable basic online data manipulation and web
+  mapping
+\end{enumerate}
+
+\hypertarget{feedback}{%
+\section*{Feedback}\label{feedback}}
+\addcontentsline{toc}{section}{Feedback}
+
+\markright{Feedback}
+
+\href{https://gdsl-ul.github.io/wma/assess.html}{\emph{Formal
+assessment}}. Two pieces of coursework (50\%/50\%). Equivalent to 2,500
+words each
+
+\emph{Verbal face-to-face feedback}. Immediate face-to-face feedback
+will be provided during computer, discussion and clinic sessions in
+interaction with staff. This will take place in all live sessions during
+the semester.
+
+\emph{Teams Forum}. Asynchronous written feedback will be provided via
+Teams. Students are encouraged to contribute by asking and answering
+questions relating to the module content. Staff will monitor the forum
+Monday to Friday 9am-5pm, but it will be open to students to make
+contributions at all times. Response time will vary depending on the
+complexity of the question and staff availability.
+
+\hypertarget{computational-environment}{%
+\section*{Computational Environment}\label{computational-environment}}
+\addcontentsline{toc}{section}{Computational Environment}
+
+\markright{Computational Environment}
+
+This course can be followed by anyone with access to a bit of technical
+infrastructure. This section details the set of local and online
+requirements you will need to be able to follow along, as well as
+instructions or pointers to get set up on your own. This is a
+centralized section that lists \emph{everything} you will require, but
+keep in mind that different blocks do not always require everything all
+the time.
+
+\hypertarget{software}{%
+\subsection*{Software}\label{software}}
+\addcontentsline{toc}{subsection}{Software}
+
+To run the analysis and reproduce the code, you need the following
+software:
+
+\begin{itemize}
+\tightlist
+\item
+  QGIS- the stable version (3.22 LTR at the time of writing) is OK, any
+  more recent version will also work.
+\item
+  R-4.2.2
+\item
+  RStudio 2022.12.0-353
+\item
+  Quarto 1.2.280
+\item
+  the list of libraries in the next section
+\end{itemize}
+
+To install and update:
+
+\begin{itemize}
+\tightlist
+\item
+  QGIS, download the appropriate version from
+  \href{https://www.qgis.org/en/site/forusers/download.html}{QGIS.org}
+\item
+  R, download the appropriate version from
+  \href{https://cran.r-project.org}{The Comprehensive R Archive Network
+  (CRAN)}
+\item
+  RStudio, download the appropriate version from
+  \href{https://posit.co/download/rstudio-desktop/}{Posit}
+\item
+  Quarto, download the appropriate version from
+  \href{https://quarto.org/docs/get-started/}{the Quarto website}
+\end{itemize}
+
+To check your version of:
+
+\begin{itemize}
+\tightlist
+\item
+  R and libraries run \texttt{sessionInfo()}
+\item
+  RStudio click \texttt{help} on the menu bar and then \texttt{About}
+\item
+  Quarto check the \texttt{version} file in the quarto folder on your
+  computer.
+\end{itemize}
+
+\hypertarget{r-list-of-libraries}{%
+\subsection*{R List of libraries}\label{r-list-of-libraries}}
+\addcontentsline{toc}{subsection}{R List of libraries}
+
+The list of libraries used in this book is provided below:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{sf}
+\item
+  \texttt{geojsonsf}
+\item
+  \texttt{mapview}
+\item
+  \texttt{tidyverse}
+\item
+  \texttt{viridis}
+\item
+  \texttt{viridisLite}
+\end{itemize}
+
+You need to ensure you have installed the list of libraries used in this
+book, running the following code:
+
+\begin{quote}
+list.of.packages.cran \textless- c( ``tidyverse'', ``viridis'',
+``viridisLite'', ``ggthemes'', ``patchwork'', ``showtext'',
+``RColorBrewer'', ``lubridate'', ``tmap'', ``sjPlot'', ``sf'', ``sp'',
+``kableExtra'')
+\end{quote}
+
+\begin{quote}
+new.packages.cran \textless-
+list.of.packages.cran{[}!(list.of.packages.cran \%in\%
+installed.packages(){[},``Package''{]}){]} if(length(new.packages.cran))
+install.packages(new.packages.cran)
+\end{quote}
+
+\begin{quote}
+for(i in 1:length(list.of.packages.cran)) \{
+library(list.of.packages.cran{[}i{]}, character.only = T) \}
+\end{quote}
+
+\hypertarget{online-accounts}{%
+\subsection*{Online accounts}\label{online-accounts}}
+\addcontentsline{toc}{subsection}{Online accounts}
+
+\begin{itemize}
+\item
+  CDRC Data: we will use some of the data provided by the CDRC, so a
+  (free) account with them will be necessary.
+\item
+  Mapbox: Mapbox is one of the industry leaders in web mapping. Their
+  free tier is rather generous so will more than suffice for what we
+  will do within the course. You can sign up for a new (free) account
+  here.
+\item
+  Kepler:
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{assessments}{%
+\chapter*{Assessments}\label{assessments}}
+\addcontentsline{toc}{chapter}{Assessments}
+
+\markboth{Assessments}{Assessments}
+
+\hypertarget{assignment-i-1}{%
+\section*{Assignment I}\label{assignment-i-1}}
+\addcontentsline{toc}{section}{Assignment I}
+
+\markright{Assignment I}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Title:} \emph{Combining (geo-)data in an interactive map}
+\item
+  \textbf{Type:} Coursework
+\item
+  Due date: \textbf{Thursday March 2nd, Week 5}
+\item
+  50\% of the final mark
+\item
+  Chance to be reassessed
+\item
+  Electronic submission only
+\end{itemize}
+
+In this assessment, you will have the opportunity to explore different
+sources and combine them in a single tileset that can be explored
+interactively through a web browser. \textbf{The assignment aims to
+evaluate your knowledge and aptitude in the following areas}:
+
+\begin{itemize}
+\item
+  Understanding of core ``backend'' concepts in web mapping such as
+  tilesets, client-server architecture, or APIs.
+\item
+  Ability to use the web as a resource for original data.
+\item
+  Design skills to present effectively a diverse set of geospatial data
+  in a web map.
+\end{itemize}
+
+\hypertarget{design-data-and-assemblage.}{%
+\subsection*{Design, data and
+assemblage.}\label{design-data-and-assemblage.}}
+\addcontentsline{toc}{subsection}{Design, data and assemblage.}
+
+This assignment requires you to source data from the web in different
+formats, assemble them into a tileset, and document the process. To be
+successful, you will need to demonstrate your understanding not only of
+the technical aspects involved in the process, but also of the
+conceptual notions that underpin them. Below are described the required
+components for your submission.
+
+First, the design. Start by designing a map for an area you are
+interested in. There are no clear restrictions but, to ensure you are on
+the right path, check on your ideas with the module leader, who will be
+able to assess whether potential problems may arise from your choices.
+This stage should draw some inspiration from the first weeks of the
+course, where we looked for examples of web maps and spent time
+discussing what made them good and why.
+
+Second, the data. Draft a list of potential data that would be ideal to
+use for your map, and try to find out whether they exist and are
+available. This will be a good guide for which data you will actually
+end up using. Do not worry about spending a significant amount of time
+on this aspect; identifying good data takes time and is at the core of
+this task. Make sure you include both data you can access from direct
+downloads (e.g.~CDRC) and those you download through an API. Once you
+know which datasets you need, go ahead and do the work required to
+download them for the map you want to build.
+
+Third, the assemblage. With all data you have at your disposal from the
+previous stage, create a tileset that allows to embed the map in an HTML
+file and explore it through the browser. Pay attention to the design
+aspects involved in this step too. For example, what is the extent of
+your map (not necessarily the extent of each of your data)? What are the
+zoom levels your map will allow? Do you have the same ``map'' for every
+zoom level? These are questions you will have to ask (and answer!)
+yourself to complete this stage successfully.
+
+\hypertarget{presentation-of-your-work}{%
+\subsection*{Presentation of your
+work}\label{presentation-of-your-work}}
+\addcontentsline{toc}{subsection}{Presentation of your work}
+
+Once you have created your map, you will need to present it. An
+important aspect of this stage is that it is not really the map you need
+to present, but the \emph{process} of creation you have followed and the
+design choices you have made that should go into the text. Additionally,
+you will need to provide evidence that you understand the concepts
+behind some of the technologies you have used. Write up to 1,000 words
+and include the following:
+
+\begin{itemize}
+\item
+  Map brief
+
+  \begin{itemize}
+  \item
+    About 250 words introducing the map. This should cover what it tries
+    to represent (what is it about?) and the choices you have made along
+    the way to take that idea into fruition.
+  \item
+    About 250 words discussing and motivating the sources of data you
+    have used. Here you should engage not only with what data you are
+    using but why and what they bring to the map. Everything should be
+    in the map for a reason, make sure to spell it out clearly.
+  \end{itemize}
+\item
+  Conceptual background
+
+  \begin{itemize}
+  \item
+    About 250 words with your description of what an API is, how it
+    works and how it has made your map possible.
+  \item
+    About 250 words with your description of how tile-based maps work.
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{submit}{%
+\subsection*{Submit}\label{submit}}
+\addcontentsline{toc}{subsection}{Submit}
+
+Once completed, you will need to submit the following:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  A static HTML version of an R-markdown that includes two parts:
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    All your narrative about the map brief and conceptual background.
+  \item
+    A second section with any code you may have used to complete the
+    assignment, \textbf{documented} in detail. \textbf{NOTE}: this
+    section will not contribute towards the word count.
+  \end{enumerate}
+\item
+  A compressed .zip file containing you tileset and a HTML file that
+  allows a user to browse through the tileset.
+\end{enumerate}
+
+The assignment will be evaluated based on four main pillars, on which
+you will have to be successful to achieve a good mark:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{Map design abilities.} This includes ideas that were discussed
+  in the course in Blocks 1 and 2.
+\item
+  \textbf{Technical skills}. This includes your ability to master
+  technologies that allow you to create a compelling map, but also to
+  access interesting and sophiticated data sources.
+\item
+  \textbf{Overall narrative}. This assesses your aptitude to introduce,
+  motivate and justify your map, as well as you ability to bring each
+  component of the assignment into a coherent whole that ``fits
+  together''.
+\item
+  \textbf{Conceptual understanding of key technologies} presented in the
+  course, in particular of APIs and tile-based mapping.
+\end{enumerate}
+
+\hypertarget{how-is-this-assignment-useful}{%
+\subsection*{\texorpdfstring{\emph{How is this assignment
+useful?}}{How is this assignment useful?}}\label{how-is-this-assignment-useful}}
+\addcontentsline{toc}{subsection}{\emph{How is this assignment useful?}}
+
+This assessment includes several elements that will help you improve
+critical aspects of your web mapping skills:
+
+Design: this is not about making maps, this is about making good maps.
+And behind every good map there is a set of conscious choices that you
+will have to think throug to be successful (what map? what data? how to
+present the data? etc.). Technology: at the end of the day, building
+good web maps requires solid understanding of current technology that
+goes beyond what the average person can be expected to know. In this
+assignment, you will need to demonstrate you are proficient in a series
+of tasks manipulating geospatial data in a web environment.
+Presentation: in many real-world contexts, your work is as good as it
+can come across to the audience it is intended to. This means that it is
+vital to be able to communicate not only what you are doing but why and
+on what building blocks it is based on.
+
+\hypertarget{assignment-ii-1}{%
+\section*{Assignment II}\label{assignment-ii-1}}
+\addcontentsline{toc}{section}{Assignment II}
+
+\markright{Assignment II}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Title:} \emph{A dashboard of IMD}
+\item
+  \textbf{Type:} Coursework
+\item
+  Due date\textbf{:} \textbf{Thursday April 27th, Week 10}
+\item
+  50\% of the final mark
+\item
+  Chance to be reassessed
+\item
+  Electronic submission only
+\end{itemize}
+
+This assignment requires you to build a dashboard for the Index of
+Multiple Deprivation. To be successful, you will need to demonstrate
+your understanding not only of technical elements, but of the design
+process required to create a product that can communicate complex ideas
+effectively. There are three core building blocks you will have to
+assemble to build your dashboard: basemap, main map(s), and widgets. Let
+us explore each of them more in detail.
+
+First, the basemap. Design your own basemap using Mapbox. Think about
+the data in the background, which colors, the zoom levels that will be
+allowed, and how it all comes together to create a backdrop for your
+main message that is conducent to the experience you want to create. The
+basemap is like a good side dish: it's there to make you like the main
+course even more.
+
+Second, the main map(s). One you have your own basemap from
+Mapbox\ldots{} move to R. This is where the core of your dashboard
+should come to shine. What you want to show, how, which interactive
+elements you will allow the user to access and how they will let them
+modify the experience of your dashboard. The main course of the meal,
+make it count!
+
+Third, additional widgets. One of the advantages of dashboards in
+comparison to standard web maps is that they allow to bring elements of
+analysis to a more finished product. Think about what you want your
+users to be able to analyse, why, and how that will modify the main map.
+This is the icing on the cake!
+
+\hypertarget{submit-1}{%
+\subsection*{Submit}\label{submit-1}}
+\addcontentsline{toc}{subsection}{Submit}
+
+Once completed, you will submit a report through Turnitin that includes
+the following:
+
+\begin{itemize}
+\tightlist
+\item
+  A link to the published dashboard, which needs to be reachable online
+\item
+  About 250 words for the overall idea of the dashboard. What do you
+  want to communicate? What is the story you want to tell?
+\item
+  About 250 words for the data used. Which datasets are you using? Why?
+  What new information do they bring and how they complement each other?
+\item
+  About 250 words to describe your design choices in the basemap and
+  other layers presented (e.g.~choropleths).
+\item
+  About 250 words to describe your design choices around interactivity,
+  including both cartographic elements (e.g.~zooming, panning) as well
+  as additional interactivity built around components such as widgets.
+\end{itemize}
+
+The assignment will be evaluated based on:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \emph{Overall design of the experience.} It is very important you
+  think through every step of preparing this assignment as if it was
+  part of something bigger towards which it contributes. Because that is
+  exactly what it is. Everything should have a reason to be there, and
+  every aspect of the dashboard should be connected to each other
+  following a common thread. And, of course, make this connection and
+  holistic approach come alive in your report.
+\item
+  \emph{(Base)map design}. Critically introduce every aspect you have
+  thought about when designing the maps, and explicitly connect it to
+  the overal aim of the dashboard. Be clear in your descriptions and
+  critical in how you engage every design choice.
+\item
+  \emph{Interactivity design.} Your dashboard should use interactivity
+  when necessary to deliver a more compelling and fuller experience that
+  better gets your message across. Be sure to clearly lay out in your
+  report which elements are used and why.
+\item
+  \emph{Narrative around the description of the process.} Finally, the
+  final mark will also take into account not only how good your
+  dashboard is, but how well you are able to introduce it. Start with
+  the key goals, and then unpack every element in an integrated and
+  compelling way.
+\end{enumerate}
+
+\hypertarget{how-is-this-assignment-useful-1}{%
+\subsection*{\texorpdfstring{\emph{How is this assignment
+useful?}}{How is this assignment useful?}}\label{how-is-this-assignment-useful-1}}
+\addcontentsline{toc}{subsection}{\emph{How is this assignment useful?}}
+
+This assignment combines several elements that will help you improve
+critical aspects of web mapping:
+
+\begin{itemize}
+\item
+  \emph{Design}: this is not about making maps, this is about making
+  good maps. And behind every good map there is a set of conscious
+  choices that you will have to think throug to be successful (what map?
+  what data? how to present the data? etc.).
+\item
+  \emph{Technology}: at the end of the day, building good web maps
+  requires familiarity with the state-of-the-art in terms of web mapping
+  tools. In this assignment, you will need to demonstrate your mastering
+  of some of the key tools that are leading both industry and academia.
+\item
+  \emph{Presentation}: in many real-world contexts, your work is as good
+  as it can come across to the audience it is intended to. This means
+  that it is vital to be able to communicate not only what you are doing
+  but why and on what building blocks it is based on.
+\end{itemize}
+
+\hypertarget{marking-criteria}{%
+\section*{Marking Criteria}\label{marking-criteria}}
+\addcontentsline{toc}{section}{Marking Criteria}
+
+\markright{Marking Criteria}
+
+This course follows the standard marking criteria (the general ones and
+those relating to GIS assignments in particular) set by the School of
+Environmental Sciences. Please make sure to check the student handbook
+and familiarise with them. In addition to these generic criteria, the
+following specific criteria will be used in cases where computer code is
+part of the work being assessed:
+
+\begin{itemize}
+\tightlist
+\item
+  0-15: the code does not run and there is no documentation to follow
+  it.
+\item
+  16-39: the code does not run, or runs but it does not produce the
+  expected outcome. There is some documentation explaining its logic.
+\item
+  40-49: the code runs and produces the expected output. There is some
+  documentation explaining its logic.
+\item
+  50-59: the code runs and produces the expected output. There is
+  extensive documentation explaining its logic.
+\item
+  60-69: the code runs and produces the expected output. There is
+  extensive documentation, properly formatted, explaining its logic.
+\item
+  70-79: all as above, plus the code design includes clear evidence of
+  skills presented in advanced sections of the course (e.g.~custom
+  methods, list comprehensions, etc.).
+\item
+  80-100: all as above, plus the code contains novel contributions that
+  extend/improve the functionality the student was provided with
+  (e.g.~algorithm optimizations, novel methods to perform the task,
+  etc.).
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{introduction-1}{%
+\chapter{Introduction}\label{introduction-1}}
+
+Dani Arribas-Bel
+
+\textbf{Lecture}: Introduction to the module
+
+\textbf{Lab}: Powerful examples \& Discussion about interactive map
+
+\hypertarget{lecture}{%
+\section{Lecture}\label{lecture}}
+
+Slides can be downloaded
+\href{https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_01.pdf}{here}
+
+\hypertarget{lab-powerful-examples}{%
+\section{Lab: Powerful examples}\label{lab-powerful-examples}}
+
+This lab has two main components:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The first one will require you to find a partner and work together
+  with her/him
+\item
+  And the second one will involve group discussion.
+\end{enumerate}
+
+\hypertarget{paired-activity}{%
+\subsection{Paired activity}\label{paired-activity}}
+
+In pairs, find three examples where web maps are used to communicate an
+idea. Complete the following sheet for each example:
+
+\begin{itemize}
+\item
+  \textbf{Substantive}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{Title}: Title of the map/project
+  \item
+    \texttt{Author}: Who is behind the project?
+  \item
+    \texttt{Big\ idea}: a ``one-liner'' on what the project tries to
+    accomplish --
+  \item
+    \texttt{Message}: what does the map try to get accross
+  \end{itemize}
+\item
+  \textbf{Technical}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{URL}:
+  \item
+    \texttt{Interactivity}: does the map let you interact with it in any
+    way? Yes/No
+  \item
+    \texttt{Zoomable}: can you explore the map at different scales?
+    Yes/No
+  \item
+    \texttt{Tooltips}:
+  \item
+    \texttt{Basemap}: Is there an underlying map providing geographical
+    context? Yes/No.~If so, who is it provided by?
+  \item
+    \texttt{Technology}: can you guess what technology does this map
+    rely on?
+  \end{itemize}
+\end{itemize}
+
+Post each sheet as a separate item on the Teams channel for Lab No.1
+
+As an example, below is the sheet for the project ``A map of every
+building in America''
+\includegraphics{https://github.com/GDSL-UL/wma/raw/main/figs/buildamerica.png}
+
+\begin{itemize}
+\item
+  \textbf{Substantive}
+
+  \begin{itemize}
+  \item
+    \texttt{Title}: A map of every building in America
+  \item
+    \texttt{Author}: The New York Times
+  \item
+    \texttt{Big\ idea}: Show patterns in the built environment through
+    building footprints
+  \item
+    \texttt{Message}: The project displays a map of the US where only
+    building footprints are shown. This element is used to show a) how
+    much buildings tell about places and the build environment, and b)
+    some interesting specific examples that illustrate large trends in
+    society (e.g.~urban sprawl)
+  \end{itemize}
+\item
+  \textbf{Technical}
+
+  \begin{itemize}
+  \item
+    \texttt{URL}:
+    \href{https://www.nytimes.com/interactive/2018/10/12/us/map-of-every-building-in-the-united-states.html}{\texttt{https://www.nytimes.com/interactive/2018/10/12/us/map-of-every-building-in-the-united-states.html}}
+  \item
+    \texttt{Interactivity}: Yes
+  \item
+    \texttt{Zoomable}: Yes
+  \item
+    \texttt{Tooltips}: No
+  \item
+    \texttt{Basemap}: Yes, Mapbox/OpenStreetMap
+  \item
+    \texttt{Technology}: MapboxGL
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{class-discussion}{%
+\subsection{Class discussion}\label{class-discussion}}
+
+We will select a few examples posted and collectively discuss (some of)
+the following questions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  What makes them powerful, what ``speaks'' to us?
+\item
+  What could be improved, what is counter-intuitive?
+\item
+  What design elements do they rely on?
+\item
+  What technology do they use?
+\end{enumerate}
+
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+\begin{itemize}
+\tightlist
+\item
+  For an excellent coverage of ``visualisation literacy'', Chapter 11 of
+  Andy Kirk's \href{https://www.visualisingdata.com/book/}{``Data
+  Visualisation''} is a great start. Lab: Getting up to speed for web
+  mapping
+\item
+  A comprehensive overview of computational notebooks and how they
+  relate to modern scientific work is available on
+  \href{https://geographicdata.science/book/notebooks/01_geo_thinking.html}{Ch.1
+  of the GDS book}.
+\item
+  A recent overview of notebooks in Geography is available in
+  \href{https://gistbok.ucgis.org/bok-topics/gis-and-computational-notebooks}{Boeing
+  \& Arribas-Bel (2021)}
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{web-architecture}{%
+\chapter{Web architecture}\label{web-architecture}}
+
+Dani Arribas-Bel
+
+\textbf{Lecture}: The Web's architecture and Economy
+
+\textbf{Lab}: What do APIs actually do? (non-spatial APIs)
+
+\hypertarget{lecture-1}{%
+\section{Lecture}\label{lecture-1}}
+
+Slides can be downloaded
+\href{https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_02.pdf}{here}
+
+\hypertarget{lab-what-do-apis-actually-do}{%
+\section{Lab: What do APIs actually
+do?}\label{lab-what-do-apis-actually-do}}
+
+TO DO Non-spatial APIs - tidycensus - Unpacking what that function is
+doing. - What the API is actually doing? - Wanted to understand -
+abstracts everything away. Unpack. - REST type of API. - Function web
+address.
+
+\hypertarget{paired-activity-1}{%
+\subsection{Paired activity}\label{paired-activity-1}}
+
+\hypertarget{class-discussion-1}{%
+\subsection{Class discussion}\label{class-discussion-1}}
+
+\hypertarget{references-1}{%
+\section{References}\label{references-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.internetsociety.org/resources/doc/2017/brief-history-internet/}{Brief
+  History of the Internet}, by the Internet Society, is a handy (and
+  free!) introduction to how it all came to be.
+\item
+  Haklay, M., Singleton, A., Parker, C.
+  \href{https://compass.onlinelibrary.wiley.com/doi/abs/10.1111/j.1749-8198.2008.00167.x}{``Web
+  Mapping 2.0: The Neogeography of the GeoWeb''}. Geography Compass,
+  2(6):2011--2039
+\item
+  \href{https://joemorrison.medium.com/death-of-an-open-source-business-model-62bc227a7e9b}{A
+  blog post from Joe Morrison} commenting on the recent change of
+  licensing for some of the core software from Mapbox
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{data-architectures}{%
+\chapter{Data architectures}\label{data-architectures}}
+
+Elisabetta Pietrostefani
+
+\textbf{Lecture}: Data architectures \& formats
+
+\textbf{Lab}: Creating, manipulating, and integrating web geo-spatial
+data (ADD bit more on APIs (webtiles) specific examples. Add Tiles)
+
+\hypertarget{lecture-2}{%
+\section{Lecture}\label{lecture-2}}
+
+Slides can be downloaded
+\href{https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_03.pdf}{here}
+
+\hypertarget{lab-creating-manipulating-and-integrating-web-geo-spatial-data}{%
+\section{Lab: Creating, manipulating, and integrating web geo-spatial
+data}\label{lab-creating-manipulating-and-integrating-web-geo-spatial-data}}
+
+In this lab, we will explore and familiarise with some of the most
+common data formats for web mapping: GeoJSON and Mbtiles. To follow this
+session, you will need to be able to access the following:
+
+\begin{itemize}
+\tightlist
+\item
+  The internet
+\item
+  QGIS. Any version should work in this context, but if you are
+  installing it on your computer, QGIS 3.22 is recommended
+\item
+  The R libraries listed in the
+  \href{https://gdsl-ul.github.io/wma/overview.html\#computational-environment}{computational
+  environment} setup of the course.
+\end{itemize}
+
+\hypertarget{geojson}{%
+\subsection{GeoJSON}\label{geojson}}
+
+To get familiar with the format, we will start by creating a GeoJSON
+file from scratch. Head over to the following website:
+
+\url{https://geojson.io/}
+
+In there, we will create together a small example to better understand
+the building blocks of this file format.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\textwidth,height=\textheight]{https://github.com/GDSL-UL/wma/raw/main/figs/geojson.png}
+
+}
+
+\caption{geojson.io}
+
+\end{figure}
+
+We will pay special attention to the following aspects:
+
+\begin{itemize}
+\tightlist
+\item
+  Readability
+\item
+  Coordinate system
+\item
+  Ability to add non-spatial information attached to each record
+\item
+  How to save it as a file
+\end{itemize}
+
+\textbf{EXERCISE}
+
+Create a GeoJSON file for the following data and save them to separate
+files:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Your five favorite spots in Liverpool
+\item
+  A polygon of what you consider to be the boundary of the neighbourhood
+  where you live and the city centre of Liverpool. Name each.
+\item
+  A route that captures one of your favorite walks around the Liverpool
+  region
+\end{enumerate}
+
+If you are comfortable, upload the files to Microsoft Teams to share
+them with peers.
+
+\hypertarget{geojson-in-r}{%
+\subsection{GeoJSON in R}\label{geojson-in-r}}
+
+With the files from the exercise at hand, we will then learn how to open
+them in \texttt{R-markdown}. Create a new \texttt{R-markdown} and save
+it to something you'll remember, like
+\texttt{web\_mapping\_lab\_03.Rmd}.
+
+Then let's start by calling the libraries \texttt{sf} and
+\texttt{geojsonsf} :
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(sf) }\CommentTok{\#simple features, a standardized way to encode spatial vector data}
+\FunctionTok{library}\NormalTok{(geojsonsf) }\CommentTok{\#converts Between GeoJSON and simple feature objects}
+\end{Highlighting}
+\end{Shaded}
+
+Now, place the .geojson files you have created in the same folder where
+you are storing the \texttt{R-markdown}, or somewhere reachable. For
+this example, we will assume that the file is called
+\texttt{map.geojson} and it is stored in the \texttt{data} folder,
+accessible from the same location where the notebook is. We can read the
+file as:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{liverpool }\OtherTok{\textless{}{-}} \FunctionTok{geojson\_sf}\NormalTok{(}\StringTok{"data/map.geojson"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+We can inspect the file to see what it contains:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(liverpool)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Simple feature collection with 4 features and 0 fields
+Geometry type: GEOMETRY
+Dimension:     XY
+Bounding box:  xmin: -2.977367 ymin: 53.39987 xmax: -2.954183 ymax: 53.40753
+Geodetic CRS:  WGS 84
+                        geometry
+1 POLYGON ((-2.965248 53.4016...
+2 LINESTRING (-2.975764 53.40...
+3     POINT (-2.977367 53.40753)
+4 POLYGON ((-2.958036 53.4009...
+\end{verbatim}
+
+If you are familiar with \texttt{sf} objects, this is exactly it, read
+straight from a GeoJSON file (if you need a refresher, you can check out
+\href{https://r-spatial.org/book/07-Introsf.html}{introduction to
+\texttt{sf}}) in the \href{https://r-spatial.org/book/}{Spatial Data
+Science} book.
+
+\index{sf!point} A point is single point geometry:
+\texttt{POINT\ (5\ 2)}
+
+\index{sf!linestring} A line string is a sequence of points with a
+straight line connecting the points:
+\texttt{LINESTRING\ (1\ 5,\ 4\ 4,\ 4\ 1,\ 2\ 2,\ 3\ 2)}
+
+\index{sf!polygon} A polygon is a sequence of points that form a closed
+ring without intersection. Closed means that the first and the last
+point of a polygon have the same coordinates:
+\texttt{POLYGON\ ((1\ 5,\ 2\ 2,\ 4\ 1,\ 4\ 4,\ 1\ 5))}
+
+Let's quickly plot the \texttt{sf} object to visualise it in R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(mapview) }\CommentTok{\# provides functions to very quickly and conveniently create interactive visualisations of spatial data.}
+\FunctionTok{mapview}\NormalTok{(liverpool)}
+\end{Highlighting}
+\end{Shaded}
+
+Once read, the geojson behaves exactly like any \texttt{sf} objects, we
+can therefore operate on it and tap into the functionality from
+\texttt{sf}. For example, we can inspect the Coordinate Reference System
+(CRS) in which it is expressed:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{st\_crs}\NormalTok{(liverpool)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Coordinate Reference System:
+  User input: 4326 
+  wkt:
+GEOGCS["WGS 84",
+      DATUM["WGS_1984",
+        SPHEROID["WGS 84",6378137,298.257223563,
+          AUTHORITY["EPSG","7030"]],
+        AUTHORITY["EPSG","6326"]],
+      PRIMEM["Greenwich",0,
+        AUTHORITY["EPSG","8901"]],
+      UNIT["degree",0.0174532925199433,
+        AUTHORITY["EPSG","9122"]],
+      AXIS["Latitude",NORTH],
+      AXIS["Longitude",EAST],
+    AUTHORITY["EPSG","4326"]]
+\end{verbatim}
+
+Using some of \texttt{sf}'s functionality. We can reproject it to
+express it in metres:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{liverpool\_bng }\OtherTok{\textless{}{-}} \FunctionTok{st\_transform}\NormalTok{(liverpool, }\FunctionTok{st\_crs}\NormalTok{(}\DecValTok{27700}\NormalTok{)) }\CommentTok{\# transform to British National Grid}
+\end{Highlighting}
+\end{Shaded}
+
+When we inspected our geojson with \texttt{head(liverpool)} we noted
+that the spatial data is stored in the following format:
+\texttt{POINT\ (-2.977367\ 53.40753)}. This is called ``well known
+text'' (\texttt{wkt}) and is a representation that spatial databases
+like PostGIS use as well. Another way to store spatial data as text for
+storage or transfer, less (human) readable but more efficient is the
+``well known blurb'' (\texttt{wkb}):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(wkb) }\CommentTok{\#Convert Between Spatial Objects and Well{-}Known Binary Geometry}
+
+\CommentTok{\#select just polygons}
+\CommentTok{\#liverpool\_wkb \textless{}{-} writeWKB(liverpool) \#Converts Spatial objects to well{-}known binary (WKB) geometry representations.}
+\end{Highlighting}
+\end{Shaded}
+
+But the underlying data (point coordinates) can also be extracted
+directly within R. If we want to pull out the x coordinate for each
+point, we can access it under geometry.x:
+
+Another benefit of reading data with sf is we can use its analytical
+capabilities. For example, we can calculate the length of line:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#st\_length(x, ...)}
+\end{Highlighting}
+\end{Shaded}
+
+Given the the line is expressed in metres (check out EPSG:27700), we can
+conclude the line spans about 88m.
+
+Once we are happy with the data as we will hypothetically need it, we
+can write it out to any other file format supported in \texttt{sf}. For
+example, we can create a Geopackge file with the same information:
+
+The file name is taken as the data source name. The default for the
+layer name is the basename (filename without path) of the the data
+source name. For this, st\_write needs to guess the driver. The above
+command is, for instance, equivalent to:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{st\_write}\NormalTok{(liverpool\_bng, }\AttributeTok{dsn =} \StringTok{"data/test.gpkg"}\NormalTok{, }\AttributeTok{layer =} \StringTok{"data/test.gpkg"}\NormalTok{, }\AttributeTok{driver =} \StringTok{"GPKG"}\NormalTok{, }\AttributeTok{delete\_dsn =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Deleting source `data/test.gpkg' using driver `GPKG'
+Writing layer `data/test.gpkg' to data source `data/test.gpkg' using driver `GPKG'
+Writing 4 features with 0 fields and geometry type Unknown (any).
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# Writing layer \textasciigrave{}liverpool\_bng\textquotesingle{} to data source \textasciigrave{}test.gpkg\textquotesingle{} using driver \textasciigrave{}Geopackge\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+
+R's \texttt{sf}
+\href{https://github.com/rstudio/cheatsheets/blob/main/sf.pdf}{cheatsheet}
+is a good reference for manipulation operations/spatial predicates with
+simple features.
+
+\textbf{EXERCISE} - Read the \texttt{GeoJSON} created for your favorite
+walks in Liverpool and calculate their length - \textbf{Pro}: explore
+the geopandas documentation and try to extract the area for the polygon
+covering your neighbourhood
+
+\hypertarget{tilesets-and-mbtiles}{%
+\subsection{\texorpdfstring{Tilesets and
+\texttt{Mbtiles}}{Tilesets and Mbtiles}}\label{tilesets-and-mbtiles}}
+
+\hypertarget{references-2}{%
+\section{References}\label{references-2}}
+
+\begin{itemize}
+\item
+  \href{https://geographicdata.science/book/notebooks/03_spatial_data.html}{Chapter
+  3} of the GDS book (in progress) covers traditional and more modern
+  approaches to represent Geography as data.
+\item
+  Kitchin, R. (2014).
+  \href{https://www.perlego.com/book/860829/the-data-revolution-big-data-open-data-data-infrastructures-and-their-consequences-pdf?utm_source=google\&utm_medium=cpc\&campaignid=15781033413\&adgroupid=134828831187\&gclid=CjwKCAiAzp6eBhByEiwA_gGq5Otph9MDAPkgkT_yBOH3u8Z0rRiL8TLCr32xzW5pY_uIIjTV7r4S7RoCMXsQAvD_BwE}{The
+  data revolution: Big data, open data, data infrastructures and their
+  consequences.} Sage.
+\item
+  \href{https://www.maptiler.com/}{Maptiler.com} documents on
+  \href{https://www.maptiler.com/google-maps-coordinates-tile-bounds-projection/\#3/15.00/50.00}{map
+  tiles} and
+  \href{https://www.maptiler.com/news/2019/02/what-are-vector-tiles-and-why-you-should-care/}{map
+  vector tiles}.
+\end{itemize}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{apis}{%
+\chapter{APIs}\label{apis}}
+
+Elisabetta Pietrostefani
+
+\textbf{Lecture}: APIs
+
+\textbf{Lab}: Acquiring data from the web (advanced API stuff), More
+interesting on APIs in geo. Get to something a bit more interesting.
+
+\hypertarget{lecture-3}{%
+\section{Lecture}\label{lecture-3}}
+
+Slides can be downloaded
+\href{https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_04.pdf}{here}
+
+\hypertarget{lab-what-do-apis-actually-do-1}{%
+\section{Lab: What do APIs actually
+do?}\label{lab-what-do-apis-actually-do-1}}
+
+Lab 2: Non-spatial APIs - tidycensus - TO DO! Unpacking what that
+function is doing. What the API is actually doing? Wanted to understand
+- abstracts everything away. Unpack. REST type of API. Function web
+address. DO THIS!
+
+\hypertarget{paired-activity-2}{%
+\subsection{Paired activity}\label{paired-activity-2}}
+
+\hypertarget{class-discussion-2}{%
+\subsection{Class discussion}\label{class-discussion-2}}
+
+\hypertarget{references-3}{%
+\section{References}\label{references-3}}
+
+Arribas-Bel, D. (2014) ``Accidental, Open and Everywhere: Emerging Data
+Sources for the Understanding of Cities''. Applied Geography, 49: 45-53.
+Goodchild, M. F. (2007). Citizens as sensors: the world of volunteered
+geography. GeoJournal, 69(4), 211-221. Lazer, D., \& Radford, J. (2017).
+Data ex machina: introduction to big data. Annual Review of Sociology,
+43, 19-39. Lab: Acquiring data from the web Notes:
+
+\bookmarksetup{startatroot}
+
+\hypertarget{map-design}{%
+\chapter{Map design}\label{map-design}}
+
+Dani Arribas-Bel
+
+\textbf{Lecture}: Map design
+
+\textbf{Lab}: Designing maps with Mapbox Studio (take out Carto)
+
+\hypertarget{lecture-4}{%
+\section{Lecture}\label{lecture-4}}
+
+Slides can be downloaded
+\href{https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_06.pdf}{here}
+
+\hypertarget{lab-designing-maps-with-mapbox-studio-take-out-carto}{%
+\section{Lab: Designing maps with Mapbox Studio (take out
+Carto)}\label{lab-designing-maps-with-mapbox-studio-take-out-carto}}
+
+\hypertarget{paired-activity-3}{%
+\subsection{Paired activity}\label{paired-activity-3}}
+
+\hypertarget{class-discussion-3}{%
+\subsection{Class discussion}\label{class-discussion-3}}
+
+\hypertarget{references-4}{%
+\section{References}\label{references-4}}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{interactivity}{%
+\chapter{Interactivity}\label{interactivity}}
+
+Elisabetta Pietrostefani
+
+\textbf{Lecture}: Interactivity
+
+\textbf{Lab}: Designing for interactivity - (Kepler)
+
+\hypertarget{lecture-5}{%
+\section{Lecture}\label{lecture-5}}
+
+Slides can be downloaded
+\href{https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_07.pdf}{here}
+
+\hypertarget{lab}{%
+\section{Lab:}\label{lab}}
+
+\hypertarget{references-5}{%
+\section{References}\label{references-5}}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{statistical-visualisation}{%
+\chapter{Statistical visualisation}\label{statistical-visualisation}}
+
+Dani Arribas-Bel
+
+\textbf{Lecture}: Statistical visualisation
+
+\textbf{Lab}: Choropleths in Kepler - Kepler ---\textgreater{}
+Interactivity with Mapbox ? Not sure need to investigate this further
+
+\hypertarget{lecture-6}{%
+\section{Lecture}\label{lecture-6}}
+
+Slides can be downloaded
+\href{https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_08.pdf}{here}
+
+\hypertarget{lab-1}{%
+\section{Lab:}\label{lab-1}}
+
+\hypertarget{references-6}{%
+\section{References}\label{references-6}}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{dashboards}{%
+\chapter{Dashboards}\label{dashboards}}
+
+Dani Arribas-Bel
+
+\textbf{Lecture}: Dashboards: bringing analysis to the web
+
+\textbf{Lab}: Building Dashboards (Shiny)
+
+\hypertarget{lecture-7}{%
+\section{Lecture}\label{lecture-7}}
+
+Slides can be downloaded
+\href{https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_08.pdf}{here}
+
+\hypertarget{lab-2}{%
+\section{Lab:}\label{lab-2}}
+
+\hypertarget{references-7}{%
+\section{References}\label{references-7}}
+
+\bookmarksetup{startatroot}
+
+\hypertarget{overview-1}{%
+\chapter{Overview}\label{overview-1}}
+
+Block 10 - 24 April - Dani/Elisabetta * Lecture: Technology gallery *
+Lab: Assignment II clinic Leadership technology gallery session - track
+of ideas. 2 weeks sign up.
+
+
+
+\end{document}

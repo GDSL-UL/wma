@@ -10,10 +10,6 @@ Dani Arribas-Bel
 
 Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_08.pdf)
 
-## Lab: 
-
-
-
+## Lab:
 
 ## References
-

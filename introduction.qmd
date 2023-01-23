@@ -81,5 +81,5 @@ We will select a few examples posted and collectively discuss (some of) the foll
 ## References
 
 -   For an excellent coverage of "visualisation literacy", Chapter 11 of Andy Kirk's ["Data Visualisation"](https://www.visualisingdata.com/book/) is a great start. Lab: Getting up to speed for web mapping
-- A comprehensive overview of computational notebooks and how they relate to modern scientific work is available on [Ch.1 of the GDS book](https://geographicdata.science/book/notebooks/01_geo_thinking.html).
-- A recent overview of notebooks in Geography is available in [Boeing & Arribas-Bel (2021)](https://gistbok.ucgis.org/bok-topics/gis-and-computational-notebooks)
+-   A comprehensive overview of computational notebooks and how they relate to modern scientific work is available on [Ch.1 of the GDS book](https://geographicdata.science/book/notebooks/01_geo_thinking.html).
+-   A recent overview of notebooks in Geography is available in [Boeing & Arribas-Bel (2021)](https://gistbok.ucgis.org/bok-topics/gis-and-computational-notebooks)

@@ -4,16 +4,12 @@ Dani Arribas-Bel
 
 **Lecture**: Statistical visualisation
 
-**Lab**: Choropleths in Kepler - Kepler
-—> Interactivity with Mapbox ? Not sure need to investigate this further
+**Lab**: Choropleths in Kepler - Kepler ---\> Interactivity with Mapbox ? Not sure need to investigate this further
 
 ## Lecture
 
 Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_08.pdf)
 
-## Lab: 
-
-
-
+## Lab:
 
 ## References

@@ -1,4 +1,5 @@
 ---
+prefer-html: true
 editor: 
   markdown: 
     wrap: 72
@@ -82,7 +83,11 @@ library(geojsonsf) #converts Between GeoJSON and simple feature objects
 
 ```
 
-Now, place the .geojson files you have created in the same folder where you are storing the `R-markdown`, or somewhere reachable. For this example, we will assume that the file is called `map.geojson` and it is stored in the `data` folder, accessible from the same location where the notebook is. We can read the file as:
+Now, place the .geojson files you have created in the same folder where
+you are storing the `R-markdown`, or somewhere reachable. For this
+example, we will assume that the file is called `map.geojson` and it is
+stored in the `data` folder, accessible from the same location where the
+notebook is. We can read the file as:
 
 ```{r}
 #| warning: false
@@ -90,42 +95,60 @@ liverpool <- geojson_sf("data/map.geojson")
 ```
 
 We can inspect the file to see what it contains:
+
 ```{r}
 #| warning: false
 head(liverpool)
 ```
-If you are familiar with `sf` objects, this is exactly it, read straight from a GeoJSON file (if you need a refresher, you can check out [introduction to `sf`](https://r-spatial.org/book/07-Introsf.html)) in the [Spatial Data Science](https://r-spatial.org/book/) book.
 
-\index{sf!point}
-A point is single point geometry: `POINT (5 2)`
+If you are familiar with `sf` objects, this is exactly it, read straight
+from a GeoJSON file (if you need a refresher, you can check out
+[introduction to `sf`](https://r-spatial.org/book/07-Introsf.html)) in
+the [Spatial Data Science](https://r-spatial.org/book/) book.
 
-\index{sf!linestring}
-A line string is a sequence of points with a straight line connecting the points: `LINESTRING (1 5, 4 4, 4 1, 2 2, 3 2)`
+\index{sf!point} A point is single point geometry: `POINT (5 2)`
 
-\index{sf!polygon}
-A polygon is a sequence of points that form a closed ring without intersection. Closed means that the first and the last point of a polygon have the same coordinates: `POLYGON ((1 5, 2 2, 4 1, 4 4, 1 5))`
+\index{sf!linestring} A line string is a sequence of points with a
+straight line connecting the points:
+`LINESTRING (1 5, 4 4, 4 1, 2 2, 3 2)`
+
+\index{sf!polygon} A polygon is a sequence of points that form a closed
+ring without intersection. Closed means that the first and the last
+point of a polygon have the same coordinates:
+`POLYGON ((1 5, 2 2, 4 1, 4 4, 1 5))`
 
 Let's quickly plot the `sf` object to visualise it in R.
+
 ```{r}
 #| warning: false
 library(mapview) # provides functions to very quickly and conveniently create interactive visualisations of spatial data.
 mapview(liverpool)
 ```
 
-
-Once read, the geojson behaves exactly like any `sf` objects, we can therefore operate on it and tap into the functionality from `sf`. For example, we can inspect the Coordinate Reference System (CRS) in which it is expressed:
+Once read, the geojson behaves exactly like any `sf` objects, we can
+therefore operate on it and tap into the functionality from `sf`. For
+example, we can inspect the Coordinate Reference System (CRS) in which
+it is expressed:
 
 ```{r}
 #| warning: false
 st_crs(liverpool)
 ```
-Using some of `sf`’s functionality. We can reproject it to express it in metres:
+
+Using some of `sf`'s functionality. We can reproject it to express it in
+metres:
+
 ```{r}
 #| warning: false
 liverpool_bng <- st_transform(liverpool, st_crs(27700)) # transform to British National Grid
 ```
 
-When we inspected our geojson with `head(liverpool)` we noted that the spatial data is stored in the following format: `POINT (-2.977367 53.40753)`. This is called “well known text” (`wkt`) and is a representation that spatial databases like PostGIS use as well. Another way to store spatial data as text for storage or transfer, less (human) readable but more efficient is the “well known blurb” (`wkb`):
+When we inspected our geojson with `head(liverpool)` we noted that the
+spatial data is stored in the following format:
+`POINT (-2.977367 53.40753)`. This is called "well known text" (`wkt`)
+and is a representation that spatial databases like PostGIS use as well.
+Another way to store spatial data as text for storage or transfer, less
+(human) readable but more efficient is the "well known blurb" (`wkb`):
 
 ```{r}
 #| warning: false
@@ -135,20 +158,30 @@ library(wkb) #Convert Between Spatial Objects and Well-Known Binary Geometry
 #liverpool_wkb <- writeWKB(liverpool) #Converts Spatial objects to well-known binary (WKB) geometry representations.
 ```
 
-But the underlying data (point coordinates) can also be extracted directly within R. If we want to pull out the x coordinate for each point, we can access it under geometry.x:
+But the underlying data (point coordinates) can also be extracted
+directly within R. If we want to pull out the x coordinate for each
+point, we can access it under geometry.x:
 
-Another benefit of reading data with sf is we can use its analytical capabilities. For example, we can calculate the length of line:
+Another benefit of reading data with sf is we can use its analytical
+capabilities. For example, we can calculate the length of line:
+
 ```{r}
 #| warning: false
 #st_length(x, ...)
 ```
 
-Given the the line is expressed in metres (check out EPSG:27700), we can conclude the line spans about 88m.
+Given the the line is expressed in metres (check out EPSG:27700), we can
+conclude the line spans about 88m.
 
-Once we are happy with the data as we will hypothetically need it, we can write it out to any other file format supported in `sf`.
-For example, we can create a Geopackge file with the same information:
+Once we are happy with the data as we will hypothetically need it, we
+can write it out to any other file format supported in `sf`. For
+example, we can create a Geopackge file with the same information:
 
-The file name is taken as the data source name. The default for the layer name is the basename (filename without path) of the the data source name. For this, st_write needs to guess the driver. The above command is, for instance, equivalent to:
+The file name is taken as the data source name. The default for the
+layer name is the basename (filename without path) of the the data
+source name. For this, st_write needs to guess the driver. The above
+command is, for instance, equivalent to:
+
 ```{r}
 #| warning: false
 st_write(liverpool_bng, dsn = "data/test.gpkg", layer = "data/test.gpkg", driver = "GPKG", delete_dsn = TRUE)
@@ -160,10 +193,10 @@ R's `sf`
 a good reference for manipulation operations/spatial predicates with
 simple features.
 
-**EXERCISE**
-- Read the `GeoJSON` created for your favorite walks in Liverpool and calculate their length
-- **Pro**: explore the geopandas documentation and try to extract the area for the polygon covering your neighbourhood
-
+**EXERCISE** - Read the `GeoJSON` created for your favorite walks in
+Liverpool and calculate their length - **Pro**: explore the geopandas
+documentation and try to extract the area for the polygon covering your
+neighbourhood
 
 ### Tilesets and `Mbtiles`
 

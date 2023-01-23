@@ -4,23 +4,12 @@ This is the website for "Web Mapping and Analysis" for the module **ENVS456** at
 
 The website is **free to use** and is licensed under the [Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/). A compilation of this web course is hosted as a GitHub repository that you can access:
 
-* As a [download](https://github.com/GDSL-UL/wma/archive/refs/heads/main.zip) of a `.zip` file that contains all the materials.
-* As an [html website](https://gdsl-ul.github.io/wma).
-* As a [pdf document](https://gdsl-ul.github.io/wma.pdf)
-* As a [GitHub repository](https://github.com/GDSL-UL/wma).
+-   As an [html website](https://gdsl-ul.github.io/wma).
+-   As a [pdf document](https://github.com/GDSL-UL/wma/raw/main/index.pdf)
+-   As a [GitHub repository](https://github.com/GDSL-UL/wma).
 
-## Contact {-}
+## Contact {.unnumbered}
 
-> Dani Arribas-Bel - darribas [at] liverpool.ac.uk
-Professor in Geographic Data Science
-Office 6xx, Roxby Building,
-University of Liverpool - 74 Bedford St S,
-Liverpool, L69 7ZT,
-United Kingdom.
+> Dani Arribas-Bel - darribas \[at\] liverpool.ac.uk Professor in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.
 
-> Elisabetta Pietrostefani - e.pietrostefani [at] liverpool.ac.uk
-Lecturer in Geographic Data Science
-Office 6xx, Roxby Building,
-University of Liverpool - 74 Bedford St S,
-Liverpool, L69 7ZT,
-United Kingdom.
+> Elisabetta Pietrostefani - e.pietrostefani \[at\] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.

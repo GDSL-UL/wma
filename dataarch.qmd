@@ -42,7 +42,7 @@ file from scratch. Head over to the following website:
 In there, we will create together a small example to better understand
 the building blocks of this file format.
 
-![geojson.io](https://github.com/GDSL-UL/wma/raw/main/figs/geojson.png){width="80%"}
+![geojson.io](https://github.com/GDSL-UL/wma/raw/main/img/geojson.png){width="80%"}
 
 We will pay special attention to the following aspects:
 

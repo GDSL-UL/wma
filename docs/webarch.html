@@ -193,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./techgallery.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Overview</span></a>
+  <a href="./techgallery.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Technology Gallery</span></a>
   </div>
 </li>
     </ul>
@@ -208,8 +208,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture"><span class="toc-section-number">2.1</span>  Lecture</a></li>
   <li><a href="#lab-what-do-apis-actually-do" id="toc-lab-what-do-apis-actually-do" class="nav-link" data-scroll-target="#lab-what-do-apis-actually-do"><span class="toc-section-number">2.2</span>  Lab: What do APIs actually do?</a>
   <ul class="collapse">
-  <li><a href="#paired-activity" id="toc-paired-activity" class="nav-link" data-scroll-target="#paired-activity"><span class="toc-section-number">2.2.1</span>  Paired activity</a></li>
-  <li><a href="#class-discussion" id="toc-class-discussion" class="nav-link" data-scroll-target="#class-discussion"><span class="toc-section-number">2.2.2</span>  Class discussion</a></li>
+  <li><a href="#restful-web-apis-are-all-around-you." id="toc-restful-web-apis-are-all-around-you." class="nav-link" data-scroll-target="#restful-web-apis-are-all-around-you."><span class="toc-section-number">2.2.1</span>  RESTful Web APIs are all around you.</a></li>
+  <li><a href="#paired-activity" id="toc-paired-activity" class="nav-link" data-scroll-target="#paired-activity"><span class="toc-section-number">2.2.2</span>  Paired activity</a></li>
+  <li><a href="#class-discussion" id="toc-class-discussion" class="nav-link" data-scroll-target="#class-discussion"><span class="toc-section-number">2.2.3</span>  Class discussion</a></li>
+  <li><a href="#paired-activity-answers" id="toc-paired-activity-answers" class="nav-link" data-scroll-target="#paired-activity-answers"><span class="toc-section-number">2.2.4</span>  Paired activity answers</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">2.3</span>  References</a></li>
   </ul>
@@ -244,12 +246,40 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="lab-what-do-apis-actually-do" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="lab-what-do-apis-actually-do"><span class="header-section-number">2.2</span> Lab: What do APIs actually do?</h2>
-<p>TO DO Non-spatial APIs - tidycensus - Unpacking what that function is doing. - What the API is actually doing? - Wanted to understand - abstracts everything away. Unpack. - REST type of API. - Function web address.</p>
-<section id="paired-activity" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="paired-activity"><span class="header-section-number">2.2.1</span> Paired activity</h3>
+<p>In this lab, we will unpack how Application Programming Interfaces (“APIs”) work and we cover the basics of accessing an API using R. Instead of downloading a data set, APIs allow programmers, statisticians (or students) to request data directly from a server to a local machine. When you work with web APIs, two different computers — a client and server — will interact with each other to request and provide data, respectively.</p>
+<p><strong>Web APIs</strong></p>
+<ul>
+<li><p>Allow you query a remote database over the internet</p></li>
+<li><p>Take on a variety of formats</p></li>
+<li><p>Adhere to a particular style known as Representation State Transfer or REST (in most cases)</p></li>
+<li><p>RESTful APIs are convenient because we use them to query database using URLs</p></li>
+</ul>
+<section id="restful-web-apis-are-all-around-you." class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="restful-web-apis-are-all-around-you."><span class="header-section-number">2.2.1</span> RESTful Web APIs are all around you.</h3>
+<p>Consider a simple Google search:</p>
+<p><img src="https://github.com/GDSL-UL/wma/raw/main/img/google.png" class="img-fluid" style="width:70.0%"></p>
+<p>Ever wonder what all that extra stuff in the address bar was all about? In this case, the full address is Google’s way of sending a query to its databases requesting information related to the search term <em>liverpool top attractions</em>.</p>
+<p><img src="https://github.com/GDSL-UL/wma/raw/main/img/liv_attractions.png" class="img-fluid" style="width:70.0%"> In fact, it looks like Google makes its query by taking the search terms, separating each of them with a <strong>+</strong>, and appending them to the link <a href="https://www.google.com/#q=" class="uri">https://www.google.com/#q=</a>. Therefore, we should be able to actually change our Google search by adding some terms to the URL:</p>
+<p><img src="https://github.com/GDSL-UL/wma/raw/main/img/beatles.png" class="img-fluid" style="width:70.0%"> Learning how to use RESTful APIs is all about learning how to format these URLs so that you can get the response you want.</p>
 </section>
-<section id="class-discussion" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="class-discussion"><span class="header-section-number">2.2.2</span> Class discussion</h3>
+<section id="paired-activity" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="paired-activity"><span class="header-section-number">2.2.2</span> Paired activity</h3>
+<p>Using your friend the internet, look up some answers to the following questions:</p>
+<ol type="1">
+<li><p>What is a URL and how can it help us query data?</p></li>
+<li><p>What is a “GET request”?</p></li>
+</ol>
+</section>
+<section id="class-discussion" class="level3" data-number="2.2.3">
+<h3 data-number="2.2.3" class="anchored" data-anchor-id="class-discussion"><span class="header-section-number">2.2.3</span> Class discussion</h3>
+<p>TO DO Non-spatial APIs - tidycensus - Unpacking what that function is doing. - What the API is actually doing? - Wanted to understand - abstracts everything away. Unpack. - REST type of API. - Function web address.</p>
+</section>
+<section id="paired-activity-answers" class="level3" data-number="2.2.4">
+<h3 data-number="2.2.4" class="anchored" data-anchor-id="paired-activity-answers"><span class="header-section-number">2.2.4</span> Paired activity answers</h3>
+<ol type="1">
+<li><p>Uniform Resource Location (<code>URL</code>) is a string of characters that, when interpreted via the Hypertext Transfer Protocol (<code>HTTP</code>). URLs point to a data resource, notably files written in Hypertext Markup Language (<code>HTML</code>) or a subset of a database</p></li>
+<li><p><code>GET</code> requests a representation of a data resource corresponding to a particular <code>URL</code>. The process of executing the <code>GET</code> method is often referred to as a <code>GET request</code> and is the main method used for querying RESTful databases. <code>HEAD</code>,&nbsp;<code>POST</code>,&nbsp;<code>PUT</code>,&nbsp;<code>DELETE</code>: other common methods, though mostly never used for database querying.</p></li>
+</ol>
 </section>
 </section>
 <section id="references" class="level2" data-number="2.3">

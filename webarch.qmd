@@ -12,11 +12,50 @@ Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lect
 
 ## Lab: What do APIs actually do?
 
-TO DO Non-spatial APIs - tidycensus - Unpacking what that function is doing. - What the API is actually doing? - Wanted to understand - abstracts everything away. Unpack. - REST type of API. - Function web address.
+In this lab, we will unpack how Application Programming Interfaces ("APIs") work and we cover the basics of accessing an API using R. Instead of downloading a data set, APIs allow programmers, statisticians (or students) to request data directly from a server to a local machine. When you work with web APIs, two different computers --- a client and server --- will interact with each other to request and provide data, respectively.
+
+**Web APIs**
+
+-   Allow you query a remote database over the internet
+
+-   Take on a variety of formats
+
+-   Adhere to a particular style known as Representation State Transfer or REST (in most cases)
+
+-   RESTful APIs are convenient because we use them to query database using URLs
+
+### RESTful Web APIs are all around you.
+
+Consider a simple Google search:
+
+![](https://github.com/GDSL-UL/wma/raw/main/img/google.png){width="70%"}
+
+Ever wonder what all that extra stuff in the address bar was all about? In this case, the full address is Google's way of sending a query to its databases requesting information related to the search term *liverpool top attractions*.
+
+![](https://github.com/GDSL-UL/wma/raw/main/img/liv_attractions.png){width="70%"}
+In fact, it looks like Google makes its query by taking the search terms, separating each of them with a **+**, and appending them to the link <https://www.google.com/#q=>. Therefore, we should be able to actually change our Google search by adding some terms to the URL:
+
+![](https://github.com/GDSL-UL/wma/raw/main/img/beatles.png){width="70%"}
+Learning how to use RESTful APIs is all about learning how to format these URLs so that you can get the response you want.
 
 ### Paired activity
 
+Using your friend the internet, look up some answers to the following questions:
+
+1.  What is a URL and how can it help us query data?
+
+2.  What is a "GET request"?
+
+
 ### Class discussion
+
+TO DO Non-spatial APIs - tidycensus - Unpacking what that function is doing. - What the API is actually doing? - Wanted to understand - abstracts everything away. Unpack. - REST type of API. - Function web address.
+
+### Paired activity answers
+
+1.  Uniform Resource Location (`URL`) is a string of characters that, when interpreted via the Hypertext Transfer Protocol (`HTTP`). URLs point to a data resource, notably files written in Hypertext Markup Language (`HTML`) or a subset of a database
+
+2.  `GET` requests a representation of a data resource corresponding to a particular `URL`. The process of executing the `GET` method is often referred to as a `GET request` and is the main method used for querying RESTful databases. `HEAD`, `POST`, `PUT`, `DELETE`: other common methods, though mostly never used for database querying.
 
 ## References
 

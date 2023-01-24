@@ -1,7 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://gdsl-ul.github.io/wma/index.html</loc>
+    <lastmod>2023-01-24T12:10:00.693Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gdsl-ul.github.io/wma/structure.html</loc>
+    <lastmod>2023-01-24T12:07:48.476Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gdsl-ul.github.io/wma/overview.html</loc>
+    <lastmod>2023-01-24T12:07:48.477Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gdsl-ul.github.io/wma/assess.html</loc>
+    <lastmod>2023-01-24T12:07:48.496Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gdsl-ul.github.io/wma/introduction.html</loc>
+    <lastmod>2023-01-24T12:10:03.681Z</lastmod>
+  </url>
+  <url>
     <loc>https://gdsl-ul.github.io/wma/webarch.html</loc>
-    <lastmod>2023-01-24T11:59:27.477Z</lastmod>
+    <lastmod>2023-01-24T12:10:17.117Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gdsl-ul.github.io/wma/dataarch.html</loc>
+    <lastmod>2023-01-24T12:10:25.214Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gdsl-ul.github.io/wma/apis.html</loc>
+    <lastmod>2023-01-24T12:07:48.502Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gdsl-ul.github.io/wma/mapdesign.html</loc>
+    <lastmod>2023-01-24T12:07:48.503Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gdsl-ul.github.io/wma/interact.html</loc>
+    <lastmod>2023-01-24T12:07:48.503Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gdsl-ul.github.io/wma/choro.html</loc>
+    <lastmod>2023-01-24T12:07:48.504Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gdsl-ul.github.io/wma/dashboards.html</loc>
+    <lastmod>2023-01-24T12:07:48.504Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gdsl-ul.github.io/wma/techgallery.html</loc>
+    <lastmod>2023-01-24T12:07:48.504Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gdsl-ul.github.io/wma/Web-Mapping-and-Analysis.pdf</loc>
+    <lastmod>2023-01-24T12:07:48.195Z</lastmod>
   </url>
 </urlset>

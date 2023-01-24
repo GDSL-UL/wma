@@ -5,7 +5,7 @@ This is the website for "Web Mapping and Analysis" for the module **ENVS456** at
 The website is **free to use** and is licensed under the [Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/). A compilation of this web course is hosted as a GitHub repository that you can access:
 
 -   As an [html website](https://gdsl-ul.github.io/wma).
--   As a [pdf document](https://github.com/GDSL-UL/wma/raw/main/index.pdf)
+-   As a [pdf document](https://github.com/GDSL-UL/wma/raw/main/docs/Web-Mapping-and-Analysis.pdf)
 -   As a [GitHub repository](https://github.com/GDSL-UL/wma).
 
 ## Contact {.unnumbered}

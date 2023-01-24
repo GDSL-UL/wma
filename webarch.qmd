@@ -1,3 +1,10 @@
+---
+prefer-html: true
+editor: 
+  markdown: 
+    wrap: 72
+---
+
 # Web architecture
 
 Dani Arribas-Bel

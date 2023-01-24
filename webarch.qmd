@@ -67,7 +67,7 @@ There are two ways to collect data through APIs in R:
 
 **Writing our own API request.** If no wrapper function is available, we have to write our own API request and format the response ourselves using R. This is tricky, but definitely doable.
 
-### Pair activity 
+#### `tidycensus` pair activity 
 
 Some R packages "wrap" API queries and format the response. Lucky us! In pairs, let's have a look at `tidycensus`. You can also have a look at the different APIs available from the [United States Census Bureau](https://www.census.gov/data/developers.html).
 
@@ -155,7 +155,7 @@ ggplot(ga_wide, aes(x = medageE, y = medincE)) +
 
 You can also directly map data you have queried in `tidycensus`. We will look at this in future sessions. For a complete overview of `tidycensus` please see [Analyzing US Census Data: Methods, Maps, and Models in R](https://walker-data.com/census-r/wrangling-census-data-with-tidyverse-tools.html).
 
-#### Our own API request
+#### Your own API request demo
 
 The R libraries that are often used for APIs are `httr` and `jsonlite`. They serve different roles in our introduction of APIs, but both are essential.
 
@@ -222,7 +222,7 @@ tm_basemap() +
   tm_symbols(id = "commonName", col = "red", scale = .5)
 ```
 
-### Group activity answers
+## Group activity answers
 
 1.  Uniform Resource Location (`URL`) is a string of characters that, when interpreted via the Hypertext Transfer Protocol (`HTTP`). URLs point to a data resource, notably files written in Hypertext Markup Language (`HTML`) or a subset of a database
 

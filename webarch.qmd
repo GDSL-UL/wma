@@ -42,9 +42,9 @@ Learning how to use RESTful APIs is all about learning how to format these URLs 
 
 ### Group activity
 
-Get into groups of 5 or 6 students. Using your friend the internet, look up answers to the following questions. Each group will be assigned one question and quickly present their findings to discuss with the entire class.
+Get into groups of 5 or 6 students. Using your friend the internet, look up answers to the following questions. Each group will be assigned one question and asked to present their findings in 5 min to discuss with the entire class.
 
-1.  What is a URL and how can it help us query data? What is a response status and what are the possible categories?
+1.  What is a `URL` and how can it help us query data? What is a response status and what are the possible categories?
 
 2.  What is a `GET` request? How does a `GET` request work?
 
@@ -56,9 +56,97 @@ Get into groups of 5 or 6 students. Using your friend the internet, look up answ
 
 There are two ways to collect data through APIs in R:
 
-**Writing our own API request.** If there is no wrapper function is available, we have to write our own API request and format the response ourselves using R. This is tricky, but definitely doable.
+**Plug-n-play packages.** Many common APIs are available through user-written R Packages. These packages offer functions that conveniently "wrap" API queries and format the response. These packages are usually much more convenient than writing our own query, so it is worth searching for a package that works with the API we need.
 
-**Plug-n-play packages.** Many common APIs are available through user-written R Packages. These packages offer functions that "wrap" API queries and format the response. These packages are usually much more convenient than writing our own query, so it is worth searching around for a package that works with the API we need.
+**Writing our own API request.** If no wrapper function is available, we have to write our own API request and format the response ourselves using R. This is tricky, but definitely doable.
+
+### Pair activity 
+
+Some R packages "wrap" API queries and format the response. Lucky us! In pairs, let's have a look at `tidycensus`. You can also have a look at the different APIs available from the [United States Census Bureau](https://www.census.gov/data/developers.html).
+
+`tidycensus is`
+
+`- R package first released in mid-2017`
+
+`- Allows R users to obtain decennial Census and ACS data pre-formatted for use with with tidyverse tools (dplyr, ggplot2, etc.)`
+
+`- Optionally returns geographic data as simple feature geometry for common Census geographies`
+
+Create a new `R-markdown` and save it to something you'll remember, like `web_mapping_lab_02.Rmd`. To get started working, load the package along with the `tidyverse` and `plyr` packages, and set you Census API key. A key can be obtained from http://api.census.gov/data/key_signup.html.
+
+```{r tidycensus}
+#| warning: false
+library(plyr)
+library(tidycensus)
+library(tidyverse)
+
+census_api_key("12efa59339e5a00a910f77f2e691309ae70e1d1b") #replace this with your key
+```
+
+-   Variables in tidycensus are identified by their Census ID, e.g. B19013_001
+
+-   Entire tables of variables can be requested with the table argument, e.g. table = "B19001"
+
+-   Users can request multiple variables at a time, and set custom names with a named vector
+
+**Searching for variables** Getting variables from the US American Community Survey (ACS) 5-Year Data (2016-2020) requires knowing the variable ID - and there are thousands of these IDs across the different files. To rapidly search for variables, use the load_variables() function. The function takes two required arguments: the year of the Census or endyear of the ACS sample, and the dataset name, which varies in availability by year. For the ACS, use either "acs1" or "acs5" for the ACS detailed tables, and append /profile for the Data Profile and /subject for the Subject Tables. To browse these variables, assign the result of this function to a variable and use the View function in RStudio. An optional argument cache = TRUE will cache the dataset on your computer for future use.
+
+```{r}
+#| warning: false
+view_vars <- load_variables(2020, "acs5", cache = TRUE)
+
+view(view_vars)
+```
+
+**EXERCISE** - In your pairs explore some of the different variables available in the 5-Year ACS (2016-2020). Make a note of 3 variables you would be interested in exploring. The [ACS2 variables page](https://api.census.gov/data/2020/acs/acs5/variables.html) might also help.
+
+```{r}
+#| warning: false
+income <- get_acs(geography = "state", table = "B19001") #getting income data by state
+income
+```
+**EXERCISE** - 1) What is a tibble? 2) Discuss the format of the data obtained with your partner and then use the function `get_acs` to explore the 3 variables you discussed in the previous exercise.
+
+You can also get "wide" census data:
+```{r}
+#| warning: false
+inc_wide <- get_acs(geography = "state", table = "B19001", output = "wide")
+inc_wide
+```
+
+Let's make our query a bit more precise. We are going to query data on median household income and median age by county in the state of New York from the 2016-2020 ACS. 
+
+```{r}
+#| warning: false
+ga_wide <- get_acs(
+  geography = "county",
+  state = "Louisiana",
+  variables = c(medinc = "B19013_001",
+                medage = "B01002_001"),
+  output = "wide",
+  year = 2020
+)
+```
+
+Let's plot one of our variables. By default, ggplot organizes the data into 30 bins; this option can be changed with the bins parameter.
+```{r}
+#| warning: false
+ggplot(ga_wide, aes(x = medincE)) + 
+  geom_histogram(bins = 15) #argument bins = 15 in our call to geom_histogram()
+```
+
+We can also easily explort correlations between variables. The `geom_point()` function, which plots points on a chart relative to X and Y values for observations in a dataset. This requires specification of two columns in the call to `aes()`.
+```{r}
+#| warning: false
+#| message: false
+ggplot(ga_wide, aes(x = medageE, y = medincE)) + 
+  geom_point() + 
+  geom_smooth(method = "lm")
+```
+
+**EXERCISE** - In your pairs, modify the state, vairables and year parametres in your `get_acs` function and produce some other simple scatter plots (cloud of points) that suggest correlations between your variables of interest.
+
+You can also directly map data you have queried in `tidycensus`. We will look at this in future sessions. For a complete overview of `tidycensus` please see [Analyzing US Census Data: Methods, Maps, and Models in R](https://walker-data.com/census-r/wrangling-census-data-with-tidyverse-tools.html).
 
 #### Our own API request
 
@@ -66,7 +154,7 @@ The R libraries that are often used for APIs are `httr` and `jsonlite`. They ser
 
 `JSON` stands for JavaScript Object Notation. While JavaScript is another programming language. JSON is useful because it is easily readable by a computer, and for this reason, it has become the primary way that data is transported through APIs. Most APIs will send their responses in JSON format. Using the `jsonlite` package, you can extract and format data into an R dataframe. `JSON` is a structure formatted with a key (for example, a variable name `id`) and a value (`BikePoints_308`). We used the function `fromJSON` to transform the API request content into a useable dataframe.
 
-We will request the locations of all the hire bike stations in London from the Transport for London API. We use the `GET` function from `httr` package.
+We will request the locations of all the hire bike stations in London from the Transport for London API. We use the `GET` function from `httr` package.The `GET()` function requires a URL, which specifies the server's address to which the request needs to be sent.
 
 ```{r pakages API}
 #| warning: false
@@ -74,10 +162,7 @@ library(httr)
 library(jsonlite)
 
 #key <- "YOURKEY HERE"
-request <- GET("https://api.tfl.gov.uk/BikePoint/")
-# To create a GET request, we need to use the GET() function from the `httr` library. 
-#The GET() function requires a URL, which specifies the server's address to which the request needs to be sent.
-# Here we request all the bike docking stations from the Transport for London API
+request <- GET("https://api.tfl.gov.uk/BikePoint/") # Here we request all the bike docking stations from the Transport for London API
 ```
 
 ```{r examine}
@@ -130,52 +215,6 @@ tm_basemap() +
   tm_symbols(id = "commonName", col = "red", scale = .5)
 ```
 
-### Pair activity - Plug-n-play packages
-
-Many R packages have been developed that "wrap" API queries and format the response. Lucky us! 
-In Pairs, let's have a look at `tidycensus`. To get started working with tidycensus, users should load the package along with the tidyverse package, and set you Census API key. A key can be obtained from http://api.census.gov/data/key_signup.html.
-
-```{r tidycensus}
-#| warning: false
-library(plyr)
-library(tidycensus)
-library(tidyverse)
-library(sf)
-
-census_api_key("12efa59339e5a00a910f77f2e691309ae70e1d1b") #replace this with your key
-
-```
-
-## Searching for variables
-
-Getting variables from the US American Community Survey (ACS) 5-Year Data (2016-2020) requires knowing the variable ID - and there are thousands of these IDs across the different files. To rapidly search for variables, use the load_variables() function. The function takes two required arguments: the year of the Census or endyear of the ACS sample, and the dataset name, which varies in availability by year. For the ACS, use either "acs1" or "acs5" for the ACS detailed tables, and append /profile for the Data Profile and /subject for the Subject Tables. To browse these variables, assign the result of this function to a variable and use the View function in RStudio. An optional argument cache = TRUE will cache the dataset on your computer for future use.
-
-```{r}
-view_vars <- load_variables(2020, "acs5", cache = TRUE)
-
-view(view_vars)
-```
-
-
-# An Example: New York City
-
-The following example shows median household income from the 2016-2020 ACS for Census tracts in New York State:
-```{r nyc}
-
-nyc <- get_acs(
- state = "New York",
- county = "New York",
- geography = "tract",
- variables = "B19013_001",
- geometry = TRUE,
- year = 2020
-)
-
-head(nyc)
-```
-
-
-
 ### Group activity answers
 
 1.  Uniform Resource Location (`URL`) is a string of characters that, when interpreted via the Hypertext Transfer Protocol (`HTTP`). URLs point to a data resource, notably files written in Hypertext Markup Language (`HTML`) or a subset of a database
@@ -192,13 +231,13 @@ head(nyc)
 
 2.  `GET` requests a representation of a data resource corresponding to a particular `URL`. The process of executing the `GET` method is often referred to as a `GET request` and is the main method used for querying RESTful databases. `HEAD`, `POST`, `PUT`, `DELETE`: other common methods, though mostly never used for database querying.
 
-    Surfing the web is basically equivalent to sending a bunch of GET requests to different servers and asking for different files written in HTML. Suppose, for instance, I wanted to look something up on Wikipedia. Your first step would be to open your web browser and type in http://www.wikipedia.org. Once you hit return, you would see the page below. Several different processes occured, however, between you hitting "return" and the page finally being rendered:
+    Surfing the web is basically equivalent to sending a bunch of `GET` requests to different servers and asking for different files written in `HTM`L. Suppose, for instance, I wanted to look something up on Wikipedia. Your first step would be to open your web browser and type in http://www.wikipedia.org. Once you hit return, you would see the page below. Several different processes occured, however, between you hitting "return" and the page finally being rendered:
 
-    1.  The web browser took the entered character string, used the command-line tool "Curl" to write a properly formatted HTTP GET request, and submitted it to the server that hosts the Wikipedia homepage.
+    1.  The web browser took the entered character string, used the command-line tool "Curl" to write a properly formatted `HTTP GET` request, and submitted it to the server that hosts the Wikipedia homepage.
 
-    2.  After receiving this request, the server sent an HTTP response, from which Curl extracted the HTML code for the page (partially shown below).
+    2.  After receiving this request, the server sent an `HTTP` response, from which `Curl` extracted the HTML code for the page (partially shown below).
 
-    3.  The raw HTML code was parsed and then executed by the web browser, rendering the page as seen in the window.
+    3.  The raw `HTML` code was parsed and then executed by the web browser, rendering the page as seen in the window.
 
     4.  Most APIs requires a key or other user credentials before you can query their database. Getting credentialised with a API requires that you register with the organization. Once you have successfully registered, you will be assigned one or more keys, tokens, or other credentials that must be supplied to the server as part of any API call you make. To make sure users are not abusing their data access privileges (e.g., by making many rapid queries), each set of keys will be given rate limits governing the total number of calls that can be made over certain intervals of time.
 
@@ -210,3 +249,4 @@ head(nyc)
 -   Haklay, M., Singleton, A., Parker, C. 2008. ["Web Mapping 2.0: The Neogeography of the GeoWeb"](https://compass.onlinelibrary.wiley.com/doi/abs/10.1111/j.1749-8198.2008.00167.x). Geography Compass, 2(6):2011--2039
 -   [A blog post from Joe Morrison](https://joemorrison.medium.com/death-of-an-open-source-business-model-62bc227a7e9b) commenting on the recent change of licensing for some of the core software from Mapbox
 -   Terman, R., 2020. [Computational Tools for Social Science](https://plsc-31101.github.io/course/)
+- Walker, K. [Analyzing US Census Data: Methods, Maps, and Models in R](https://walker-data.com/census-r/wrangling-census-data-with-tidyverse-tools.html).

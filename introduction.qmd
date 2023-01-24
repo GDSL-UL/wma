@@ -40,7 +40,7 @@ In pairs, find three examples where web maps are used to communicate an idea. Co
 
 Post each sheet as a separate item on the Teams channel for Lab No.1
 
-As an example, below is the sheet for the project "A map of every building in America" !["A map of every building in America"](https://github.com/GDSL-UL/wma/raw/main/img/buildamerica.png)
+As an example, below is the sheet for the project "A map of every building in America" !["A map of every building in America"](./img/buildamerica.png)
 
 -   **Substantive**
 

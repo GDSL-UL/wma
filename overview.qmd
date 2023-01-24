@@ -66,6 +66,8 @@ The list of libraries used in this book is provided below:
 -   `tidyverse`
 -   `viridis`
 -   `viridisLite`
+-   `httr`
+-   `jsonlite`
 
 You need to ensure you have installed the list of libraries used in this book, running the following code:
 

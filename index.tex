@@ -190,7 +190,7 @@
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, interior hidden, boxrule=0pt, frame hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, breakable]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, breakable, borderline west={3pt}{0pt}{shadecolor}, enhanced, boxrule=0pt, sharp corners, frame hidden]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 {
@@ -225,13 +225,10 @@ GitHub repository that you can access:
 \begin{itemize}
 \tightlist
 \item
-  As a
-  \href{https://github.com/GDSL-UL/wma/archive/refs/heads/main.zip}{download}
-  of a \texttt{.zip} file that contains all the materials.
-\item
   As an \href{https://gdsl-ul.github.io/wma}{html website}.
 \item
-  As a \href{https://gdsl-ul.github.io/wma.pdf}{pdf document}
+  As a \href{https://github.com/GDSL-UL/wma/raw/main/index.pdf}{pdf
+  document}
 \item
   As a \href{https://github.com/GDSL-UL/wma}{GitHub repository}.
 \end{itemize}
@@ -1031,8 +1028,7 @@ idea. Complete the following sheet for each example:
 Post each sheet as a separate item on the Teams channel for Lab No.1
 
 As an example, below is the sheet for the project ``A map of every
-building in America''
-\includegraphics{https://github.com/GDSL-UL/wma/raw/main/figs/buildamerica.png}
+building in America'' \includegraphics{././img/buildamerica.png}
 
 \begin{itemize}
 \item
@@ -1133,16 +1129,95 @@ Slides can be downloaded
 \section{Lab: What do APIs actually
 do?}\label{lab-what-do-apis-actually-do}}
 
+In this lab, we will unpack how Application Programming Interfaces
+(``APIs'') work and we cover the basics of accessing an API using R.
+Instead of downloading a data set, APIs allow programmers, statisticians
+(or students) to request data directly from a server to a local machine.
+When you work with web APIs, two different computers --- a client and
+server --- will interact with each other to request and provide data,
+respectively.
+
+\textbf{Web APIs}
+
+\begin{itemize}
+\item
+  Allow you query a remote database over the internet
+\item
+  Take on a variety of formats
+\item
+  Adhere to a particular style known as Representation State Transfer or
+  REST (in most cases)
+\item
+  RESTful APIs are convenient because we use them to query database
+  using URLs
+\end{itemize}
+
+\hypertarget{restful-web-apis-are-all-around-you.}{%
+\subsection{RESTful Web APIs are all around
+you.}\label{restful-web-apis-are-all-around-you.}}
+
+Consider a simple Google search:
+
+\includegraphics[width=0.7\textwidth,height=\textheight]{././img/google.png}
+
+Ever wonder what all that extra stuff in the address bar was all about?
+In this case, the full address is Google's way of sending a query to its
+databases requesting information related to the search term
+\emph{liverpool top attractions}.
+
+\includegraphics[width=0.7\textwidth,height=\textheight]{././img/liv_attractions.png}
+
+In fact, it looks like Google makes its query by taking the search
+terms, separating each of them with a \textbf{+}, and appending them to
+the link \url{https://www.google.com/\#q=}. Therefore, we should be able
+to actually change our Google search by adding some terms to the URL:
+
+\includegraphics[width=0.7\textwidth,height=\textheight]{././img/beatles.png}
+
+Learning how to use RESTful APIs is all about learning how to format
+these URLs so that you can get the response you want.
+
+\hypertarget{paired-activity-1}{%
+\subsection{Paired activity}\label{paired-activity-1}}
+
+Using your friend the internet, look up some answers to the following
+questions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  What is a URL and how can it help us query data?
+\item
+  What is a ``GET request''?
+\end{enumerate}
+
+\hypertarget{class-discussion-1}{%
+\subsection{Class discussion}\label{class-discussion-1}}
+
 TO DO Non-spatial APIs - tidycensus - Unpacking what that function is
 doing. - What the API is actually doing? - Wanted to understand -
 abstracts everything away. Unpack. - REST type of API. - Function web
 address.
 
-\hypertarget{paired-activity-1}{%
-\subsection{Paired activity}\label{paired-activity-1}}
+\hypertarget{paired-activity-answers}{%
+\subsection{Paired activity answers}\label{paired-activity-answers}}
 
-\hypertarget{class-discussion-1}{%
-\subsection{Class discussion}\label{class-discussion-1}}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Uniform Resource Location (\texttt{URL}) is a string of characters
+  that, when interpreted via the Hypertext Transfer Protocol
+  (\texttt{HTTP}). URLs point to a data resource, notably files written
+  in Hypertext Markup Language (\texttt{HTML}) or a subset of a database
+\item
+  \texttt{GET} requests a representation of a data resource
+  corresponding to a particular \texttt{URL}. The process of executing
+  the \texttt{GET} method is often referred to as a
+  \texttt{GET\ request} and is the main method used for querying RESTful
+  databases.
+  \texttt{HEAD},~\texttt{POST},~\texttt{PUT},~\texttt{DELETE}: other
+  common methods, though mostly never used for database querying.
+\end{enumerate}
 
 \hypertarget{references-1}{%
 \section{References}\label{references-1}}
@@ -1216,7 +1291,7 @@ the building blocks of this file format.
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\textwidth,height=\textheight]{https://github.com/GDSL-UL/wma/raw/main/figs/geojson.png}
+{\centering \includegraphics[width=0.8\textwidth,height=\textheight]{https://github.com/GDSL-UL/wma/raw/main/img/geojson.png}
 
 }
 
@@ -1615,12 +1690,14 @@ Slides can be downloaded
 
 \bookmarksetup{startatroot}
 
-\hypertarget{overview-1}{%
-\chapter{Overview}\label{overview-1}}
+\hypertarget{technology-gallery}{%
+\chapter{Technology Gallery}\label{technology-gallery}}
 
-Block 10 - 24 April - Dani/Elisabetta * Lecture: Technology gallery *
-Lab: Assignment II clinic Leadership technology gallery session - track
-of ideas. 2 weeks sign up.
+Dani Arribas-Bel
+
+\textbf{Lecture}: Technology gallery
+
+\textbf{Lab}: Assignment II clinic.
 
 
 

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.23)  23 JAN 2023 20:15
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.1.23)  23 JAN 2023 22:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1152,12 +1152,12 @@ Underfull \hbox (badness 1715) in paragraph at lines 220--224
 ] [5] [6
 
 ] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 560--564
+Underfull \hbox (badness 10000) in paragraph at lines 557--561
 []\TU/lmr/m/n/10.95 new.packages.cran <- list.of.packages.cran[!(list.of.packages.cran %in% in-
  []
 
 
-Overfull \hbox (73.27724pt too wide) in paragraph at lines 560--564
+Overfull \hbox (73.27724pt too wide) in paragraph at lines 557--561
 \TU/lmr/m/n/10.95 stalled.packages()[,“Package”])] if(length(new.packages.cran)) install.packages(new.packages.cran) 
  []
 
@@ -1165,7 +1165,7 @@ Overfull \hbox (73.27724pt too wide) in paragraph at lines 560--564
 
 ] [10]
 LaTeX Font Info:    Font shape `TU/lmss/bx/it' in size <12> not available
-(Font)              Font shape `TU/lmss/bx/sl' tried instead on input line 762.
+(Font)              Font shape `TU/lmss/bx/sl' tried instead on input line 759.
 [11] [12] [13] [14]
 chapter 1.
 
@@ -1186,21 +1186,62 @@ Class scrreprt Warning: \float@addtolists detected!
 [15
 
 ]
+File: ././img/buildamerica.png Graphic file (type bmp)
+<././img/buildamerica.png>
 
-LaTeX Warning: File `https://github.com/GDSL-UL/wma/raw/main/figs/buildamerica.png' not found on input line 1035.
+Overfull \hbox (10.95679pt too wide) in paragraph at lines 1030--1032
+[] 
+ []
 
-! Unable to load picture or PDF file 'https://github.com/GDSL-UL/wma/raw/main/figs/buildamerica.png'.
+[16]
+Overfull \hbox (185.05475pt too wide) in paragraph at lines 1057--1060
+[]\TU/lmtt/m/n/10.95 URL\TU/lmr/m/n/10.95 : [][]\TU/lmtt/m/n/10.95 https://www.nytimes.com/interactive/2018/10/12/us/map-of-every-building-in-the-united-states.html[][] 
+ []
+
+[17]
+chapter 2.
+File: ././img/google.png Graphic file (type bmp)
+<././img/google.png>
+[18
+
+]
+File: ././img/liv_attractions.png Graphic file (type bmp)
+<././img/liv_attractions.png>
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.665pt on input line 1172.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.475pt on input line 1172.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 10.95099pt on input line 1172.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.66568pt on input line 1172.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.4755pt on input line 1172.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 10.94882pt on input line 1172.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.66417pt on input line 1172.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.47441pt on input line 1172.
+File: ././img/beatles.png Graphic file (type bmp)
+<././img/beatles.png>
+[19] [20] [21]
+chapter 3.
+
+LaTeX Warning: File `https://github.com/GDSL-UL/wma/raw/main/img/geojson.png' not found on input line 1294.
+
+! Unable to load picture or PDF file 'https://github.com/GDSL-UL/wma/raw/main/img/geojson.png'.
 <to be read again> 
                    }
-l.1035 ...L-UL/wma/raw/main/figs/buildamerica.png}
+l.1294 ...om/GDSL-UL/wma/raw/main/img/geojson.png}
                                                    
 Here is how much of TeX's memory you used:
- 37899 strings out of 478755
- 800273 string characters out of 5848931
+ 37998 strings out of 478755
+ 802539 string characters out of 5848931
  1855991 words of memory out of 5000000
- 57363 multiletter control sequences out of 15000+600000
- 515891 words of font info for 66 fonts, out of 8000000 for 9000
+ 57444 multiletter control sequences out of 15000+600000
+ 518726 words of font info for 83 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 108i,7n,121p,10600b,530s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,8n,121p,10600b,530s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on index.pdf (15 pages).
+Output written on index.pdf (21 pages).

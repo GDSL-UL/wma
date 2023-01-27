@@ -33,6 +33,8 @@ By the end of the module, students should be able to:
 
 This course can be followed by anyone with access to a bit of technical infrastructure. This section details the set of local and online requirements you will need to be able to follow along, as well as instructions or pointers to get set up on your own. This is a centralized section that lists *everything* you will require, but keep in mind that different blocks do not always require everything all the time.
 
+To reproduce the code in the book, you need the most recent version of R and packages. These can be installed following the instructions provided in our [R installation guide](https://gdsl-ul.github.io/r_install/).
+
 ### Software
 
 To run the analysis and reproduce the code, you need the following software:
@@ -83,4 +85,4 @@ You need to ensure you have installed the list of libraries used in this book, r
 
 -   Mapbox: Mapbox is one of the industry leaders in web mapping. Their free tier is rather generous so will more than suffice for what we will do within the course. You can sign up for a new (free) account here.
 
--   Kepler:
+-   Kepler: is a data agnostic, WebGL empowered, high-performance web application for geospatial analytic visualizations.

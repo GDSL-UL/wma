@@ -12,7 +12,6 @@ Elisabetta Pietrostefani
 **Lecture**: Data architectures & formats
 
 **Lab**: Creating, manipulating, and integrating web geo-spatial data
-(ADD bit more on APIs (webtiles) specific examples. Add Tiles)
 
 ## Lecture
 

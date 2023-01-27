@@ -46,7 +46,7 @@
     "href": "overview.html#computational-environment",
     "title": "Overview",
     "section": "Computational Environment",
-    "text": "Computational Environment\nThis course can be followed by anyone with access to a bit of technical infrastructure. This section details the set of local and online requirements you will need to be able to follow along, as well as instructions or pointers to get set up on your own. This is a centralized section that lists everything you will require, but keep in mind that different blocks do not always require everything all the time.\n\nSoftware\nTo run the analysis and reproduce the code, you need the following software:\n\nQGIS- the stable version (3.22 LTR at the time of writing) is OK, any more recent version will also work.\nR-4.2.2\nRStudio 2022.12.0-353\nQuarto 1.2.280\nthe list of libraries in the next section\n\nTo install and update:\n\nQGIS, download the appropriate version from QGIS.org\nR, download the appropriate version from The Comprehensive R Archive Network (CRAN)\nRStudio, download the appropriate version from Posit\nQuarto, download the appropriate version from the Quarto website\n\nTo check your version of:\n\nR and libraries run sessionInfo()\nRStudio click help on the menu bar and then About\nQuarto check the version file in the quarto folder on your computer.\n\n\n\nR List of libraries\nThe list of libraries used in this book is provided below:\n\nsf\ngeojsonsf\nmapview\ntidyverse\nviridis\nviridisLite\nhttr\njsonlite\n\nYou need to ensure you have installed the list of libraries used in this book, running the following code:\n\nlist.of.packages.cran <- c( “tidyverse”, “viridis”, “viridisLite”, “ggthemes”, “patchwork”, “showtext”, “RColorBrewer”, “lubridate”, “tmap”, “sjPlot”, “sf”, “sp”, “kableExtra”)\n\n\nnew.packages.cran <- list.of.packages.cran[!(list.of.packages.cran %in% installed.packages()[,“Package”])] if(length(new.packages.cran)) install.packages(new.packages.cran)\n\n\nfor(i in 1:length(list.of.packages.cran)) { library(list.of.packages.cran[i], character.only = T) }\n\n\n\nOnline accounts\n\nCDRC Data: we will use some of the data provided by the CDRC, so a (free) account with them will be necessary.\nMapbox: Mapbox is one of the industry leaders in web mapping. Their free tier is rather generous so will more than suffice for what we will do within the course. You can sign up for a new (free) account here.\nKepler:"
+    "text": "Computational Environment\nThis course can be followed by anyone with access to a bit of technical infrastructure. This section details the set of local and online requirements you will need to be able to follow along, as well as instructions or pointers to get set up on your own. This is a centralized section that lists everything you will require, but keep in mind that different blocks do not always require everything all the time.\nTo reproduce the code in the book, you need the most recent version of R and packages. These can be installed following the instructions provided in our R installation guide.\n\nSoftware\nTo run the analysis and reproduce the code, you need the following software:\n\nQGIS- the stable version (3.22 LTR at the time of writing) is OK, any more recent version will also work.\nR-4.2.2\nRStudio 2022.12.0-353\nQuarto 1.2.280\nthe list of libraries in the next section\n\nTo install and update:\n\nQGIS, download the appropriate version from QGIS.org\nR, download the appropriate version from The Comprehensive R Archive Network (CRAN)\nRStudio, download the appropriate version from Posit\nQuarto, download the appropriate version from the Quarto website\n\nTo check your version of:\n\nR and libraries run sessionInfo()\nRStudio click help on the menu bar and then About\nQuarto check the version file in the quarto folder on your computer.\n\n\n\nR List of libraries\nThe list of libraries used in this book is provided below:\n\nsf\ngeojsonsf\nmapview\ntidyverse\nviridis\nviridisLite\nhttr\njsonlite\n\nYou need to ensure you have installed the list of libraries used in this book, running the following code:\n\nlist.of.packages.cran <- c( “tidyverse”, “viridis”, “viridisLite”, “ggthemes”, “patchwork”, “showtext”, “RColorBrewer”, “lubridate”, “tmap”, “sjPlot”, “sf”, “sp”, “kableExtra”)\n\n\nnew.packages.cran <- list.of.packages.cran[!(list.of.packages.cran %in% installed.packages()[,“Package”])] if(length(new.packages.cran)) install.packages(new.packages.cran)\n\n\nfor(i in 1:length(list.of.packages.cran)) { library(list.of.packages.cran[i], character.only = T) }\n\n\n\nOnline accounts\n\nCDRC Data: we will use some of the data provided by the CDRC, so a (free) account with them will be necessary.\nMapbox: Mapbox is one of the industry leaders in web mapping. Their free tier is rather generous so will more than suffice for what we will do within the course. You can sign up for a new (free) account here.\nKepler: is a data agnostic, WebGL empowered, high-performance web application for geospatial analytic visualizations."
   },
   {
     "objectID": "assess.html#assignment-i",
@@ -257,5 +257,47 @@
     "title": "Structure 1",
     "section": "Structure 2",
     "text": "Structure 2\n\nIntroduction\nBlock 1\n\nblah blah\nblah blah"
+  },
+  {
+    "objectID": "structure.html#introduction",
+    "href": "structure.html#introduction",
+    "title": "Syllabus",
+    "section": "Introduction",
+    "text": "Introduction\nBlock 1\n\nLecture: Introduction to the module\nLab: Powerful examples"
+  },
+  {
+    "objectID": "structure.html#data-backends",
+    "href": "structure.html#data-backends",
+    "title": "Syllabus",
+    "section": "Data Backends",
+    "text": "Data Backends\nBlock 2\n\nLecture: The Web’s architecture and Economy\nLab: What do APIs actually do?\n\nBlock 3\n\nLecture: Data architechtures & formats\nLab: Creating, manipulating, and integrating web geospatial data\n\nBlock 4\n\nLecture: APIs\nLab: Acquiring data from the web"
+  },
+  {
+    "objectID": "structure.html#assignment-i",
+    "href": "structure.html#assignment-i",
+    "title": "Syllabus",
+    "section": "Assignment I",
+    "text": "Assignment I\nBlock 5\n\nLecture: Q&A\nLab: Clinic\n\nAssignment I: Combining (geo-)data in an interactive map"
+  },
+  {
+    "objectID": "structure.html#frontend-topics",
+    "href": "structure.html#frontend-topics",
+    "title": "Syllabus",
+    "section": "Frontend Topics",
+    "text": "Frontend Topics\nBlock 6\n\nLecture: Map design\nLab: Designing maps with Kepler\n\nBlock 7\n\nLecture: Interactivity\nLab: Designing for interactivity\n\nBlock 8\n\nLecture: Statistical visualisation\nLab: Choropleths in Kepler"
+  },
+  {
+    "objectID": "structure.html#dashboards",
+    "href": "structure.html#dashboards",
+    "title": "Syllabus",
+    "section": "Dashboards",
+    "text": "Dashboards\nBlock 9\n\nLecture: Dashboards: bringing analysis to the web\nLab: Building Dashboards (Shiny)\n\nBlock 10\n\nLecture: Technology gallery\nLab: Assignment II clinic\n\nAssignment II: A dashboard of IMD"
+  },
+  {
+    "objectID": "apis.html#lab-acquiring-data-from-the-web.",
+    "href": "apis.html#lab-acquiring-data-from-the-web.",
+    "title": "4  APIs",
+    "section": "4.2 Lab: Acquiring data from the web.",
+    "text": "4.2 Lab: Acquiring data from the web.\n\n4.2.1 Paired activity\n\n\n4.2.2 Class discussion"
   }
 ]

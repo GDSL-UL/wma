@@ -4,7 +4,7 @@ Dani Arribas-Bel
 
 **Lecture**: Map design
 
-**Lab**: Designing maps with Mapbox Studio (take out Carto)
+**Lab**: Designing maps with Mapbox Studio
 
 ## Lecture
 

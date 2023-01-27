@@ -4,15 +4,13 @@ Elisabetta Pietrostefani
 
 **Lecture**: APIs
 
-**Lab**: Acquiring data from the web (advanced API stuff), More interesting on APIs in geo. Get to something a bit more interesting.
+**Lab**: Acquiring data from the web.
 
 ## Lecture
 
 Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_04.pdf)
 
-## Lab: What do APIs actually do?
-
-Lab 2: Non-spatial APIs - tidycensus - TO DO! Unpacking what that function is doing. What the API is actually doing? Wanted to understand - abstracts everything away. Unpack. REST type of API. Function web address. DO THIS!
+## Lab: Acquiring data from the web.
 
 ### Paired activity
 

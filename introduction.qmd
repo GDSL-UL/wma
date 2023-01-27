@@ -54,7 +54,7 @@ In pairs, find three examples where web maps are used to communicate an idea. Co
 
 Post each sheet as a separate item on the Teams channel for Lab No.1
 
-As an example, below is the sheet for the project "A map of every building in America" !["WHO Coronavirus (COVID-19) Dashboard"](./img/who_covid.png)
+As an example, below is the sheet for the project "WHO Coronavirus (COVID-19) Dashboard" !["WHO Coronavirus (COVID-19) Dashboard"](./img/who_covid.png)
 
 -   **Substantive**
 

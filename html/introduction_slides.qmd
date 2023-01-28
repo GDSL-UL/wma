@@ -10,11 +10,11 @@ format: revealjs
 -   Overview
 -   Logistics
 
-# 
-
 ## Anatomy of the Web Map
 
-##  {data-background="../slides/figs/gmaps.png" data-background-size="contain"}
+##  title
+
+<img data-src="../img/gmaps.png">
 
 ##  {data-background="../slides/figs/osm.png" data-background-size="contain"}
 
@@ -43,18 +43,18 @@ format: revealjs
 
 |                                   |                                |
 |-----------------------------------|--------------------------------|
-| ![](../slides/figs/paper_map.svg) | ![](../slides/figs/server.jpg) |
+| ![](../img/gmaps/paper_map.svg) | ![](../slides/figs/server.jpg) |
 
 ## Software
 
 |                                                                                              |                                |                              |
-|----------------------------------------------------------------------------------------------|--------------------------------|------------------------------|
+|----------------------------------------|----------------|----------------|
 | !\[\](../slides/figs/pen.jpg)\[\`url\`\](https://www.flickr.com/photos/orangeacid/204163563) | !\[\](../slides/figs/qgis.png) | ![](../slides/figs/code.png) |
 
 ## Design
 
 |                                    |                                                                                                                                                                                        |
-|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|----------------|--------------------------------------------------------|
 | ![](../slides/figs/bad_mashup.png) | ![](../slides/figs/election_map.png)\[\`url\`\](https://www.theguardian.com/us-news/ng-interactive/2016/nov/08/us-election-2016-results-live-clinton-trump?view=map&type=presidential) |
 
 # 
@@ -90,7 +90,7 @@ format: revealjs
 
 <CENTER><img src="../slides/figs/course_website.png" height="400"/></CENTER>
 
-<CENTER><SMALL> [`darribas.org/wmn`](http://darribas.org/wmn/) </SMALL></CENTER>
+<CENTER><SMALL> [`https://gdsl-ul.github.io/wma/`](https://gdsl-ul.github.io/wma/) </SMALL></CENTER>
 
 ## Lecture/Labs
 

@@ -1,24 +1,59 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Web Mapping and Analysis",
-    "section": "",
-    "text": "Welcome\nThis is the website for “Web Mapping and Analysis” for the module ENVS456 at the University of Liverpool. This is course designed and delivered by Dr. Elisabetta Pietrostefani and Professor Dani Arribas-Bel from the Geographic Data Science Lab at the University of Liverpool, United Kingdom. The module has two main aims. First, it seeks to to provide hands-on experience and training in the design and generation of web-based mapping and geographical information tools. Second, it seeks to provide hands-on experience and training in the use of software to access, analyse and visualize web-based geographical information.\nThe website is free to use and is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International. A compilation of this web course is hosted as a GitHub repository that you can access:"
+    "objectID": "introduction.html#lecture",
+    "href": "introduction.html#lecture",
+    "title": "1  Introduction",
+    "section": "1.1 Lecture",
+    "text": "1.1 Lecture\nSlides can be downloaded here"
   },
   {
-    "objectID": "index.html#contact",
-    "href": "index.html#contact",
-    "title": "Web Mapping and Analysis",
-    "section": "Contact",
-    "text": "Contact\n\nDani Arribas-Bel - darribas [at] liverpool.ac.uk Professor in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.\n\n\nElisabetta Pietrostefani - e.pietrostefani [at] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom."
+    "objectID": "introduction.html#lab-powerful-examples",
+    "href": "introduction.html#lab-powerful-examples",
+    "title": "1  Introduction",
+    "section": "1.2 Lab: Powerful examples",
+    "text": "1.2 Lab: Powerful examples\nThis lab has two main components:\n\nThe first one will require you to find a partner and work together with her/him\nAnd the second one will involve group discussion.\n\n\n1.2.1 Paired activity\nIn pairs, find three examples where web maps are used to communicate an idea. Complete the following sheet for each example:\n\nSubstantive\n\nTitle: Title of the map/project\nAuthor: Who is behind the project?\nBig idea: a “one-liner” on what the project tries to accomplish –\nMessage: what does the map try to get accross\n\nTechnical\n\nURL:\nInteractivity: does the map let you interact with it in any way? Yes/No\nZoomable: can you explore the map at different scales? Yes/No\nTooltips:\nBasemap: Is there an underlying map providing geographical context? Yes/No. If so, who is it provided by?\nTechnology: can you guess what technology does this map rely on?\n\n\nPost each sheet as a separate item on the Teams channel for Lab No.1\nAs an example, below is the sheet for the project “WHO Coronavirus (COVID-19) Dashboard” \n\nSubstantive\n\nTitle: WHO Coronavirus (COVID-19) Dashboard\nAuthor: World Health Organization\nBig idea: Shows confirmed COVID-19 cases and deaths by country to date\nMessage: The project displays a map of the world where COVID-19 cases are shown by country. This element is used to show which countries have had more cases (large trends). A drop down button allows us to visualise the map by a) Total per 100,000 population b) % change in the last 7 days c) newly reported in the last 7 days d) newly reported in the last 24 hours.\n\nTechnical\n\nURL: https://covid19.who.int/\nInteractivity: Yes\nZoomable: Yes\nTooltips: Yes\nBasemap: No\nTechnology: Unknown\n\n\nHere are a couple of other COVID-19 examples of web-maps that where basemaps and technology is easier to spot.\n\n“London School of Hygiene & Tropical Medicine - COVID-19 tracker”\n“Tracking Coronavirus in the United Kingdom: Latest Map and Case Count”\n\n\n\n1.2.2 Class discussion\nWe will select a few examples posted and collectively discuss (some of) the following questions:\n\nWhat makes them powerful, what “speaks” to us?\nWhat could be improved, what is counter-intuitive?\nWhat design elements do they rely on?\nWhat technology do they use?"
   },
   {
-    "objectID": "structure.html#course-structure",
-    "href": "structure.html#course-structure",
-    "title": "Course Structure",
-    "section": "Course Structure",
-    "text": "Course Structure\n\nIntroduction\nBlock 1\n\nIntroduction Lecture: Introduction to the module\nLab: Powerful examples & Discussion about interactive map\n\n\n\nData Backends\nBlock 2 - Data Backends I\n\nLecture: The Web’s architecture and Economy\nLab: Non-spatial APIs - What do APIs actually do?\n\nBlock 3 - Data Backends II\n\nLecture: Data architechtures & formats\nLab: Creating, manipulating, and integrating web geospatial data\n\nBlock 4 - Data Backends III\n\nLecture: APIs\nLab: Acquiring data from the web\n\n\n\nAssignment I\nBlock 5 - Assignment I\n\nLecture: Q&A\nLab: Clinic\n\nAssignment I: Combining (geo-)data in an interactive map\n\n\nFrontend Topics\nBlock 6 - Frontend Topics I\n\nLecture: Map design\nLab: Designing maps with Mapbox Studio\n\nBlock 7 - Frontend Topics II\n\nLecture: Interactivity\nLab: Designing for interactivity (Kepler)\n\nBlock 8 - Frontend Topics III\n\nLecture: Statistical visualization\nLab: Choropleths in Kepler\n\nBlock 9 - Dashboards\n\nLecture: Dashboards: bringing analysis to the web\nLab: Building Dashboards (Shiny)\n\n\n\nAssignment II\nBlock 10 - Assignment I\n\nLecture: Technology gallery\nLab: clinic\n\nAssignment II: A dashboard of IMD"
+    "objectID": "introduction.html#references",
+    "href": "introduction.html#references",
+    "title": "1  Introduction",
+    "section": "1.3 References",
+    "text": "1.3 References\n\nFor an excellent coverage of “visualisation literacy”, Chapter 11 of Andy Kirk’s “Data Visualisation” is a great start. Lab: Getting up to speed for web mapping\nA comprehensive overview of computational notebooks and how they relate to modern scientific work is available on Ch.1 of the GDS book.\nA recent overview of notebooks in Geography is available in Boeing & Arribas-Bel (2021)"
+  },
+  {
+    "objectID": "structure.html#introduction",
+    "href": "structure.html#introduction",
+    "title": "Syllabus",
+    "section": "Introduction",
+    "text": "Introduction\nBlock 1\n\nLecture: Introduction to the module\nLab: Powerful examples"
+  },
+  {
+    "objectID": "structure.html#data-backends",
+    "href": "structure.html#data-backends",
+    "title": "Syllabus",
+    "section": "Data Backends",
+    "text": "Data Backends\nBlock 2\n\nLecture: The Web’s architecture and Economy\nLab: What do APIs actually do?\n\nBlock 3\n\nLecture: Data architechtures & formats\nLab: Creating, manipulating, and integrating web geospatial data\n\nBlock 4\n\nLecture: APIs\nLab: Acquiring data from the web"
+  },
+  {
+    "objectID": "structure.html#assignment-i",
+    "href": "structure.html#assignment-i",
+    "title": "Syllabus",
+    "section": "Assignment I",
+    "text": "Assignment I\nBlock 5\n\nLecture: Q&A\nLab: Clinic\n\nAssignment I: Combining (geo-)data in an interactive map"
+  },
+  {
+    "objectID": "structure.html#frontend-topics",
+    "href": "structure.html#frontend-topics",
+    "title": "Syllabus",
+    "section": "Frontend Topics",
+    "text": "Frontend Topics\nBlock 6\n\nLecture: Map design\nLab: Designing maps with Kepler\n\nBlock 7\n\nLecture: Interactivity\nLab: Designing for interactivity\n\nBlock 8\n\nLecture: Statistical visualisation\nLab: Choropleths in Kepler"
+  },
+  {
+    "objectID": "structure.html#dashboards",
+    "href": "structure.html#dashboards",
+    "title": "Syllabus",
+    "section": "Dashboards",
+    "text": "Dashboards\nBlock 9\n\nLecture: Dashboards: bringing analysis to the web\nLab: Building Dashboards (Shiny)\n\nBlock 10\n\nLecture: Technology gallery\nLab: Assignment II clinic\n\nAssignment II: A dashboard of IMD"
   },
   {
     "objectID": "overview.html#aims",
@@ -68,27 +103,6 @@
     "title": "Assessments",
     "section": "Marking Criteria",
     "text": "Marking Criteria\nThis course follows the standard marking criteria (the general ones and those relating to GIS assignments in particular) set by the School of Environmental Sciences. Please make sure to check the student handbook and familiarise with them. In addition to these generic criteria, the following specific criteria will be used in cases where computer code is part of the work being assessed:\n\n0-15: the code does not run and there is no documentation to follow it.\n16-39: the code does not run, or runs but it does not produce the expected outcome. There is some documentation explaining its logic.\n40-49: the code runs and produces the expected output. There is some documentation explaining its logic.\n50-59: the code runs and produces the expected output. There is extensive documentation explaining its logic.\n60-69: the code runs and produces the expected output. There is extensive documentation, properly formatted, explaining its logic.\n70-79: all as above, plus the code design includes clear evidence of skills presented in advanced sections of the course (e.g. custom methods, list comprehensions, etc.).\n80-100: all as above, plus the code contains novel contributions that extend/improve the functionality the student was provided with (e.g. algorithm optimizations, novel methods to perform the task, etc.)."
-  },
-  {
-    "objectID": "introduction.html#lecture",
-    "href": "introduction.html#lecture",
-    "title": "1  Introduction",
-    "section": "1.1 Lecture",
-    "text": "1.1 Lecture\nSlides can be downloaded here"
-  },
-  {
-    "objectID": "introduction.html#lab-powerful-examples",
-    "href": "introduction.html#lab-powerful-examples",
-    "title": "1  Introduction",
-    "section": "1.2 Lab: Powerful examples",
-    "text": "1.2 Lab: Powerful examples\nThis lab has two main components:\n\nThe first one will require you to find a partner and work together with her/him\nAnd the second one will involve group discussion.\n\n\n1.2.1 Paired activity\nIn pairs, find three examples where web maps are used to communicate an idea. Complete the following sheet for each example:\n\nSubstantive\n\nTitle: Title of the map/project\nAuthor: Who is behind the project?\nBig idea: a “one-liner” on what the project tries to accomplish –\nMessage: what does the map try to get accross\n\nTechnical\n\nURL:\nInteractivity: does the map let you interact with it in any way? Yes/No\nZoomable: can you explore the map at different scales? Yes/No\nTooltips:\nBasemap: Is there an underlying map providing geographical context? Yes/No. If so, who is it provided by?\nTechnology: can you guess what technology does this map rely on?\n\n\nPost each sheet as a separate item on the Teams channel for Lab No.1\nAs an example, below is the sheet for the project “WHO Coronavirus (COVID-19) Dashboard” \n\nSubstantive\n\nTitle: WHO Coronavirus (COVID-19) Dashboard\nAuthor: World Health Organization\nBig idea: Shows confirmed COVID-19 cases and deaths by country to date\nMessage: The project displays a map of the world where COVID-19 cases are shown by country. This element is used to show which countries have had more cases (large trends). A drop down button allows us to visualise the map by a) Total per 100,000 population b) % change in the last 7 days c) newly reported in the last 7 days d) newly reported in the last 24 hours.\n\nTechnical\n\nURL: https://covid19.who.int/\nInteractivity: Yes\nZoomable: Yes\nTooltips: Yes\nBasemap: No\nTechnology: Unknown\n\n\nHere are a couple of other COVID-19 examples of web-maps that where basemaps and technology is easier to spot.\n\n“London School of Hygiene & Tropical Medicine - COVID-19 tracker”\n“Tracking Coronavirus in the United Kingdom: Latest Map and Case Count”\n\n\n\n1.2.2 Class discussion\nWe will select a few examples posted and collectively discuss (some of) the following questions:\n\nWhat makes them powerful, what “speaks” to us?\nWhat could be improved, what is counter-intuitive?\nWhat design elements do they rely on?\nWhat technology do they use?"
-  },
-  {
-    "objectID": "introduction.html#references",
-    "href": "introduction.html#references",
-    "title": "1  Introduction",
-    "section": "1.3 References",
-    "text": "1.3 References\n\nFor an excellent coverage of “visualisation literacy”, Chapter 11 of Andy Kirk’s “Data Visualisation” is a great start. Lab: Getting up to speed for web mapping\nA comprehensive overview of computational notebooks and how they relate to modern scientific work is available on Ch.1 of the GDS book.\nA recent overview of notebooks in Geography is available in Boeing & Arribas-Bel (2021)"
   },
   {
     "objectID": "webarch.html#lecture",
@@ -147,11 +161,11 @@
     "text": "4.1 Lecture\nSlides can be downloaded here"
   },
   {
-    "objectID": "apis.html#lab-what-do-apis-actually-do",
-    "href": "apis.html#lab-what-do-apis-actually-do",
+    "objectID": "apis.html#lab-acquiring-data-from-the-web.",
+    "href": "apis.html#lab-acquiring-data-from-the-web.",
     "title": "4  APIs",
-    "section": "4.2 Lab: What do APIs actually do?",
-    "text": "4.2 Lab: What do APIs actually do?\nLab 2: Non-spatial APIs - tidycensus - TO DO! Unpacking what that function is doing. What the API is actually doing? Wanted to understand - abstracts everything away. Unpack. REST type of API. Function web address. DO THIS!\n\n4.2.1 Paired activity\n\n\n4.2.2 Class discussion"
+    "section": "4.2 Lab: Acquiring data from the web.",
+    "text": "4.2 Lab: Acquiring data from the web.\n\n4.2.1 Paired activity\n\n\n4.2.2 Class discussion"
   },
   {
     "objectID": "apis.html#references",
@@ -250,54 +264,5 @@
     "title": "9  Technology Gallery",
     "section": "",
     "text": "Dani Arribas-Bel\nLecture: Technology gallery\nLab: Assignment II clinic."
-  },
-  {
-    "objectID": "structure.html#structure-2",
-    "href": "structure.html#structure-2",
-    "title": "Structure 1",
-    "section": "Structure 2",
-    "text": "Structure 2\n\nIntroduction\nBlock 1\n\nblah blah\nblah blah"
-  },
-  {
-    "objectID": "structure.html#introduction",
-    "href": "structure.html#introduction",
-    "title": "Syllabus",
-    "section": "Introduction",
-    "text": "Introduction\nBlock 1\n\nLecture: Introduction to the module\nLab: Powerful examples"
-  },
-  {
-    "objectID": "structure.html#data-backends",
-    "href": "structure.html#data-backends",
-    "title": "Syllabus",
-    "section": "Data Backends",
-    "text": "Data Backends\nBlock 2\n\nLecture: The Web’s architecture and Economy\nLab: What do APIs actually do?\n\nBlock 3\n\nLecture: Data architechtures & formats\nLab: Creating, manipulating, and integrating web geospatial data\n\nBlock 4\n\nLecture: APIs\nLab: Acquiring data from the web"
-  },
-  {
-    "objectID": "structure.html#assignment-i",
-    "href": "structure.html#assignment-i",
-    "title": "Syllabus",
-    "section": "Assignment I",
-    "text": "Assignment I\nBlock 5\n\nLecture: Q&A\nLab: Clinic\n\nAssignment I: Combining (geo-)data in an interactive map"
-  },
-  {
-    "objectID": "structure.html#frontend-topics",
-    "href": "structure.html#frontend-topics",
-    "title": "Syllabus",
-    "section": "Frontend Topics",
-    "text": "Frontend Topics\nBlock 6\n\nLecture: Map design\nLab: Designing maps with Kepler\n\nBlock 7\n\nLecture: Interactivity\nLab: Designing for interactivity\n\nBlock 8\n\nLecture: Statistical visualisation\nLab: Choropleths in Kepler"
-  },
-  {
-    "objectID": "structure.html#dashboards",
-    "href": "structure.html#dashboards",
-    "title": "Syllabus",
-    "section": "Dashboards",
-    "text": "Dashboards\nBlock 9\n\nLecture: Dashboards: bringing analysis to the web\nLab: Building Dashboards (Shiny)\n\nBlock 10\n\nLecture: Technology gallery\nLab: Assignment II clinic\n\nAssignment II: A dashboard of IMD"
-  },
-  {
-    "objectID": "apis.html#lab-acquiring-data-from-the-web.",
-    "href": "apis.html#lab-acquiring-data-from-the-web.",
-    "title": "4  APIs",
-    "section": "4.2 Lab: Acquiring data from the web.",
-    "text": "4.2 Lab: Acquiring data from the web.\n\n4.2.1 Paired activity\n\n\n4.2.2 Class discussion"
   }
 ]

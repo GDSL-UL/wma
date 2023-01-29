@@ -1,17 +1,3 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .qmd
-      format_name: quarto
-      format_version: '1.0'
-      jupytext_version: 1.13.8
-  kernelspec:
-    display_name: Python 3 (ipykernel)
-    language: python
-    name: python3
----
-
 # Introduction
 
 Dani Arribas-Bel
@@ -21,9 +7,9 @@ Dani Arribas-Bel
 **Lab**: Powerful examples & Discussion about interactive map
 
 ## Lecture
-
-Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_01.pdf)
-
+Slides can be downloaded
+["here"](/html/introduction_slides.html)
+ 
 ## Lab: Powerful examples
 
 This lab has two main components:

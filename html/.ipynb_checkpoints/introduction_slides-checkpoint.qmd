@@ -4,6 +4,7 @@ author: "Elisabetta Pietrostefani & Dani Arribas-Bel"
 format: 
     revealjs:
         navigation-mode: grid
+align-items: center;
 ---
 
 ## Today
@@ -12,13 +13,16 @@ format:
 -   Overview
 -   Logistics
 
-# Anatomy of the Web Map
+## Anatomy of the Web Map
 
-##  {data-background="../img/gmaps.png" data-background-size="contain"}
+##  
+<center><img data-src="./figs/gmaps.png" alt="centered image" width="80%" height="80%"><center>
 
-##  {data-background="../img/osm.png" data-background-size="contain"}
+##
+<center><img data-src="./figs/osm.png" alt="centered image" width="80%" height="80%"><center>
 
-##  {data-background="../img/cdrc_maps.png" data-background-size="contain"}
+##  
+<center><img data-src="./figs/cdrc_maps.png" alt="centered image" width="80%" height="80%"><center>
 
 ## Building blocks of a web map
 
@@ -41,24 +45,17 @@ format:
 
 ## Hardware
 
-![](../img/paper_map.svg){.absolute left=0 width="350"}
-
-![](../img/server.jpg){.absolute left=500 width="350"}
+<center><img data-src="./figs/paper_map.svg" width="20%" height="20%"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/server.jpg" width="20%" height="20%"><center>
 
 ## Software
 
-<!--Source: https://www.flickr.com/photos/orangeacid/204163563 -->
-![](../img/pen.jpg){.absolute width="300"}
-![](../img/qgis.png){.absolute width="300"}
-![](../img/code.png){.absolute width="300"}
+<center><img data-src="./figs/pen.jpg" height="180"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/qgis.png" height="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/code.png" height="300"><center>
+
+[`url`](https://gdsl-ul.github.io/wma/html/introduction_slides.html#/assessment)
 
 ## Design
 
-<CENTER>
-![](../img/bad_mashup.png){width="350"}
-<!-- https://www.theguardian.com/us-news/ng-interactive/2016/nov/08/us-election-2016-results-live-clinton-trump?view=map&type=presidential -->
-![](../img/election_map.png){width="550"}
-</CENTER>
+<center><img data-src="./figs/bad_mashup.png" height="500">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/election_map.png" height="500"><center>
 
 # Overview
 
@@ -87,19 +84,19 @@ format:
 
 ## Website
 
-<CENTER><img src="../img/course_website.png" height="400"/></CENTER>
+<CENTER><img src="./figs/website.png" height="500"/></CENTER>
 
 <CENTER> [`https://gdsl-ul.github.io/wma/`](https://gdsl-ul.github.io/wma/) </CENTER>
 
 ## Lecture/Labs
 
-**Lectures**: *Fridays* 1pm-2pm \@`Teams`
+**Lectures**: *Mondays* 9-10am \@`Teams`
 
 <LEFT> - Live streams + video archive </LEFT>
 
 <LEFT> - Underlying concepts + Context </LEFT>
 
-**Labs**: *Fridays* 3pm-5pm \@`Teams`
+**Labs**: *Mondays* 10am-12noon \@`Teams`
 
 <LEFT> - Hands on </LEFT>
 
@@ -107,9 +104,9 @@ format:
 
 ## Teams
 
-<CENTER>![](../img/teams.png)</CENTER>
+<CENTER>![](./figs/teams.png)</CENTER>
 
-# Homework
+## Homework
 
 ::: fragment
 -   Bring at least one example of [web mapping]{.hlg} that you find [compelling]{.hlg}

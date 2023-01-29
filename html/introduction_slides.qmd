@@ -65,7 +65,7 @@ align-items: center;
 2. Principles over technology
 3. Collaborate, do not copy 
     
-## Delivery: lectures + labs
+## Delivery
 
 ### Lectures
 

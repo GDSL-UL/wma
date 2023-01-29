@@ -22,7 +22,7 @@ Dani Arribas-Bel
 
 ## Lecture
 
-Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_01.pdf)
+Slides can be found [here](https://github.com/GDSL-UL/wma/raw/main/html/introduction_slides.html)
 
 ## Lab: Powerful examples
 

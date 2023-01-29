@@ -7,8 +7,9 @@ Dani Arribas-Bel
 **Lab**: Powerful examples & Discussion about interactive map
 
 ## Lecture
-
-
+Slides can be downloaded
+["here"](/html/introduction_slides.html)
+ 
 ## Lab: Powerful examples
 
 This lab has two main components:

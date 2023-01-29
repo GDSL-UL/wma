@@ -1,7 +1,9 @@
 ---
 title: "Web Mapping & Analysis - Introduction"
 author: "Elisabetta Pietrostefani & Dani Arribas-Bel"
-format: revealjs
+format: 
+    revealjs:
+        navigation-mode: grid
 align-items: center;
 ---
 
@@ -11,7 +13,7 @@ align-items: center;
 -   Overview
 -   Logistics
 
-## Anatomy of the Web Map
+# Anatomy of the Web Map
 
 ##  
 <center><img data-src="./figs/gmaps.png" alt="centered image" width="80%" height="80%"><center>
@@ -43,21 +45,37 @@ align-items: center;
 
 ## Hardware
 
-<CENTER>
-
 <center><img data-src="./figs/paper_map.svg" width="20%" height="20%"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/server.jpg" width="20%" height="20%"><center>
 
 ## Software
 
 <center><img data-src="./figs/pen.jpg" height="180"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/qgis.png" height="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/code.png" height="300"><center>
 
-`url`
+[`url`](https://gdsl-ul.github.io/wma/html/introduction_slides.html#/assessment)
 
 ## Design
 
 <center><img data-src="./figs/bad_mashup.png" height="500">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/election_map.png" height="500"><center>
 
-## Overview
+# Overview
+    
+## Philosophy
+    
+1. This course is like a gym subsciption
+2. Principles over technology
+3. Collaborate, do not copy 
+    
+## Delivery
+
+### Lectures
+
+- Underlying concepts
+- Sometimes standard, sometimes flipped (we'll announce!)
+    
+### Labs
+    
+- Hands on!
+- Collaborate *and* participate
 
 ## Content
 
@@ -80,39 +98,28 @@ align-items: center;
 -   Due on [W-6]{.hlg} and [W-11]{.hlg}
 -   Description in lectures + lab clinics
 
-## Logistics
+# Logistics
 
 ## Website
 
 <CENTER><img src="./figs/website.png" height="500"/></CENTER>
 
-<CENTER><SMALL> [`https://gdsl-ul.github.io/wma/`](https://gdsl-ul.github.io/wma/) </SMALL></CENTER>
-
-## Lecture/Labs
-
-**Lectures**: *Mondays* 9-10am \@`Teams`
-
-<LEFT> - Live streams + video archive </LEFT>
-
-<LEFT> - Underlying concepts + Context </LEFT>
-
-**Labs**: *Mondays* 10am-12noon \@`Teams`
-
-<LEFT> - Hands on </LEFT>
-
-<LEFT> - Interactive </LEFT>
+<CENTER> [`https://gdsl-ul.github.io/wma/`](https://gdsl-ul.github.io/wma/) </CENTER>
 
 ## Teams
 
 <CENTER>![](./figs/teams.png)</CENTER>
-
+    
+## Sessions
+    
+- Lectures *and* labs in one 3h session (with breaks!)
+- **Mondays 9am-12pm** (lecture 1h, lab 2h approx)
+- Always linked to activity on Teams (i.e., stay tuned on Teams!)
 
 ## Homework
 
-::: fragment
 -   Bring at least one example of [web mapping]{.hlg} that you find [compelling]{.hlg}
 -   Contribute the link to Teams
-:::
 
 # 
 

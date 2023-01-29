@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="introduction_slides_files/libs/clipboard/clipboard.min.js"></script>
-<script src="introduction_slides_files/libs/quarto-html/tabby.min.js"></script>
-<script src="introduction_slides_files/libs/quarto-html/popper.min.js"></script>
-<script src="introduction_slides_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="introduction_slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="introduction_slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="introduction_slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.269">
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.426">
 
   <meta name="author" content="Elisabetta Pietrostefani &amp; Dani Arribas-Bel">
   <title>Web Mapping &amp; Analysis - Introduction</title>
@@ -19,17 +13,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
   </style>
   <link rel="stylesheet" href="introduction_slides_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <script src="introduction_slides_files/libs/clipboard/clipboard.min.js"></script>
+  <script src="introduction_slides_files/libs/quarto-html/tabby.min.js"></script>
+  <script src="introduction_slides_files/libs/quarto-html/popper.min.js"></script>
+  <script src="introduction_slides_files/libs/quarto-html/tippy.umd.min.js"></script>
+  <link href="introduction_slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
+  <link href="introduction_slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
+  <link id="quarto-text-highlighting-styles" href="introduction_slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
   <link href="introduction_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="introduction_slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="introduction_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -319,22 +315,15 @@
     }
   </style>
 </head>
-<body class="quarto-light">
+<body>
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
+<section id="title-slide" class="center">
   <h1 class="title">Web Mapping &amp; Analysis - Introduction</h1>
-
-<div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Elisabetta Pietrostefani &amp; Dani Arribas-Bel 
-</div>
-</div>
-</div>
-
+  <p class="author">Elisabetta Pietrostefani &amp; Dani Arribas-Bel</p>
 </section>
+
 <section id="today" class="slide level2">
 <h2>Today</h2>
 <ul>
@@ -343,8 +332,10 @@ Elisabetta Pietrostefani &amp; Dani Arribas-Bel
 <li>Logistics</li>
 </ul>
 </section>
-<section id="anatomy-of-the-web-map" class="slide level2">
-<h2>Anatomy of the Web Map</h2>
+<section>
+<section id="anatomy-of-the-web-map" class="title-slide slide level1 center">
+<h1>Anatomy of the Web Map</h1>
+
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
@@ -387,25 +378,47 @@ Elisabetta Pietrostefani &amp; Dani Arribas-Bel
 <section id="hardware" class="slide level2">
 <h2>Hardware</h2>
 <center>
-<center>
 <img data-src="./figs/paper_map.svg" width="20%" height="20%"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/server.jpg" width="20%" height="20%">
 <center>
-</center></center></center></section>
+</center></center></section>
 <section id="software" class="slide level2">
 <h2>Software</h2>
 <center>
 <img data-src="./figs/pen.jpg" height="180"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/qgis.png" height="300">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/code.png" height="300">
 <center>
-<p><code>url</code></p>
+<p><a href="https://gdsl-ul.github.io/wma/html/introduction_slides.html#/assessment"><code>url</code></a></p>
 </center></center></section>
 <section id="design" class="slide level2">
 <h2>Design</h2>
 <center>
 <img data-src="./figs/bad_mashup.png" height="500">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/election_map.png" height="500">
 <center>
-</center></center></section>
-<section id="overview" class="slide level2">
-<h2>Overview</h2>
+</center></center></section></section>
+<section>
+<section id="overview" class="title-slide slide level1 center">
+<h1>Overview</h1>
+
+</section>
+<section id="philosophy" class="slide level2">
+<h2>Philosophy</h2>
+<ol type="1">
+<li>This course is like a gym subsciption</li>
+<li>Principles over technology</li>
+<li>Collaborate, do not copy</li>
+</ol>
+</section>
+<section id="delivery" class="slide level2">
+<h2>Delivery</h2>
+<h3 id="lectures">Lectures</h3>
+<ul>
+<li>Underlying concepts</li>
+<li>Sometimes standard, sometimes flipped (we’ll announce!)</li>
+</ul>
+<h3 id="labs">Labs</h3>
+<ul>
+<li>Hands on!</li>
+<li>Collaborate <em>and</em> participate</li>
+</ul>
 </section>
 <section id="content" class="slide level2">
 <h2>Content</h2>
@@ -424,9 +437,11 @@ Elisabetta Pietrostefani &amp; Dani Arribas-Bel
 <li>Due on <span class="hlg">W-6</span> and <span class="hlg">W-11</span></li>
 <li>Description in lectures + lab clinics</li>
 </ul>
-</section>
-<section id="logistics" class="slide level2">
-<h2>Logistics</h2>
+</section></section>
+<section>
+<section id="logistics" class="title-slide slide level1 center">
+<h1>Logistics</h1>
+
 </section>
 <section id="website" class="slide level2">
 <h2>Website</h2>
@@ -434,17 +449,8 @@ Elisabetta Pietrostefani &amp; Dani Arribas-Bel
 <img src="./figs/website.png" height="500">
 </center>
 <center>
-<small> <a href="https://gdsl-ul.github.io/wma/"><code>https://gdsl-ul.github.io/wma/</code></a> </small>
+<a href="https://gdsl-ul.github.io/wma/"><code>https://gdsl-ul.github.io/wma/</code></a>
 </center>
-</section>
-<section id="lecturelabs" class="slide level2">
-<h2>Lecture/Labs</h2>
-<p><strong>Lectures</strong>: <em>Mondays</em> 9-10am @<code>Teams</code></p>
-<p><left> - Live streams + video archive </left></p>
-<p><left> - Underlying concepts + Context </left></p>
-<p><strong>Labs</strong>: <em>Mondays</em> 10am-12noon @<code>Teams</code></p>
-<p><left> - Hands on </left></p>
-<p><left> - Interactive </left></p>
 </section>
 <section id="teams" class="slide level2">
 <h2>Teams</h2>
@@ -452,15 +458,21 @@ Elisabetta Pietrostefani &amp; Dani Arribas-Bel
 <img data-src="./figs/teams.png">
 </center>
 </section>
+<section id="sessions" class="slide level2">
+<h2>Sessions</h2>
+<ul>
+<li>Lectures <em>and</em> labs in one 3h session (with breaks!)</li>
+<li><strong>Mondays 9am-12pm</strong> (lecture 1h, lab 2h approx)</li>
+<li>Always linked to activity on Teams (i.e., stay tuned on Teams!)</li>
+</ul>
+</section>
 <section id="homework" class="slide level2">
 <h2>Homework</h2>
-<div class="fragment">
 <ul>
 <li>Bring at least one example of <span class="hlg">web mapping</span> that you find <span class="hlg">compelling</span></li>
 <li>Contribute the link to Teams</li>
 </ul>
-</div>
-</section>
+</section></section>
 <section id="section-3" class="title-slide slide level1 center">
 <h1></h1>
 <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Creative Commons License" style="border-width:0"></a><br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Web Mapping &amp; Analysis</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
@@ -561,7 +573,7 @@ Elisabetta Pietrostefani &amp; Dani Arribas-Bel
         rtl: false,
 
         // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'linear',
+        navigationMode: 'grid',
 
         // Randomizes the order of slides each time the presentation loads
         shuffle: false,
@@ -681,24 +693,6 @@ Elisabetta Pietrostefani &amp; Dani Arribas-Bel
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);
@@ -717,24 +711,7 @@ Elisabetta Pietrostefani &amp; Dani Arribas-Bel
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
         setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
-          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -764,50 +741,31 @@ Elisabetta Pietrostefani &amp; Dani Arribas-Bel
       for (var i=0; i<noterefs.length; i++) {
         const ref = noterefs[i];
         tippyHover(ref, function() {
-          // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          let href = ref.getAttribute('href');
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
           return note.innerHTML;
         });
       }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
-          }
-        } else {
-          return undefined;
-        }
-      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+        tippyHover(ref, function() {
+          var popup = window.document.createElement('div');
+          cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
           });
-        }
+          return popup.innerHTML;
+        });
       }
     });
     </script>

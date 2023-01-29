@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="introduction_slides_files/libs/clipboard/clipboard.min.js"></script>
-<script src="introduction_slides_files/libs/quarto-html/tabby.min.js"></script>
-<script src="introduction_slides_files/libs/quarto-html/popper.min.js"></script>
-<script src="introduction_slides_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="introduction_slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="introduction_slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="introduction_slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.269">
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.426">
 
   <meta name="author" content="Elisabetta Pietrostefani &amp; Dani Arribas-Bel">
   <title>Web Mapping &amp; Analysis - Introduction</title>
@@ -19,17 +13,19 @@
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
   </style>
   <link rel="stylesheet" href="introduction_slides_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <script src="introduction_slides_files/libs/clipboard/clipboard.min.js"></script>
+  <script src="introduction_slides_files/libs/quarto-html/tabby.min.js"></script>
+  <script src="introduction_slides_files/libs/quarto-html/popper.min.js"></script>
+  <script src="introduction_slides_files/libs/quarto-html/tippy.umd.min.js"></script>
+  <link href="introduction_slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
+  <link href="introduction_slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
+  <link id="quarto-text-highlighting-styles" href="introduction_slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
   <link href="introduction_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="introduction_slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="introduction_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -319,22 +315,15 @@
     }
   </style>
 </head>
-<body class="quarto-light">
+<body>
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
+<section id="title-slide" class="center">
   <h1 class="title">Web Mapping &amp; Analysis - Introduction</h1>
-
-<div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Elisabetta Pietrostefani &amp; Dani Arribas-Bel 
-</div>
-</div>
-</div>
-
+  <p class="author">Elisabetta Pietrostefani &amp; Dani Arribas-Bel</p>
 </section>
+
 <section id="today" class="slide level2">
 <h2>Today</h2>
 <ul>
@@ -344,20 +333,17 @@ Elisabetta Pietrostefani &amp; Dani Arribas-Bel
 </ul>
 </section>
 <section>
-<section id="section" class="title-slide slide level1 center">
-<h1></h1>
+<section id="anatomy-of-the-web-map" class="title-slide slide level1 center">
+<h1>Anatomy of the Web Map</h1>
 
 </section>
-<section id="anatomy-of-the-web-map" class="slide level2">
-<h2>Anatomy of the Web Map</h2>
-</section>
-<section id="section-1" class="slide level2" data-background="../slides/figs/gmaps.png" data-background-size="contain">
+<section id="section" class="slide level2" data-background="../img/gmaps.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-2" class="slide level2" data-background="../slides/figs/osm.png" data-background-size="contain">
+<section id="section-1" class="slide level2" data-background="../img/osm.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-3" class="slide level2" data-background="../slides/figs/cdrc_maps.png" data-background-size="contain">
+<section id="section-2" class="slide level2" data-background="../img/cdrc_maps.png" data-background-size="contain">
 <h2></h2>
 </section>
 <section id="building-blocks-of-a-web-map" class="slide level2">
@@ -382,54 +368,24 @@ Elisabetta Pietrostefani &amp; Dani Arribas-Bel
 </section>
 <section id="hardware" class="slide level2">
 <h2>Hardware</h2>
-<table>
-<tbody>
-<tr class="odd">
-<td><img data-src="../slides/figs/paper_map.svg"></td>
-<td><img data-src="../slides/figs/server.jpg"></td>
-</tr>
-</tbody>
-</table>
+<p><img data-src="../img/paper_map.svg" class="absolute" style="left: 0px; width: 350px; "></p>
+<p><img data-src="../img/server.jpg" class="absolute" style="left: 500px; width: 350px; "></p>
 </section>
 <section id="software" class="slide level2">
 <h2>Software</h2>
-<table>
-<colgroup>
-<col style="width: 60%">
-<col style="width: 20%">
-<col style="width: 19%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>![](../slides/figs/pen.jpg)[`url`](https://www.flickr.com/photos/orangeacid/204163563)</td>
-<td>![](../slides/figs/qgis.png)</td>
-<td><img data-src="../slides/figs/code.png"></td>
-</tr>
-</tbody>
-</table>
+<!--Source: https://www.flickr.com/photos/orangeacid/204163563 -->
+<p><img data-src="../img/pen.jpg" class="absolute" style="width: 300px; "> <img data-src="../img/qgis.png" class="absolute" style="width: 300px; "> <img data-src="../img/code.png" class="absolute" style="width: 300px; "></p>
 </section>
 <section id="design" class="slide level2">
 <h2>Design</h2>
-<table>
-<colgroup>
-<col style="width: 16%">
-<col style="width: 83%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><img data-src="../slides/figs/bad_mashup.png"></td>
-<td><img data-src="../slides/figs/election_map.png">[`url`](https://www.theguardian.com/us-news/ng-interactive/2016/nov/08/us-election-2016-results-live-clinton-trump?view=map&amp;type=presidential)</td>
-</tr>
-</tbody>
-</table>
+<center>
+<img data-src="../img/bad_mashup.png" width="350"> <!-- https://www.theguardian.com/us-news/ng-interactive/2016/nov/08/us-election-2016-results-live-clinton-trump?view=map&type=presidential --> <img data-src="../img/election_map.png" width="550">
+</center>
 </section></section>
 <section>
-<section id="section-4" class="title-slide slide level1 center">
-<h1></h1>
+<section id="overview" class="title-slide slide level1 center">
+<h1>Overview</h1>
 
-</section>
-<section id="overview" class="slide level2">
-<h2>Overview</h2>
 </section>
 <section id="content" class="slide level2">
 <h2>Content</h2>
@@ -450,20 +406,17 @@ Elisabetta Pietrostefani &amp; Dani Arribas-Bel
 </ul>
 </section></section>
 <section>
-<section id="section-5" class="title-slide slide level1 center">
-<h1></h1>
+<section id="logistics" class="title-slide slide level1 center">
+<h1>Logistics</h1>
 
-</section>
-<section id="logistics" class="slide level2">
-<h2>Logistics</h2>
 </section>
 <section id="website" class="slide level2">
 <h2>Website</h2>
 <center>
-<img src="../slides/figs/course_website.png" height="400">
+<img src="../img/course_website.png" height="400">
 </center>
 <center>
-<small> <a href="http://darribas.org/wmn/"><code>darribas.org/wmn</code></a> </small>
+<a href="https://gdsl-ul.github.io/wma/"><code>https://gdsl-ul.github.io/wma/</code></a>
 </center>
 </section>
 <section id="lecturelabs" class="slide level2">
@@ -478,24 +431,20 @@ Elisabetta Pietrostefani &amp; Dani Arribas-Bel
 <section id="teams" class="slide level2">
 <h2>Teams</h2>
 <center>
-<img data-src="../slides/figs/teams.png">
+<img data-src="../img/teams.png">
 </center>
 </section></section>
-<section>
-<section id="section-6" class="title-slide slide level1 center">
-<h1></h1>
-
-</section>
-<section id="homework" class="slide level2">
-<h2>Homework</h2>
+<section id="homework" class="title-slide slide level1 center">
+<h1>Homework</h1>
 <div class="fragment">
 <ul>
 <li>Bring at least one example of <span class="hlg">web mapping</span> that you find <span class="hlg">compelling</span></li>
 <li>Contribute the link to Teams</li>
 </ul>
 </div>
-</section></section>
-<section id="section-7" class="title-slide slide level1 center">
+</section>
+
+<section id="section-3" class="title-slide slide level1 center">
 <h1></h1>
 <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Creative Commons License" style="border-width:0"></a><br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Web Mapping &amp; Analysis</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 <div class="footer footer-default">
@@ -595,7 +544,7 @@ Elisabetta Pietrostefani &amp; Dani Arribas-Bel
         rtl: false,
 
         // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'linear',
+        navigationMode: 'grid',
 
         // Randomizes the order of slides each time the presentation loads
         shuffle: false,
@@ -715,24 +664,6 @@ Elisabetta Pietrostefani &amp; Dani Arribas-Bel
     </script>
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);
@@ -751,24 +682,7 @@ Elisabetta Pietrostefani &amp; Dani Arribas-Bel
         button.classList.add('code-copy-button-checked');
         var currentTitle = button.getAttribute("title");
         button.setAttribute("title", "Copied!");
-        let tooltip;
-        if (window.bootstrap) {
-          button.setAttribute("data-bs-toggle", "tooltip");
-          button.setAttribute("data-bs-placement", "left");
-          button.setAttribute("data-bs-title", "Copied!");
-          tooltip = new bootstrap.Tooltip(button, 
-            { trigger: "manual", 
-              customClass: "code-copy-button-tooltip",
-              offset: [0, -8]});
-          tooltip.show();    
-        }
         setTimeout(function() {
-          if (tooltip) {
-            tooltip.hide();
-            button.removeAttribute("data-bs-title");
-            button.removeAttribute("data-bs-toggle");
-            button.removeAttribute("data-bs-placement");
-          }
           button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
@@ -798,50 +712,31 @@ Elisabetta Pietrostefani &amp; Dani Arribas-Bel
       for (var i=0; i<noterefs.length; i++) {
         const ref = noterefs[i];
         tippyHover(ref, function() {
-          // use id or data attribute instead here
-          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          let href = ref.getAttribute('href');
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
           return note.innerHTML;
         });
       }
-      const findCites = (el) => {
-        const parentEl = el.parentElement;
-        if (parentEl) {
-          const cites = parentEl.dataset.cites;
-          if (cites) {
-            return {
-              el,
-              cites: cites.split(' ')
-            };
-          } else {
-            return findCites(el.parentElement)
-          }
-        } else {
-          return undefined;
-        }
-      };
       var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
       for (var i=0; i<bibliorefs.length; i++) {
         const ref = bibliorefs[i];
-        const citeInfo = findCites(ref);
-        if (citeInfo) {
-          tippyHover(citeInfo.el, function() {
-            var popup = window.document.createElement('div');
-            citeInfo.cites.forEach(function(cite) {
-              var citeDiv = window.document.createElement('div');
-              citeDiv.classList.add('hanging-indent');
-              citeDiv.classList.add('csl-entry');
-              var biblioDiv = window.document.getElementById('ref-' + cite);
-              if (biblioDiv) {
-                citeDiv.innerHTML = biblioDiv.innerHTML;
-              }
-              popup.appendChild(citeDiv);
-            });
-            return popup.innerHTML;
+        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+        tippyHover(ref, function() {
+          var popup = window.document.createElement('div');
+          cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
           });
-        }
+          return popup.innerHTML;
+        });
       }
     });
     </script>

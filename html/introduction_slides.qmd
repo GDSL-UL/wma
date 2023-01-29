@@ -1,7 +1,9 @@
 ---
 title: "Web Mapping & Analysis - Introduction"
 author: "Elisabetta Pietrostefani & Dani Arribas-Bel"
-format: revealjs
+format: 
+    revealjs:
+        navigation-mode: grid
 ---
 
 ## Today
@@ -10,15 +12,13 @@ format: revealjs
 -   Overview
 -   Logistics
 
-# 
+# Anatomy of the Web Map
 
-## Anatomy of the Web Map
+##  {data-background="../img/gmaps.png" data-background-size="contain"}
 
-##  {data-background="../slides/figs/gmaps.png" data-background-size="contain"}
+##  {data-background="../img/osm.png" data-background-size="contain"}
 
-##  {data-background="../slides/figs/osm.png" data-background-size="contain"}
-
-##  {data-background="../slides/figs/cdrc_maps.png" data-background-size="contain"}
+##  {data-background="../img/cdrc_maps.png" data-background-size="contain"}
 
 ## Building blocks of a web map
 
@@ -41,25 +41,26 @@ format: revealjs
 
 ## Hardware
 
-|                                   |                                |
-|-----------------------------------|--------------------------------|
-| ![](../slides/figs/paper_map.svg) | ![](../slides/figs/server.jpg) |
+![](../img/paper_map.svg){.absolute left=0 width="350"}
+
+![](../img/server.jpg){.absolute left=500 width="350"}
 
 ## Software
 
-|                                                                                              |                                |                              |
-|----------------------------------------------------------------------------------------------|--------------------------------|------------------------------|
-| !\[\](../slides/figs/pen.jpg)\[\`url\`\](https://www.flickr.com/photos/orangeacid/204163563) | !\[\](../slides/figs/qgis.png) | ![](../slides/figs/code.png) |
+<!--Source: https://www.flickr.com/photos/orangeacid/204163563 -->
+![](../img/pen.jpg){.absolute width="300"}
+![](../img/qgis.png){.absolute width="300"}
+![](../img/code.png){.absolute width="300"}
 
 ## Design
 
-|                                    |                                                                                                                                                                                        |
-|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ![](../slides/figs/bad_mashup.png) | ![](../slides/figs/election_map.png)\[\`url\`\](https://www.theguardian.com/us-news/ng-interactive/2016/nov/08/us-election-2016-results-live-clinton-trump?view=map&type=presidential) |
+<CENTER>
+![](../img/bad_mashup.png){width="350"}
+<!-- https://www.theguardian.com/us-news/ng-interactive/2016/nov/08/us-election-2016-results-live-clinton-trump?view=map&type=presidential -->
+![](../img/election_map.png){width="550"}
+</CENTER>
 
-# 
-
-## Overview
+# Overview
 
 ## Content
 
@@ -82,15 +83,13 @@ format: revealjs
 -   Due on [W-6]{.hlg} and [W-11]{.hlg}
 -   Description in lectures + lab clinics
 
-# 
-
-## Logistics
+# Logistics
 
 ## Website
 
-<CENTER><img src="../slides/figs/course_website.png" height="400"/></CENTER>
+<CENTER><img src="../img/course_website.png" height="400"/></CENTER>
 
-<CENTER><SMALL> [`darribas.org/wmn`](http://darribas.org/wmn/) </SMALL></CENTER>
+<CENTER> [`https://gdsl-ul.github.io/wma/`](https://gdsl-ul.github.io/wma/) </CENTER>
 
 ## Lecture/Labs
 
@@ -108,11 +107,9 @@ format: revealjs
 
 ## Teams
 
-<CENTER>![](../slides/figs/teams.png)</CENTER>
+<CENTER>![](../img/teams.png)</CENTER>
 
-# 
-
-## Homework
+# Homework
 
 ::: fragment
 -   Bring at least one example of [web mapping]{.hlg} that you find [compelling]{.hlg}

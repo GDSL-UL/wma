@@ -66,14 +66,17 @@ The list of libraries used in this book is provided below:
 -   `geojsonsf`
 -   `mapview`
 -   `tidyverse`
+-   `tidycensus`
 -   `viridis`
 -   `viridisLite`
 -   `httr`
 -   `jsonlite`
+-   `plyr`
+-   `wellknown`
 
 You need to ensure you have installed the list of libraries used in this book, running the following code:
 
-> list.of.packages.cran \<- c( "tidyverse", "viridis", "viridisLite", "ggthemes", "patchwork", "showtext", "RColorBrewer", "lubridate", "tmap", "sjPlot", "sf", "sp", "kableExtra")
+> list.of.packages.cran \<- c( "sf", "geojsonsf", "mapview", "tidyverse", "tidycensus", "viridis", "viridisLite", "httr", "jsonlite", "plyr", "wellknown")
 
 > new.packages.cran \<- list.of.packages.cran\[!(list.of.packages.cran %in% installed.packages()\[,"Package"\])\] if(length(new.packages.cran)) install.packages(new.packages.cran)
 

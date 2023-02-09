@@ -298,14 +298,17 @@ ul.task-list li input[type="checkbox"] {
 <li><code>geojsonsf</code></li>
 <li><code>mapview</code></li>
 <li><code>tidyverse</code></li>
+<li><code>tidycensus</code></li>
 <li><code>viridis</code></li>
 <li><code>viridisLite</code></li>
 <li><code>httr</code></li>
 <li><code>jsonlite</code></li>
+<li><code>plyr</code></li>
+<li><code>wellknown</code></li>
 </ul>
 <p>You need to ensure you have installed the list of libraries used in this book, running the following code:</p>
 <blockquote class="blockquote">
-<p>list.of.packages.cran &lt;- c( “tidyverse”, “viridis”, “viridisLite”, “ggthemes”, “patchwork”, “showtext”, “RColorBrewer”, “lubridate”, “tmap”, “sjPlot”, “sf”, “sp”, “kableExtra”)</p>
+<p>list.of.packages.cran &lt;- c( “sf”, “geojsonsf”, “mapview”, “tidyverse”, “tidycensus”, “viridis”, “viridisLite”, “httr”, “jsonlite”, “plyr”, “wellknown”)</p>
 </blockquote>
 <blockquote class="blockquote">
 <p>new.packages.cran &lt;- list.of.packages.cran[!(list.of.packages.cran %in% installed.packages()[,“Package”])] if(length(new.packages.cran)) install.packages(new.packages.cran)</p>

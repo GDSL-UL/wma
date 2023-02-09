@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<codeBook xsi:schemaLocation="ddi:codebook:2_5 http://www.ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd" version="2.5" xmlns="ddi:codebook:2_5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<docDscr>
+		<citation>
+			<titlStmt>
+				<titl>DDI2.5 XML CODEBOOK</titl>
+			</titlStmt>
+		</citation>
+	</docDscr>
+	<stdyDscr>
+		<citation>
+			<titlStmt>
+				<titl>Census Residential Data Pack - 2011 - Local Authority District Geodata Pack: Liverpool (E08000012)
+				</titl>
+				<altTitl/>
+			</titlStmt>
+			<rspStmt>
+				<AuthEnty></AuthEnty>
+				<othId/>
+			</rspStmt>
+			<prodStmt>
+				<producer>ESRC Consumer Data Research Centre </producer>
+				<copyright>The following attribution statements must be used to acknowledge copyright and source in use of these datasets:
+Data provided by the ESRC Consumer Data Research Centre;
+Contains National Statistics data Crown copyright and database right;
+Contains Ordnance Survey data Crown copyright and database right</copyright>
+				<fundAg>Economic and Social Research Council</fundAg>
+				<grantNo></grantNo>
+			</prodStmt>
+			<distStmt>
+				<depositr></depositr>
+				<distDate></distDate>
+			</distStmt>
+			<serStmt>
+				<serName>Census Tables</serName>
+			</serStmt>
+			<verStmt>
+				<version></version>
+			</verStmt>
+		</citation>
+		<stdyInfo>
+			<subject>
+				<keyword>E08000012</keyword>
+				<keyword>Liverpool</keyword>
+				<keyword>2011</keyword>
+				<topcClas></topcClas>
+			</subject>
+			<abstract>This geodata pack provides the Census Residential Data Pack for the year 2011 covering the Local Authority District: Liverpool (E08000012)
+			</abstract>
+			<sumDscr>
+				<timePrd>2011</timePrd>
+				<collDate></collDate>
+				<nation>England</nation>
+				<geogCover>Liverpool</geogCover>
+				<geogUnit>LSOA</geogUnit>
+				<anlyUnit>LSOA</anlyUnit>
+				<universe/>
+				<dataKind>Shapefile</dataKind>
+			</sumDscr>
+		</stdyInfo>
+		<method>
+			<dataColl>
+				<timeMeth/>
+				<dataCollector>Office for National Statistics</dataCollector>
+				<sampProc/>
+				<deviat/>
+				<collMode/>
+				<sources>
+					<dataSrc> Census Data 2011</dataSrc>
+				</sources>
+				<weight/>
+			</dataColl>
+		</method>
+		<dataAccs>
+			<setAvail>
+				<accsPlac>Consumer Data Research Centre</accsPlac>
+				<accsPlac>UK Data Service</accsPlac>
+			</setAvail>
+			<useStmt>
+				<restrctn/>
+				<contact>data@cdrc.ac.uk</contact>
+			</useStmt>
+		</dataAccs>
+		<othrStdyMat>
+			<relStdy/>
+			<relPubl></relPubl>
+			<othRefs/>
+		</othrStdyMat>
+	</stdyDscr>
+</codeBook>

@@ -55,7 +55,7 @@ We will pay special attention to the following aspects:
 Create a GeoJSON file for the following data and save them to separate
 files:
 
-1.  Your five favorite spots in Liverpool
+1.  Your five favourite spots in Liverpool
 
 2.  A polygon of what you consider to be the boundary of the
     neighbourhood where you live and the city centre of Liverpool. Name
@@ -77,8 +77,10 @@ Then let's start by calling the libraries `sf` and `geojsonsf` :
 
 ```{r}
 #| warning: false
-library(sf) #simple features, a standardized way to encode spatial vector data
-library(geojsonsf) #converts Between GeoJSON and simple feature objects
+# Simple features, a standardized way to encode spatial vector data
+library(sf) 
+# Converts Between GeoJSON and simple feature objects
+library(geojsonsf) 
 
 ```
 
@@ -120,7 +122,8 @@ Let's quickly plot the `sf` object to visualise it in R.
 
 ```{r}
 #| warning: false
-library(mapview) # provides functions to very quickly and conveniently create interactive visualisations of spatial data.
+# Provides functions to very quickly and conveniently create interactive visualisations of spatial data.
+library(mapview) 
 mapview(liverpool)
 ```
 
@@ -139,7 +142,10 @@ metres:
 
 ```{r}
 #| warning: false
-liverpool_bng <- st_transform(liverpool, st_crs(27700)) # transform to British National Grid
+# Transform to British National Grid
+liverpool_bng <- st_transform(liverpool, st_crs(27700)) 
+# To check the new projection
+st_crs(liverpool_bng)
 ```
 
 When we inspected our geojson with `head(liverpool)` we noted that the
@@ -147,44 +153,59 @@ spatial data is stored in the following format:
 `POINT (-2.977367 53.40753)`. This is called "well known text" (`wkt`)
 and is a representation that spatial databases like PostGIS use as well.
 Another way to store spatial data as text for storage or transfer, less
-(human) readable but more efficient is the "well known blurb" (`wkb`):
+(human) readable but more efficient is the "well known blurb" (`wkb`).
+In R, you can transform `wkt` data into `wkb` data using the library
+`wellknown`and the function `wkt_wkb`.
 
 ```{r}
 #| warning: false
-library(wkb) #Convert Between Spatial Objects and Well-Known Binary Geometry
+library(wellknown) # Convert Between 'WKT' and 'GeoJSON'
 
-#select just polygons
-#liverpool_wkb <- writeWKB(liverpool) #Converts Spatial objects to well-known binary (WKB) geometry representations.
+# Load the WKT representation of the point and convert the WKT representation into WKB format
+wkt <- wkt_wkb("POINT (-2.977367 53.40753)")
+
+# Print the WKB data
+wkt
 ```
 
-But the underlying data (point coordinates) can also be extracted
-directly within R. If we want to pull out the x coordinate for each
-point, we can access it under geometry.x:
-
-Another benefit of reading data with sf is we can use its analytical
-capabilities. For example, we can calculate the length of line:
+Another benefit of reading data in R is we can use its analytical
+capabilities. For example, we can calculate the length of a line our
+data frame:
 
 ```{r}
-#| warning: false
-#st_length(x, ...)
+# Extract the second row, which is a line, and reconvert to sf object
+liverpool_walk <- st_sf(liverpool_bng[2,])
+
+# Calculate the length of the linestring
+st_length(liverpool_walk)
+
 ```
 
 Given the the line is expressed in metres (check out EPSG:27700), we can
-conclude the line spans about 88m.
+conclude the line spans about 800.678 metres,
 
-Once we are happy with the data as we will hypothetically need it, we
+**EXERCISE**
+
+-   Read the `GeoJSON` created for your favorite walks in Liverpool and
+    calculate their length
+
+-   **Pro**: explore the `R documentation` and try to extract the area
+    for the polygon covering your neighbourhood
+
+Once you are happy with the data as we will hypothetically need it, you
 can write it out to any other file format supported in `sf`. For
-example, we can create a Geopackge file with the same information:
-
-The file name is taken as the data source name. The default for the
-layer name is the basename (filename without path) of the the data
-source name. For this, st_write needs to guess the driver. The above
-command is, for instance, equivalent to:
+example, we can create a Geopackge file with the same information. For
+this, we can use the function `st_write`. The file name is taken as the
+data source name. The default for the layer name is the basename
+(filename without path) of the the data source name. See an example
+below:
 
 ```{r}
 #| warning: false
-st_write(liverpool_bng, dsn = "data/test.gpkg", layer = "data/test.gpkg", driver = "GPKG", delete_dsn = TRUE)
-## Writing layer `liverpool_bng' to data source `test.gpkg' using driver `Geopackge'
+
+## Writing layer `liverpool_bng' to data source `liverpool_bng.gpkg' using driver `Geopackge'
+st_write(liverpool_bng, dsn = "data/liverpool_bng.gpkg", layer = "data/liverpool_bng.gpkg", driver = "GPKG", delete_dsn = TRUE)
+
 ```
 
 R's `sf`
@@ -192,14 +213,81 @@ R's `sf`
 a good reference for manipulation operations/spatial predicates with
 simple features.
 
-**EXERCISE** - Read the `GeoJSON` created for your favorite walks in
-Liverpool and calculate their length - **Pro**: explore the geopandas
-documentation and try to extract the area for the polygon covering your
-neighbourhood
-
 ### Tilesets and `Mbtiles`
 
+In this section we will dive into the concept of tiles to understand why
+they have been so transformative in the world of web mapping. We have
+already seen several tilesets. If you scroll back up where we used the
+function `mapview`, you will see that is it plotting out points,
+polygons and linestrings on different tileset options integrated in the library.
+
+![](./img/mapview.png){width="30%"}
+
+We will learn how to prepare a map that is styled in QGIS and then saved
+as either an .mbtiles file of a structured folder with tiles that allows
+to serve it over the web in efficient ways. Finally we will explore the
+tileset built using the JavaScript library Leaflet.js.
+
+Before we get started, let's get all the required pieces together:
+
+- Fire up QGIS 3 
+- Download the data [here](https://github.com/GDSL-UL/wma/raw/main/data/liverpool_data.zip)
+
+**Build your basemap**
+
+Basemaps are maps that provide context to more specific spatial data you
+might want to present. For example, if you have a set of points that
+represent events in space, it might be hard to understand their
+distribution unless you put them in the context of a more complete
+geography. A basemap is a quick solution in this case.
+
+Explore the layers provided in the GeoData Pack and select those you
+want to use for your basemap. Once ready, go ahead and add them as
+layers in QGIS. Tweak colors, transparencies, linewidths, etc. until you
+get a map you are happy with.
+
+![](./img/qgis_basemap.png){width="80%"}
+
+**Create a tileset for your map**
+
+Once ready to build the basemap from your created map, head over to
+`Processing Toolbox` and select the `Raster tools --> Generate XYZ Tiles (Directory)`. 
+You can start with the Directory option. Pick parameters and, when everything is ready, hit Run. Depending on your settings, this will take some time, be patient.
+
+![](./img/xyz.png){width="80%"}
+
+When finished, QGIS will have created a folder with a particular
+structure, that contains *all* the tiles required to serve your basemap.
+You can peak into them to find they are really just images of different
+parts of your map at different zoom levels.
+
+**Explore your basemap with Leaflet.js**
+
+If you store your basemap in a folder, QGIS will also generate for you a
+HTML file with a bit of JavaScript code that will allow you to explore
+the tileset in a browser. Play with it a little bit and familiarise with
+the look and feel of it.
+
+![](./img/explorer_html.png){width="80%"}
+
+If you feel adventurous, you can also peak into the code that makes the
+web map possible. To do that, you will need to either open the HTML file
+on a text editor, or inspect the source code from the browser (in
+Chrome, for example, this can be accessed through `Right Click --> Inspect`.
+
+**Create a `.mbtiles` file for easy transport**
+
+Finally, you can recreate the process above but in this case choosing
+the MBTiles instead of the Directory option. This will make QGIS
+generate the same tileset but, instead of storing it directly on a
+folder, it will save it as a SQLite database in with the `.mbtiles`
+format. This is easier to move from one environment to another and is
+also supported by most web mapping platforms, such as Mapbox.
+
 ## References
+
+-   Pebesma, E. & Bivand, R. (2022) [Spatial Data Science with
+    applications in R](https://r-spatial.org/book/)
 
 -   [Chapter
     3](https://geographicdata.science/book/notebooks/03_spatial_data.html)

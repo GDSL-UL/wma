@@ -221,7 +221,7 @@ already seen several tilesets. If you scroll back up where we used the
 function `mapview`, you will see that is it plotting out points,
 polygons and linestrings on different tileset options integrated in the library.
 
-![](./img/mapview.png){width="30%"}
+![](./img/mapview.png){width="18%"}
 
 We will learn how to prepare a map that is styled in QGIS and then saved
 as either an .mbtiles file of a structured folder with tiles that allows
@@ -254,7 +254,7 @@ Once ready to build the basemap from your created map, head over to
 `Processing Toolbox` and select the `Raster tools --> Generate XYZ Tiles (Directory)`. 
 You can start with the Directory option. Pick parameters and, when everything is ready, hit Run. Depending on your settings, this will take some time, be patient.
 
-![](./img/xyz.png){width="80%"}
+![](./img/xyz.png){width="70%"}
 
 When finished, QGIS will have created a folder with a particular
 structure, that contains *all* the tiles required to serve your basemap.

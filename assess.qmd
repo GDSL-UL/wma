@@ -2,7 +2,7 @@
 
 ## Assignment I
 
--   **Title:** *Combining (geo-)data in an interactive map*
+-   **Title:** Exploring APIs in R
 -   **Type:** Coursework
 -   Due date: **Thursday March 2nd, Week 5**
 -   50% of the final mark
@@ -47,13 +47,13 @@ Once you have created your map, you will need to present it. An important aspect
 
 Once completed, you will need to submit the following:
 
-1.  A static HTML version of an R-markdown that includes two parts:
+1.  A static PDF version of an R-markdown. You can either generate this as a pdf directly in Rstudio or generate the html, open it in a browser like Google Chrome and save as a pdf. The pdf should include two parts:
 
     1.  All your narrative about the map brief and conceptual background.
 
-    2.  A second section with any code you may have used to complete the assignment, **documented** in detail. **NOTE**: this section will not contribute towards the word count.
+    2.  Any code you may have used to complete the assignment, **documented** in detail. **NOTE**: this section will not contribute towards the word count.
 
-2.  A compressed .zip file containing you tileset and a HTML file that allows a user to browse through the tileset.
+2.  A an .mbtile file containing you tileset.
 
 The assignment will be evaluated based on four main pillars, on which you will have to be successful to achieve a good mark:
 

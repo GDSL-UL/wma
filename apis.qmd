@@ -255,8 +255,9 @@ both:
 There are many APIs where we can `GET` data these days. A few examples
 are:
 
--   [Overpass API - Open Street
-    Map](https://cran.r-project.org/web/packages/osmdata/vignettes/osmdata.html)
+-   [US CENSUS API](https://cran.r-project.org/web/packages/tidycensus/index.html)
+
+-   [Overpass API - Open Street Map](https://cran.r-project.org/web/packages/osmdata/vignettes/osmdata.html)
 
 -   [Transport for London API](https://api.tfl.gov.uk/)
 
@@ -283,6 +284,7 @@ library(jsonlite)
 #key <- "YOURKEY HERE"
 
 request <- GET("https://api.tfl.gov.uk/BikePoint/") # Here we request all the bike docking stations from the Transport for London API
+
 ```
 
 Checking the Status Code

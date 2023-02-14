@@ -74,8 +74,8 @@ If you want to see the tiles of only one provide you can use the
 `str_detect` function.
 
 ```{r}
-#| warnings: FALSE
-#| messages: FALSE
+#| warning: FALSE
+#| message: FALSE
 library(tidyverse)
 # To see all the Open Street Map tiles
 names(providers)[str_detect(names(providers), "OpenStreetMap")]
@@ -137,20 +137,17 @@ interactive slippy maps. The Static Tiles API is well-suited for maps
 with limited interactivity or use on devices that do not support WebGL.
 
 ```{r}
-#| echo: FALSE
-my_token <- "pk.eyJ1IjoicGlldHJvc3RlZmFuaWUiLCJhIjoiY2xkeGJtb3hkMGN4azNxb2E4cGRnbDhxayJ9.VaEiB7qvRk8BbFlihawZ1w"
+# R Interface to 'Mapbox' Web Services
+library(mapboxapi)
 ```
 
 ```{r}
-# R Interface to 'Mapbox' Web Services
-library(mapboxapi)
+#| message: FALSE
+#| warning: FALSE
 
-#my_token <- "PLACE YOUR MAPBOX TOKEN HERE and UNCOMMENT"
-
-#Your Mapbox access token; which can be set with
-mb_access_token(my_token, overwrite = TRUE, install = TRUE)
-
-readRenviron("~/.Renviron")
+# my_token <- "PLACE YOUR MAPBOX TOKEN HERE and UNCOMMENT"
+# mb_access_token(my_token, overwrite = TRUE, install = TRUE)
+# readRenviron("~/.Renviron")
 
 leaflet() %>% 
   addMapboxTiles(style_id = "light-v9", username = "mapbox" ) %>% 
@@ -162,16 +159,26 @@ You could also call on a basemap you made yourself as shown in the [Data
 Architecture](https://gdsl-ul.github.io/wma/dataarch.html) of the
 course.
 
-**EXERCISE** - Explore different basemaps with addProviderTiles() in the
-`leaflet` library or with `mapboxapi` - Set a fixed boundary with the
-function `fitBounds()` and `setMaxBounds()`. You can explore bounding
-boxes (coordinates)
-[here](http://bboxfinder.com/#53.406045,-2.967212,53.406045,-2.967212) -
-Think about data you would could plot on it and why. - When selecting a
-Basemap ask yourself some questions + Why are you making this map? + Is
-it just for your use or within a bigger project? + What type of data
-will you be plotting? - In pairs , present your choice of basemap and
-webmap idea to your partner.
+**EXERCISE**
+
+-    Explore different basemaps with addProviderTiles() in the `leaflet`
+    library or with `mapboxapi`
+
+-   Set a fixed boundary with the function `fitBounds()` and
+    `setMaxBounds()`. You can explore bounding boxes (coordinates)
+    [here](http://bboxfinder.com/#53.406045,-2.967212,53.406045,-2.967212) -
+    Think about data you would could plot on it and why.
+
+-   When selecting a Basemap ask yourself some questions
+
+    -    Why are you making this map?
+
+    -    Is it just for your use or within a bigger project?
+
+    -    What type of data will you be plotting?
+
+-  In pairs , present your choice of basemap and webmap idea to
+        your partner.
 
 **Some Extras** - `Leaflet.extras2` has some nice additions to the
 `leaflet` library. For example, you can integrate easy slide views
@@ -215,32 +222,18 @@ It can even give us directions - in multiple languages
 my_route$instruction
 ```
 
-**Exercise** - Explore the documentation and play around with some of
-the `mb_directions()`. Which other `profiles` can you pick? try out some
-languages for example by adding `language = "fr"` - Explore the
-documentation for the isochrone API and try to obtain results. For
-example, retrieve the area that can be reached within 15 minutes of the
-Roxby Building. Isochrones are areas reachable within a given travel
-time, around a given location. the function is mb_isochrone() - Play
-around with travel-time matrices with the mb_matrix() function
+**Exercise**
 
-The below is an example of how far you can cycle from Liverpool Lime
-Street Station
+-   Explore the documentation and play around with some of the
+    `mb_directions()`. Which other `profiles` can you pick? try out some
+    languages for example by adding `language = "fr"`
 
-```{r}
-#| messages: FALSE
-library(mapdeck)
+-   Explore the documentation for the isochrone on mapboxapi and try to
+    obtain results - `mb_isochrone()`. For example, retrieve the area that can be reached
+    within 15 minutes of the Roxby Building. Isochrones are areas
+    reachable within a given travel time, around a given location.
 
-isochrones <- mb_isochrone("Liverpool Lime Street", 
-                           time = c(2, 5, 10),
-                           profile = "cycling") 
-
-mapdeck(style = mapdeck_style("light")) %>%
-  add_polygon(data = isochrones, 
-              fill_colour = "time",
-              fill_opacity = 0.5,
-              legend = TRUE) 
-```
+-   Play around with travel-time matrices with the mb_matrix() function
 
 **Note** that there are other routing APIs available such as
 `library(osrm)`.
@@ -272,6 +265,8 @@ are:
 -   [Thames Water API](https://data.thameswater.co.uk/s/)
 
 -   [London Air API](https://www.londonair.org.uk/Londonair/API/)
+
+-   [Crime data](https://data.police.uk/docs/method/crime-street/)
 
 Another good source of data is the
 [CDRC](https://data.cdrc.ac.uk/geodata-packs)
@@ -448,6 +443,7 @@ Below is a short exploration of a the geocoding API
 embed coordinates between addresses.
 
 ```{r}
+#| warning: FALSE
 #| messages: FALSE
 library(tidygeocoder)
 
@@ -466,6 +462,7 @@ lat_longs <- some_addresses %>%
 ```
 
 ```{r import data}
+#| warning: FALSE
 #| messages: FALSE
 # You could also be reading addressed from a file 
 liverpool_addresses <- read_sf("data/example_addresses_liverpool.csv") 
@@ -480,6 +477,7 @@ You can also reverse geo-code the data, open the output and see what the
 result is
 
 ```{r}
+#| warning: FALSE
 #| messages: FALSE
 reverse <- lat_longs %>%
   reverse_geocode(lat = latitude, long = longitude, method = 'osm',

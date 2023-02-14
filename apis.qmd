@@ -75,6 +75,7 @@ If you want to see the tiles of only one provide you can use the
 
 ```{r}
 #| warnings: FALSE
+#| messages: FALSE
 library(tidyverse)
 # To see all the Open Street Map tiles
 names(providers)[str_detect(names(providers), "OpenStreetMap")]

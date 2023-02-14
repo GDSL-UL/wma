@@ -284,6 +284,68 @@ folder, it will save it as a SQLite database in with the `.mbtiles`
 format. This is easier to move from one environment to another and is
 also supported by most web mapping platforms, such as Mapbox.
 
+**`.mbtiles` in R**
+
+For this next section, you will need to register for a MapBox account. [here](https://account.mapbox.com/auth/signup/?route-to=%22https%3A%2F%2Faccount.mapbox.com%2Faccess-tokens%2F%22).
+
+Following from the previous exercise, save a file of Liverpool buildings as a geojson and call it `buildings_liverpool.geojson`.
+
+```{r}
+# R Interface to 'Mapbox' Web Services
+library(mapboxapi)
+# Mapdeck is a combination of Mapbox and Deck.gl. Deck.gl is one of the most user-friendly WebGL javascript libraries and can produce some beautiful maps. And it integrates nicely with Mapbox.
+library(mapdeck)
+#Tools for Working with URLs and HTTP
+library(httr)
+```
+
+You can use tippecanoe to make a dynamic .mbtiles files in R, just like the `XYZ function` in QGIS. This is useful to visualize large data appropriately at any zoom level. `sf` objects can also be used as input! This requires you to install tippecanoe on your machine separately first. See instructions [here](https://github.com/mapbox/tippecanoe).
+
+```{r}
+# Using tippecanoe to create .mbtiles of building footprint liverpool
+tippecanoe(input = "data/buildings_liverpool.geojson",
+           output = "data/buildings_liverpool.mbtiles",
+           layer_name = "buildings_liverpool")
+
+```
+
+You can then upload the generated tilesetwith the `upload_tiles()` function to your Mapbox account (requires a Mapbox secret access token to be set as an environment variable). Or you can upload this manually.
+
+- Head over to [Mapbox Studio](https://www.mapbox.com/mapbox-studio)
+- Start a `New Style` and chose a template (Monochrome, blank etc.)
+![](./img/mapboxstyles.png){width="80%"}
+
+- Upload the data and style it 
+
+![](./img/mapbox_upload.png){width="75%"}
+
+
+
+It should look like a nicer version of this:
+
+![](./img/mapbox_building_studio.png){width="90%"}
+
+When you've styled it, bring it back into your R project
+
+```{r echo=FALSE}
+my_token <- "pk.eyJ1IjoicGlldHJvc3RlZmFuaWUiLCJhIjoiY2xkeGJtb3hkMGN4azNxb2E4cGRnbDhxayJ9.VaEiB7qvRk8BbFlihawZ1w"
+
+```
+
+```{r}
+# Define your mapbox token
+#my_token <- "PLACE YOUR MAPBOX TOKEN HERE and UNCOMMENT"
+
+# Into R with mapdeck by referencing the style ID.
+mapdeck(token = my_token, 
+        # Replace the style with the one you've created
+        style = "mapbox://styles/pietrostefanie/cle4dgs2o002d01tft37b5ndg",
+        zoom = 10,
+        location = c(-2.973286, 53.406872))
+
+```
+
+
 ## References
 
 -   Pebesma, E. & Bivand, R. (2022) [Spatial Data Science with

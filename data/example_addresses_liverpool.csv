@@ -1,0 +1,4 @@
+﻿id,name,addr,Postcode,website,smq,bedrooms,bathrooms,price
+1,,"177 Rose Lane, Liverpool",L18 5EA,https://www.rightmove.co.uk/properties/43490520#/?channel=RES_LET,90,2,1,"1,400"
+2,,"10 Thornycroft Road, Liverpool",L15,https://www.rightmove.co.uk/properties/131043245#/?channel=STU_LET,70,4,1,"1,829"
+3,,"36 Allerton Road, Liverpool",L18 1LN,https://www.rightmove.co.uk/property-to-rent/map.html?locationIdentifier=REGION%5E813&numberOfPropertiesPerPage=499&propertyTypes=&includeLetAgreed=false&viewType=MAP&mustHave=&dontShow=&furnishTypes=&viewport=-3.04404%2C-2.80715%2C53.3536%2C53.4267&keywords=,60,2,1,850

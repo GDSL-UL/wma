@@ -1,3 +1,9 @@
+---
+editor: 
+  markdown: 
+    wrap: 72
+---
+
 # APIs
 
 Elisabetta Pietrostefani
@@ -8,14 +14,497 @@ Elisabetta Pietrostefani
 
 ## Lecture
 
-Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_04.pdf)
+Slides can be downloaded
+[here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_04.pdf)
 
 ## Lab: Acquiring data from the web.
 
-### Paired activity
+In this lab, we will interact with a few APIs to get a feel for how they
+work and how you can make the most of them when trying to access data on
+the web. To follow this session, you will need to be able to access the
+following:
 
-### Class discussion
+-   The internet
+-   A Mapbox API token, which you can access through your Mapbox
+    account. If you haven't signed up, do this before class
+    [here](https://account.mapbox.com/auth/signup/?route-to=%22https%3A%2F%2Faccount.mapbox.com%2Faccess-tokens%2F%22).
+-   The R libraries listed in the [computational
+    environment](https://gdsl-ul.github.io/wma/overview.html#computational-environment)
+    setup of the course.
+
+### Basemap API
+
+This section will cover the access of basemaps served as tilesets
+through the standard XYZ protocol. For this, we will use the library
+`leaflet`. It is an open-source Javascript library and a popular option
+for creating interactive mobile-friendly maps. We will use it first as
+end-users, and then we will peak a bit into its guts to get a better
+understanding of its inner workings.
+
+**`Leaflet` provider list** - The `leaflet` packages comes with 100+
+provider tiles - The names of these tiles are stores in a list named
+`providers`
+
+As a convenience, leaflet also provides a named list of all the
+third-party tile providers that are supported by the plugin. This
+enables you to use auto-completion feature of your favorite R IDE (like
+RStudio) and not have to remember or look up supported tile providers;
+just type `providers$` and choose from one of the options. You can also
+use `names(providers)` to view all of the options. Notice how the names
+of the tiles appear.
+
+The XYZ protocol exposes maps as images for portions of the Earth we
+will call tiles. The XYZ name stands from the "coordinates" used to
+locate a given tile. This of the entire planet split up into squares,
+each of them available with a unique combination of X and Y numbers. Now
+add a third one (Z) for the zoom level: lower values use less tiles to
+cover the world, while higher resolution levels (higher Z) will cover
+progressively smaller areas, but with more detail. Most XYZ APIs expose
+tiles directly over HTTP, which means we can access them from the
+browser.
+
+```{r}
+#| warnings: FALSE
+library(leaflet)
+# To see the first 5 provider tiles
+names(providers[1:5])
+```
+
+If you want to see the tiles of only one provide you can use the
+`str_detect` function.
+
+```{r}
+#| warnings: FALSE
+library(tidyverse)
+# To see all the Open Street Map tiles
+names(providers)[str_detect(names(providers), "OpenStreetMap")]
+```
+
+To add a basemap, we just define the tile with addProviderTiles()
+
+```{r}
+leaflet() %>%  
+  # addTiles()  
+  addProviderTiles("Stamen.TonerLite") 
+```
+
+Zooming to a default map view
+
+```{r}
+leaflet() %>%  
+  # addTiles()  
+  addProviderTiles("Stamen.TonerLite") %>% 
+  # define set view with coordinates
+  setView(lng = -2.967212, lat = 53.406045, zoom = 13)
+```
+
+Adding markers and popups (tooltips) and changing
+
+```{r}
+popup = c("Tom", "Kendall", "Sean", "Zachary", "Karla")
+leaflet() %>%
+  addProviderTiles("NASAGIBS.ViirsEarthAtNight2012") %>%
+  addMarkers(lng = c(-3.2031323, -0.2416811, -3.4924087, -4.3725404, -2.6607571),
+             lat = c(53.4118332, 51.5285582, 55.940874, 55.8553807, 51.4684681), 
+             popup = popup)
+```
+
+Plotting multiple points and storing the map as an R object
+
+```{r}
+# Built a dataframe with tibble
+hometown <- tibble(
+student = c("Tom", "Kendall", "Sean", "Zachary", "Karla", "Lois"),
+lon = c(-3.2031323, -0.2416811, -3.4924087, -4.3725404, -2.6607571, -1.6395383),
+lat = c(53.4118332, 51.5285582, 55.940874, 55.8553807, 51.4684681, 53.3956347))
+leaflet() %>%
+addProviderTiles("Stamen.TonerLite") %>%
+  # Add markers according to dataframe
+addMarkers(lng = hometown$lon, lat = hometown$lat)
+
+```
+
+For some extra help with `leaflet` in R have a look
+[here](https://rstudio.github.io/leaflet/markers.html).
+
+### Mapbox Static Tiles API
+
+The Mapbox Static Tiles API serves raster tiles generated from Mapbox
+Studio styles. Raster tiles can be used in traditional web mapping
+libraries like Mapbox.js, Leaflet, OpenLayers, and others to create
+interactive slippy maps. The Static Tiles API is well-suited for maps
+with limited interactivity or use on devices that do not support WebGL.
+
+```{r}
+#| echo: FALSE
+my_token <- "pk.eyJ1IjoicGlldHJvc3RlZmFuaWUiLCJhIjoiY2xkeGJtb3hkMGN4azNxb2E4cGRnbDhxayJ9.VaEiB7qvRk8BbFlihawZ1w"
+```
+
+```{r}
+# R Interface to 'Mapbox' Web Services
+library(mapboxapi)
+
+#my_token <- "PLACE YOUR MAPBOX TOKEN HERE and UNCOMMENT"
+
+#Your Mapbox access token; which can be set with
+mb_access_token(my_token, overwrite = TRUE, install = TRUE)
+
+readRenviron("~/.Renviron")
+
+leaflet() %>% 
+  addMapboxTiles(style_id = "light-v9", username = "mapbox" ) %>% 
+  setView( lng =-2.973286, lat = 53.406872, zoom = 13 )
+
+```
+
+You could also call on a basemap you made yourself as shown in the [Data
+Architecture](https://gdsl-ul.github.io/wma/dataarch.html) of the
+course.
+
+**EXERCISE** - Explore different basemaps with addProviderTiles() in the
+`leaflet` library or with `mapboxapi` - Set a fixed boundary with the
+function `fitBounds()` and `setMaxBounds()`. You can explore bounding
+boxes (coordinates)
+[here](http://bboxfinder.com/#53.406045,-2.967212,53.406045,-2.967212) -
+Think about data you would could plot on it and why. - When selecting a
+Basemap ask yourself some questions + Why are you making this map? + Is
+it just for your use or within a bigger project? + What type of data
+will you be plotting? - In pairs , present your choice of basemap and
+webmap idea to your partner.
+
+**Some Extras** - `Leaflet.extras2` has some nice additions to the
+`leaflet` library. For example, you can integrate easy slide views
+between two maps. - `Mapview` is a great library that generates
+interactive maps with **very little code**. You can find tutorials
+[here](https://www.youtube.com/watch?v=hUzVvGezwo8&t=69s) and
+[here](https://www.youtube.com/watch?v=d88cVmL99xI)
+
+### Directions API
+
+We will explore an API that allows us to tap into the output of
+computations that take place in the cloud, rather than a direct
+database. In particular, we will play with the [Mapbox Directions
+API](https://docs.mapbox.com/api/navigation/#directions). You will need
+your mapbox token again
+
+Mapboxapi supports the use of Mapbox's Directions, Isochrone, Matrix,
+and more, and are designed to be incorporated into R analysis workflows
+using sf, Shiny, and other packages.
+
+The `mb_directions()` function computes a route between an origin and
+destination, or along multiple points in an `sf object`. Output options
+include the route or the route split by route legs as an
+`sf linestring`, or the full routing output as an `R list` for
+additional applications.
+
+The general structure of the call is as follows:
+
+```{r}
+my_route <- mb_directions( origin = "140 Chatham St, Liverpool L7 7BA", destination = "4 Stanley St, Liverpool L1 6AA", profile = "cycling", steps = TRUE) 
+
+leaflet(my_route) %>% 
+  addMapboxTiles( style_id = "light-v9", username = "mapbox" ) %>%
+  addPolylines()
+
+```
+
+It can even give us directions - in multiple languages
+
+```{r}
+my_route$instruction
+```
+
+**Exercise** - Explore the documentation and play around with some of
+the `mb_directions()`. Which other `profiles` can you pick? try out some
+languages for example by adding `language = "fr"` - Explore the
+documentation for the isochrone API and try to obtain results. For
+example, retrieve the area that can be reached within 15 minutes of the
+Roxby Building. Isochrones are areas reachable within a given travel
+time, around a given location. the function is mb_isochrone() - Play
+around with travel-time matrices with the mb_matrix() function
+
+The below is an example of how far you can cycle from Liverpool Lime
+Street Station
+
+```{r}
+#| messages: FALSE
+library(mapdeck)
+
+isochrones <- mb_isochrone("Liverpool Lime Street", 
+                           time = c(2, 5, 10),
+                           profile = "cycling") 
+
+mapdeck(style = mapdeck_style("light")) %>%
+  add_polygon(data = isochrones, 
+              fill_colour = "time",
+              fill_opacity = 0.5,
+              legend = TRUE) 
+```
+
+**Note** that there are other routing APIs available such as
+`library(osrm)`.
+
+### Geographic Data through APIs and the web
+
+We've share spatial data through APIs. Let's now have a look at how APIs
+can help us generate and create spatial data.
+
+In the [Web Architecture](https://gdsl-ul.github.io/wma/webarch.html)
+section of the module, you already had a look at API requests. We used
+both:
+
+-   **Writing our own API request.** The `GET` function from `httr`
+    package.
+-   **Plug-n-play packages.** `get` functions available through
+    user-written R Packages
+
+There are many APIs where we can `GET` data these days. A few examples
+are:
+
+-   [Overpass API - Open Street
+    Map](https://cran.r-project.org/web/packages/osmdata/vignettes/osmdata.html)
+
+-   [Transport for London API](https://api.tfl.gov.uk/)
+
+-   [The London DataStore API](https://data.london.gov.uk/developers/)
+
+-   [Thames Water API](https://data.thameswater.co.uk/s/)
+
+-   [London Air API](https://www.londonair.org.uk/Londonair/API/)
+
+Another good source of data is the
+[CDRC](https://data.cdrc.ac.uk/geodata-packs)
+
+Let's go back to the Bike Points example we starting looking at in the
+[Web's architecture](https://gdsl-ul.github.io/wma/webarch.html)
+session.
+
+```{r pakages API}
+#| warning: false
+library(httr)
+library(jsonlite)
+
+#key <- "YOURKEY HERE"
+
+request <- GET("https://api.tfl.gov.uk/BikePoint/") # Here we request all the bike docking stations from the Transport for London API
+```
+
+Checking the Status Code
+
+```{r response}
+#| warning: false
+# The response status is 200 for a successful request
+request$status_code 
+```
+
+Extracting the data frame
+
+```{r extract}
+#| warning: false
+bikepoints <- jsonlite::fromJSON(content(request, "text")) # extract the dataframe
+names(bikepoints) # Print the column names
+bikepoints$`Station ID` = as.numeric(substr(bikepoints$id, nchar("BikePoints_")+1, nchar(bikepoints$id))) # create new ID
+
+```
+
+Creating an sf object from longitude latitude in the bike dataframe.
+
+```{r hirebikestatiosn}
+#| warning: false
+library(dplyr)
+library(sf)
+
+# create a sf object and set the CRS
+stations_df <- bikepoints %>% 
+  sf::st_as_sf(coords = c(10,9))  %>%  # create pts from coordinates
+  st_set_crs(4326) %>%  # set the original CRS
+  relocate(`Station ID`) # set ID as the first column of the dataframe
+```
+
+Now let's add some data about trips made by hire bikes. We need to use
+the station IDs for the beginning and end of the trips. Transport for
+London publishes online all trips made by hire bikes along many other
+datasets related to [bike usage in
+London](https://cycling.data.tfl.gov.uk/). The files are published
+weekly. They have information on starting and ending stations, exact
+time of the trips.
+
+We can download the files for August 2018 and do some cleaning to map
+the most used routes in London. We first need to filter for completed
+trips and select trips with different origins/destinations.
+
+The next step is to aggregate the trips by pairs of origin and
+destination stations. The results should be how many trips have
+originated and ended from a specific pair in August 2018.
+
+```{r hirebikejourneys, message=FALSE}
+#| warning: false
+# download the trips taken by hire bikes in August 2018
+download.file("https://cycling.data.tfl.gov.uk/usage-stats/121JourneyDataExtract01Aug2018-07Aug2018.csv",
+              destfile = "data/London/121JourneyDataExtract01Aug2018-07Aug2018.csv")
+download.file("https://cycling.data.tfl.gov.uk/usage-stats/122JourneyDataExtract08Aug2018-14Aug2018.csv",
+              destfile = "data/London/122JourneyDataExtract08Aug2018-14Aug2018.csv")
+download.file("https://cycling.data.tfl.gov.uk/usage-stats/123JourneyDataExtract15Aug2018-21Aug2018.csv",
+              destfile = "data/London/123JourneyDataExtract15Aug2018-21Aug2018.csv")
+download.file("https://cycling.data.tfl.gov.uk/usage-stats/124JourneyDataExtract22Aug2018-28Aug2018.csv",
+              destfile = "data/London/124JourneyDataExtract22Aug2018-28Aug2018.csv")
+
+# list the cycle hire extracts from TfL 
+# https://cycling.data.tfl.gov.uk/
+library(data.table)
+extracts <- list.files("data/London", pattern=glob2rx("*Journey*Data*Extract*"), 
+                       recursive = TRUE,
+                       full.names = TRUE)
+
+# loop through files
+journeys <- do.call("rbind", lapply(extracts, fread))
+
+# aggregate at the station day level
+journeys_agg <- journeys %>%
+  filter(!`StartStation Id`==`EndStation Id`) %>% # filter trip with same origin and destination
+  filter(!is.na(`EndStation Id`)) %>% # filter lost bike
+  filter(!is.na(`StartStation Id`)) %>% # filter lost bike
+  filter(`StartStation Id` %in% stations_df$`Station ID`) %>% # filter stations that closed/ were not opened
+  filter(`EndStation Id` %in% stations_df$`Station ID`) %>%  # filter stations that closed/ were not opened
+  filter(!Duration <= 0) %>% # filter no trips and lost
+  filter(Duration <= 180*60) %>%  # filter trips not well docked
+  group_by(`StartStation Id`, `EndStation Id`) %>%
+  summarise(journeys = n(), 
+            mean_duration = mean(Duration)) %>%
+  ungroup() %>%
+  mutate(share_trips = 100*journeys/sum(journeys))
+
+# quick stats
+summary(journeys_agg)
+
+```
+
+Most origin/destination pairs have
+`r (mean(round(journeys_agg$journeys)))` trips during the period. The
+average duration is `r (mean(round(journeys_agg$mean_duration/60)))`
+min.
+
+We can then filter our journeys to the top 2 percentiles of the trips.
+Most pairs do not have any trips (none goes from the furthest station in
+Hackney down to Oval station). Plotting all lines would be messy.
+
+```{r mapofactivetravel}
+library(stplanr)
+# filter out top 2% 
+od_top2 = journeys_agg %>% 
+  arrange((journeys)) %>% 
+  top_frac(0.02, wt = journeys)
+
+# Creating centroids representing desire line start and end points.
+desire_lines = od2line(od_top2, stations_df) # here using package stplanr 
+```
+
+We plot the top 0.2% of pairs by the number of trips (you can reduce the
+percentage if your computer is too slow). We can see that most trips
+originate from the centre. Let's try to make it nicer and more
+interactive:
+
+```{r nicermap, message=FALSE}
+library(classInt)
+library(tmap)
+# find the breaks
+brks <- classIntervals(desire_lines$journeys, 5, style = "jenks")
+               
+# plot
+tmap_mode("view")
+tm_basemap() + # add a London basemap
+tm_shape(desire_lines) + # add the OD lines
+  tm_lines(id = "journeys", # set the pop up id to the number of journeys
+           palette = "plasma", # purple to yellow palette
+           breaks = brks$brks, # jenks breaks defined earlier
+           lwd = "share_trips", # share trips colour
+           scale = 9,
+           title.lwd = "Share trips (%)", # set thickness of lines
+           alpha = 0.3, # transparency
+           col= "journeys", # set colour fill to number of journeys
+           title = "Number of trips" 
+  ) +
+  tm_shape(stations_df) + # add the stations for context
+  tm_symbols(id = "commonName", col = "red", alpha = 0, scale = .5) + # names of stations as pop up id
+  tm_scale_bar() +
+  tm_layout(
+    legend.bg.alpha = 0.5,
+    legend.bg.color = "white") # legend format
+
+```
+
+**Exercise**
+
+-   Look at the documentation for one of the APIs mentioned for data
+    extraction (or another API you are aware of) or the CDRC
+-   Think of 2 ideas of web maps you could construct from your chosen
+    data. Think about the basemap and data you would plot on top.
+
+### Geocoding API
+
+Below is a short exploration of a the geocoding API
+`library(tidygeocoder)`. In your own time try to use it to automatically
+embed coordinates between addresses.
+
+```{r}
+#| messages: FALSE
+library(tidygeocoder)
+
+# Create a dataframe with addresses
+some_addresses <- tibble::tribble(
+~name,                  ~addr,
+"South Campus Teaching Hub",          "140 Chatham St, Liverpool L7 7BA",
+"Sefton Park", "Sefton Park, Liverpool L17 1AP",
+"Stanley Street", "4 Stanley St, Liverpool L1 6AA"
+)
+
+# Geocode the addresses
+lat_longs <- some_addresses %>%
+  geocode(addr, method = 'osm', lat = latitude , long = longitude)
+
+```
+
+```{r import data}
+#| messages: FALSE
+# You could also be reading addressed from a file 
+liverpool_addresses <- read_sf("data/example_addresses_liverpool.csv") 
+
+lat_longs <- liverpool_addresses %>%
+  geocode(addr, method = 'osm', lat = latitude , long = longitude)
+```
+
+**Reverse Geocoding**
+
+You can also reverse geo-code the data, open the output and see what the
+result is
+
+```{r}
+#| messages: FALSE
+reverse <- lat_longs %>%
+  reverse_geocode(lat = latitude, long = longitude, method = 'osm',
+                  address = address_found, full_results = TRUE) %>%
+  select(-addr, -licence)
+```
+
+Other packages also do geocoding such as `library(ggmap)` have a look
+[here](https://lucidmanager.org/data-science/geocoding-with-ggmap/)
 
 ## References
 
-Arribas-Bel, D. (2014) "Accidental, Open and Everywhere: Emerging Data Sources for the Understanding of Cities". Applied Geography, 49: 45-53. Goodchild, M. F. (2007). Citizens as sensors: the world of volunteered geography. GeoJournal, 69(4), 211-221. Lazer, D., & Radford, J. (2017). Data ex machina: introduction to big data. Annual Review of Sociology, 43, 19-39. Lab: Acquiring data from the web Notes:
+Arribas-Bel, D. (2014) ["Accidental, Open and Everywhere: Emerging Data
+Sources for the Understanding of
+Cities"](https://www.sciencedirect.com/science/article/pii/S0143622813002178).
+Applied Geography, 49: 45-53.
+
+Goodchild, M. F. (2007). [Citizens as sensors: the world of volunteered
+geography](https://link.springer.com/article/10.1007/s10708-007-9111-y).
+GeoJournal, 69(4), 211-221.
+
+Lazer, D., & Radford, J. (2017). [Data ex machina: introduction to big
+data](https://www.annualreviews.org/doi/abs/10.1146/annurev-soc-060116-053457).
+Annual Review of Sociology, 43, 19-39.
+
+[Leaflet for R](https://rstudio.github.io/leaflet/basemaps.html)
+
+Titorchul, O. (2020), [Breaking Down
+Geocoding](https://towardsdatascience.com/breaking-down-geocoding-in-r-a-complete-guide-1d0f8acd0d4b)

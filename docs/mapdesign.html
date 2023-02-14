@@ -206,10 +206,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture"><span class="toc-section-number">5.1</span>  Lecture</a></li>
-  <li><a href="#lab-designing-maps-with-mapbox-studio-take-out-carto" id="toc-lab-designing-maps-with-mapbox-studio-take-out-carto" class="nav-link" data-scroll-target="#lab-designing-maps-with-mapbox-studio-take-out-carto"><span class="toc-section-number">5.2</span>  Lab: Designing maps with Mapbox Studio (take out Carto)</a>
+  <li><a href="#lab-designing-maps-with-mapbox-studio" id="toc-lab-designing-maps-with-mapbox-studio" class="nav-link" data-scroll-target="#lab-designing-maps-with-mapbox-studio"><span class="toc-section-number">5.2</span>  Lab: Designing maps with Mapbox Studio</a>
   <ul class="collapse">
-  <li><a href="#paired-activity" id="toc-paired-activity" class="nav-link" data-scroll-target="#paired-activity"><span class="toc-section-number">5.2.1</span>  Paired activity</a></li>
-  <li><a href="#class-discussion" id="toc-class-discussion" class="nav-link" data-scroll-target="#class-discussion"><span class="toc-section-number">5.2.2</span>  Class discussion</a></li>
+  <li><a href="#bring-your-mapped-style-back-into-r" id="toc-bring-your-mapped-style-back-into-r" class="nav-link" data-scroll-target="#bring-your-mapped-style-back-into-r"><span class="toc-section-number">5.2.1</span>  Bring your mapped style back into R</a></li>
+  <li><a href="#presentation" id="toc-presentation" class="nav-link" data-scroll-target="#presentation"><span class="toc-section-number">5.2.2</span>  Presentation</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">5.3</span>  References</a></li>
   </ul>
@@ -242,17 +242,66 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="5.1" class="anchored" data-anchor-id="lecture"><span class="header-section-number">5.1</span> Lecture</h2>
 <p>Slides can be downloaded <a href="https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_06.pdf">here</a></p>
 </section>
-<section id="lab-designing-maps-with-mapbox-studio-take-out-carto" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="lab-designing-maps-with-mapbox-studio-take-out-carto"><span class="header-section-number">5.2</span> Lab: Designing maps with Mapbox Studio (take out Carto)</h2>
-<section id="paired-activity" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="paired-activity"><span class="header-section-number">5.2.1</span> Paired activity</h3>
+<section id="lab-designing-maps-with-mapbox-studio" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="lab-designing-maps-with-mapbox-studio"><span class="header-section-number">5.2</span> Lab: Designing maps with Mapbox Studio</h2>
+<p>In this lab, we will put to use some of the ideas and concepts we have learnt about map design. We will do so using <a href="https://www.mapbox.com/mapbox-studio/">Mapbox Studio</a>, a tool that will allow us to control almost any thinkable aspect of a map.</p>
+<p>As we go through the practicalities, remember the concepts that inspire map design, which we have outlined in the <a href="https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_06.pdf">lecture slides</a>. The challenge here is not in learning the software, but in being able to translate abstract notions of design into an applied context.</p>
+<p>To complete this lab, you will require the following:</p>
+<ul>
+<li>The internet</li>
+<li>An active Mapbox account Mapbox Studio</li>
+</ul>
+<p><strong>Mapbox Studio</strong></p>
+<p>Let’s get starting by logging into our Mapbox account and opening up <a href="https://www.mapbox.com/mapbox-studio">Mapbox Studio</a></p>
+<p>You should see something like this: <img src="./img/styles.png" class="img-fluid" style="width:80.0%"></p>
+<p>To explore what is possible, we will create a new style. Click on the “New Style” button and pick the “Monochrome” option. Select the color you prefer. This will load the Studio editor, where we will spend most of this session.</p>
+<p>The Studio is structured around three main panels: styling on the left, the map canvas, and the toolbar at the top.</p>
+<p><img src="./img/mapbox_editor.png" class="img-fluid" style="width:80.0%"></p>
+<p>Source: <a href="https://docs.mapbox.com/studio-manual/reference/styles/#style-editor">Mapbox</a></p>
+<p>Most of the time, we will select views, layers, and data from the styling panel, and our actions will drive changes on the map canvas. In this tutorial, we will examine how to modify and style the different elements of design we have seen in class:</p>
+<ul>
+<li>Color</li>
+<li>Texture</li>
+<li>Labelling and typography</li>
+<li>Iconography</li>
+</ul>
+<p>We will finish our tour discussing the Elements feature and learning about how to add our own data to the maps we style in Studio.</p>
+<p><strong>Exercise</strong></p>
+<p>For this exercise, we will be using the “CLIWOC Slim and Routes” data product: <a href="https://figshare.com/articles/CLIWOC_Slim_and_Routes/11941224"><code>https://figshare.com/articles/CLIWOC_Slim_and_Routes/11941224</code></a></p>
+<p>Team in groups of two to four and pick one of the following options:</p>
+<ol type="1">
+<li><p>Global map of trade routes</p></li>
+<li><p>Map of ship activity around South Africa</p></li>
+<li><p>Map showing how important the island of Saint Helena was in this period</p></li>
+<li><p>Map of shipping activity in the English Channel</p></li>
+<li><p>Map of expeditions into the Arctic</p></li>
+<li><p>Map of activity around the Caribbean</p></li>
+</ol>
+<p>Style a map according to its goal.</p>
+<section id="bring-your-mapped-style-back-into-r" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="bring-your-mapped-style-back-into-r"><span class="header-section-number">5.2.1</span> Bring your mapped style back into R</h3>
+<p>Go back to the end of the <a href="https://gdsl-ul.github.io/wma/dataarch.html">Lab 3</a> and use the <code>mapdeck()</code> function to bring your styled map back into R. For more on mapdeck check this <a href="https://symbolixau.github.io/mapdeck/articles/mapdeck.html">page</a>.</p>
 </section>
-<section id="class-discussion" class="level3" data-number="5.2.2">
-<h3 data-number="5.2.2" class="anchored" data-anchor-id="class-discussion"><span class="header-section-number">5.2.2</span> Class discussion</h3>
+<section id="presentation" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="presentation"><span class="header-section-number">5.2.2</span> Presentation</h3>
+<p>Once you are happy with your final style, publish it and drop the link on the module's Team. Designate one member of the group to present it. The presentation should cover the following:</p>
+<ul>
+<li><p>What is the map about?</p></li>
+<li><p>What design elements did you tweak? How? Why?</p></li>
+<li><p>What choices did you make following design principles? What other alternatives did you consider? Why did you opt for those choices?</p></li>
+</ul>
 </section>
 </section>
 <section id="references" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="references"><span class="header-section-number">5.3</span> References</h2>
+<ul>
+<li><p>Katie Jolly’s <a href="https://www.katiejolly.io/portfolio/map-design-guide/">Map Design Guide</a></p></li>
+<li><p>Mapbox’s Guide to <a href="https://www.mapbox.com/designers">Map Design</a></p></li>
+<li><p>The <a href="https://docs.mapbox.com/studio-manual/guides/">Mapbox Studio manual</a></p></li>
+<li><p>The <a href="https://jcheshire.com/resources/7-deadly-sins-data-visualisation/">seven deadly sins of visualisation</a>, by James Cheshire</p></li>
+<li><p><a href="https://wesandersonpalettes.tumblr.com/">Wes Anderson</a> color palettes</p></li>
+<li><p><a href="https://www.shipmap.org/">The Ship Map</a>, Kiln is a stunning example</p></li>
+</ul>
 
 
 </section>

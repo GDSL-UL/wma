@@ -200,14 +200,14 @@
     "href": "mapdesign.html#lab-designing-maps-with-mapbox-studio-take-out-carto",
     "title": "5  Map design",
     "section": "5.2 Lab: Designing maps with Mapbox Studio (take out Carto)",
-    "text": "5.2 Lab: Designing maps with Mapbox Studio (take out Carto)\n\n5.2.1 Paired activity\n\n\n5.2.2 Class discussion"
+    "text": "5.2 Lab: Designing maps with Mapbox Studio (take out Carto)\nIn this lab, we will put to use some of the ideas and concepts we have learnt about map design. We will do so using Mapbox Studio, a tool that will allow us to control almost any thinkable aspect of a map.\nAs we go through the practicalities, remember the concepts that inspire map design, which we have outlined in the lecture slides. The challenge here is not in learning the software, but in being able to translate abstract notions of design into an applied context.\nTo complete this lab, you will require the following:\n\nThe internet\nAn active Mapbox account Mapbox Studio\n\nMapbox Studio Let’s get starting by logging into our Mapbox account and opening up Mapbox Studio\nYou should see something like this: \nTo explore what is possible, we will create a new style. Click on the “New Style” button and pick the “Monochrome” option. Select the color you prefer. This will load the Studio editor, where we will spend most of this session.\nThe Studio is structured around three main panels: styling on the left, the map canvas, and the toolbar at the top.\n Source: Mapbox"
   },
   {
     "objectID": "mapdesign.html#references",
     "href": "mapdesign.html#references",
     "title": "5  Map design",
     "section": "5.3 References",
-    "text": "5.3 References"
+    "text": "5.3 References\n\nKatie Jolly’s Map Design Guide\nMapbox’s Guide to Map Design\nThe Mapbox Studio manual\nThe seven deadly sins of visualisation, by James Cheshire\nWes Anderson color palettes\nThe Ship Map, Kiln is a stunning example"
   },
   {
     "objectID": "interact.html#lecture",
@@ -411,5 +411,12 @@
     "title": "10  Web Mapping & Analysis - Introduction",
     "section": "10.18 Homework",
     "text": "10.18 Homework\n\n\nBring at least one example of web mapping that you find compelling\nContribute the link to Teams"
+  },
+  {
+    "objectID": "mapdesign.html#lab-designing-maps-with-mapbox-studio",
+    "href": "mapdesign.html#lab-designing-maps-with-mapbox-studio",
+    "title": "5  Map design",
+    "section": "5.2 Lab: Designing maps with Mapbox Studio",
+    "text": "5.2 Lab: Designing maps with Mapbox Studio\nIn this lab, we will put to use some of the ideas and concepts we have learnt about map design. We will do so using Mapbox Studio, a tool that will allow us to control almost any thinkable aspect of a map.\nAs we go through the practicalities, remember the concepts that inspire map design, which we have outlined in the lecture slides. The challenge here is not in learning the software, but in being able to translate abstract notions of design into an applied context.\nTo complete this lab, you will require the following:\n\nThe internet\nAn active Mapbox account Mapbox Studio\n\nMapbox Studio\nLet’s get starting by logging into our Mapbox account and opening up Mapbox Studio\nYou should see something like this: \nTo explore what is possible, we will create a new style. Click on the “New Style” button and pick the “Monochrome” option. Select the color you prefer. This will load the Studio editor, where we will spend most of this session.\nThe Studio is structured around three main panels: styling on the left, the map canvas, and the toolbar at the top.\n\nSource: Mapbox\nMost of the time, we will select views, layers, and data from the styling panel, and our actions will drive changes on the map canvas. In this tutorial, we will examine how to modify and style the different elements of design we have seen in class:\n\nColor\nTexture\nLabelling and typography\nIconography\n\nWe will finish our tour discussing the Elements feature and learning about how to add our own data to the maps we style in Studio.\nExercise\nFor this exercise, we will be using the “CLIWOC Slim and Routes” data product: https://figshare.com/articles/CLIWOC_Slim_and_Routes/11941224\nTeam in groups of two to four and pick one of the following options:\n\nGlobal map of trade routes\nMap of ship activity around South Africa\nMap showing how important the island of Saint Helena was in this period\nMap of shipping activity in the English Channel\nMap of expeditions into the Arctic\nMap of activity around the Caribbean\n\nStyle a map according to its goal.\n\n5.2.1 Bring your mapped style back into R\nGo back to the end of the Lab 3 and use the mapdeck() function to bring your styled map back into R. For more on mapdeck check this page.\n\n\n5.2.2 Presentation\nOnce you are happy with your final style, publish it and drop the link on the module's Team. Designate one member of the group to present it. The presentation should cover the following:\n\nWhat is the map about?\nWhat design elements did you tweak? How? Why?\nWhat choices did you make following design principles? What other alternatives did you consider? Why did you opt for those choices?"
   }
 ]

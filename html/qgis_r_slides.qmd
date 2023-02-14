@@ -1,0 +1,64 @@
+---
+title: "Web Mapping & Analysis Intro to QGIS and R"
+author: "Elisabetta Pietrostefani & Dani Arribas-Bel"
+format: 
+    revealjs:
+        navigation-mode: grid
+align-items: center;
+---
+
+# QGIS
+
+- Download QGIS from qgis.org or remote desktop
+- Can download for Windows, Mac or Linux 
+- Different versions and all quite similar: **3.22 LTR Recommended**
+
+<center><img data-src="./figs/QGIS-download.png" alt="centered image" width="70%" height="80%"><center>
+
+## Opening QGIS
+
+<center><img data-src="./figs/openqgis.png" alt="centered image" width="90%" height="90%"><center>
+
+## Navigating QGIS
+{{< video "media/qgis_intro_demo.mp4" >}}
+
+## Save your Project
+
+You should save this as an QGIS project (.qgz extension)
+
+- Click Project --> Save 
+And save it in your Lab *Web Mapping and Analysis* folder 
+
+## IMPORTANT
+
+- You will need to save shapefiles and other layers separately
+- The ‘Project’ Lab3.qgz is just a file which restores all the links to these datasests, and information about the way they are displayed. 
+- If you move the source files (e.g. liverpool_bld.shp) they will get detached from your project and you have to relocate them
+
+# R and R-Studio
+
+- R is a statistical programming language developed for data analysis and visualization
+
+- Rstudio is an IDE (Integrated Development Environment) 
+- Write, save and open R Codes (.R & .Rmd files)
+- Provides syntax-highlighting and auto-completion and much more
+
+<center><img data-src="./figs/R1.png" width="35%" height="35%"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img data-src="./figs/R2.png" width="35%" height="35%"><center>
+
+## Why learn R?
+
+<center><img data-src="./figs/R3.png" width="70%" height="70%"><center>
+
+## Where everything is
+
+<center><img data-src="./figs/R4.png" width="100%" height="100%"><center>
+
+## R-markdown
+{{< video "media/rmarkdown_demo.mp4" >}}
+
+## Cheat Sheet
+<center><img data-src="./figs/cheatsheet.png" width="75%" height="75%"><center>
+
+# 
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Creative Commons License" style="border-width:0"/></a><br />[Web Mapping & Analysis]{xmlns:dct="http://purl.org/dc/terms/" property="dct:title"} by <a xmlns:cc="http://creativecommons.org/ns#" href="https://gdsl-ul.github.io/wma/" property="cc:attributionName" rel="cc:attributionURL">Elisabetta Pietrostefani</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.

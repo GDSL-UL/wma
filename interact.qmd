@@ -107,6 +107,9 @@ In QGIS there are two steps:
 
 -   Once this is done you can import that data to Kepler.gl.
 -   Inspect the data, focusing on the columns (attributes).
+
+![](./img/data_kepler.png){width="80%"}
+
 -   Create a filter by date (or additional filters).
 
 ![](./img/filter_kepler.png){width="40%"}

@@ -4,7 +4,7 @@ Dani Arribas-Bel
 
 **Lecture**: Statistical visualisation
 
-**Lab**: Choropleths in Kepler
+**Lab**: Choropleths in Kepler or leaflet R
 
 ## Lecture
 

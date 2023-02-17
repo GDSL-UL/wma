@@ -348,17 +348,13 @@ mapdeck(token = my_token,
 
 ## References
 
--   Pebesma, E. & Bivand, R. (2022) [Spatial Data Science with
-    applications in R](https://r-spatial.org/book/)
+-   Pebesma, E. & Bivand, R. (2022) [Spatial Data Science with applications in R](https://r-spatial.org/book/)
 
--   [Chapter
-    3](https://geographicdata.science/book/notebooks/03_spatial_data.html)
+-   [Chapter 3](https://geographicdata.science/book/notebooks/03_spatial_data.html)
     of the GDS book (in progress) covers traditional and more modern
     approaches to represent Geography as data.
 
--   Kitchin, R. (2014). [The data revolution: Big data, open data, data
-    infrastructures and their
-    consequences.](https://www.perlego.com/book/860829/the-data-revolution-big-data-open-data-data-infrastructures-and-their-consequences-pdf?utm_source=google&utm_medium=cpc&campaignid=15781033413&adgroupid=134828831187&gclid=CjwKCAiAzp6eBhByEiwA_gGq5Otph9MDAPkgkT_yBOH3u8Z0rRiL8TLCr32xzW5pY_uIIjTV7r4S7RoCMXsQAvD_BwE)
+-   Kitchin, R. (2014). [The data revolution: Big data, open data, data infrastructures and their consequences.](https://www.perlego.com/book/860829/the-data-revolution-big-data-open-data-data-infrastructures-and-their-consequences-pdf?utm_source=google&utm_medium=cpc&campaignid=15781033413&adgroupid=134828831187&gclid=CjwKCAiAzp6eBhByEiwA_gGq5Otph9MDAPkgkT_yBOH3u8Z0rRiL8TLCr32xzW5pY_uIIjTV7r4S7RoCMXsQAvD_BwE)
     Sage.
 
 -   [Maptiler.com](https://www.maptiler.com/) documents on [map

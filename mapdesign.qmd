@@ -46,8 +46,7 @@ We will finish our tour discussing the Elements feature and learning about how t
 
 **Exercise**
 
-For this exercise, we will be using the "CLIWOC Slim and Routes" data product:
-[`https://figshare.com/articles/CLIWOC_Slim_and_Routes/11941224`](https://figshare.com/articles/CLIWOC_Slim_and_Routes/11941224)
+For this exercise, we will be using the "CLIWOC Slim and Routes" data product: [`https://figshare.com/articles/CLIWOC_Slim_and_Routes/11941224`](https://figshare.com/articles/CLIWOC_Slim_and_Routes/11941224)
 
 Team in groups of two to four and pick one of the following options:
 
@@ -71,14 +70,13 @@ Go back to the end of the [Lab 3](https://gdsl-ul.github.io/wma/dataarch.html) a
 
 ### Presentation
 
-Once you are happy with your final style, publish it and drop the link on the module\'s Team. Designate one member of the group to present it. The presentation should cover the following:
+Once you are happy with your final style, publish it and drop the link on the module's Team. Designate one member of the group to present it. The presentation should cover the following:
 
 -   What is the map about?
 
 -   What design elements did you tweak? How? Why?
 
 -   What choices did you make following design principles? What other alternatives did you consider? Why did you opt for those choices?
-
 
 ## References
 

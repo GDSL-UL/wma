@@ -41,3 +41,10 @@ vignettes/*.pdf
 .Renviron
 
 /.quarto/
+.DS_Store
+data/.DS_Store
+data/.DS_Store
+data/liverpool_data/.DS_Store
+data/liverpool_data/E08000012/.DS_Store
+data/liverpool_data/merseyside-latest-free.shp/.DS_Store
+data/.DS_Store

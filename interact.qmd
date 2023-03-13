@@ -1,3 +1,10 @@
+---
+prefer-html: true
+editor: 
+  markdown: 
+    wrap: 72
+---
+
 # Interactivity
 
 Elisabetta Pietrostefani
@@ -87,7 +94,7 @@ To demonstrate animations, we will use another dataset we have enountered in the
 
 We will work with individual logs (cliwoc_slim) to create an animation of the logs, for example just showing expeditions between certain date, as in this example of expeditions into the Caribbean.
 
-![](./img/animate.mp4){width="80%"}
+![](./img/animate.png){width="80%" height="80%"}
 
 **Date Prep**
 

@@ -4,12 +4,6 @@ Dani Arribas-Bel
 
 **Lecture**: Dashboards: bringing analysis to the web
 
-**Lab**: Building Dashboards (Shiny)
+**Lab**: Building Dashboards
 
-## Lecture
 
-Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_08.pdf)
-
-## Lab:
-
-## References

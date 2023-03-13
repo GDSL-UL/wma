@@ -1,4 +1,5 @@
 ---
+prefer-html: true
 editor: 
   markdown: 
     wrap: 72
@@ -161,7 +162,7 @@ course.
 
 **EXERCISE**
 
--    Explore different basemaps with addProviderTiles() in the `leaflet`
+-   Explore different basemaps with addProviderTiles() in the `leaflet`
     library or with `mapboxapi`
 
 -   Set a fixed boundary with the function `fitBounds()` and
@@ -171,14 +172,14 @@ course.
 
 -   When selecting a Basemap ask yourself some questions
 
-    -    Why are you making this map?
+    -   Why are you making this map?
 
-    -    Is it just for your use or within a bigger project?
+    -   Is it just for your use or within a bigger project?
 
-    -    What type of data will you be plotting?
+    -   What type of data will you be plotting?
 
--  In pairs , present your choice of basemap and webmap idea to
-        your partner.
+-   In pairs , present your choice of basemap and webmap idea to your
+    partner.
 
 **Some Extras** - `Leaflet.extras2` has some nice additions to the
 `leaflet` library. For example, you can integrate easy slide views
@@ -229,9 +230,10 @@ my_route$instruction
     languages for example by adding `language = "fr"`
 
 -   Explore the documentation for the isochrone on mapboxapi and try to
-    obtain results - `mb_isochrone()`. For example, retrieve the area that can be reached
-    within 15 minutes of the Roxby Building. Isochrones are areas
-    reachable within a given travel time, around a given location.
+    obtain results - `mb_isochrone()`. For example, retrieve the area
+    that can be reached within 15 minutes of the Roxby Building.
+    Isochrones are areas reachable within a given travel time, around a
+    given location.
 
 -   Play around with travel-time matrices with the mb_matrix() function
 
@@ -255,9 +257,11 @@ both:
 There are many APIs where we can `GET` data these days. A few examples
 are:
 
--   [US CENSUS API](https://cran.r-project.org/web/packages/tidycensus/index.html)
+-   [US CENSUS
+    API](https://cran.r-project.org/web/packages/tidycensus/index.html)
 
--   [Overpass API - Open Street Map](https://cran.r-project.org/web/packages/osmdata/vignettes/osmdata.html)
+-   [Overpass API - Open Street
+    Map](https://cran.r-project.org/web/packages/osmdata/vignettes/osmdata.html)
 
 -   [Transport for London API](https://api.tfl.gov.uk/)
 
@@ -275,6 +279,10 @@ Another good source of data is the
 Let's go back to the Bike Points example we starting looking at in the
 [Web's architecture](https://gdsl-ul.github.io/wma/webarch.html)
 session.
+
+```{r echo=FALSE}
+#key <- "YOURKEY HERE"
+```
 
 ```{r pakages API}
 #| warning: false
@@ -337,15 +345,16 @@ originated and ended from a specific pair in August 2018.
 
 ```{r hirebikejourneys, message=FALSE}
 #| warning: false
-# download the trips taken by hire bikes in August 2018
-download.file("https://cycling.data.tfl.gov.uk/usage-stats/121JourneyDataExtract01Aug2018-07Aug2018.csv",
-              destfile = "data/London/121JourneyDataExtract01Aug2018-07Aug2018.csv")
-download.file("https://cycling.data.tfl.gov.uk/usage-stats/122JourneyDataExtract08Aug2018-14Aug2018.csv",
-              destfile = "data/London/122JourneyDataExtract08Aug2018-14Aug2018.csv")
-download.file("https://cycling.data.tfl.gov.uk/usage-stats/123JourneyDataExtract15Aug2018-21Aug2018.csv",
-              destfile = "data/London/123JourneyDataExtract15Aug2018-21Aug2018.csv")
-download.file("https://cycling.data.tfl.gov.uk/usage-stats/124JourneyDataExtract22Aug2018-28Aug2018.csv",
-              destfile = "data/London/124JourneyDataExtract22Aug2018-28Aug2018.csv")
+# Uncomment the following to download the trips taken by hire bikes in August 2018
+
+#download.file("https://cycling.data.tfl.gov.uk/usage-stats/121JourneyDataExtract01Aug2018-07Aug2018.csv",
+#              destfile = "data/London/121JourneyDataExtract01Aug2018-07Aug2018.csv")
+#download.file("https://cycling.data.tfl.gov.uk/usage-stats/122JourneyDataExtract08Aug2018-14Aug2018.csv",
+#              destfile = "data/London/122JourneyDataExtract08Aug2018-14Aug2018.csv")
+#download.file("https://cycling.data.tfl.gov.uk/usage-stats/123JourneyDataExtract15Aug2018-21Aug2018.csv",
+#              destfile = "data/London/123JourneyDataExtract15Aug2018-21Aug2018.csv")
+#download.file("https://cycling.data.tfl.gov.uk/usage-stats/124JourneyDataExtract22Aug2018-28Aug2018.csv",
+#              destfile = "data/London/124JourneyDataExtract22Aug2018-28Aug2018.csv")
 
 # list the cycle hire extracts from TfL 
 # https://cycling.data.tfl.gov.uk/

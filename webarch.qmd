@@ -126,6 +126,11 @@ library(tidyverse)
 #census_api_key("ADD IT HERE") #replace this with your key
 ```
 
+```{r echo=FALSE, message=FALSE}
+
+census_api_key("12efa59339e5a00a910f77f2e691309ae70e1d1b") #replace this with your key
+```
+
 -   Variables in tidycensus are identified by their Census ID, e.g.
     B19013_001
 

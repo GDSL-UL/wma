@@ -219,7 +219,8 @@ In this section we will dive into the concept of tiles to understand why
 they have been so transformative in the world of web mapping. We have
 already seen several tilesets. If you scroll back up where we used the
 function `mapview`, you will see that is it plotting out points,
-polygons and linestrings on different tileset options integrated in the library.
+polygons and linestrings on different tileset options integrated in the
+library.
 
 ![](./img/mapview.png){width="18%"}
 
@@ -230,8 +231,9 @@ tileset built using the JavaScript library Leaflet.js.
 
 Before we get started, let's get all the required pieces together:
 
-- Fire up QGIS 3 
-- Download the data [here](https://github.com/GDSL-UL/wma/raw/main/data/liverpool_data.zip)
+-   Fire up QGIS 3
+-   Download the data
+    [here](https://github.com/GDSL-UL/wma/raw/main/data/liverpool_data.zip)
 
 **Build your basemap**
 
@@ -251,8 +253,10 @@ get a map you are happy with.
 **Create a tileset for your map**
 
 Once ready to build the basemap from your created map, head over to
-`Processing Toolbox` and select the `Raster tools --> Generate XYZ Tiles (Directory)`. 
-You can start with the Directory option. Pick parameters and, when everything is ready, hit Run. Depending on your settings, this will take some time, be patient.
+`Processing Toolbox` and select the
+`Raster tools --> Generate XYZ Tiles (Directory)`. You can start with
+the Directory option. Pick parameters and, when everything is ready, hit
+Run. Depending on your settings, this will take some time, be patient.
 
 ![](./img/xyz.png){width="70%"}
 
@@ -273,7 +277,8 @@ the look and feel of it.
 If you feel adventurous, you can also peak into the code that makes the
 web map possible. To do that, you will need to either open the HTML file
 on a text editor, or inspect the source code from the browser (in
-Chrome, for example, this can be accessed through `Right Click --> Inspect`.
+Chrome, for example, this can be accessed through
+`Right Click --> Inspect`.
 
 **Create a `.mbtiles` file for easy transport**
 
@@ -286,9 +291,11 @@ also supported by most web mapping platforms, such as Mapbox.
 
 **`.mbtiles` in R**
 
-For this next section, you will need to register for a MapBox account. [here](https://account.mapbox.com/auth/signup/?route-to=%22https%3A%2F%2Faccount.mapbox.com%2Faccess-tokens%2F%22).
+For this next section, you will need to register for a MapBox account.
+[here](https://account.mapbox.com/auth/signup/?route-to=%22https%3A%2F%2Faccount.mapbox.com%2Faccess-tokens%2F%22).
 
-Following from the previous exercise, save a file of Liverpool buildings as a geojson and call it `buildings_liverpool.geojson`.
+Following from the previous exercise, save a file of Liverpool buildings
+as a geojson and call it `buildings_liverpool.geojson`.
 
 ```{r}
 # R Interface to 'Mapbox' Web Services
@@ -299,7 +306,11 @@ library(mapdeck)
 library(httr)
 ```
 
-You can use tippecanoe to make a dynamic .mbtiles files in R, just like the `XYZ function` in QGIS. This is useful to visualize large data appropriately at any zoom level. `sf` objects can also be used as input! This requires you to install tippecanoe on your machine separately first. See instructions [here](https://github.com/mapbox/tippecanoe).
+You can use tippecanoe to make a dynamic .mbtiles files in R, just like
+the `XYZ function` in QGIS. This is useful to visualize large data
+appropriately at any zoom level. `sf` objects can also be used as input!
+This requires you to install tippecanoe on your machine separately
+first. See instructions [here](https://github.com/mapbox/tippecanoe).
 
 ```{r}
 # Using tippecanoe to create .mbtiles of building footprint liverpool
@@ -309,17 +320,18 @@ tippecanoe(input = "data/buildings_liverpool.geojson",
 
 ```
 
-You can then upload the generated tilesetwith the `upload_tiles()` function to your Mapbox account (requires a Mapbox secret access token to be set as an environment variable). Or you can upload this manually.
+You can then upload the generated tilesetwith the `upload_tiles()`
+function to your Mapbox account (requires a Mapbox secret access token
+to be set as an environment variable). Or you can upload this manually.
 
-- Head over to [Mapbox Studio](https://www.mapbox.com/mapbox-studio)
-- Start a `New Style` and chose a template (Monochrome, blank etc.)
-![](./img/mapboxstyles.png){width="80%"}
+-   Head over to [Mapbox Studio](https://www.mapbox.com/mapbox-studio)
 
-- Upload the data and style it 
+-   Start a `New Style` and chose a template (Monochrome, blank etc.)
+    ![](./img/mapboxstyles.png){width="80%"}
+
+-   Upload the data and style it
 
 ![](./img/mapbox_upload.png){width="75%"}
-
-
 
 It should look like a nicer version of this:
 
@@ -345,16 +357,19 @@ mapdeck(token = my_token,
 
 ```
 
-
 ## References
 
--   Pebesma, E. & Bivand, R. (2022) [Spatial Data Science with applications in R](https://r-spatial.org/book/)
+-   Pebesma, E. & Bivand, R. (2022) [Spatial Data Science with
+    applications in R](https://r-spatial.org/book/)
 
--   [Chapter 3](https://geographicdata.science/book/notebooks/03_spatial_data.html)
+-   [Chapter
+    3](https://geographicdata.science/book/notebooks/03_spatial_data.html)
     of the GDS book (in progress) covers traditional and more modern
     approaches to represent Geography as data.
 
--   Kitchin, R. (2014). [The data revolution: Big data, open data, data infrastructures and their consequences.](https://www.perlego.com/book/860829/the-data-revolution-big-data-open-data-data-infrastructures-and-their-consequences-pdf?utm_source=google&utm_medium=cpc&campaignid=15781033413&adgroupid=134828831187&gclid=CjwKCAiAzp6eBhByEiwA_gGq5Otph9MDAPkgkT_yBOH3u8Z0rRiL8TLCr32xzW5pY_uIIjTV7r4S7RoCMXsQAvD_BwE)
+-   Kitchin, R. (2014). [The data revolution: Big data, open data, data
+    infrastructures and their
+    consequences.](https://www.perlego.com/book/860829/the-data-revolution-big-data-open-data-data-infrastructures-and-their-consequences-pdf?utm_source=google&utm_medium=cpc&campaignid=15781033413&adgroupid=134828831187&gclid=CjwKCAiAzp6eBhByEiwA_gGq5Otph9MDAPkgkT_yBOH3u8Z0rRiL8TLCr32xzW5pY_uIIjTV7r4S7RoCMXsQAvD_BwE)
     Sage.
 
 -   [Maptiler.com](https://www.maptiler.com/) documents on [map

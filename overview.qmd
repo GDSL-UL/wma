@@ -73,14 +73,13 @@ The list of libraries used in this book is provided below:
 -   `jsonlite`
 -   `plyr`
 -   `wellknown`
-
-You need to ensure you have installed the list of libraries used in this book, running the following code:
-
-> list.of.packages.cran \<- c( "sf", "geojsonsf", "mapview", "tidyverse", "tidycensus", "viridis", "viridisLite", "httr", "jsonlite", "plyr", "wellknown")
-
-> new.packages.cran \<- list.of.packages.cran\[!(list.of.packages.cran %in% installed.packages()\[,"Package"\])\] if(length(new.packages.cran)) install.packages(new.packages.cran)
-
-> for(i in 1:length(list.of.packages.cran)) { library(list.of.packages.cran\[i\], character.only = T) }
+-   `leaflet`
+-   `mapboxapi`
+-   `mapdeck`
+-   `stplanr`
+-   `classInt`
+-   `tmap`
+-   `tidygeocoder`
 
 ### Online accounts
 
@@ -89,3 +88,13 @@ You need to ensure you have installed the list of libraries used in this book, r
 -   Mapbox: Mapbox is one of the industry leaders in web mapping. Their free tier is rather generous so will more than suffice for what we will do within the course. You can sign up for a new (free) account here.
 
 -   Kepler: is a data agnostic, WebGL empowered, high-performance web application for geospatial analytic visualizations.
+
+-   Carto: CARTO provides an online platform for web mapping and location intelligence. Please sign up for [CARTO for Education](https://docs.carto.com/faqs/carto-for-education). Please follow the steps [here](https://docs.carto.com/faqs/carto-for-education). Do not sign up for the free account. There are 4 steps
+
+    -   Step 1: Sign up for Github
+
+    -   Step 2: Apply for the Github Education Pack
+
+    -   Step 3: Wait for verification and confirm. **This could take from 1 hour to several days. Please be patient and wait for your official verification, it is important for the process.**
+
+    -   Step 4: Claim your CARTO student account

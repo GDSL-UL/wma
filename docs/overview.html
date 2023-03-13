@@ -305,17 +305,14 @@ ul.task-list li input[type="checkbox"] {
 <li><code>jsonlite</code></li>
 <li><code>plyr</code></li>
 <li><code>wellknown</code></li>
+<li><code>leaflet</code></li>
+<li><code>mapboxapi</code></li>
+<li><code>mapdeck</code></li>
+<li><code>stplanr</code></li>
+<li><code>classInt</code></li>
+<li><code>tmap</code></li>
+<li><code>tidygeocoder</code></li>
 </ul>
-<p>You need to ensure you have installed the list of libraries used in this book, running the following code:</p>
-<blockquote class="blockquote">
-<p>list.of.packages.cran &lt;- c( “sf”, “geojsonsf”, “mapview”, “tidyverse”, “tidycensus”, “viridis”, “viridisLite”, “httr”, “jsonlite”, “plyr”, “wellknown”)</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>new.packages.cran &lt;- list.of.packages.cran[!(list.of.packages.cran %in% installed.packages()[,“Package”])] if(length(new.packages.cran)) install.packages(new.packages.cran)</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>for(i in 1:length(list.of.packages.cran)) { library(list.of.packages.cran[i], character.only = T) }</p>
-</blockquote>
 </section>
 <section id="online-accounts" class="level3">
 <h3 class="anchored" data-anchor-id="online-accounts">Online accounts</h3>
@@ -323,6 +320,13 @@ ul.task-list li input[type="checkbox"] {
 <li><p>CDRC Data: we will use some of the data provided by the CDRC, so a (free) account with them will be necessary.</p></li>
 <li><p>Mapbox: Mapbox is one of the industry leaders in web mapping. Their free tier is rather generous so will more than suffice for what we will do within the course. You can sign up for a new (free) account here.</p></li>
 <li><p>Kepler: is a data agnostic, WebGL empowered, high-performance web application for geospatial analytic visualizations.</p></li>
+<li><p>Carto: CARTO provides an online platform for web mapping and location intelligence. Please sign up for <a href="https://docs.carto.com/faqs/carto-for-education">CARTO for Education</a>. Please follow the steps <a href="https://docs.carto.com/faqs/carto-for-education">here</a>. Do not sign up for the free account. There are 4 steps</p>
+<ul>
+<li><p>Step 1: Sign up for Github</p></li>
+<li><p>Step 2: Apply for the Github Education Pack</p></li>
+<li><p>Step 3: Wait for verification and confirm. <strong>This could take from 1 hour to several days. Please be patient and wait for your official verification, it is important for the process.</strong></p></li>
+<li><p>Step 4: Claim your CARTO student account</p></li>
+</ul></li>
 </ul>
 
 

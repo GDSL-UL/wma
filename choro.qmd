@@ -21,7 +21,7 @@ The focus of this lab is thus on choropleths: creating them, and getting them "r
 We will start with a guided overview of the main functionality, and then move
 on to an exercise.
 
-For this exercise, team up in **groups of two or three** students.
+For this exercise, team up in **groups of two or three** students and will need the [Brexit dataset](data/brexit.gpkg), which you can upload to CARTO.
 
 While you work on these tasks, keep in mind the concepts we discussed in the lecture. In particular, we have seen visualisations are limited by the:
 

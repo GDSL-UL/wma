@@ -20,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -206,7 +225,12 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture"><span class="toc-section-number">7.1</span>  Lecture</a></li>
-  <li><a href="#lab" id="toc-lab" class="nav-link" data-scroll-target="#lab"><span class="toc-section-number">7.2</span>  Lab:</a></li>
+  <li><a href="#lab" id="toc-lab" class="nav-link" data-scroll-target="#lab"><span class="toc-section-number">7.2</span>  Lab</a>
+  <ul class="collapse">
+  <li><a href="#mapping-brexit-with-carto" id="toc-mapping-brexit-with-carto" class="nav-link" data-scroll-target="#mapping-brexit-with-carto"><span class="toc-section-number">7.2.1</span>  Mapping Brexit with Carto</a></li>
+  <li><a href="#make-the-worst-map-you-can" id="toc-make-the-worst-map-you-can" class="nav-link" data-scroll-target="#make-the-worst-map-you-can"><span class="toc-section-number">7.2.2</span>  Make the worst map you can</a></li>
+  <li><a href="#make-the-best-map-you-can" id="toc-make-the-best-map-you-can" class="nav-link" data-scroll-target="#make-the-best-map-you-can"><span class="toc-section-number">7.2.3</span>  Make the best map you can</a></li>
+  </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">7.3</span>  References</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/GDSL-UL/wma/edit/main/choro.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
@@ -233,18 +257,57 @@ ul.task-list li input[type="checkbox"] {
 
 <p>Dani Arribas-Bel</p>
 <p><strong>Lecture</strong>: Statistical visualisation</p>
-<p><strong>Lab</strong>: Choropleths in Kepler or leaflet R</p>
+<p><strong>Lab</strong>: Choropleths in CARTO</p>
 <section id="lecture" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="lecture"><span class="header-section-number">7.1</span> Lecture</h2>
 <p>Slides can be downloaded <a href="https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_08.pdf">here</a></p>
+<p>A good companion read for this lecture is <a href="https://geographicdata.science/book/notebooks/05_choropleth.html">Chapter 5</a> of <span class="citation" data-cites="rey2023geographic">Rey, Arribas-Bel, and Wolf (<a href="#ref-rey2023geographic" role="doc-biblioref">2023</a>)</span>, which is freely available online.</p>
 </section>
 <section id="lab" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="lab"><span class="header-section-number">7.2</span> Lab:</h2>
+<h2 data-number="7.2" class="anchored" data-anchor-id="lab"><span class="header-section-number">7.2</span> Lab</h2>
+<p>In this lab, we will use CARTO to explore making choropleths on the web. The focus of this lab is thus on choropleths: creating them, and getting them “right”. We will start with a guided overview of the main functionality, and then move on to an exercise.</p>
+<section id="mapping-brexit-with-carto" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="mapping-brexit-with-carto"><span class="header-section-number">7.2.1</span> Mapping Brexit with Carto</h3>
+<p>For this exercise, team up in <strong>groups of two or three</strong> students and will need the <a href="data/brexit.gpkg">Brexit dataset</a>, which you can upload to CARTO.</p>
+<p>While you work on these tasks, keep in mind the concepts we discussed in the lecture. In particular, we have seen visualisations are limited by the:</p>
+<ul>
+<li>Computer</li>
+<li>Human</li>
+<li>Display</li>
+</ul>
+<p>Similarly, remember how every map is an abstraction that inevitably loses information from reality, so which aspects you are willing to give up are an important design choice that should be based on the <em>goal of the map</em>. When thinking through what aspects might be useful to keep, or prioritise, remember <a href="https://darribas.org/wmn/slidedecks/lecture_08.html#/map-cube">MacEachren &amp; Kraak (1997)’s “Map Cube”</a>.</p>
+<p>Finally, when designing a choropleth, remember the questions every choropleth maker needs to answer (implicit or explicitly):</p>
+<ul>
+<li><p>How many bins?</p></li>
+<li><p>How to assign values to each bin?</p></li>
+<li><p>What colors to assign to bins?</p></li>
+</ul>
+</section>
+<section id="make-the-worst-map-you-can" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="make-the-worst-map-you-can"><span class="header-section-number">7.2.2</span> Make the worst map you can</h3>
+<p>Think of the <a href="{{site.baseurl}}/blocks/b08">lecture on designing visualisations and maps</a> and try to actively ignore every piece of advice we’ve discussed in class. This of course means you can’t ignore the advice but you have to actively not follow any aspects of what makes a good map good.</p>
+<p>Once you’re happy with your worst possible map, share it with class. Discuss what is <em>wrong</em> about those maps and how they could be improved.</p>
+</section>
+<section id="make-the-best-map-you-can" class="level3" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="make-the-best-map-you-can"><span class="header-section-number">7.2.3</span> Make the best map you can</h3>
+<p>Now you know how to make a bad map, try your best to make an awesome map. Once you hare happy with the results, share it with the group and explain what you think makes the maps great.</p>
+</section>
 </section>
 <section id="references" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="references"><span class="header-section-number">7.3</span> References</h2>
+<ul>
+<li><p>Tamara Munzner’s “Visualization Analysis &amp; Design” is an excellent resource. This lecture draws on Chapter 1 <a href="https://www.cs.ubc.ca/~tmm/vadbook/">What’s Vis, and Why Do It?</a>.</p></li>
+<li><p>Part of this block is based on Chapter 5 of the <a href="https://geographicdata.science/book/notebooks/05_choropleth.html">GDS Book</a> (in progress).</p></li>
+<li><p><a href="https://volaya.github.io/gis-book/en/Visualization.html">“Visualization of geographical data”</a>, in “Introduction to GIS”, by Victor Olaya.</p></li>
+<li><p>Chapter 1 of <a href="https://drive.google.com/file/d/1MCR2EEUci2psQmtOiExRdusf0vzMUBdp/view">“How charts lie”</a>, by Alberto Cairo [URL]</p></li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-rey2023geographic" class="csl-entry" role="doc-biblioentry">
+Rey, SJ, D Arribas-Bel, and LJ Wolf. 2023. <span>“Geographic Data Science with Python.”</span> CRC Press.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

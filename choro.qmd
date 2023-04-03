@@ -10,48 +10,48 @@ Dani Arribas-Bel
 
 Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_08.pdf)
 
-A good companion read for this lecture is [Chapter
-5](https://geographicdata.science/book/notebooks/05_choropleth.html) of
-@rey2023geographic, which is freely available online.
+A good companion read for this lecture is [Chapter 5](https://geographicdata.science/book/notebooks/05_choropleth.html) of @rey2023geographic, which is freely available online.
 
-## Lab:
+## Lab
 
-In this lab, we will use CARTO to explore making choropleths on the web.
-The focus of this lab is thus on choropleths: creating them, and getting them "right".
-We will start with a guided overview of the main functionality, and then move
-on to an exercise.
+In this lab, we will use CARTO to explore making choropleths on the web. The focus of this lab is thus on choropleths: creating them, and getting them "right". We will start with a guided overview of the main functionality, and then move on to an exercise.
+
+### Mapping Brexit with Carto
 
 For this exercise, team up in **groups of two or three** students and will need the [Brexit dataset](data/brexit.gpkg), which you can upload to CARTO.
 
 While you work on these tasks, keep in mind the concepts we discussed in the lecture. In particular, we have seen visualisations are limited by the:
 
-- Computer
-- Human
-- Display
+-   Computer
+-   Human
+-   Display
 
-Similarly, remember how every map is an abstraction that inevitably loses information from reality, so which aspects you are willing to give up are an important design choice that should be based on the _goal of the map_. When thinking through what aspects might be useful to keep, or prioritise, remember [MacEachren & Kraak (1997)'s "Map Cube"](https://darribas.org/wmn/slidedecks/lecture_08.html#/map-cube).
+Similarly, remember how every map is an abstraction that inevitably loses information from reality, so which aspects you are willing to give up are an important design choice that should be based on the *goal of the map*. When thinking through what aspects might be useful to keep, or prioritise, remember [MacEachren & Kraak (1997)'s "Map Cube"](https://darribas.org/wmn/slidedecks/lecture_08.html#/map-cube).
 
 Finally, when designing a choropleth, remember the questions every choropleth maker needs to answer (implicit or explicitly):
 
-- How many bins?
-- How to assign values to each bin?
-- What colors to assign to bins?
+-   How many bins?
 
-- ***Make the worst map you can***
+-   How to assign values to each bin?
 
-Think of the [lecture on designing visualisations and maps]({{site.baseurl}}/blocks/b08)
-and try to actively
-ignore every piece of advice we've discussed in class. This of course means
-you can't ignore the advice but you have to actively not follow any aspects of
-what makes a good map good.
+-   What colors to assign to bins?
 
-Once you're happy with your worst possible map, share it with class. Discuss
-what is *wrong* about those maps and how they could be improved.
+### Make the worst map you can
 
-- ***Make the best map you can***
+Think of the [lecture on designing visualisations and maps](%7B%7Bsite.baseurl%7D%7D/blocks/b08) and try to actively ignore every piece of advice we've discussed in class. This of course means you can't ignore the advice but you have to actively not follow any aspects of what makes a good map good.
 
-Now you know how to make a bad map, try your best to make an awesome map. Once
-you hare happy with the results, share it with the group and explain what you
-think makes the maps great.
+Once you're happy with your worst possible map, share it with class. Discuss what is *wrong* about those maps and how they could be improved.
+
+### Make the best map you can
+
+Now you know how to make a bad map, try your best to make an awesome map. Once you hare happy with the results, share it with the group and explain what you think makes the maps great.
 
 ## References
+
+-   Tamara Munzner's "Visualization Analysis & Design" is an excellent resource. This lecture draws on Chapter 1 [What's Vis, and Why Do It?](https://www.cs.ubc.ca/~tmm/vadbook/).
+
+-   Part of this block is based on Chapter 5 of the [GDS Book](https://geographicdata.science/book/notebooks/05_choropleth.html) (in progress).
+
+-   ["Visualization of geographical data"](https://volaya.github.io/gis-book/en/Visualization.html), in "Introduction to GIS", by Victor Olaya.
+
+-   Chapter 1 of ["How charts lie"](https://drive.google.com/file/d/1MCR2EEUci2psQmtOiExRdusf0vzMUBdp/view), by Alberto Cairo \[URL\]

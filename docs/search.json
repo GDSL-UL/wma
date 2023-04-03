@@ -235,21 +235,21 @@
     "href": "choro.html#lecture",
     "title": "7  Statistical visualisation",
     "section": "7.1 Lecture",
-    "text": "7.1 Lecture\nSlides can be downloaded here"
+    "text": "7.1 Lecture\nSlides can be downloaded here\nA good companion read for this lecture is Chapter 5 of Rey, Arribas-Bel, and Wolf (2023), which is freely available online."
   },
   {
     "objectID": "choro.html#lab",
     "href": "choro.html#lab",
     "title": "7  Statistical visualisation",
-    "section": "7.2 Lab:",
-    "text": "7.2 Lab:"
+    "section": "7.2 Lab",
+    "text": "7.2 Lab\nIn this lab, we will use CARTO to explore making choropleths on the web. The focus of this lab is thus on choropleths: creating them, and getting them “right”. We will start with a guided overview of the main functionality, and then move on to an exercise.\n\n7.2.1 Mapping Brexit with Carto\nFor this exercise, team up in groups of two or three students and will need the Brexit dataset, which you can upload to CARTO.\nWhile you work on these tasks, keep in mind the concepts we discussed in the lecture. In particular, we have seen visualisations are limited by the:\n\nComputer\nHuman\nDisplay\n\nSimilarly, remember how every map is an abstraction that inevitably loses information from reality, so which aspects you are willing to give up are an important design choice that should be based on the goal of the map. When thinking through what aspects might be useful to keep, or prioritise, remember MacEachren & Kraak (1997)’s “Map Cube”.\nFinally, when designing a choropleth, remember the questions every choropleth maker needs to answer (implicit or explicitly):\n\nHow many bins?\nHow to assign values to each bin?\nWhat colors to assign to bins?\n\n\n\n7.2.2 Make the worst map you can\nThink of the lecture on designing visualisations and maps and try to actively ignore every piece of advice we’ve discussed in class. This of course means you can’t ignore the advice but you have to actively not follow any aspects of what makes a good map good.\nOnce you’re happy with your worst possible map, share it with class. Discuss what is wrong about those maps and how they could be improved.\n\n\n7.2.3 Make the best map you can\nNow you know how to make a bad map, try your best to make an awesome map. Once you hare happy with the results, share it with the group and explain what you think makes the maps great."
   },
   {
     "objectID": "choro.html#references",
     "href": "choro.html#references",
     "title": "7  Statistical visualisation",
     "section": "7.3 References",
-    "text": "7.3 References"
+    "text": "7.3 References\n\nTamara Munzner’s “Visualization Analysis & Design” is an excellent resource. This lecture draws on Chapter 1 What’s Vis, and Why Do It?.\nPart of this block is based on Chapter 5 of the GDS Book (in progress).\n“Visualization of geographical data”, in “Introduction to GIS”, by Victor Olaya.\nChapter 1 of “How charts lie”, by Alberto Cairo [URL]\n\n\n\n\n\nRey, SJ, D Arribas-Bel, and LJ Wolf. 2023. “Geographic Data Science with Python.” CRC Press."
   },
   {
     "objectID": "dashboards.html",
@@ -264,5 +264,40 @@
     "title": "9  Technology Gallery",
     "section": "",
     "text": "Dani Arribas-Bel\nLecture: Technology gallery\nLab: Assignment II clinic."
+  },
+  {
+    "objectID": "dashboards.html#lecture",
+    "href": "dashboards.html#lecture",
+    "title": "8  Dashboards",
+    "section": "8.1 Lecture",
+    "text": "8.1 Lecture\nSlides can be downloaded here"
+  },
+  {
+    "objectID": "dashboards.html#lab",
+    "href": "dashboards.html#lab",
+    "title": "8  Dashboards",
+    "section": "8.2 Lab",
+    "text": "8.2 Lab\nTo complete this lab, you will require the following:\n\nThe internet\nAn active CARTO account"
+  },
+  {
+    "objectID": "dashboards.html#dashboard-roundup",
+    "href": "dashboards.html#dashboard-roundup",
+    "title": "8  Dashboards",
+    "section": "8.3 Dashboard roundup",
+    "text": "8.3 Dashboard roundup\nOne of the best ways to learn anything is by examining how others before us have tackled similar problems. That’s exactly what we will do in this first section of the lab. Using the recent COVID-19 pandemic, we will spend some time studying dashboards other people have built to track its spread and incidence. When looking at them and playing around, remember everything we discussed in the Lecture about how to design good dashboards.\nHere’s what we’ll do:\nHave a look at the list provided on Teams (and below) and pick one, and only one, dashboard.\nCOVID-19 DASHBOARD\nhttps://covid19.who.int/\nhttps://coronavirus.jhu.edu/map.html\nOTHER DASHBOARDS\nhttps://ourworldindata.org/grapher/population-density?tab=chart https://www.therefugeeproject.org/#/2021 https://luminocity3d.org/WorldPopDen/#4/12.77/98.57 https://www.ctdatacollaborative.org/map/regional-exploitation https://beirutfer.com/\nOnce you know which ince you will do, add your name to “claim” it. Up to three students can look at the same link. Spend 15 to 20 minutes exploring the dashboard and, based on the principles discussed in class, try to come up with:\n\nThree most effective aspects of its design\nThree areas where an improvement would make the biggest difference\nIdeally, suggest how you would improve those from 2.\n\nType up your thoughts into a single entry on the “Lab 9” channel of the module’s Team. You can use the following template:\n\nMaker: who’s responsible for the dashboard\nURL: link to access it\nContent: what is displayed on the dashboard\nBest three aspects\nThree areas to improve\nThree suggestions for improvement"
+  },
+  {
+    "objectID": "dashboards.html#build-a-dashboard-in-carto",
+    "href": "dashboards.html#build-a-dashboard-in-carto",
+    "title": "8  Dashboards",
+    "section": "8.4 Build a Dashboard in Carto",
+    "text": "8.4 Build a Dashboard in Carto\nhttps://docs.carto.com/\nONE COVID MAP\nONE CONFLICT MAP\nhttps://carto.com/blog/global-conflict\nPick one dataset and spend around 45 minutes trying to create a dashboard that is effective at communicating some aspects your consider relevant of the dataset. As discussed in the lecture, start by thinking exactly what you want to communicate, and build from there.\nPresentation\nYou will then have 30 seconds to present your dashboard and hit the following points:\n\nWhat the dashboard shows\nWhat interactivity/analysis element(s) you have used\nOne thing you think is really effective about it\n\nRemember, 30 seconds. Short and sweet. Make them count!\nhttps://docs.carto.com/carto-user-manual/tutorials/subscribe-to-public-data-from-the-data-observatory"
+  },
+  {
+    "objectID": "dashboards.html#references",
+    "href": "dashboards.html#references",
+    "title": "8  Dashboards",
+    "section": "8.5 References",
+    "text": "8.5 References\nhttps://docs.carto.com/carto-user-manual/tutorials/build-a-dashboard-with-a-local-csv-file\nhttps://carto.com/blog/global-conflict\nThe lecture notes draw heavily on Stephen Few’s “Information Dashboard Design” book. FIND LINK\nKitchin, R., Lauriault, T. P., & McArdle, G. (2015). Knowing and governing cities through urban indicators, city benchmarking and real-time dashboards Regional Studies, Regional Science, 2(1), 6-28."
   }
 ]

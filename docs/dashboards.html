@@ -201,7 +201,19 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#lecture" id="toc-lecture" class="nav-link active" data-scroll-target="#lecture"><span class="toc-section-number">8.1</span>  Lecture</a></li>
+  <li><a href="#lab" id="toc-lab" class="nav-link" data-scroll-target="#lab"><span class="toc-section-number">8.2</span>  Lab</a>
+  <ul class="collapse">
+  <li><a href="#dashboard-roundup" id="toc-dashboard-roundup" class="nav-link" data-scroll-target="#dashboard-roundup"><span class="toc-section-number">8.2.1</span>  Dashboard roundup</a></li>
+  <li><a href="#build-a-dashboard-in-carto" id="toc-build-a-dashboard-in-carto" class="nav-link" data-scroll-target="#build-a-dashboard-in-carto"><span class="toc-section-number">8.2.2</span>  Build a Dashboard in Carto</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">8.3</span>  References</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/GDSL-UL/wma/edit/main/dashboards.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -226,8 +238,73 @@ ul.task-list li input[type="checkbox"] {
 <p>Dani Arribas-Bel</p>
 <p><strong>Lecture</strong>: Dashboards: bringing analysis to the web</p>
 <p><strong>Lab</strong>: Building Dashboards</p>
+<section id="lecture" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="lecture"><span class="header-section-number">8.1</span> Lecture</h2>
+<p>Slides can be downloaded <a href="https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_09.pdf">here</a></p>
+</section>
+<section id="lab" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="lab"><span class="header-section-number">8.2</span> Lab</h2>
+<p>To complete this lab, you will require the following:</p>
+<ul>
+<li>The internet</li>
+<li>An active CARTO account</li>
+</ul>
+<section id="dashboard-roundup" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="dashboard-roundup"><span class="header-section-number">8.2.1</span> Dashboard roundup</h3>
+<p>One of the best ways to learn anything is by examining how others before us have tackled similar problems. That’s exactly what we will do in this first section of the lab. We will spend some time studying dashboards other people have built to track its spread and incidence. When looking at them and playing around, remember everything we discussed in the Lecture about how to design good dashboards.</p>
+<p>Here’s what we’ll do:</p>
+<p>Have a look at the list provided on Teams (and below) and pick one, and <em>only one</em>, dashboard.</p>
+<p><strong>COVID-19 DASHBOARD</strong></p>
+<ul>
+<li><p><a href="https://covid19.who.int/">WHO COVID-19 Dashboard</a></p></li>
+<li><p><a href="https://coronavirus.jhu.edu/map.html">Johns Hopkins COVID-19 Dashboard</a></p></li>
+</ul>
+<p><strong>OTHER DASHBOARDS</strong></p>
+<ul>
+<li><a href="https://ourworldindata.org/grapher/population-density?tab=chart">Population Density by Our World in Data</a></li>
+<li><a href="https://luminocity3d.org/WorldPopDen/#4/12.77/98.57">Population Density by Dr.&nbsp;Duncan Smith</a></li>
+<li><a href="https://www.therefugeeproject.org/#/2021">The Refugee Project</a></li>
+<li><a href="https://www.ctdatacollaborative.org/map/regional-exploitation">Global Data Hub on Human Trafficking</a></li>
+</ul>
+<p>Once you know which one you will do, add your name to “claim” it. Up to ten students can look at the same link. Spend 15 to 20 minutes exploring the dashboard and, based on the principles discussed in class, try to come up with:</p>
+<ol type="1">
+<li>Three most effective aspects of its design</li>
+<li>Three areas where an improvement would make the biggest difference</li>
+<li>Ideally, suggest how you would improve those from 2.</li>
+</ol>
+<p>Type up your thoughts into a single entry on the “Lab 9” channel of the module’s Team. You can use the following template:</p>
+<ul>
+<li><p><code>Maker</code>: who’s responsible for the dashboard</p></li>
+<li><p><code>URL</code>: link to access it</p></li>
+<li><p><code>Content</code>: what is displayed on the dashboard</p></li>
+<li><p><code>Best three aspects</code></p></li>
+<li><p><code>Three areas to improve</code></p></li>
+<li><p><code>Three suggestions for improvement</code></p></li>
+</ul>
+</section>
+<section id="build-a-dashboard-in-carto" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="build-a-dashboard-in-carto"><span class="header-section-number">8.2.2</span> Build a Dashboard in Carto</h3>
+<p>For this exercise, team up in <strong>groups of two or three</strong> students and download the <a href="data/covid_china_world.geojson">COVID dataset</a>, which you can upload to CARTO. Click on import data:</p>
+<p><img src="./img/import_Covid_carto.png" class="img-fluid" style="width:40.0%"> Once the data is in the ‘shared data’ option, create a new map.</p>
+<p><img src="./img/create_map_carto.png" class="img-fluid" style="width:80.0%"> Spend around 45 minutes trying to create a dashboard that is effective at communicating the COVID-19 dataset. You should focus on the widgets section, there are multiple options to explore: - Formula - Category - Histogram - Range - Table</p>
+<p>You can also explore the interaction, legend and base map options. As discussed in the lecture, start by thinking exactly what you want to communicate, and build from there. The raw data can also be accese <a href="https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data">here</a>.</p>
+<p><strong>Presentation</strong></p>
+<p>Share your dashboard on Teams. You will then have 30 seconds to present your dashboard and hit the following points:</p>
+<ul>
+<li><p>What the dashboard shows</p></li>
+<li><p>What interactivity/analysis element(s) you have used</p></li>
+<li><p>One thing you think is really effective about it</p></li>
+</ul>
+<p>Remember, 30 seconds. Short and sweet. Make them count!</p>
+</section>
+</section>
+<section id="references" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="references"><span class="header-section-number">8.3</span> References</h2>
+<p>The lecture notes draw heavily on Stephen Few’s “Information Dashboard Design” book.</p>
+<p>Kitchin, R., Lauriault, T. P., &amp; McArdle, G. (2015). <a href="https://www.tandfonline.com/doi/full/10.1080/21681376.2014.983149">Knowing and governing cities through urban indicators, city benchmarking and real-time dashboards</a> Regional Studies, Regional Science, 2(1), 6-28.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

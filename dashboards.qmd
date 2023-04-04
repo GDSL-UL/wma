@@ -87,6 +87,8 @@ you can upload to CARTO. Click on import data:
 
 ![](./img/import_Covid_carto.png){width="40%"}
 
+Currently, the import of CSV, GeoJSON, GeoPackage, KML, KMZ, TAB and Shapefiles (in a zip package) with at least two columns is supported. The size limit for a single import process is 1 GB.
+
 Once the data is in the 'shared data' option, create a new map.
 
 ![](./img/create_map_carto.png){width="80%"}

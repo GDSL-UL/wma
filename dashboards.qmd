@@ -15,7 +15,8 @@ Dani Arribas-Bel
 
 ## Lecture
 
-Slides can be downloaded [here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_09.pdf)
+Slides can be downloaded
+[here](https://github.com/GDSL-UL/wma/raw/main/pdf/lecture_09.pdf)
 
 ## Lab
 
@@ -26,32 +27,45 @@ To complete this lab, you will require the following:
 
 ### Dashboard roundup
 
-One of the best ways to learn anything is by examining how others before us have tackled similar problems. That's exactly what we will do in this first section of the lab. We will spend some time studying dashboards other people have built to track its spread and incidence. When looking at them and playing around, remember everything we discussed in the Lecture about how to design good dashboards.
+One of the best ways to learn anything is by examining how others before
+us have tackled similar problems. That's exactly what we will do in this
+first section of the lab. We will spend some time studying dashboards
+other people have built to track its spread and incidence. When looking
+at them and playing around, remember everything we discussed in the
+Lecture about how to design good dashboards.
 
 Here's what we'll do:
 
-Have a look at the list provided on Teams (and below) and pick one, and *only one*, dashboard.
+Have a look at the list provided on Teams (and below) and pick one, and
+*only one*, dashboard.
 
 **COVID-19 DASHBOARD**
 
 -   [WHO COVID-19 Dashboard](https://covid19.who.int/)
-
--   [Johns Hopkins COVID-19 Dashboard](https://coronavirus.jhu.edu/map.html)
+-   [Johns Hopkins COVID-19
+    Dashboard](https://coronavirus.jhu.edu/map.html)
 
 **OTHER DASHBOARDS**
 
--   [Population Density by Our World in Data](https://ourworldindata.org/grapher/population-density?tab=chart)
--   [Population Density by Dr. Duncan Smith](https://luminocity3d.org/WorldPopDen/#4/12.77/98.57)
+-   [Population Density by Our World in
+    Data](https://ourworldindata.org/grapher/population-density?tab=chart)
+-   [Population Density by Dr. Duncan
+    Smith](https://luminocity3d.org/WorldPopDen/#4/12.77/98.57)
 -   [The Refugee Project](https://www.therefugeeproject.org/#/2021)
--   [Global Data Hub on Human Trafficking](https://www.ctdatacollaborative.org/map/regional-exploitation)
+-   [Global Data Hub on Human
+    Trafficking](https://www.ctdatacollaborative.org/map/regional-exploitation)
 
-Once you know which one you will do, add your name to "claim" it. Up to ten students can look at the same link. Spend 15 to 20 minutes exploring the dashboard and, based on the principles discussed in class, try to come up with:
+Once you know which one you will do, add your name to "claim" it. Up to
+ten students can look at the same link. Spend 15 to 20 minutes exploring
+the dashboard and, based on the principles discussed in class, try to
+come up with:
 
 1.  Three most effective aspects of its design
 2.  Three areas where an improvement would make the biggest difference
 3.  Ideally, suggest how you would improve those from 2.
 
-Type up your thoughts into a single entry on the "Lab 9" channel of the module's Team. You can use the following template:
+Type up your thoughts into a single entry on the "Lab 9" channel of the
+module's Team. You can use the following template:
 
 -   `Maker`: who's responsible for the dashboard
 
@@ -67,25 +81,39 @@ Type up your thoughts into a single entry on the "Lab 9" channel of the module's
 
 ### Build a Dashboard in Carto
 
-For this exercise, team up in **groups of two or three** students and download the [COVID dataset](data/covid_china_world.geojson), which you can upload to CARTO.
-Click on import data:
+For this exercise, team up in **groups of two or three** students and
+download the [COVID dataset](data/covid_china_world.geojson.zip), which
+you can upload to CARTO. Click on import data:
 
 ![](./img/import_Covid_carto.png){width="40%"}
+
 Once the data is in the 'shared data' option, create a new map.
 
 ![](./img/create_map_carto.png){width="80%"}
-Spend around 45 minutes trying to create a dashboard that is effective at communicating the COVID-19 dataset. You should focus on the widgets section, there are multiple options to explore:
-- Formula
-- Category
-- Histogram
-- Range
-- Table
 
-You can also explore the interaction, legend and base map options. As discussed in the lecture, start by thinking exactly what you want to communicate, and build from there. The raw data can also be accese [here](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data).
+Spend around 45 minutes trying to create a dashboard that is effective
+at communicating the COVID-19 dataset. You should focus on the widgets
+section, there are multiple options to explore:
+
+-   Formula
+
+-   Category
+
+-   Histogram
+
+-   Range
+
+-   Table
+
+You can also explore the interaction, legend and base map options. As
+discussed in the lecture, start by thinking exactly what you want to
+communicate, and build from there. The raw data can also be accessed
+[here](https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data).
 
 **Presentation**
 
-Share your dashboard on Teams. You will then have 30 seconds to present your dashboard and hit the following points:
+Share your dashboard on Teams. You will then have 30 seconds to present
+your dashboard and hit the following points:
 
 -   What the dashboard shows
 
@@ -97,6 +125,11 @@ Remember, 30 seconds. Short and sweet. Make them count!
 
 ## References
 
-The lecture notes draw heavily on Stephen Few's "Information Dashboard Design" book.
+The lecture notes draw heavily on Stephen Few's "Information Dashboard
+Design" book.
 
-Kitchin, R., Lauriault, T. P., & McArdle, G. (2015). [Knowing and governing cities through urban indicators, city benchmarking and real-time dashboards](https://www.tandfonline.com/doi/full/10.1080/21681376.2014.983149) Regional Studies, Regional Science, 2(1), 6-28.
+Kitchin, R., Lauriault, T. P., & McArdle, G. (2015). [Knowing and
+governing cities through urban indicators, city benchmarking and
+real-time
+dashboards](https://www.tandfonline.com/doi/full/10.1080/21681376.2014.983149)
+Regional Studies, Regional Science, 2(1), 6-28.

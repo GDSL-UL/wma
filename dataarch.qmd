@@ -159,11 +159,11 @@ In R, you can transform `wkt` data into `wkb` data using the library
 
 ```{r}
 #| warning: false
-library(wellknown) # Convert Between 'WKT' and 'GeoJSON'
 
 # Load the WKT representation of the point and convert the WKT representation into WKB format
-wkt <- wkt_wkb("POINT (-2.977367 53.40753)")
-
+wkt <- "POINT (-2.977367 53.40753)" %>%
+    st_as_sfc %>%
+    st_as_binary
 # Print the WKB data
 wkt
 ```

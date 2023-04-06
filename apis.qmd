@@ -147,8 +147,9 @@ library(mapboxapi)
 #| warning: FALSE
 
 # my_token <- "PLACE YOUR MAPBOX TOKEN HERE and UNCOMMENT"
-# mb_access_token(my_token, overwrite = TRUE, install = TRUE)
-# readRenviron("~/.Renviron")
+my_token <- "pk.eyJ1IjoicGlldHJvc3RlZmFuaWUiLCJhIjoiY2xkeGJtb3hkMGN4azNxb2E4cGRnbDhxayJ9.VaEiB7qvRk8BbFlihawZ1w"
+mb_access_token(my_token, overwrite = TRUE, install = TRUE)
+readRenviron("~/.Renviron")
 
 leaflet() %>% 
   addMapboxTiles(style_id = "light-v9", username = "mapbox" ) %>% 

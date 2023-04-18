@@ -82,9 +82,9 @@ Design: this is not about making maps, this is about making good maps. And behin
 
 This assignment requires you to build a dashboard for the Index of Multiple Deprivation. You can download the data for England [here](https://data.cdrc.ac.uk/dataset/index-multiple-deprivation-imd). To be successful, you will need to demonstrate your understanding not only of technical elements, but of the design process required to create a product that can communicate complex ideas effectively. There are three core building blocks you will have to assemble to build your dashboard: basemap, main map(s), and widgets. Let us explore each of them more in detail.
 
-First, the basemap. Design your own basemap using Carto. Think about the data in the background, which colors, the zoom levels that will be allowed, and how it all comes together to create a backdrop for your main message that is conducent to the experience you want to create. The basemap is like a good side dish: it's there to make you like the main course even more.
+First, the basemap. Design your own basemap using Mapbox Think about the data in the background, which colors, the zoom levels that will be allowed, and how it all comes together to create a backdrop for your main message that is conducent to the experience you want to create. The basemap is like a good side dish: it's there to make you like the main course even more.
 
-Second, the main map(s). One you have your own basemap import your IMD data to Carto to build. This is your dashboard. This is where your dashboard should come to shine. What you want to show, how, which interactive elements you will allow the user to access and how they will let them modify the experience of your dashboard. The main course of the meal, make it count!
+Second, the main map(s). One you have your own basemap import your IMD data to CARTO to build. This is your dashboard. This is where your dashboard should come to shine. What you want to show, how, which interactive elements you will allow the user to access and how they will let them modify the experience of your dashboard. The main course of the meal, make it count!
 
 Third, additional widgets. One of the advantages of dashboards in comparison to standard web maps is that they allow to bring elements of analysis to a more finished product. Think about what you want your users to be able to analyse, why, and how that will modify the main map. This is the icing on the cake!
 
@@ -92,7 +92,7 @@ Third, additional widgets. One of the advantages of dashboards in comparison to 
 
 Once completed, you will submit a report through Canvas that includes the following:
 
--   A link to the published dashboard, which needs to be reachable online
+-   You should use the `.qmd` template provided where you will embed your mapbox basemap and your CARTO dashboard. 
 -   About 250 words for the overall idea of the dashboard. What do you want to communicate? What is the story you want to tell?
 -   About 250 words for the data used. Which datasets are you using? Why? What new information do they bring and how they complement each other?
 -   About 250 words to describe your design choices in the basemap and other layers presented (e.g. choropleths).

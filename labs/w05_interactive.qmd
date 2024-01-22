@@ -1,0 +1,513 @@
+---
+title: Interactive Maps
+author: Gabriele Filomena
+date: 'January 10th, 2024'
+format:
+  html:
+    code-fold: true
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .md
+      format_name: myst
+      format_version: 0.13
+      jupytext_version: 1.14.1
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+# Interactive maps
+
+[Online maps](https://link.springer.com/referenceworkentry/10.1007/978-3-319-23519-6_1485-2) have been interactive for a long time: virtually all online maps allow to zoom in and out, to pan the map extent, and to select map features, or otherwise query information about them. Interactive content in web pages, such as online maps, are typically implemented using [*JavaScript*/*ECMAScript*](https://en.wikipedia.org/wiki/ECMAScript), a scripting language originally targeted at web pages, primarily, but used for many otherapplications.
+
+In the open source realm, there exists a number of different *JavaScript* libraries for interactive web cartography, including [Leaflet](https://leafletjs.com/) and [OpenLayers](https://openlayers.org/). We will not write a single line of *JavaScript*; instead, we will take advantage of the [*Folium*](https://python-visualization.github.io/folium/) Python package: it helps create interactive *Leaflet* maps from data stored in `geopandas.GeoDataFrame`. Folium is a library that bridges the capabilities of data manipulation in Python with the interactive mapping strengths of Leaflet, a leading open-source JavaScript library for creating dynamic, interactive maps in the browser. Let's explore both Folium and Leaflet in more detail to understand their roles and relationship.
+
+**Leaflet** is at the heart of Folium's mapping capabilities. It's an open-source JavaScript library used extensively in web mapping. Known for its simplicity, performance, and ease of use, Leaflet has become a popular choice among developers for embedding maps in web applications. It allows users to create maps with various interactive features like zooming, panning, markers, popups, and different layers.
+
+**Folium** builds on Leaflet's foundation, bringing its interactive mapping capabilities into the Python environment. This integration is significant for several reasons:
+- With Folium, Python users can use libraries like Pandas and directly create interactive Leaflet maps from within Python. This seamless integration means data can be manipulated, analyzed, and visualized using Python, without the need for extensive JavaScript knowledge.
+- Folium abstracts the complexity of Leaflet, allowing users to create sophisticated maps using simple Python commands.
+- Folium inherits Leaflet's interactivity, enabling the creation of feature-rich maps with various interactive elements such as markers, layers, and choropleths. These maps can be customized and embedded in web applications or Jupyter notebooks, making them highly versatile for data visualization tasks.
+- Folium can render maps with different tilesets (like OpenStreetMap, Stamen Terrain), overlay data in various formats, and even incorporate advanced features like heatmaps or GeoJSON layers.
+
+Folium acts as a bridge between Python and Leaflet, enabling Python users to incorporate and develop web maps within their environment. It leverages Leaflet's core functionalities and extends them into the Python ecosystem, making geospatial data visualization both powerful and accessible within Python workflows.
+
+> Find more information about the capabilities of the *Folium* package on its official web pages:
+> - [Documentation](https://python-visualization.github.io/folium/)
+> - [Example gallery](https://nbviewer.org/github/python-visualization/folium/tree/main/examples/)
+> - [Quickstart tutorial](https://python-visualization.github.io/folium/quickstart.html#Getting-Started)
+
+```{python}
+import folium
+import pandas as pd
+import geopandas as gpd
+```
+
+## 5.1 Create a simple interactive web map with Folium
+
+We will start by creating a simple interactive web map that contains nothing but a base map. This is so that we can get acustomed to how Folium’s syntax works, and which steps we have to take. We create a `folium.Map` object, and specify centred around which `location` and at which initial zoom level (~0-20) a map shall be displayed. By setting `control_scale` to `True`, we make Folium display a scale bar.
+
+```{python}
+location = (39.6508, 66.9654) # Samarkand, Uzbekistan
+map = folium.Map(location=location, zoom_start=13, control_scale=True)
+map
+```
+
+#### Save the resulting map
+
+To save this map to an HTML file that can be opened in any web browser, use `folium.Map.save()`:
+
+```{python}
+map.save("base-map.html")
+```
+
+### 5.1.2 Basemap API
+
+Folium, Leaflet.js and `contextily`, the library that we used for adding basemaps to our static maps in the 2nd session, rely on built-in tilesets borrowed from the [`xyzservices`](https://github.com/geopandas/xyzservices) package. The XYZ protocol exposes maps as images for portions of the Earth we will call tiles. The XYZ name stands from the “coordinates” used to locate a given tile. This of the entire planet split up into squares, each of them available with a unique combination of X and Y numbers. Now add a third one (Z) for the zoom level: lower values use less tiles to cover the world, while higher resolution levels (higher Z) will cover progressively smaller areas, but with more detail. Most XYZ APIs expose tiles directly over HTTP, which means we can access them from the browser.he attr keyword.
+
+```{python}
+#| scrolled: true
+import xyzservices.providers as xyz
+xyz
+```
+
+In Folium, you can pass one of the custom `xyzservices.TileProvider` listed above or a Leaflet-style URL to the tiles parameter: `http://{s}.yourtiles.com/{z}/{x {y}.png.` You can find a list of free tile providers here: http://leaflet-extras.github.io/leaflet-providers/preview/. Be sure to check their terms and conditions and to provide attribution (see below)
+
+```{python}
+map = folium.Map(location=location, zoom_start=13, tiles="CartoDB.DarkMatterNoLabels") # folium built-in
+map
+```
+
+Or we can point to a custom *tileset URL*:
+
+```{python}
+map = folium.Map(location=location, zoom_start=12, tiles="https://mt1.google.com/vt/lyrs=r&x={x}&y={y}&z={z}", attr="Google maps")
+map
+```
+
+Also, the [*Mapbox Static Tiles API*](https://docs.mapbox.com/api/maps/static-tiles/#:~:text=The%20Mapbox%20Static%20Tiles%20API,to%20create%20interactive%20slippy%20maps.) serves raster tiles generated from Mapbox Studio styles. Raster tiles can be used in traditional web mapping libraries like Mapbox.js, Leaflet, OpenLayers, and others to create interactive slippy maps. The Static Tiles API is well-suited for maps with limited interactivity or use on devices that do not support WebGL.
+
+Usage of the Mapbox APIs is governed by the Mapbox Terms of Service. Please visit https://www.mapbox.com/legal/tos/ for more information.
+
+```{python}
+# Your Mapbox access token
+mapbox_access_token = 'YOUR_MAPBOX_ACCESS_TOKEN_HERE'
+
+# Mapbox tile URL
+tile_url = f'https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/{{z}}/{{x}}/{{y}}?access_token={mapbox_access_token}'
+
+# Create a folium map
+map = folium.Map(location=[53.406872, -2.973286], zoom_start=13, tiles = tile_url, attr='Mapbox')
+map
+```
+
+### 5.1.2 Add a point marker
+
+To add a single marker to a *Folium* map, create a [`folium.Marker`](https://python-visualization.github.io/folium/modules.html#folium.map.Marker). Supply a [`folium.Icon`](https://python-visualization.github.io/folium/modules.html#folium.map.Icon) as the argument of the parameter `icon` to influence how the marker is styled, and set `tooltip` to display a text when the mouse pointer hovers over it.
+
+```{python}
+center = folium.Marker(location=location, tooltip="City Centroid", icon=folium.Icon(color="green", icon="ok-sign"))
+center.add_to(map)
+map
+```
+
+```{python}
+# Similarly..
+popup = ["Tom", "Kendall", "Sean", "Zachary", "Karla"]
+
+# Longitude and Latitude coordinates
+lng = [-3.2031323, -0.2416811, -3.4924087, -4.3725404, -2.6607571]
+lat = [53.4118332, 51.5285582, 55.940874, 55.8553807, 51.4684681]
+
+# Creating a folium map
+map = folium.Map(location=[53.4118332, -3.2031323], zoom_start=5, tiles = "NASAGIBS.ViirsEarthAtNight2012")
+
+# Adding markers with popups
+for i in range(len(popup)):
+    folium.Marker([lat[i], lng[i]], popup=popup[i]).add_to(map)
+
+map
+```
+
+## 5.1.2 Add a layer of points
+
+*Folium* also supports to add entire layers, for instance, as `geopandas.GeoDataFrames`. Folium implements [*Leaflet*’s `geoJSON` layers](https://leafletjs.com/reference.html#geojson) in its `folium.features.GeoJson` class. We can initialise such a class (and layer) with a GeoDataFrame, and add it to a map. In the example below, we work again with the GeoDataFrame of terrorist attacks in Germany.
+
+```{python}
+wgs = 'EPSG:4326'
+gdf = gpd.read_file("data/germany.shp")
+gdf = gdf.set_crs(wgs)
+```
+
+Let's explore the data around Berlin
+
+```{python}
+berlin = (52.5200, 13.4050)
+map = folium.Map(location= berlin, zoom_start=10)
+
+attacks_layer = folium.features.GeoJson(gdf, name="Terrorist attacks")
+attacks_layer.add_to(map)
+map
+```
+
+We can also add a pop-up window to our map which would show some details when clicking on the location of the attacks:
+
+```{python}
+#| scrolled: true
+popup = folium.GeoJsonPopup(fields=["year", "gname", "nwound"], aliases =["Year", "Terrorist Group", "Nr Wounded"], localize=True, labels=True,
+                            style="background-color: yellow;")
+map = folium.Map(location= berlin, zoom_start=10)
+attacks_layer = folium.features.GeoJson(gdf[gdf.nwound.notna()], name="Terrorist attacks", popup = popup )
+attacks_layer.add_to(map)
+
+map
+```
+
+### 5.1.3 Add a polygon layer
+
+We can do the same with polygons. Let's load municipalities in Serbia.
+
+```{python}
+serbia = gpd.read_file("data/serbia_data.shp")
+serbia.head()
+```
+
+<div class="alert alert-info" style="font-size:120%">
+
+**Important**: <br>
+
+We need to project the GeoDataFrame back to the WGS crs; web-maps, because of their interactivity and because users can pan to different areas, work with the WGS projection and cannot handle planar crs.
+
+</div>
+
+```{python}
+wgs = 'EPSG:4326'
+serbia.to_crs(wgs, inplace = True)
+```
+
+We will use the `folium.Choropleth` to display arrivals of tourists in July 2023, per municipality. Choropleth maps are more than simply geometries in Folium, which could be displayed as a `folium.features.GeoJson` layer. Rather, this class takes care of categorising data, adding a legend, and a few more small tasks to quickly create beautiful thematic maps.
+
+The class expects an input data set that has an explicit, `str`-type, index column, as it treats the geospatial input and the thematic input as separate
+data sets that need to be joined (see also, below, how we specify both `geo_data` and `data`). A good approach to create such a column is to copy the data frame’s index into a new column, for instance `id_str`.
+
+```{python}
+serbia["id_str"] = serbia.index.astype(str)
+```
+
+Now we can create the polygon choropleth layer, and add it to a map object. Due to the slightly complex architecture of *Folium*, we have to supply a
+number of parameters:
+- `geo_data` and `data`, the geospatial and thematic input data sets, respectively. Can be the same `GeoDataFrame`.
+- `columns`: a tuple of the names of relevant columns in `data`: a unique index column, and the column containing thematic data
+- `key_on`: which column in `geo_data` to use for joining `data` (this is basically identical to `columns`, except it’s only the first value)
+
+```{python}
+# getting the location
+centroid = serbia.unary_union.centroid
+location = (centroid.coords[0][1], centroid.coords[0][0])
+```
+
+Let's look at the number of arrivals of tourists across the municipalities. 
+- `arr_dom` indicates the number of domestic tourists (from other areas in Serbia) in july 2023.
+- `arr_int` indicates the number of international tourists in july 2023.
+
+```{python}
+serbia[['arr_dom', 'arr_int', 'Province', 'name']].head()
+```
+
+```{python}
+map = folium.Map(location=location, zoom_start=7)
+arrivals_choro = folium.Choropleth(geo_data=serbia, data=serbia, columns=("id_str", "arr_int"), key_on="feature.id",
+                                    fill_color="Oranges", line_weight=0.2, line_color='black', fill_opacity=0.7,
+                                    legend_name="Nr of International Tourists, July 2023", 
+                                    highlight = True) ## look at what this does!
+arrivals_choro.add_to(map)
+map
+```
+
+In such an interactive map, it would be nice to display some property of each polygon when hovering with the mouse over it. `folium.Choropleth` does not support this. Yet, we can add a "transparent" layer using `folium.features.GeoJson`, and configure it to display `GeoJsonTooltip`. We can keep the `map` we created above, and simply add the layer to it.
+
+```{python}
+# folium GeoJson layers expect a styling function, that receives each of the map’s feature and returns  an individual style. 
+# It can, however, also return a static style:
+def style_function(feature):
+    return {
+        "color": "transparent",
+        "fillColor": "transparent",
+    }
+
+tooltip = folium.features.GeoJsonTooltip(fields=("name",), aliases=("Municipality:",))
+tooltip_layer = folium.features.GeoJson(serbia, style_function=style_function, tooltip=tooltip)
+tooltip_layer.add_to(map)
+map
+```
+
+The problem now is that we cannot highlight the polygons and fully figure out the boundaries of the areas we are hovering on. 
+However, we can also tackle that. First we create again our map.
+
+```{python}
+# base map
+map = folium.Map(location=[serbia.geometry.centroid.y.mean(), serbia.geometry.centroid.x.mean()], tiles='CartoDB positron', zoom_start=6)
+```
+
+Then, the choropleth object as before. This time we also set `use_jenks` as `True`. The number of desired classes needs to be passed by using the parameter `bins`.
+
+```{python}
+# Add the choropleth layer
+arrivals_choro = folium.Choropleth(geo_data=serbia, data = serbia, columns=['id_str', 'arr_int'], key_on='feature.id', 
+                                    use_jenks = True, bins = 7, fill_color='Oranges',line_weight=0.2, line_color = 'black', 
+                                    fill_opacity=0.7, legend_name='Arrivals Intensity').add_to(map)
+                                    ## no highlight here
+```
+
+Then, below, we define two functions that always take a feature as a parameter (each geographic element on the map, the municipality polygons).
+
+1. **`style_function`**: 
+   - Purpose: Defines the default style for each polygon on the map.
+   - Sets the fill color, border color, border weight, and fill opacity for polygons. The provided colors and values are applied to all polygons by default.
+1. **`highlight_function`**: 
+   - Purpose: Changes the style of a polygon when it is hovered over.
+   - Alters the fill color and opacity when the mouse hovers over a polygon, making it stand out. 
+
+```{python}
+# Define style function
+def style_function(feature):
+    return {
+        'fillColor': arrivals_choro.color_scale(feature['properties']['arr_int']),  # fill color from the arrivals_choro above
+        'color': 'black',  # Border color
+        'weight': 0.5, # Border weight
+        'fillOpacity': 0.7 # Fill color opacity 
+    }
+
+# Define highlight function
+def highlight_function(feature):
+    return {
+        'fillColor': '#ff0000',  # Fill color when highlighted
+        'color': 'black',  # Border color when highlighted
+        'weight': 0.5, # Border weight when highlighted
+        'fillOpacity': 1.0 # Fill color opacity 
+    }
+```
+
+Essentially, here, we use the `choropleth`, `arrivals_choro` just to get the colours assigned to the feature, on the basis of the `bins` that we created with the scheme. Then we pass these colors to the same features in the `folium.GeoJson` class below. In this case the layer is not transparent. Finally, as before, we add a `tooltip` and a `popup`.
+
+The popup appears when the polygon is clicked but 
+
+```{python}
+# Add popups and pass styling options
+folium.GeoJson(serbia, style_function = style_function, 
+               highlight_function=highlight_function, 
+               tooltip= folium.features.GeoJsonTooltip(fields=['name']), 
+               popup=folium.features.GeoJsonPopup(fields=['arr_dom', 'arr_int'], aliases = ['Nr Domestic tourists', 'Nr International tourists'])
+    ).add_to(map)
+
+map
+```
+
+## 5.2 Interactive Maps and API
+
+Let’s go back to the Bike Points example we starting looking at in the Web’s architecture session.
+
+```{python}
+import requests
+import pandas as pd
+import geopandas as gpd
+from shapely.geometry import Point
+
+# Request to Transport for London API for BikePoint data
+response = requests.get("https://api.tfl.gov.uk/BikePoint/")
+bike_stations = pd.DataFrame(response.json())
+```
+
+We extract the numeric part from the `id` column
+
+```{python}
+bike_stations['stationID'] = [id.split('_')[1] if '_' in id else None for id in bike_stations['id']]
+bike_stations['stationID'] = bike_stations['stationID'].astype('int64')
+```
+
+and we create a `GeoDataFrame`
+
+```{python}
+bike_stations_gdf = gpd.GeoDataFrame(bike_stations, geometry=[Point(xy) for xy in zip(bike_stations.lon, bike_stations.lat)])
+bike_stations_gdf.set_crs('EPSG:4326', inplace = True)  # Set CRS
+bike_stations_gdf.head()
+```
+
+Now let’s add some data about trips made by hire bikes. We need to use the station IDs for the beginning and end of the trips. Transport for London publishes online all trips made by hire bikes along many other datasets related to [bike usage in London](https://cycling.data.tfl.gov.uk/). The files are published weekly. They have information on starting and ending stations, exact time of the trips.
+
+We can download the files for August 2018 and do some cleaning to map the most used routes in London. We first need to filter for completed trips and select trips with different origins/destinations. The next step is to aggregate the trips by pairs of origin and destination stations. The results should be how many trips have originated and ended from a specific pair in August 2018.
+
+```{python}
+import os
+
+# URLs of hire bikes data in August 2018
+urls = [
+    "https://cycling.data.tfl.gov.uk/usage-stats/121JourneyDataExtract01Aug2018-07Aug2018.csv",
+    "https://cycling.data.tfl.gov.uk/usage-stats/122JourneyDataExtract08Aug2018-14Aug2018.csv",
+    "https://cycling.data.tfl.gov.uk/usage-stats/123JourneyDataExtract15Aug2018-21Aug2018.csv",
+    "https://cycling.data.tfl.gov.uk/usage-stats/124JourneyDataExtract22Aug2018-28Aug2018.csv"
+    ]
+
+# Destination folder
+folder = "/data/tfl"
+
+# Create the destination folder if it doesn't exist
+os.makedirs(folder, exist_ok=True)
+
+# Function to download and save a file
+def download_file(url, folder):
+    response = requests.get(url)
+    filename = url.split('/')[-1]
+    filepath = os.path.join(folder, filename)
+    with open(filepath, 'wb') as file:
+        file.write(response.content)
+
+# Download each file
+for url in urls:
+    download_file(url, folder)
+```
+
+The code above performs the following actions:
+
+- Define URLs: A list of URLs is created, each pointing to a CSV file containing data on hire bikes for different weeks in August 2018.
+- Destination Folder: It sets a destination folder  where the downloaded files will be stored and creates the directory if it doesn't exist
+- Define Download Function: `download_file` is a function defined to download a file from a given URL and save it to the specified destination folder. - It uses `requests.get` to fetch the file and writes it to the destination folder.
+- Download: A loop goes through each URL in the urls list and calls `download_file` to download and save each file in the defined destination folder.
+
+Now let's load them with `glob`, a library that loads all the files from a directory, and then create the dataframe of journeys.
+
+```{python}
+import glob
+
+# Reading all CSV files in the directory
+files = glob.glob(f'{folder}/*JourneyDataExtract*.csv')
+
+# Concatenating the CSV files into a single DataFrame
+journeys = pd.concat((pd.read_csv(file) for file in files))
+journeys.rename(columns = {"Duration" : "duration", "StartStation Id": "fromStation_id", "EndStation Id" : "toStation_id"}, inplace = True)
+journeys = journeys[journeys['fromStation_id'] != journeys['toStation_id']] # same station journeys
+journeys.head()
+```
+
+Finally, let's get a summary dataframe thanks to `groupby` and other `pandas` functions.
+
+```{python}
+# Filter and aggregate the data
+journeys_agg = (
+    journeys.dropna(subset=['toStation_id', 'fromStation_id'])
+    .query("`fromStation_id` in @bike_stations['stationID'] and `toStation_id` in @bike_stations['stationID']")
+    .query("duration > 0 and duration <= 180*60")
+    .groupby(['fromStation_id', 'toStation_id'])
+    .agg(journeys=('fromStation_id', 'count'), mean_duration=('duration', 'mean'))
+    .reset_index()
+    .assign(share_trips=lambda x: (100 * x.journeys / x.journeys.sum()))
+)
+```
+
+What we did above is combining different pandas functions 
+
+- `.dropna(subset=['toStation_id', 'fromStation_id'])`: Removes rows where either the start or end station ID is missing.
+- `.query("fromStation_idin @bike_stations['stationID'] and toStation_id in @bike_stations['stationID']")`: Further filters the data to include only those journeys where both the start and end stations are listed in bike_stations.
+- `.query("duration > 0 and duration <= 180*60")`: Keeps only those journeys with a duration greater than 0 and less than or equal to 180 minutes.
+- `.groupby(['fromStation_id', 'toStation_id'])`: Groups the data by the combination of start and end station IDs.
+- `.agg(journeys=('fromStation_id', 'size'), mean_duration=('duration', 'mean'))`: Aggregates each group to calculate the total number (`count`) and average duration (`mean`) of journeys.
+- `.reset_index()`: Resets the DataFrame's index, turning the grouped columns back into regular columns.
+- `.assign(share_trips=lambda x: 100 * x.journeys / x.journeys.sum())`: Creates a new column `share_trips`, calculating each route's share of total journeys as a percentage.
+
+The `.query()` method in `pandas` allows you to filter a DataFrame using a query string. It's a more concise and readable way to perform filtering compared to traditional Boolean indexing. It takes the following syntax: `.query('expression')` where 'expression' is a string that describes the condition to filter by. Inside the expression, you can refer to DataFrame columns directly by their names and use logical operators (like ==, !=, >, <, in, and, or) to define the conditions. **Example:** `.query('age > 30 and city == "New York"')` filters the DataFrame to include only rows where the 'age' column is greater than 30 and the 'city' column equals "New York"
+
+No need to remember this!
+
+```{python}
+journeys_agg[['journeys', 'mean_duration', 'share_trips']].describe()
+```
+
+Most origin/destination pairs have an average of 4.80 trips during the period. The average duration is around 21 min (1297/60). We can then filter our journeys to the top 2 percentiles in terms of counts between two stations. Most pairs do not have any trips (none goes from the furthest station in Hackney down to Oval station). 
+
+```{python}
+import numpy as np
+from shapely.geometry import LineString
+
+# Calculate the 98th percentile value for the number of journeys
+percentile_value = np.percentile(journeys_agg['journeys'], 98)
+
+# Filter out the top 2% of journeys based on the number of journeys
+top_journeys = journeys_agg[journeys_agg['journeys'] >= percentile_value]
+
+# Continuing with the merging and creation of desire lines as before
+top_journeys = top_journeys.merge(bike_stations, left_on='fromStation_id', right_on='stationID')
+top_journeys = top_journeys.merge(bike_stations, left_on='toStation_id', right_on='stationID', suffixes=('_from', '_to'))
+
+geometry = [LineString([(row['lon_from'], row['lat_from']), (row['lon_to'], row['lat_to'])]) for _, row in top_journeys.iterrows()]
+desire_lines = gpd.GeoDataFrame(top_journeys, geometry=geometry, crs = 'EPSG:4326')
+
+desire_lines.plot()
+```
+
+Plotting all lines is quite messy but we can use `folium` again :)
+Unfortunately, we can't use `Choropleth` for `LineString` geometries. We have to carry out some manual work.
+
+```{python}
+import json
+import jenkspy
+import matplotlib
+import matplotlib.pyplot as plt
+# Convert the desire_lines GeoDataFrame to GeoJSON
+desire_lines_geojson = desire_lines.to_json()
+
+# breaks with fisher-jenks
+breaks = jenkspy.jenks_breaks(desire_lines['journeys'], n_classes=5)
+
+# Use a Matplotlib colormap
+cmap = plt.get_cmap('Oranges', len(breaks))  # 'viridis' can be replaced with any Matplotlib colormap
+
+# Generate colors for each break
+colors = [matplotlib.colors.rgb2hex(cmap(i)) for i in range(cmap.N)]
+cmap
+```
+
+Let's define again a styling function for our lines.
+
+```{python}
+# Define the style function using the generated colors
+def assign_color(value):
+    for i, break_point in enumerate(breaks[:-1]):
+        if value < breaks[i+1]:
+            return colors[i]
+    return colors[-1]
+
+style_function = lambda feature: {
+    'color': assign_color(feature['properties']['journeys']),
+    'weight': feature['properties']['share_trips']*150,  
+    'opacity': max(feature['properties']['share_trips']*25, 0.05)
+}
+```
+
+```{python}
+# Create and display the Folium map
+map = folium.Map(location=[51.5074, -0.1278], zoom_start=12, tiles="CartoDB.DarkMatterNoLabels")
+folium.GeoJson(desire_lines_geojson, style_function=style_function).add_to(map)
+map
+```
+
+<div class="alert alert-success">
+
+**Exercise**:
+Look at the documentation for one of the APIs that we discussed last week (see the notebook of the practical session).
+- Think of 2 ideas of web maps you could construct from your chosen API/data. 
+- Think about the basemap and data you would plot on top.
+    
+</div>
+
+*Folium* is just one of many packages that provide an easy way to create interactive maps using data stored in (geo-)pandas data frames. 
+Other interesting libraries include:
+
+- [GeoViews](https://geoviews.org/),
+- [Mapbox GL for Jupyter](https://github.com/mapbox/mapboxgl-jupyter),
+- [Bokeh](https://docs.bokeh.org/en/latest/docs/gallery.html),
+- and many more.
+
+Neverthess, Folium allows for a huge degree of personalisation and it's worth exploring further its [documentation](https://python-visualization.github.io/folium/latest/reference.html).
+

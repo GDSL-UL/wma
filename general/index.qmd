@@ -1,0 +1,15 @@
+# Welcome {.unnumbered}
+
+This is the website for "Web Mapping and Analysis" for the module **ENVS456** at the University of Liverpool. This is course designed and delivered by Dr. Elisabetta Pietrostefani and Professor Dani Arribas-Bel from the Geographic Data Science Lab at the University of Liverpool, United Kingdom. The module has two main aims. First, it seeks to to provide hands-on experience and training in the design and generation of web-based mapping and geographical information tools. Second, it seeks to provide hands-on experience and training in the use of software to access, analyse and visualize web-based geographical information.
+
+The website is **free to use** and is licensed under the [Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/). A compilation of this web course is hosted as a GitHub repository that you can access:
+
+-   As an [html website](https://gdsl-ul.github.io/wma).
+-   As a [pdf document](https://github.com/GDSL-UL/wma/raw/main/docs/Web-Mapping-and-Analysis.pdf)
+-   As a [GitHub repository](https://github.com/GDSL-UL/wma).
+
+## Contact {.unnumbered}
+
+> Dani Arribas-Bel - darribas \[at\] liverpool.ac.uk Professor in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.
+
+> Elisabetta Pietrostefani - e.pietrostefani \[at\] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.

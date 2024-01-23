@@ -2,34 +2,35 @@
 
 ## Introduction
 
-**Block 1**
+**Week 1**
 
 -   Lecture: Introduction to the module
 
--   Lab: Powerful examples
+-   Lab: Powerful examples and Python Refresher
+
+**Week 2**
+
+-   Lecture: Geovisualisation: Design Principles and Statistical Visualisation
+-   Lab: Static Maps
 
 ## Data Backends
 
-**Block 2**
+**Week 3**
 
 -   Lecture: The Web's architecture and Economy
+-   Lab: Web Architectures and APIs?
 
--   Lab: What do APIs actually do?
-
-**Block 3**
+**Week 4**
 
 -   Lecture: Data architechtures & formats
--   Lab: Creating, manipulating, and integrating web geospatial data
+-   Lab: Data architechtures & Tiles
 
-**Block 4**
+**Week 5**
 
--   Lecture: APIs
+-   Lecture: .. 
+-   Lab: Interactive Maps
 
--   Lab: Acquiring data from the web
-
-## Assignment I
-
-**Block 5**
+**Week 6: Assignment I**
 
 -   Lecture: Q&A
 
@@ -47,13 +48,11 @@
 **Block 7**
 
 -   Lecture: Interactivity
-
 -   Lab: Designing for interactivity
 
 **Block 8**
 
 -   Lecture: Statistical visualisation
-
 -   Lab: Choropleths in Kepler
 
 ## Dashboards

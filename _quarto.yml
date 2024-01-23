@@ -24,13 +24,14 @@ book:
     background: light
   downloads: [pdf, epub]
   chapters:
-    - general/index.qmd
+    - index.qmd
     - general/structure.qmd
     - general/overview.qmd
     - general/assess.qmd
+    - labs/w01_introduction.qmd
     - labs/w01_refresher.qmd
     - labs/w02_maps.qmd
-    - labs/w03 dataArch.qmd
+    - labs/w03_dataArch.qmd
     - labs/w04_webArch.qmd
     - labs/w05_interactive.qmd
     

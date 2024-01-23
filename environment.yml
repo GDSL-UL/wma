@@ -158,4 +158,3 @@ dependencies:
       - websocket-client==1.7.0
       - widgetsnbextension==3.6.6
       - xyzservices==2023.10.1
-prefix: C:\Users\gfilo\AppData\Local\miniconda3\envs\gis

@@ -4,7 +4,7 @@ author: Gabriele Filomena
 date: 'January 10th, 2024'
 format:
   html:
-    code-fold: true
+    code-fold: false
 jupyter: python3
 ---
 

@@ -1,72 +1,43 @@
 # Syllabus {.unnumbered}
 
-## Introduction
-
 **Week 1**
-
 -   Lecture: Introduction to the module
-
 -   Lab: Powerful examples and Python Refresher
 
 **Week 2**
-
 -   Lecture: Geovisualisation: Design Principles and Statistical Visualisation
 -   Lab: Static Maps
 
-## Data Backends
-
 **Week 3**
-
--   Lecture: The Web's architecture and Economy
--   Lab: Web Architectures and APIs?
+-   Lecture: The Web's Architecture
+-   Lab: Web Architectures and APIs
 
 **Week 4**
-
 -   Lecture: Data architechtures & formats
 -   Lab: Data architechtures & Tiles
 
 **Week 5**
-
--   Lecture: .. 
+-   Lecture: Interactive Maps 
 -   Lab: Interactive Maps
 
-**Week 6: Assignment I**
+**Week 6**
+-   Lecture & Lab: Q&A & Assignment I Clinic
+-   **Assignment I Due**
 
--   Lecture: Q&A
+**Week 7**
+-   Lecture: OpenStreetMap Data & Spatial Network
+-   Lab: Retrieving Data From OpenStreetMap
 
--   Lab: Clinic
+**Week 8**
+-   Lecture: Dashboards
+-   Lab: Designing Dashboard for Geovisualisation
 
-`Assignment I`: Combining (geo-)data in an interactive map
-
-## Frontend Topics
-
-**Block 6**
-
--   Lecture: Map design
--   Lab: Designing maps with Kepler
-
-**Block 7**
-
--   Lecture: Interactivity
--   Lab: Designing for interactivity
-
-**Block 8**
-
--   Lecture: Statistical visualisation
--   Lab: Choropleths in Kepler
+**Week 9**
+-   Lecture: Advanced Tools
+-   Lab: Kepler and Pydeck
 
 ## Dashboards
 
-**Block 9**
-
--   Lecture: Dashboards: bringing analysis to the web
-
--   Lab: Building Dashboards (Shiny)
-
-**Block 10**
-
--   Lecture: Technology gallery
-
--   Lab: Assignment II clinic
-
-`Assignment II`: A dashboard of IMD
+**Week 10**
+-  Lecture & Lab: Review & Assignment II clinic
+-  **Assignment II Due (Week 11)**

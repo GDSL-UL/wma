@@ -2,99 +2,30 @@
 
 ## Aims
 
-This module aims to:
-
--   Provide hands-on experience and training in the design and generation of web-based mapping and geographical information tools.
--   Provide hands-on experience and training in the use of software to access, analyse and visualize web-based geographical information.
+This module aims to provide hands-on experience and training in:
+- The design and generation of (good looking) web-based mapping and geographical information tools.
+- The use of software to access, analyse and visualize web-based geographical information.
 
 ## Learning Outcomes
 
 By the end of the module, students should be able to:
 
-(1) Experience using tile rendering tools to generate content for map-based web sites.
 
-(2) Knowledge of web based mapping infrastructure
-
-(3) Web-based data collection techniques (accessing Twitter, Facebook, Google and OpenStreetmap information)
-
-(4) Network analysis
-
-(5) Programming skills to enable basic online data manipulation and web mapping
+(2) Visualise and represent geo-data through static and dynamic maps.
+(2) Recognise and describe the component of web based mapping infrastructure.
+(3) Collect Web-based data.
+(1) Generate interactive maps and dashboards.
+(4) Understand basic concepts of spatial network analysis.
+(5) Manipulate geo-data through scripting in Python.
 
 ## Feedback
 
 [*Formal assessment*](https://gdsl-ul.github.io/wma/assess.html). Two pieces of coursework (50%/50%). Equivalent to 2,500 words each
 
 *Verbal face-to-face feedback*. Immediate face-to-face feedback will be provided during computer, discussion and clinic sessions in interaction with staff. This will take place in all live sessions during the semester.
-
 *Teams Forum*. Asynchronous written feedback will be provided via Teams. Students are encouraged to contribute by asking and answering questions relating to the module content. Staff will monitor the forum Monday to Friday 9am-5pm, but it will be open to students to make contributions at all times. Response time will vary depending on the complexity of the question and staff availability.
 
 ## Computational Environment
 
-This course can be followed by anyone with access to a bit of technical infrastructure. This section details the set of local and online requirements you will need to be able to follow along, as well as instructions or pointers to get set up on your own. This is a centralized section that lists *everything* you will require, but keep in mind that different blocks do not always require everything all the time.
+See the corresponding page.
 
-To reproduce the code in the book, you need the most recent version of R and packages. These can be installed following the instructions provided in our [R installation guide](https://gdsl-ul.github.io/r_install/).
-
-### Software
-
-To run the analysis and reproduce the code, you need the following software:
-
--   QGIS- the stable version (3.22 LTR at the time of writing) is OK, any more recent version will also work.
--   R-4.2.2
--   RStudio 2022.12.0-353
--   Quarto 1.2.280
--   the list of libraries in the next section
-
-To install and update:
-
--   QGIS, download the appropriate version from [QGIS.org](https://www.qgis.org/en/site/forusers/download.html)
--   R, download the appropriate version from [The Comprehensive R Archive Network (CRAN)](https://cran.r-project.org)
--   RStudio, download the appropriate version from [Posit](https://posit.co/download/rstudio-desktop/)
--   Quarto, download the appropriate version from [the Quarto website](https://quarto.org/docs/get-started/)
-
-To check your version of:
-
--   R and libraries run `sessionInfo()`
--   RStudio click `help` on the menu bar and then `About`
--   Quarto check the `version` file in the quarto folder on your computer.
-
-### R List of libraries
-
-The list of libraries used in this book is provided below:
-
--   `sf`
--   `geojsonsf`
--   `mapview`
--   `tidyverse`
--   `tidycensus`
--   `viridis`
--   `viridisLite`
--   `httr`
--   `jsonlite`
--   `plyr`
--   `wellknown`
--   `leaflet`
--   `mapboxapi`
--   `mapdeck`
--   `stplanr`
--   `classInt`
--   `tmap`
--   `tidygeocoder`
-
-### Online accounts
-
--   CDRC Data: we will use some of the data provided by the CDRC, so a (free) account with them will be necessary.
-
--   Mapbox: Mapbox is one of the industry leaders in web mapping. Their free tier is rather generous so will more than suffice for what we will do within the course. You can sign up for a new (free) account here.
-
--   Kepler: is a data agnostic, WebGL empowered, high-performance web application for geospatial analytic visualizations.
-
--   Carto: CARTO provides an online platform for web mapping and location intelligence. Please sign up for [CARTO for Education](https://docs.carto.com/faqs/carto-for-education). Please follow the steps [here](https://docs.carto.com/faqs/carto-for-education). Do not sign up for the free account. There are 4 steps
-
-    -   Step 1: Sign up for Github
-
-    -   Step 2: Apply for the Github Education Pack
-
-    -   Step 3: Wait for verification and confirm. **This could take from 1 hour to several days. Please be patient and wait for your official verification, it is important for the process.**
-
-    -   Step 4: Claim your CARTO student account

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://darribas.org/wmn/slidedecks/lecture_02.html#/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Web Mapping &amp; Analysis</title>
+
+		<link rel="stylesheet" href="./2_files/reset.css">
+		<link rel="stylesheet" href="./2_files/reveal.css">
+		<link rel="stylesheet" href="./2_files/journal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="./2_files/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script><link rel="stylesheet" type="text/css" href="./2_files/paper.css"><script type="text/javascript" src="./2_files/marked.js.download"></script><script type="text/javascript" src="./2_files/markdown.js.download"></script><script type="text/javascript" src="./2_files/notes.js.download"></script><script type="text/javascript" src="./2_files/highlight.js.download"></script>
+	<style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}</style></head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal slide center has-vertical-slides has-horizontal-slides ready" role="application" data-transition-speed="default" data-background-transition="fade">
+			<div class="slides" style="width: 960px; height: 700px; zoom: 1.21646;">
+                <section style="top: 139px; display: block;" class="present">
+                <h1>Web Mapping &amp; Analysis</h1>
+                <h3>The Web’s Architecture and Economy</h3>
+                <p>
+                </p><h4><a href="http://darribas.org/">Dani Arribas-Bel</a></h4>
+                <p></p>
+                </section>  
+                 
+                                 
+                <section id="today" class="level1 future" style="top: 171px; display: block;" hidden="" aria-hidden="true">
+                <h1>Today</h1>
+                <ul>
+                <li>A (brief an opinionated) history of the Web</li>
+                <li>The server/client model</li>
+                <li>The modern web mapping eco-system</li>
+                </ul>
+                </section>
+                <section id="section" class="level1 stack future" style="top: 0px; display: block;" hidden="" aria-hidden="true">
+                <h1></h1>
+                <section id="a-brief-and-opinionated-history-of-web-trends" class="level2" style="top: 233.5px; display: block;">
+                <h2>A (brief and opinionated) history of Web trends</h2>
+                </section>
+                <section id="pre-70s" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Pre 70s</h2>
+                <p>The seeds:</p>
+                <ul>
+                <li>US (e.g.&nbsp;Licklider’s “Galactic Network”)</li>
+                <li>Mostly military contracts (e.g.&nbsp;D/ARPA –&gt; ARPANET) and “research’y”</li>
+                <li>Develop protocols for <span class="hlg">machine communication</span></li>
+                </ul>
+                </section>
+                <section id="s---birth-of-the-internet" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>70s - Birth of the <em>internet</em></h2>
+                <figure>
+                <img src="./2_files/Arpanet_1972_Map.png" alt=""><figcaption>DARPANET</figcaption>
+                </figure>
+                <p><a href="https://commons.wikimedia.org/wiki/File:Arpanet_1972_Map.png"><code>[Source]</code></a></p>
+                </section>
+                <section id="s" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>80s</h2>
+                <ul>
+                <li>Growth of the “web”</li>
+                <li>From experimental validation to scaled up insfrastructure</li>
+                <li>Free software (e.g.&nbsp;<a href="https://en.wikipedia.org/wiki/Free_as_in_Freedom">“Free as in Freedom”</a>)</li>
+                </ul>
+                </section>
+                <section id="s-1" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>90s</h2>
+                <ul>
+                <li>Civilian and commercial growth</li>
+                <li>Web 1.0</li>
+                <li>Open Source software (e.g.&nbsp;<a href="https://en.wikipedia.org/wiki/The_Cathedral_and_the_Bazaar">“The cathedral and the Bazaar”</a>)</li>
+                </ul>
+                </section>
+                <section id="s-2" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>00s</h2>
+                <ul>
+                <li>Web 2.0</li>
+                <li>Mobile</li>
+                <li>Web mapping takes off (hello Google Maps!)</li>
+                </ul>
+                </section>
+                <section id="s-3" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>+10s</h2>
+                <ul>
+                <li>Consolidation of <a href="https://en.wikipedia.org/wiki/Big_Four_tech_companies">GAFA</a> –&gt; concentration</li>
+                <li>IoT</li>
+                <li>Death of the desktop?</li>
+                </ul>
+                </section>
+                <section id="ideas-to-retain" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Ideas to retain</h2>
+                <ul>
+                <li>The Web is technology to build <span class="hlg">decentralised</span> systems</li>
+                <li>Economics (for the most part) have turned it into a <span class="hlg">concentrated</span> economy</li>
+                <li>Computing today is <span class="hlg">physically distributed</span> but <span class="hlg">socio-economically concentrated</span></li>
+                </ul>
+                </section>
+                </section>
+                <section id="section-1" class="level1 stack future" style="top: 350px; display: none;" hidden="" aria-hidden="true">
+                <h1></h1>
+                <section id="the-serverclient-model" class="level2" style="top: 350px; display: none;">
+                <h2>The server/client model</h2>
+                </section>
+                <section id="the-serverclient-model-1" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>The server/client model</h2>
+                <center>
+                <img src="./2_files/Client-server-model.svg">
+                </center>
+                <p><a href="https://upload.wikimedia.org/wikipedia/commons/c/c9/Client-server-model.svg"><code>[Source]</code></a></p>
+                </section>
+                <section id="benefits" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Benefits</h2>
+                <ul>
+                <li><span class="hlg">Interoperability</span> of disparate platforms</li>
+                <li>Optimise on hard/software for each task (“<span class="hlg">distribute</span>”)</li>
+                <li>Separate data collection (e.g.&nbsp;sensor), storage (e.g.&nbsp;data centre), intensive computing (e.g.&nbsp;compute cluster), interaction (e.g.&nbsp;mobile)</li>
+                </ul>
+                </section>
+                <section id="disadvantages" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>“Disadvantages”</h2>
+                <ul>
+                <li>Requires (cheap &amp; ubiquitous) <span class="hlg">connectivity</span></li>
+                <li>More <span class="hlg">complex</span> than an isolated approach (e.g.&nbsp;desktop)</li>
+                <li>Harder to “keep afloat”</li>
+                </ul>
+                </section>
+                <section id="an-example" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>An example…</h2>
+                <p><img src="./2_files/self_driving_car.jpg"></p>
+                <p><a href="https://upload.wikimedia.org/wikipedia/commons/c/cf/Waymo_self-driving_car_front_view.gk.jpg"><code>[Source]</code></a></p>
+                </section>
+                <section id="another-example" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Another example…</h2>
+                <p><img src="./2_files/osm.png"></p>
+                </section>
+                <section id="contrast-it-with" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Contrast it with…</h2>
+                <p><img src="./2_files/qgis.png"></p>
+                </section>
+                </section>
+                <section id="section-2" class="level1 stack future" style="top: 350px; display: none;" hidden="" aria-hidden="true">
+                <h1></h1>
+                <section id="the-modern-web-mapping-eco-system" class="level2" style="top: 350px; display: none;">
+                <h2>The modern (web) mapping eco-system</h2>
+                </section>
+                <section id="building-blocks-of-a-web-map" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Building blocks of a web map</h2>
+                <table>
+                <colgroup><col width="50%">
+                <col width="50%">
+                </colgroup><tbody><tr>
+                <td>
+                <center>
+                <em>Backend</em>
+                </center>
+                </td>
+                <td>
+                <center>
+                <em>Frontend</em>
+                </center>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <center>
+                <a href="https://commons.wikimedia.org/wiki/File:Computer_case_-_Full_Tower.jpg"><img src="./2_files/server.jpg" height="150px"></a>
+                </center>
+                </td>
+                <td>
+                <center>
+                <a href="https://commons.wikimedia.org/wiki/File:Oxygen480-apps-internet-web-browser.svg"><img src="./2_files/browser.svg" height="150px;"></a>
+                </center>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <center>
+                Server
+                </center>
+                </td>
+                <td>
+                <center>
+                Client
+                </center>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <center>
+                Data, mapping (GIS)
+                </center>
+                </td>
+                <td>
+                <center>
+                Style (CSS), web (HTML)
+                </center>
+                </td>
+                </tr>
+                </tbody></table>
+                </section>
+                <section id="the-current-web-mapping-landscape" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>The current web mapping landscape</h2>
+                <ul>
+                <li><code>Software</code>: a <em>lot</em> of open-source projects</li>
+                <li><code>Platforms</code>: a concentrated few (web infrastructure is hard and expensive!)</li>
+                <li><code>Business model</code>: software as a service</li>
+                </ul>
+                </section>
+                <section id="the-current-web-mapping-landscape-1" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>The current web mapping landscape</h2>
+                <p><strong>Trade-off</strong></p>
+                <blockquote>
+                <p>convenience + agility</p>
+                <center>
+                Vs
+                </center>
+                <p>flexibility + ownership</p>
+                </blockquote>
+                <p><span class="fragment" data-fragment-index="0"> <code>This course</code>: mostly rely on commercial platforms to focus on design and cartographic rather than engineering concepts </span></p>
+                </section>
+                </section>
+                <section id="section-3" class="level1 future" style="top: 350px; display: none;" hidden="" aria-hidden="true">
+                <h1></h1>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="./2_files/88x31.png"></a><br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Web Mapping &amp; Analysis</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org/" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                </section>
+			</div>
+		<div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background level1 future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background level1 stack future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background level2 present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background level1 stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background level2 present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background level1 stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background level2 present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background level1 future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"><div class="controls-arrow"></div></button><button class="navigate-right enabled" aria-label="next slide"><div class="controls-arrow"></div></button><button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button><button class="navigate-down" aria-label="below slide" disabled="disabled"><div class="controls-arrow"></div></button></aside><div class="slide-number" style="display: none;"></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">
+                Web Mapping &amp; Analysis
+                The Web’s Architecture and Economy
+                
+                Dani Arribas-Bel
+                
+                </div></div>
+
+        <!-- DEPENDENCIES -->
+		<script src="./2_files/reveal.js.download"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                history: true,
+                controlsTutorial: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	
+
+</body></html>

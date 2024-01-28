@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)https://darribas.org/wmn/slidedecks/lecture_03.html#/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Web Mapping &amp; Analysis</title>
+
+		<link rel="stylesheet" href="./3_files/reset.css">
+		<link rel="stylesheet" href="./3_files/reveal.css">
+		<link rel="stylesheet" href="./3_files/journal.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="./3_files/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script><link rel="stylesheet" type="text/css" href="./3_files/paper.css"><script type="text/javascript" src="./3_files/marked.js.download"></script><script type="text/javascript" src="./3_files/markdown.js.download"></script><script type="text/javascript" src="./3_files/notes.js.download"></script><script type="text/javascript" src="./3_files/highlight.js.download"></script>
+	<style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}</style></head>
+	<body>
+        <!-- BODY -->
+		<div class="reveal slide center has-vertical-slides has-horizontal-slides ready" role="application" data-transition-speed="default" data-background-transition="fade" style="">
+			<div class="slides" style="width: 960px; height: 700px; zoom: 1.21646;">
+                <section style="top: 181px; display: block;" class="present">
+                <h1>Web Mapping &amp; Analysis</h1>
+                <h3>Data Architecture &amp; Formats</h3>
+                <p>
+                </p><h4><a href="http://darribas.org/">Dani Arribas-Bel</a></h4>
+                <p></p>
+                </section>  
+                 
+                                 
+                <section id="today" class="level1 future" style="top: 171px; display: block;" hidden="" aria-hidden="true">
+                <h1>Today</h1>
+                <ul>
+                <li>Spatial Data</li>
+                <li>Spatial Data Formats</li>
+                <li>Selecting the right format</li>
+                </ul>
+                </section>
+                <section id="section" class="level1 stack future" style="top: 0px; display: block;" hidden="" aria-hidden="true">
+                <h1></h1>
+                <section id="spatial-data" class="level2" style="top: 170px; display: block;">
+                <h2>Spatial Data</h2>
+                <p><em>How</em> we represent the world in a computer</p>
+                <ul>
+                <li>Vector</li>
+                <li>Raster</li>
+                </ul>
+                </section>
+                <section id="vector" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Vector</h2>
+                <p>Represent each entity with a shape or geometry. <a href="https://en.wikipedia.org/wiki/Simple_Features">Simple features</a>:</p>
+                <ul>
+                <li>(Multi-)Points</li>
+                <li>(Multi-)Lines</li>
+                <li>(Multi-)Polygons</li>
+                </ul>
+                <p>Divide space into a <strong>finite</strong> set of entities</p>
+                </section>
+                <section id="section-1" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2></h2>
+                <iframe width="130%" height="620" frameborder="0" src="./3_files/embed_map.html">
+                </iframe>
+                </section>
+                <section id="section-2" class="level2 future" data-background="../slides/figs/lines.png" data-background-size="cover" aria-hidden="true" data-background-image="../slides/figs/lines.png" style="top: 350px; display: none;">
+                <h2 data-background="../slides/figs/lines.png" data-background-size="cover"></h2>
+                <p><a href="http://www.dvrpc.org/webmaps/CyclePhilly/">[Source]</a></p>
+                </section>
+                <section id="section-3" class="level2 future" data-background="../slides/figs/polygons.png" data-background-size="cover" aria-hidden="true" data-background-image="../slides/figs/polygons.png" style="top: 350px; display: none;">
+                <h2 data-background="../slides/figs/polygons.png" data-background-size="cover"></h2>
+                <p><a href="http://code.waag.org/buildings/#52.3733,4.8958,15">[Source]</a></p>
+                </section>
+                <section id="raster" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Raster</h2>
+                <p>Use an <strong>image</strong> and control pixel colors to encode value</p>
+                <p>The value assigned for each cell represents the attribute of that cell</p>
+                <ul>
+                <li><strong>Continuous</strong> variables, surfaces (temperature, density, elevation…)</li>
+                <li>Satellite images (land cover, land use…)</li>
+                </ul>
+                </section>
+                <section id="section-4" class="level2 future" data-background="../slides/figs/shaded.jpg" data-background-size="contain" aria-hidden="true" data-background-image="../slides/figs/shaded.jpg" style="top: 350px; display: none;">
+                <h2 data-background="../slides/figs/shaded.jpg" data-background-size="contain"></h2>
+                <p><a href="http://shadedrelief.com/manual_relief/">[Source]</a></p>
+                </section>
+                <section id="section-5" class="level2 future" data-background="../slides/figs/cubesat.jpg" data-background-size="contain" aria-hidden="true" data-background-image="../slides/figs/cubesat.jpg" style="top: 350px; display: none;">
+                <h2 data-background="../slides/figs/cubesat.jpg" data-background-size="contain"></h2>
+                <p><a href="https://upload.wikimedia.org/wikipedia/commons/0/05/CubeSat_in_hand.jpg">[Source]</a></p>
+                </section>
+                <section id="section-6" class="level2 future" data-background="../slides/figs/planet.png" data-background-size="contain" aria-hidden="true" data-background-image="../slides/figs/planet.png" style="top: 350px; display: none;">
+                <h2 data-background="../slides/figs/planet.png" data-background-size="contain"></h2>
+                </section>
+                </section>
+                <section id="section-7" class="level1 stack future" style="top: 350px; display: none;" hidden="" aria-hidden="true">
+                <h1></h1>
+                <section id="spatial-data-formats" class="level2" style="top: 350px; display: none;">
+                <h2>Spatial Data Formats</h2>
+                </section>
+                <section id="spatial-data-formats-1" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Spatial Data Formats</h2>
+                <p>In principle…</p>
+                <ul>
+                <li>Points, lines, polygons –&gt; Vector formats</li>
+                <li>Images, surfaces –&gt; Raster formats</li>
+                </ul>
+                <p>But these boundaries are blur…</p>
+                </section>
+                <section id="section-8" class="level2 future" data-background="../slides/figs/ghsl.png" data-background-size="contain" aria-hidden="true" data-background-image="../slides/figs/ghsl.png" style="top: 350px; display: none;">
+                <h2 data-background="../slides/figs/ghsl.png" data-background-size="contain"></h2>
+                </section>
+                <section id="section-9" class="level2 future" data-background="../slides/figs/lucas.png" data-background-size="contain" aria-hidden="true" data-background-image="../slides/figs/lucas.png" style="top: 350px; display: none;">
+                <h2 data-background="../slides/figs/lucas.png" data-background-size="contain"></h2>
+                </section>
+                <section id="traditionally" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Traditionally</h2>
+                <p><strong><code>Vector</code></strong></p>
+                <ul>
+                <li>Single files: shapefiles, etc.</li>
+                <li>Client-server (geo-)DBs: PostGIS, etc.</li>
+                </ul>
+                <p><strong><code>Raster</code></strong></p>
+                <ul>
+                <li>Mostly (single) image formats: GeoTIFF, etc.</li>
+                </ul>
+                </section>
+                <section id="however" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>However…</h2>
+                <p>Many of these formats were designed for an <em>offline</em> world, so display some of the following:</p>
+                <ul>
+                <li>Binary (“non-streamable”)</li>
+                <li>“Unqueriable”</li>
+                <li>Complex format structures</li>
+                </ul>
+                </section>
+                <section id="section-10" class="level2 future" data-background="../slides/figs/hate_shp.png" data-background-size="contain" aria-hidden="true" data-background-image="../slides/figs/hate_shp.png" style="top: 350px; display: none;">
+                <h2 data-background="../slides/figs/hate_shp.png" data-background-size="contain"></h2>
+                </section>
+                <section id="modern-formats" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Modern formats</h2>
+                <p>New formats have appeared in part <em>“fixing”</em> those issues, but also responding to web needs:</p>
+                <ul>
+                <li>Streamable (e.g.&nbsp;<code>GeoJSON</code>)</li>
+                <li>Queriable (e.g.&nbsp;<code>PostGIS</code>/<code>Geopackage</code>)</li>
+                <li>Single file (e.g.&nbsp;<code>.mbtiles</code>)</li>
+                </ul>
+                <p>Let’s explore a bit more on a couple of them…</p>
+                </section>
+                <section id="geojson" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2><code>GeoJSON</code></h2>
+                </section>
+                <section id="section-11" class="level2 future" data-background="../slides/figs/geojson.png" data-background-size="contain" aria-hidden="true" data-background-image="../slides/figs/geojson.png" style="top: 350px; display: none;">
+                <h2 data-background="../slides/figs/geojson.png" data-background-size="contain"></h2>
+                </section>
+                <section id="advantages" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Advantages</h2>
+                <ul>
+                <li>Plain <span class="hlg">text</span>, (human) readable</li>
+                <li><span class="hlg">Streamable</span></li>
+                <li>Well integrated with web standards (<span class="hlg">JSON</span>)</li>
+                </ul>
+                <p>Excellent <span class="hgl">exchange</span> format</p>
+                </section>
+                <section id="disadvantages" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Disadvantages</h2>
+                <ul>
+                <li>Plain <span class="hlg">text</span>, inefficient</li>
+                <li>Non-queriable</li>
+                <li>Vector only</li>
+                </ul>
+                </section>
+                <section id="tilesets-.mbvtiles" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Tilesets (<code>.mb/vtiles</code>)</h2>
+                </section>
+                <section id="section-12" class="level2 future" data-background="../slides/figs/mbtiles.png" data-background-size="contain" aria-hidden="true" data-background-image="../slides/figs/mbtiles.png" style="top: 350px; display: none;">
+                <h2 data-background="../slides/figs/mbtiles.png" data-background-size="contain"></h2>
+                </section>
+                <section id="map-tiles" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Map Tiles</h2>
+                <p><img src="./3_files/map_tiles.png"></p>
+                </section>
+                <section id="section-13" class="level2 future" data-background="../slides/figs/map_tiles2.png" data-background-size="contain" aria-hidden="true" data-background-image="../slides/figs/map_tiles2.png" style="top: 350px; display: none;">
+                <h2 data-background="../slides/figs/map_tiles2.png" data-background-size="contain"></h2>
+                </section>
+                <section id="advantages-1" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Advantages</h2>
+                <ul>
+                <li>Queriable (SQLite)</li>
+                <li>Fast access to large maps with limited resources (client/server model + queriable format)</li>
+                <li>Some (vector tiles) are stylable</li>
+                </ul>
+                </section>
+                <section id="disadvantages-1" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Disadvantages</h2>
+                <ul>
+                <li>Designed for <em>serving</em> not <em>analysing</em></li>
+                <li>A dataset needs to be stored at several zoom levels</li>
+                <li>Once created, hard to modify (e.g.&nbsp;reproject)</li>
+                </ul>
+                </section>
+                </section>
+                <section id="section-14" class="level1 stack future" style="top: 350px; display: none;" hidden="" aria-hidden="true">
+                <h1></h1>
+                <section id="selecting-the-right-format" class="level2" style="top: 350px; display: none;">
+                <h2>Selecting the right format</h2>
+                </section>
+                <section id="selecting-the-right-format-1" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Selecting the right format</h2>
+                <p>No silver bullet…</p>
+                <div class="fragment" data-fragment-index="0">
+                <ul>
+                <li><em>What</em> type of data do you want to store? Vector, raster</li>
+                <li><em>What</em> are you going to do with the file? Analysis, serving</li>
+                <li><em>What</em> environment are you working? Locally, web</li>
+                </ul>
+                </div>
+                </section>
+                <section id="quiz" class="level2 future" aria-hidden="true" style="top: 350px; display: none;">
+                <h2>Quiz</h2>
+                <ol type="1">
+                <li>Large dataset of tweets you want to analyse <span class="fragment" data-fragment-index="0"><code>PostGIS/Geopackage</code></span></li>
+                <li>Drone imagery to make available for workshop participants <span class="fragment" data-fragment-index="1"><code>MBTiles</code></span></li>
+                <li>Street basemap to provide context to a small dataset you want to make available on the web <span class="fragment" data-fragment-index="2"><code>Vector tiles</code></span></li>
+                <li>The small dataset from 3. <span class="fragment" data-fragment-index="3"><code>GeoJSON</code></span></li>
+                </ol>
+                </section>
+                </section>
+                <section id="section-15" class="level1 future" style="top: 350px; display: none;" hidden="" aria-hidden="true">
+                <h1></h1>
+                <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="./3_files/88x31.png"></a><br><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Web Mapping &amp; Analysis</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://darribas.org/" property="cc:attributionName" rel="cc:attributionURL">Dani Arribas-Bel</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+                </section>
+			</div>
+		<div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background level1 future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background level1 stack future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div><div class="slide-background level2 present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" data-background-hash="../slides/figs/lines.pngcovernullnullnullnullnullnullnullnull" data-background-size="cover" style="display: none;"><div class="slide-background-content" style="background-size: cover;"></div></div><div class="slide-background level2 future" data-background-hash="../slides/figs/polygons.pngcovernullnullnullnullnullnullnullnull" data-background-size="cover" style="display: none;"><div class="slide-background-content" style="background-size: cover;"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" data-background-hash="../slides/figs/shaded.jpgcontainnullnullnullnullnullnullnullnull" data-background-size="contain" style="display: none;"><div class="slide-background-content" style="background-size: contain;"></div></div><div class="slide-background level2 future" data-background-hash="../slides/figs/cubesat.jpgcontainnullnullnullnullnullnullnullnull" data-background-size="contain" style="display: none;"><div class="slide-background-content" style="background-size: contain;"></div></div><div class="slide-background level2 future" data-background-hash="../slides/figs/planet.pngcontainnullnullnullnullnullnullnullnull" data-background-size="contain" style="display: none;"><div class="slide-background-content" style="background-size: contain;"></div></div></div><div class="slide-background level1 stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background level2 present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" data-background-hash="../slides/figs/ghsl.pngcontainnullnullnullnullnullnullnullnull" data-background-size="contain" style="display: none;"><div class="slide-background-content" style="background-size: contain;"></div></div><div class="slide-background level2 future" data-background-hash="../slides/figs/lucas.pngcontainnullnullnullnullnullnullnullnull" data-background-size="contain" style="display: none;"><div class="slide-background-content" style="background-size: contain;"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" data-background-hash="../slides/figs/hate_shp.pngcontainnullnullnullnullnullnullnullnull" data-background-size="contain" style="display: none;"><div class="slide-background-content" style="background-size: contain;"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" data-background-hash="../slides/figs/geojson.pngcontainnullnullnullnullnullnullnullnull" data-background-size="contain" style="display: none;"><div class="slide-background-content" style="background-size: contain;"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" data-background-hash="../slides/figs/mbtiles.pngcontainnullnullnullnullnullnullnullnull" data-background-size="contain" style="display: none;"><div class="slide-background-content" style="background-size: contain;"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" data-background-hash="../slides/figs/map_tiles2.pngcontainnullnullnullnullnullnullnullnull" data-background-size="contain" style="display: none;"><div class="slide-background-content" style="background-size: contain;"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background level1 stack future" style="display: none;"><div class="slide-background-content"></div><div class="slide-background level2 present" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background level2 future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-background level1 future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"><div class="controls-arrow"></div></button><button class="navigate-right enabled" aria-label="next slide"><div class="controls-arrow"></div></button><button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button><button class="navigate-down" aria-label="below slide" disabled="disabled"><div class="controls-arrow"></div></button></aside><div class="slide-number" style="display: none;"></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">
+                Web Mapping &amp; Analysis
+                Data Architecture &amp; Formats
+                
+                Dani Arribas-Bel
+                
+                </div></div>
+
+        <!-- DEPENDENCIES -->
+		<script src="./3_files/reveal.js.download"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                history: true,
+                controlsTutorial: false,
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+        <!-- END of BODY -->
+	
+
+</body></html>

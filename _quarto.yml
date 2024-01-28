@@ -3,13 +3,13 @@ project:
   output-dir: docs
 
 book:
-  title: "Web Mapping and Analysis"
-  author: "Elisabetta Pietrostefani and Dani Arribas-Bel"
+  title: "Web Mapping and Geovisualisation"
+  author: "Gabriele Filomena and Elisabetta Pietrostefani"
   date: today
 
   page-footer:
     left: |
-      Web Mapping and Analysis was written by Elisabetta Pietrostefani and Dani Arribas-Bel.
+      Web Mapping and Geovisualisation by Gabriele Filomena and Elisabetta Pietrostefani.
     right: |
       This book was built with <a href="https://quarto.org/">Quarto</a>.
   search: true
@@ -17,8 +17,6 @@ book:
   repo-url: https://github.com/GDSL-UL/wma
   repo-actions: [edit]
   sharing: [twitter, facebook]
-  twitter-card:
-    creator: "@EPietrostefani"
   sidebar:
     style: docked
     background: light
@@ -28,11 +26,12 @@ book:
     - general/structure.qmd
     - general/overview.qmd
     - general/assess.qmd
+    - general/setUp.qmd
     - labs/w01_introduction.qmd
     - labs/w01_refresher.qmd
     - labs/w02_maps.qmd
-    - labs/w03_dataArch.qmd
-    - labs/w04_webArch.qmd
+    - labs/w03_webArch.qmd
+    - labs/w04_dataArch.qmd
     - labs/w05_interactive.qmd
     
 bibliography: references.bib

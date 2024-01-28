@@ -13,7 +13,7 @@ dependencies:
   - sqlite=3.41.2
   - tk=8.6.12
   - wheel=0.41.2
-  - xz=5.4.5pip
+  - xz=5.4.5
   - zlib=1.2.13
   - pip:
       - affine==2.4.0

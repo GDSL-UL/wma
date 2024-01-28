@@ -1,0 +1,48 @@
+﻿# Setting up the Working Environment for Webmapping and Geovisualisation {.unnumbered}
+
+Follow these instructions and test your installation **prior to the first Lab Session** (Wed, 31st of January). If you experience any issues, write a message on the Ms Teams channel of the module.
+Setting up the Python environment is necessary for:
+- Executing the [Jupyter Notebooks](https://docs.jupyter.org/en/latest/) of the Lab sessions of the course.
+- Preparing your own Jupyter Notebooks for the assignments (one each).
+
+## 1. Install Miniconda (and Python)
+We will use `Minconda` to handle our working environment. *Miniconda is a free minimal installer for conda. It is a small bootstrap version of Anaconda that includes only conda, Python, the packages they both depend on, and a small number of other useful packages (like pip, zlib, and a few others)*
+
+1. Install Miniconda:
+	- *Option 1*: On a UoL Machine: Download and install Miniconda from [here](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe). This will install Miniconda and Python in `C:\`. If this process is aborted because it requires administrator rights, press `Start`, select `Install University Applications`, type and choose `Miniconda`.
+	- *Option 2, **Recommended***: Install Miniconda on your personal Laptop: Follow the instructions [here](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html), depending on your OS. 
+2. During the installation, leave the default settings. In particular, when asked whom to "Install Miniconda for", choose "Just for me".
+
+**Important:** If you do choose to work on University Machines you will have to reinstall `Miniconda` every lab session unless you use a PC where Miniconda has been installed already. 
+
+**Alternatively**, you can work on the lab notebooks directly on the web. This does not require to install `Miniconda`. However, it represents a much slower option, especially when setting up the environment. To do so, you can access the data and the lab notebooks in the `\labs` directory from a virtual copy of the course repository [here](https://mybinder.org/v2/gh/GDSL-UL/wma/HEAD). If you opt for this session, you do not need to follow the rest of the instructions below.
+
+## 2. Set up the Miniconda Environment
+1. Type in the search bar and find the `Anaconda Prompt (miniconda 3)`. Launch it, and write `conda update`.
+2. Download the [environment.yml](https://github.com/GDSL-UL/wma/blob/main/envs456.yml) whenever it's handy for you, write  `conda env create -n envs456 --file envs456.yml` in the prompt and press `Enter`; unless the `envs456.yml` file is located in the main directory that you see in the prompt, e.g. `C:\`, you need to specify the full directory of the file (including the file name).
+3. If you are prompted any questions, press `y`. This process will install all the packages necessary to carry out the lab sessions.
+
+## 3. Set up the Directories
+
+1. Create a folder where you want to keep your work conducted throughout this course. For example, call it `ENVS456`. You can save it wherever you want. If you are working on a university machine, it could be worth creating it in `M:/`, which should your "virtual" hard-disk.
+2. In `Miniconda` write `conda activate envs456` and press `Enter`. This activates your working environment.
+3. Afterwards, run `jupyter server --generate-config` in `Miniconda`. This, at least in Windows, should create a file to: `C:\Users\username\.jupyter\jupyter_server_config.py`.
+4. Open the file with a text editor (e.g. [Notepad++](https://notepad-plus-plus.org)), do a  `ctrl-f`  search for:  `c.ServerApp.root_dir`, uncomment it by removing the and change it to  `c.ServerApp.notebook_dir = 'C:\\your\\new\\path`, for example the directory where you created the `webmapping` folder. In the University Machines, it is advised to work on the directory `M:\`. 
+5. Save the file and close it.
+
+## 4. Prepare the Lab Data
+1. Download the [data](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/GDSL-UL/wma/tree/main/labs/data) and the [images](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/GDSL-UL/wma/tree/main/labs/img) for running and rendering the jupyter notebooks. 
+2. Unzip the folders and move the nested folders into the folder `webmapping`.
+
+## Start a Lab Session
+1. Download the Jupyter Notebook of the session in your folder. Choose one jupyter notebook and click "Dowload raw file" as shown below
+<img src=img/raw.svg/>
+3. Save the file in the `webmapping` folder on your machine
+4.  Type in the search bar, find and open the `Anaconda Prompt (miniconda 3)`. 
+5. Write and run `conda activate envs456`
+6. Write and run `jupyter notebook`. This should open Jupyter Notebook in your default browser. Navigate to your course folder in and open the notebook downloaded in step 1. 
+7. You can now work on your copy of the notebook.
+
+
+
+

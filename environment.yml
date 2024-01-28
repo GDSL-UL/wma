@@ -26,7 +26,7 @@ dependencies:
       - certifi==2023.11.17
       - charset-normalizer==3.3.2
       - click==8.1.7
-      - click-plugins==1.1.1pi
+      - click-plugins==1.1.1
       - cligj==0.7.2
       - colorama==0.4.6
       - colorcet==3.0.1

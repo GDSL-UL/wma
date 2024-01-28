@@ -34,7 +34,7 @@ vignettes/*.pdf
 /cache/
 /labs/cache/
 
-/docs
+docs/
 
 /.quarto/
 .DS_Store

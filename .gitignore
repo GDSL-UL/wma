@@ -34,12 +34,7 @@ vignettes/*.pdf
 /cache/
 /labs/cache/
 
-# Temporary files created by R markdown
-*.utf8.md
-*.knit.md
-
-# R Environment Variables
-.Renviron
+/docs/
 
 /.quarto/
 .DS_Store

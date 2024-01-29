@@ -41,11 +41,10 @@ envs456/
 6.  *Optional*: Configuration of Jupyter Notebooks
 	- In the **Anaconda Terminal**, write `jupyter server --generate-config` and press enter. This, at least in Windows, should create a file to: `C:\Users\username\.jupyter\jupyter_server_config.py`.
 	- Open the file with a text editor (e.g. [Notepad++](https://notepad-plus-plus.org)), do a  `ctrl-f`  search for:  `c.ServerApp.root_dir`, uncomment it by removing the and change it to  `c.ServerApp.notebook_dir = 'C:\\your\\new\\path`, for example the directory where you created the `envs456` folder. In the University Machines, it is advised to work on the directory `M:\`. 
-
-<img src = "../img/config.png">
-	
 	- Save the file and close it.
-
+	
+<img src = "../img/config.png" width="80%">
+	
 ## Start a Lab Session
 1. Download the Jupyter Notebook of the session in your folder. Choose one jupyter notebook and click "Dowload raw file" as shown below
 

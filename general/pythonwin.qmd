@@ -1,5 +1,5 @@
-﻿
-# Set up Miniconda (and Python) in Windows {.unnumbered}
+
+# Set up Miniconda in Windows {.unnumbered}
 
 ## Installation 
 

@@ -26,6 +26,7 @@ book:
     - general/overview.qmd
     - general/assessments.qmd
     - general/pythonwin.qmd
+    - general/pythonmac.qmd
     - labs/w01_intro.ipynb
     - labs/w02_maps.ipynb
     - labs/w03_webArch.ipynb

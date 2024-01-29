@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Web Mapping and Geovisualisation - Set up Miniconda in Windows</title>
+<title>Web Mapping and Geovisualisation - Install Miniconda Mac</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../general/pythonmac.html" rel="next">
-<link href="../general/assessments.html" rel="prev">
+<link href="../labs/w01_intro.html" rel="next">
+<link href="../general/pythonwin.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../general/pythonwin.html">Set up Miniconda in Windows</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../general/pythonmac.html">Install Miniconda Mac</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -130,13 +130,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../general/pythonwin.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Set up Miniconda in Windows</span></a>
+  <a href="../general/pythonwin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Set up Miniconda (and Python) in Windows</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../general/pythonmac.html" class="sidebar-item-text sidebar-link">
+  <a href="../general/pythonmac.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Install Miniconda Mac</span></a>
   </div>
 </li>
@@ -186,19 +186,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation">Installation</a></li>
-  <li><a href="#set-up-the-directories" id="toc-set-up-the-directories" class="nav-link" data-scroll-target="#set-up-the-directories">Set up the Directories</a></li>
-  <li><a href="#set-up-the-python-environment" id="toc-set-up-the-python-environment" class="nav-link" data-scroll-target="#set-up-the-python-environment">Set up the Python Environment</a></li>
+  <li><a href="#set-up-the-miniconda-environment" id="toc-set-up-the-miniconda-environment" class="nav-link active" data-scroll-target="#set-up-the-miniconda-environment">Set up the Miniconda Environment</a></li>
+  <li><a href="#prepare-the-lab-data" id="toc-prepare-the-lab-data" class="nav-link" data-scroll-target="#prepare-the-lab-data">Prepare the Lab Data</a></li>
   <li><a href="#start-a-lab-session" id="toc-start-a-lab-session" class="nav-link" data-scroll-target="#start-a-lab-session">Start a Lab Session</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/GDSL-UL/wma/edit/main/general/pythonwin.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/GDSL-UL/wma/edit/main/general/pythonmac.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Set up Miniconda in Windows</h1>
+<h1 class="title">Install Miniconda Mac</h1>
 </div>
 
 
@@ -213,68 +212,45 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="installation" class="level2">
-<h2 class="anchored" data-anchor-id="installation">Installation</h2>
+<p>*Install Miniconda on your personal Laptop: Follow the instructions <a href="https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html">here</a>, depending on your OS. During the installation, leave the default settings. In particular, when asked whom to “Install Miniconda for”, choose “Just for me”.</p>
+<section id="set-up-the-miniconda-environment" class="level2">
+<h2 class="anchored" data-anchor-id="set-up-the-miniconda-environment">Set up the Miniconda Environment</h2>
 <ol type="1">
-<li>Install Miniconda:
-<ul>
-<li><em>Option 1</em>: On a UoL Machine: Download and install Miniconda from <a href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe">here</a>. This will install Miniconda and Python in <code>C:\</code>. If this process is aborted because it requires administrator rights, press <code>Start</code>, select <code>Install University Applications</code>, type and choose <code>Miniconda</code>.</li>
-<li><em>Option 2, <strong>Recommended</strong></em>: Install Miniconda on your personal Laptop: Follow the instructions <a href="https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html">here</a>.</li>
-</ul></li>
-<li>During the installation, leave the default settings. In particular, when asked whom to “Install Miniconda for”, choose “Just for me”.</li>
+<li>Type in the search bar and open <code>Terminal</code>. Launch it, and write <code>conda update</code>.</li>
+<li>Download the <a href="https://github.com/GDSL-UL/wma/blob/main/envs456.yml">envs456.yml</a> from github.</li>
+<li>Create a <code>Webmapping</code> folder for the course and place the <code>.yml</code> in it. Then in <code>Terminal</code> write <code>conda env create -n envs456 --file envs456.yml</code> and press <code>Enter</code>. This will need to be modified according to where you placed the <code>Webmapping</code> folder. For example: Elisabetta has named her folder <code>ENVS456</code> and it’s in her Dropbox in <code>Users/PIETROST/Library/CloudStorage/Dropbox/ENVS456/envs456.yml</code></li>
 </ol>
-<p><strong>Important:</strong> If you do choose to work on University Machines you will have to reinstall <code>Miniconda</code> every lab session unless you use a PC where Miniconda has been installed already.</p>
-<p><strong>Alternatively</strong>, you can work on the lab notebooks directly on the web. This does not require to install <code>Miniconda</code>. However, it represents a much slower option, especially when setting up the environment. To do so, you can access the data and the lab notebooks in the <code>\labs</code> directory from a virtual copy of the course repository <a href="https://mybinder.org/v2/gh/GDSL-UL/wma/HEAD">here</a>. If you opt for this option, you do not need to follow the rest of the instructions below.</p>
-</section>
-<section id="set-up-the-directories" class="level2">
-<h2 class="anchored" data-anchor-id="set-up-the-directories">Set up the Directories</h2>
-<ol type="1">
-<li>Create a folder where you want to keep your work conducted throughout this course. For example, call it <code>envs456</code>. You can save it wherever you want. If you are working on a university machine, it could be worth creating it in <code>M:/</code>, which should your “virtual” hard-disk.</li>
-<li>Download the <a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/GDSL-UL/wma/tree/main/data">data</a> and the <a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/GDSL-UL/wma/tree/main/lab_img">images</a> for running and rendering the jupyter notebooks.</li>
-<li>Unzip the folders and move the nested folders into the folder <code>envs456</code>.</li>
-<li>Create another folder called <code>labs</code></li>
-</ol>
-<p>The folder structure should look like:</p>
-<pre><code>envs456/
-├── data/
-├── labs_img/
-└── labs/</code></pre>
-</section>
-<section id="set-up-the-python-environment" class="level2">
-<h2 class="anchored" data-anchor-id="set-up-the-python-environment">Set up the Python Environment</h2>
-<ol type="1">
-<li>Type in the search bar and find the <code>Anaconda Prompt (miniconda 3)</code>. Launch it. The terminal should appear.</li>
-</ol>
-<p><img src="../img/windows_anaconda.png" width="80%"></p>
-<ol start="2" type="1">
-<li>Download the file <a href="https://github.com/GDSL-UL/wma/blob/main/envs456.yml">envs456.yml</a> in the folder <code>envs456</code>.</li>
-<li>In the <strong>Anaconda Terminal</strong> write <code>conda env create -n envs456 --file C:\envs456\envs456.yml</code> and press <code>Enter</code>; if the file is located elsewhere you’ll need to use the corresponding file path.</li>
+<p><img src="../img/mac_1.png" class="img-fluid"></p>
+<p>If you created the <code>Webmapping</code> folder on your desktop, the path would be <code>Desktop/Webmapping</code>.</p>
+<ol start="4" type="1">
 <li>If you are prompted any questions, press <code>y</code>. This process will install all the packages necessary to carry out the lab sessions.</li>
-<li>In the <strong>Anaconda Terminal</strong> write <code>conda activate envs456</code> and press <code>Enter</code>. This activates your working environment.</li>
-<li><em>Optional</em>: Configuration of Jupyter Notebooks
-<ul>
-<li>In the <strong>Anaconda Terminal</strong>, write <code>jupyter server --generate-config</code> and press enter. This, at least in Windows, should create a file to: <code>C:\Users\username\.jupyter\jupyter_server_config.py</code>.</li>
-<li>Open the file with a text editor (e.g.&nbsp;<a href="https://notepad-plus-plus.org">Notepad++</a>), do a <code>ctrl-f</code> search for: <code>c.ServerApp.root_dir</code>, uncomment it by removing the and change it to <code>c.ServerApp.notebook_dir = 'C:\\your\\new\\path</code>, for example the directory where you created the <code>envs456</code> folder. In the University Machines, it is advised to work on the directory <code>M:\</code>.</li>
-<li>Save the file and close it.</li>
-</ul></li>
 </ol>
-<p><img src="../img/config.png" width="80%"></p>
+</section>
+<section id="prepare-the-lab-data" class="level2">
+<h2 class="anchored" data-anchor-id="prepare-the-lab-data">Prepare the Lab Data</h2>
+<ol type="1">
+<li>Download the <a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/GDSL-UL/wma/tree/main/data">data</a> and the <a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/GDSL-UL/wma/tree/main/img">images</a> to run and render the jupyter notebooks.</li>
+<li>Unzip the folders and move the nested folders into the folder <code>Webmapping</code>.</li>
+</ol>
+<p>It should look something like this:</p>
+<p><img src="../img/mac_1b.png" class="img-fluid"></p>
 </section>
 <section id="start-a-lab-session" class="level2">
 <h2 class="anchored" data-anchor-id="start-a-lab-session">Start a Lab Session</h2>
 <ol type="1">
-<li>Download the Jupyter Notebook of the session in your folder. Choose one jupyter notebook and click “Dowload raw file” as shown below</li>
+<li>Download the Jupyter Notebook of the session in your folder. Choose one jupyter notebook and click “Download raw file” as shown below</li>
 </ol>
-<p><img src="../img/raw.png" width="80%"></p>
+<p><img src="../img/raw.png" class="img-fluid"></p>
 <ol start="2" type="1">
-<li>Save the file in the <code>labs</code> folder within your <code>envs456</code> folder on your machine.</li>
-<li>Type in the search bar, find and open the <code>Anaconda Prompt (miniconda 3)</code>.</li>
-<li>In the <strong>Anaconda Terminal</strong> write and run <code>conda activate envs456</code>.</li>
-<li>In the <strong>Anaconda Terminal</strong> write and run <code>jupyter notebook</code>. This should open Jupyter Notebook in your default browser.</li>
+<li>Place th jupyternotebook in a <code>labs</code> folder in side your <code>Webmapping</code> folder. Your <code>Webmapping</code> folder should at least contain a <code>data</code> and a <code>labs</code> folder.</li>
+<li>Open <code>Terminal</code>.</li>
+<li>In <code>Terminal</code> write <code>conda activate envs456</code> and press <code>Enter</code>. This activates your working environment.</li>
+<li>Write and run <code>jupyter notebook</code>. This should open Jupyter Notebook in your default browser.</li>
 </ol>
-<p><img src="../img/jupyter.png" width="80%"></p>
+<p><img src="../img/mac_2.png" class="img-fluid"></p>
+<p>You should see something like this:</p>
+<p><img src="../img/mac_3.png" class="img-fluid"></p>
 <ol start="6" type="1">
-<li>Navigate to your course folder in and double click on the notebook downloaded in step 1.</li>
 <li>You can now work on your copy of the notebook.</li>
 </ol>
 
@@ -517,13 +493,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../general/assessments.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Assessments</span>
+      <a href="../general/pythonwin.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Set up Miniconda (and Python) in Windows</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../general/pythonmac.html" class="pagination-link">
-        <span class="nav-page-text">Install Miniconda Mac</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../labs/w01_intro.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction &amp; Python Refresher</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

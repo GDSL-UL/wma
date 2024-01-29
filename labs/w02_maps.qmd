@@ -4,9 +4,11 @@ author: Gabriele Filomena
 date: 'January 10th, 2024'
 format:
   html:
-    code-fold: true
+    code-fold: false
 jupyter: python3
 ---
+
+# 2. Static Maps in Python
 
 # Part I: Basic Maps
 
@@ -723,4 +725,10 @@ Today we've seen how to exploit matplotlib to plot GeoDataFrame. Go through the 
 Now, if you are not overwhelmed, have a look at the very last map and produce some nice visualisation using the same data. You can further improve it clarity, add a legend that refers to the line width, visualise only a certain type of service, or add information/context, for example. In the folder '\data' you can also find a shapefile containing all the train stations in Italy, should you need that.
 
 </div>
+
+#### Saving figures (check [here for details](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html))
+
+```{python}
+fig.savefig("fig1.pdf", dpi='figure', format="pdf", bbox_inches = 'tight')
+```
 

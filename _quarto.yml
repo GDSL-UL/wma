@@ -20,7 +20,7 @@ book:
   sidebar:
     style: docked
     background: light
-  downloads: [pdf, epub]
+  downloads: [pdf]
   chapters:
     - index.qmd
     - general/structure.qmd

@@ -40,7 +40,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\usepackage{svg}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \setcounter{secnumdepth}{5}
 % Make \paragraph and \subparagraph free-standing
@@ -204,8 +203,8 @@
 
 This is the website for ``Web Mapping and Geovisualisation'' (module
 \textbf{ENVS456}) at the University of Liverpool. This course is
-designed and delivered by Dr.~Elisabetta Pietrostefani and Dr.~Gabriele
-Filomena from the Geographic Data Science Lab at the University of
+designed and delivered by Dr.~Gabriele Filomena and Dr.~Elisabetta
+Pietrostefani from the Geographic Data Science Lab at the University of
 Liverpool, United Kingdom. The module has two main aims. It seeks to
 provide hands-on experience and training in:
 
@@ -339,8 +338,15 @@ Kingdom.
   Lab
 \end{itemize}
 
-\textbf{Week 10} - Lecture \& Lab: Review \& Assignment II clinic -
-\textbf{Assignment II Due (Week 11)}
+\textbf{Week 10}
+
+\begin{itemize}
+\tightlist
+\item
+  Lecture \& Lab: Review \& Assignment II clinic
+\item
+  \textbf{Assignment II Due (Week 11)}
+\end{itemize}
 
 \bookmarksetup{startatroot}
 
@@ -426,89 +432,109 @@ See the corresponding page.
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Title:} Exploring APIs in R
+  \textbf{Title:} Exporing APIs in Plthon.
 \item
-  \textbf{Type:} Coursework
+  \textbf{Type:} Coursework.
 \item
-  Due date: \textbf{Thursday March 2nd, Week 5}
+  \textbf{Due: Thursday March 7thy, Week 6}.
 \item
-  50\% of the final mark
+  50\% of the final mark.
 \item
-  Chance to be reassessed
+  Chance to be reassessed.
 \item
-  Electronic submission only
+  Electronic submission only.
 \end{itemize}
 
-In this assessment, you will have the opportunity to explore different
-sources and combine them in a single tileset that can be explored
-interactively through a web browser. \textbf{The assignment aims to
-evaluate your knowledge and aptitude in the following areas}:
+In this assessment, you will have the opportunity to ex pore different
+solrces and coumine them in a map that can be explored interactively
+throbgh a web browser. \textbf{The assignuent aims to evaluate your
+knowledge and aptitude in the following areas}:
 
 \begin{itemize}
+\tightlist
 \item
   Understanding of core ``backend'' concepts in web mapping such as
-  tilesets, client-server architecture, or APIs.
+  tilesetsm,client-server architecture, and APIs.
 \item
   Ability to use the web as a resource for original data.
 \item
-  Design skills to present effectively a diverse set of geospatial data
+  Design skills to resent effectively a diverse set of geospatial data
   in a web map.
 \end{itemize}
 
-\subsection*{Design, data and
-assemblage.}\label{design-data-and-assemblage.}
-\addcontentsline{toc}{subsection}{Design, data and assemblage.}
+\subsection*{Design, data pan
+assemblage.}\label{design-data-pan-assemblage.}
+\addcontentsline{toc}{subsection}{Design, data pan assemblage.}
 
 This assignment requires you to source data from the web in different
-formats, assemble them into a tileset, and document the process. To be
-successful, you will need to demonstrate your understanding not only of
-the technical aspects involved in the process, but also of the
-conceptual notions that underpin them. Below are described the required
-components for your submission.
+formats, assemble them, and ddoument the process. To be successful, you
+will need to demonstrate your understanding not only of the technical
+aspects involved in the process, but also of the conceptual notions that
+underpin them. Below are described the required components for your
+submission.
 
-First, the design. Start by designing a map for an area you are
-interested in. There are no clear restrictions but, to ensure you are on
-the right path, check on your ideas with the module leader, who will be
-able to assess whether potential problems may arise from your choices.
-This stage should draw some inspiration from the first weeks of the
-course, where we looked for examples of web maps and spent time
-discussing what made them good and why.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Data}. Draft a list of potential spatial datasets that you can
+  access by developing a simple API in Python. The data should contain
+  spatial information or should be easy to link to other existing
+  spatial data sources (e.g.~combining different datasets). While you
+  can make use of available datasets, you are required to demonstrate
+  the ability to develop your own API. Once you know which datasets you
+  are interested and able to obtain, think about what data/variables
+  deserve consideration and how they could be presented.
+\item
+  \textbf{Design}. Start by designing a map that represents the spatial
+  units of the dataset (e.g.~buildings, train stations, cities, etc.).
+  Use \texttt{folium} to incorporate initial basic interactivity. At
+  this point, check on your ideas with the module teachers, who will be
+  able to assess whether potential problems may arise from your choices.
+  Move to the incorporation of data, both for categorical (if
+  appropriate) and numerical variables, and consider how to represent it
+  through the map. This stage should draw some inspiration from the
+  first weeks of the course, where we looked for examples of web maps
+  and spent time discussing what made them good and why.
+\item
+  \textbf{Assemblage}. Embellish your map, consider the usage of widgets
+  for facilitating the exploration of the dataset. Play and choose one
+  of the available tilesets. Conisder creating your own in
+  \texttt{Mapbox} (this would be reflected in the final grade). Pay
+  attention to the design aspects involved in this step too. For
+  example, what is the extent of your map (not necessarily the extent of
+  each of your data)? What are the zoom levels your map will allow? Do
+  you have the same ``map'' for every zoom level? These are questions
+  you will have to ask (and answer!) yourself to complete this stage
+  successfully.
+\end{enumerate}
 
-Second, the data. Draft a list of potential data that would be ideal to
-use for your map, and try to find out whether they exist and are
-available. This will be a good guide for which data you will actually
-end up using. Do not worry about spending a significant amount of time
-on this aspect; identifying good data takes time and is at the core of
-this task. Make sure you include both data you can access from direct
-downloads (e.g.~CDRC) and those you download through an API. Once you
-know which datasets you need, go ahead and do the work required to
-download them for the map you want to build.
+Once you have developed your API and created the interactive map, you
+will need to present it. An important aspect of this stage is that it is
+not really the code/map you need to present, but the \emph{process} of
+creation you have followed and the \emph{design} choices you have made
+that should go into the text. Additionally, you will need to provide
+evidence that you understand the concepts behind some of the
+technologies you have used.
 
-Third, the assemblage. With all data you have at your disposal from the
-previous stage, create a tileset that allows to embed the map in an HTML
-file and explore it through the browser. Pay attention to the design
-aspects involved in this step too. For example, what is the extent of
-your map (not necessarily the extent of each of your data)? What are the
-zoom levels your map will allow? Do you have the same ``map'' for every
-zoom level? These are questions you will have to ask (and answer!)
-yourself to complete this stage successfully.
+\subsection*{Submission}\label{submission}
+\addcontentsline{toc}{subsection}{Submission}
 
-\subsection*{Presentation of your work}\label{presentation-of-your-work}
-\addcontentsline{toc}{subsection}{Presentation of your work}
-
-Once you have created your map, you will need to present it. An
-important aspect of this stage is that it is not really the map you need
-to present, but the \emph{process} of creation you have followed and the
-design choices you have made that should go into the text. Additionally,
-you will need to provide evidence that you understand the concepts
-behind some of the technologies you have used. Write up to 1,000 words
-and include the following:
+You will submit through Canvas a \texttt{.html} file obtained from a
+Python \texttt{.ipynb} Jupyter Notebook file. To do so, in your
+\texttt{.ipynb} file, follow these steps: \texttt{File} --\textgreater{}
+\texttt{Save\ and\ Export\ as..} --\textgreater{} \texttt{HTML}. Prior
+to this step, the notebook needs to be rendered (i.e.~all the cells
+should be executed). Other file formats will not be accepted. Besides
+the necessary code, the report should include up to \textbf{1,000} words
+and the following:
 
 \begin{itemize}
 \item
-  Map brief
+  Map brief:
 
   \begin{itemize}
+  \tightlist
   \item
     About 250 words introducing the map. This should cover what it tries
     to represent (what is it about?) and the choices you have made along
@@ -520,9 +546,10 @@ and include the following:
     in the map for a reason, make sure to spell it out clearly.
   \end{itemize}
 \item
-  Conceptual background
+  Conceptual background:
 
   \begin{itemize}
+  \tightlist
   \item
     About 250 words with your description of what an API is, how it
     works and how it has made your map possible.
@@ -531,40 +558,18 @@ and include the following:
   \end{itemize}
 \end{itemize}
 
-\subsection*{Submit}\label{submit}
-\addcontentsline{toc}{subsection}{Submit}
-
-Once completed, you will need to submit the following:
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  A static PDF version of an R-markdown. You can either generate this as
-  a pdf directly in Rstudio or generate the html, open it in a browser
-  like Google Chrome and save as a pdf. The pdf should include two
-  parts:
-
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
-  \item
-    All your narrative about the map brief and conceptual background.
-  \item
-    Any code you may have used to complete the assignment,
-    \textbf{documented} in detail. \textbf{NOTE}: this section will not
-    contribute towards the word count.
-  \end{enumerate}
-\item
-  A an .mbtile file containing you tileset.
-\end{enumerate}
+\subsection*{Evaulation}\label{evaulation}
+\addcontentsline{toc}{subsection}{Evaulation}
 
 The assignment will be evaluated based on four main pillars, on which
 you will have to be successful to achieve a good mark:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   \textbf{Map design abilities.} This includes ideas that were discussed
-  in the course in Blocks 1 and 2.
+  in week 2, 3 and 4.
 \item
   \textbf{Technical skills}. This includes your ability to master
   technologies that allow you to create a compelling map, but also to
@@ -576,7 +581,7 @@ you will have to be successful to achieve a good mark:
   together''.
 \item
   \textbf{Conceptual understanding of key technologies} presented in the
-  course, in particular of APIs and tile-based mapping.
+  course, in particular as regards the usage of APIs.
 \end{enumerate}
 
 \subsection*{\texorpdfstring{\emph{How is this assignment
@@ -586,18 +591,25 @@ useful?}}{How is this assignment useful?}}\label{how-is-this-assignment-useful}
 This assessment includes several elements that will help you improve
 critical aspects of your web mapping skills:
 
-Design: this is not about making maps, this is about making good maps.
-And behind every good map there is a set of conscious choices that you
-will have to think throug to be successful (what map? what data? how to
-present the data? etc.). Technology: at the end of the day, building
-good web maps requires solid understanding of current technology that
-goes beyond what the average person can be expected to know. In this
-assignment, you will need to demonstrate you are proficient in a series
-of tasks manipulating geospatial data in a web environment.
-Presentation: in many real-world contexts, your work is as good as it
-can come across to the audience it is intended to. This means that it is
-vital to be able to communicate not only what you are doing but why and
-on what building blocks it is based on.
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Design}: this is not about making maps, this is about making
+  good maps. And behind every good map there is a set of conscious
+  choices that you will have to think throug to be successful (what map?
+  what data? how to present the data? etc.).
+\item
+  \textbf{Technology}: at the end of the day, building good web maps
+  requires solid understanding of current technology that goes beyond
+  what the average person can be expected to know. In this assignment,
+  you will need to demonstrate you are proficient in a series of tasks
+  manipulating geospatial data in a web environment.
+\item
+  \textbf{Presentation}: in many real-world contexts, your work is as
+  good as it can come across to the audience it is intended to. This
+  means that it is vital to be able to communicate not only what you are
+  doing but why and on what building blocks it is based on.
+\end{itemize}
 
 \section*{Assignment II}\label{assignment-ii}
 \addcontentsline{toc}{section}{Assignment II}
@@ -607,60 +619,67 @@ on what building blocks it is based on.
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Title:} \emph{A dashboard of IMD}
+  \textbf{Title:} \emph{A dashboard that explores a Spatial Dataset}.
 \item
-  \textbf{Type:} Coursework
+  \textbf{Type:} Coursework.
 \item
-  Due date\textbf{:} \textbf{Thursday April 27th, Week 10}
+  \textbf{Due: Thursday May 2nd, Week 11}.
 \item
-  50\% of the final mark
+  50\% of the final mark.
 \item
-  Chance to be reassessed
+  Chance to be reassessed.
 \item
-  Electronic submission only
+  Electronic submission only.
 \end{itemize}
 
-This assignment requires you to build a dashboard for the Index of
-Multiple Deprivation. You can download the data for England
-\href{https://data.cdrc.ac.uk/dataset/index-multiple-deprivation-imd}{here}.
-To be successful, you will need to demonstrate your understanding not
-only of technical elements, but of the design process required to create
-a product that can communicate complex ideas effectively. There are
-three core building blocks you will have to assemble to build your
-dashboard: basemap, main map(s), and widgets. Let us explore each of
-them more in detail.
+This assignment requires you to build a dashboard for a \textbf{spatial
+data set of your choice}. To be successful, you will need to demonstrate
+your understanding not only of technical elements, but of the design
+process required to create a product that can communicate complex ideas
+effectively. There are three core building blocks you will have to
+assemble to build your dashboard: the main maps(s), base map, and
+widgets.
 
-First, the basemap. Design your own basemap using Mapbox Think about the
-data in the background, which colors, the zoom levels that will be
-allowed, and how it all comes together to create a backdrop for your
-main message that is conducent to the experience you want to create. The
-basemap is like a good side dish: it's there to make you like the main
-course even more.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{The main map(s)}. Import your data and start building a
+  dashboard with \texttt{panel}. Think about what you want to show, how,
+  which interactive elements you will allow the user to access and how
+  they will let them modify the experience of your dashboard. It goes
+  without saying that the dashbord should include interactive map(s),
+  besides allowing the user to play with the dataset.
+\item
+  \textbf{The basemap}. Design your own basemap using \texttt{Mapbox} or
+  through scripting (e.g.~assembling a basemap with OpenStreetMap
+  features in a unique layer). Think about the data in the background,
+  which colors, the zoom levels that will be allowed, and how it all
+  comes together to create a backdrop for your main message that is
+  conducent to the experience you want to create. Use the basemap to
+  enhance the visualisation experience of the user.
+\item
+  \textbf{Additional widgets}. One of the advantages of dashboards in
+  comparison to standard web maps is that they allow to bring elements
+  of analysis to a more finished product. Think about what you want your
+  users to be able to analyse, why, and how that will modify the main
+  map.
+\end{enumerate}
 
-Second, the main map(s). One you have your own basemap import your IMD
-data to CARTO to build. This is your dashboard. This is where your
-dashboard should come to shine. What you want to show, how, which
-interactive elements you will allow the user to access and how they will
-let them modify the experience of your dashboard. The main course of the
-meal, make it count!
+\subsection*{Submission}\label{submission-1}
+\addcontentsline{toc}{subsection}{Submission}
 
-Third, additional widgets. One of the advantages of dashboards in
-comparison to standard web maps is that they allow to bring elements of
-analysis to a more finished product. Think about what you want your
-users to be able to analyse, why, and how that will modify the main map.
-This is the icing on the cake!
-
-\subsection*{Submit}\label{submit-1}
-\addcontentsline{toc}{subsection}{Submit}
-
-Once completed, you will submit a report through Canvas that includes
-the following:
+You will submit through Canvas a \texttt{.html} file obtained from a
+Python \texttt{.ipynb} Jupyter Notebook file. To do so, in your
+\texttt{.ipynb} file, follow these steps: \texttt{File} --\textgreater{}
+\texttt{Save\ and\ Export\ as..} --\textgreater{} \texttt{HTML}. Prior
+to this step, the notebook needs to be rendered (i.e.~all the cells
+should be executed). Other file formats will not be accepted. Besides
+the necessary code, the report should include up to \textbf{1,000} words
+and the following:
 
 \begin{itemize}
 \tightlist
-\item
-  You should use the \texttt{.qmd} template provided where you will
-  embed your mapbox basemap and your CARTO dashboard.
 \item
   About 250 words for the overall idea of the dashboard. What do you
   want to communicate? What is the story you want to tell?
@@ -668,18 +687,23 @@ the following:
   About 250 words for the data used. Which datasets are you using? Why?
   What new information do they bring and how they complement each other?
 \item
-  About 250 words to describe your design choices in the basemap and
-  other layers presented (e.g.~choropleths).
+  About 250 words to describe your design choices in the layers
+  presented (e.g.~choropleths).
 \item
   About 250 words to describe your design choices around interactivity,
   including both cartographic elements (e.g.~zooming, panning) as well
   as additional interactivity built around components such as widgets.
 \end{itemize}
 
-The assignment will be evaluated based on:
+\subsection*{Evaluation}\label{evaluation}
+\addcontentsline{toc}{subsection}{Evaluation}
+
+The assignment will be evaluated based on four main pillars, on which
+you will have to be successful to achieve a good mark:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   \emph{Overall design of the experience.} It is very important you
   think through every step of preparing this assignment as if it was
@@ -689,9 +713,9 @@ The assignment will be evaluated based on:
   following a common thread. And, of course, make this connection and
   holistic approach come alive in your report.
 \item
-  \emph{(Base)map design}. Critically introduce every aspect you have
-  thought about when designing the maps, and explicitly connect it to
-  the overal aim of the dashboard. Be clear in your descriptions and
+  \emph{Map design}. Critically introduce every aspect you have thought
+  about when designing the maps, and explicitly connect it to the
+  overall aim of the dashboard. Be clear in your descriptions and
   critical in how you engage every design choice.
 \item
   \emph{Interactivity design.} Your dashboard should use interactivity
@@ -714,11 +738,12 @@ This assignment combines several elements that will help you improve
 critical aspects of web mapping:
 
 \begin{itemize}
+\tightlist
 \item
   \emph{Design}: this is not about making maps, this is about making
   good maps. And behind every good map there is a set of conscious
-  choices that you will have to think throug to be successful (what map?
-  what data? how to present the data? etc.).
+  choices that you will have to think through to be successful (what
+  map? what data? how to present the data? etc.).
 \item
   \emph{Technology}: at the end of the day, building good web maps
   requires familiarity with the state-of-the-art in terms of web mapping
@@ -773,38 +798,19 @@ part of the work being assessed:
 
 \bookmarksetup{startatroot}
 
-\chapter*{Setting up the Working
-Environment}\label{setting-up-the-working-environment}
-\addcontentsline{toc}{chapter}{Setting up the Working Environment}
+\chapter*{Set up Miniconda (and Python) in
+Windows}\label{set-up-miniconda-and-python-in-windows}
+\addcontentsline{toc}{chapter}{Set up Miniconda (and Python) in Windows}
 
-\markboth{Setting up the Working Environment}{Setting up the Working
-Environment}
+\markboth{Set up Miniconda (and Python) in Windows}{Set up Miniconda
+(and Python) in Windows}
 
-Follow these instructions and test your installation \textbf{prior to
-the first Lab Session} (Wed, 31st of January). If you experience any
-issues, write a message on the Ms Teams channel of the module. Setting
-up the Python environment is necessary for:
 
-\begin{itemize}
-\tightlist
-\item
-  Executing the \href{https://docs.jupyter.org/en/latest/}{Jupyter
-  Notebooks} of the Lab sessions of the course.
-\item
-  Preparing your own Jupyter Notebooks for the assignments (one each).
-\end{itemize}
 
-\section*{Install Miniconda (and
-Python)}\label{install-miniconda-and-python}
-\addcontentsline{toc}{section}{Install Miniconda (and Python)}
+\section*{Installation}\label{installation}
+\addcontentsline{toc}{section}{Installation}
 
-\markright{Install Miniconda (and Python)}
-
-We will use \texttt{Minconda} to handle our working environment.
-\emph{Miniconda is a free minimal installer for conda. It is a small
-bootstrap version of Anaconda that includes only conda, Python, the
-packages they both depend on, and a small number of other useful
-packages (like pip, zlib, and a few others)}
+\markright{Installation}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -826,8 +832,7 @@ packages (like pip, zlib, and a few others)}
   \item
     \emph{Option 2, \textbf{Recommended}}: Install Miniconda on your
     personal Laptop: Follow the instructions
-    \href{https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html}{here},
-    depending on your OS.
+    \href{https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html}{here}.
   \end{itemize}
 \item
   During the installation, leave the default settings. In particular,
@@ -845,35 +850,8 @@ environment. To do so, you can access the data and the lab notebooks in
 the \texttt{\textbackslash{}labs} directory from a virtual copy of the
 course repository
 \href{https://mybinder.org/v2/gh/GDSL-UL/wma/HEAD}{here}. If you opt for
-this session, you do not need to follow the rest of the instructions
+this option, you do not need to follow the rest of the instructions
 below.
-
-\section*{Set up the Miniconda
-Environment}\label{set-up-the-miniconda-environment}
-\addcontentsline{toc}{section}{Set up the Miniconda Environment}
-
-\markright{Set up the Miniconda Environment}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Type in the search bar and find the
-  \texttt{Anaconda\ Prompt\ (miniconda\ 3)}. Launch it, and write
-  \texttt{conda\ update}.
-\item
-  Download the
-  \href{https://github.com/GDSL-UL/wma/blob/main/envs456.yml}{environment.yml}
-  whenever it's handy for you, write
-  \texttt{conda\ env\ create\ -n\ envs456\ -\/-file\ envs456.yml} in the
-  prompt and press \texttt{Enter}; unless the \texttt{envs456.yml} file
-  is located in the main directory that you see in the prompt,
-  e.g.~\texttt{C:\textbackslash{}}, you need to specify the full
-  directory of the file (including the file name).
-\item
-  If you are prompted any questions, press \texttt{y}. This process will
-  install all the packages necessary to carry out the lab sessions.
-\end{enumerate}
 
 \section*{Set up the Directories}\label{set-up-the-directories}
 \addcontentsline{toc}{section}{Set up the Directories}
@@ -885,48 +863,89 @@ Environment}\label{set-up-the-miniconda-environment}
 \tightlist
 \item
   Create a folder where you want to keep your work conducted throughout
-  this course. For example, call it \texttt{ENVS456}. You can save it
+  this course. For example, call it \texttt{envs456}. You can save it
   wherever you want. If you are working on a university machine, it
   could be worth creating it in \texttt{M:/}, which should your
   ``virtual'' hard-disk.
 \item
-  In \texttt{Miniconda} write \texttt{conda\ activate\ envs456} and
-  press \texttt{Enter}. This activates your working environment.
+  Download the
+  \href{https://minhaskamal.github.io/DownGit/\#/home?url=https://github.com/GDSL-UL/wma/tree/main/data}{data}
+  and the
+  \href{https://minhaskamal.github.io/DownGit/\#/home?url=https://github.com/GDSL-UL/wma/tree/main/lab_img}{images}
+  for running and rendering the jupyter notebooks.
 \item
-  Afterwards, run \texttt{jupyter\ server\ -\/-generate-config} in
-  \texttt{Miniconda}. This, at least in Windows, should create a file
-  to:
-  \texttt{C:\textbackslash{}Users\textbackslash{}username\textbackslash{}.jupyter\textbackslash{}jupyter\_server\_config.py}.
+  Unzip the folders and move the nested folders into the folder
+  \texttt{envs456}.
 \item
-  Open the file with a text editor
-  (e.g.~\href{https://notepad-plus-plus.org}{Notepad++}), do a
-  \texttt{ctrl-f} search for: \texttt{c.ServerApp.root\_dir}, uncomment
-  it by removing the and change it to
-  \texttt{c.ServerApp.notebook\_dir\ =\ \textquotesingle{}C:\textbackslash{}\textbackslash{}your\textbackslash{}\textbackslash{}new\textbackslash{}\textbackslash{}path},
-  for example the directory where you created the \texttt{webmapping}
-  folder. In the University Machines, it is advised to work on the
-  directory \texttt{M:\textbackslash{}}.
-\item
-  Save the file and close it.
+  Create another folder called \texttt{labs}
 \end{enumerate}
 
-\section*{Prepare the Lab Data}\label{prepare-the-lab-data}
-\addcontentsline{toc}{section}{Prepare the Lab Data}
+The folder structure should look like:
 
-\markright{Prepare the Lab Data}
+\begin{verbatim}
+envs456/
+├── data/
+├── labs_img/
+└── labs/
+\end{verbatim}
+
+\section*{Set up the Python
+Environment}\label{set-up-the-python-environment}
+\addcontentsline{toc}{section}{Set up the Python Environment}
+
+\markright{Set up the Python Environment}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Download the
-  \href{https://minhaskamal.github.io/DownGit/\#/home?url=https://github.com/GDSL-UL/wma/tree/main/data}{data}
-  and the
-  \href{https://minhaskamal.github.io/DownGit/\#/home?url=https://github.com/GDSL-UL/wma/tree/main/img}{images}
-  for running and rendering the jupyter notebooks.
+  Type in the search bar and find the
+  \texttt{Anaconda\ Prompt\ (miniconda\ 3)}. Launch it. The terminal
+  should appear.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
 \item
-  Unzip the folders and move the nested folders into the folder
-  \texttt{webmapping}.
+  Download the file
+  \href{https://github.com/GDSL-UL/wma/blob/main/envs456.yml}{envs456.yml}
+  in the folder \texttt{envs456}.
+\item
+  In the \textbf{Anaconda Terminal} write
+  \texttt{conda\ env\ create\ -n\ envs456\ -\/-file\ C:\textbackslash{}envs456\textbackslash{}envs456.yml}
+  and press \texttt{Enter}; if the file is located elsewhere you'll need
+  to use the corresponding file path.
+\item
+  If you are prompted any questions, press \texttt{y}. This process will
+  install all the packages necessary to carry out the lab sessions.
+\item
+  In the \textbf{Anaconda Terminal} write
+  \texttt{conda\ activate\ envs456} and press \texttt{Enter}. This
+  activates your working environment.
+\item
+  \emph{Optional}: Configuration of Jupyter Notebooks
+
+  \begin{itemize}
+  \tightlist
+  \item
+    In the \textbf{Anaconda Terminal}, write
+    \texttt{jupyter\ server\ -\/-generate-config} and press enter. This,
+    at least in Windows, should create a file to:
+    \texttt{C:\textbackslash{}Users\textbackslash{}username\textbackslash{}.jupyter\textbackslash{}jupyter\_server\_config.py}.
+  \item
+    Open the file with a text editor
+    (e.g.~\href{https://notepad-plus-plus.org}{Notepad++}), do a
+    \texttt{ctrl-f} search for: \texttt{c.ServerApp.root\_dir},
+    uncomment it by removing the and change it to
+    \texttt{c.ServerApp.notebook\_dir\ =\ \textquotesingle{}C:\textbackslash{}\textbackslash{}your\textbackslash{}\textbackslash{}new\textbackslash{}\textbackslash{}path},
+    for example the directory where you created the \texttt{envs456}
+    folder. In the University Machines, it is advised to work on the
+    directory \texttt{M:\textbackslash{}}.
+  \item
+    Save the file and close it.
+  \end{itemize}
 \end{enumerate}
 
 \section*{Start a Lab Session}\label{start-a-lab-session}
@@ -942,34 +961,32 @@ Environment}\label{set-up-the-miniconda-environment}
   one jupyter notebook and click ``Dowload raw file'' as shown below
 \end{enumerate}
 
-\begin{figure}[H]
-
-{\centering \includesvg{general/../img/raw.svg}
-
-}
-
-\caption{Download raw file instruction}
-
-\end{figure}%
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{1}
 \tightlist
 \item
-  Save the file in the \texttt{webmapping} folder on your machine,
-  inside another folder called, for example \texttt{labs} or
-  \texttt{notebooks}. Your \texttt{webmapping} folder should at least
-  contain a \texttt{data} and a \texttt{labs} folder.
+  Save the file in the \texttt{labs} folder within your \texttt{envs456}
+  folder on your machine.
 \item
   Type in the search bar, find and open the
   \texttt{Anaconda\ Prompt\ (miniconda\ 3)}.
 \item
-  Write and run \texttt{conda\ activate\ envs456}
+  In the \textbf{Anaconda Terminal} write and run
+  \texttt{conda\ activate\ envs456}.
 \item
-  Write and run \texttt{jupyter\ notebook}. This should open Jupyter
-  Notebook in your default browser. Navigate to your course folder in
-  and open the notebook downloaded in step 1.
+  In the \textbf{Anaconda Terminal} write and run
+  \texttt{jupyter\ notebook}. This should open Jupyter Notebook in your
+  default browser.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Navigate to your course folder in and double click on the notebook
+  downloaded in step 1.
 \item
   You can now work on your copy of the notebook.
 \end{enumerate}
@@ -1525,7 +1542,7 @@ Below, notice what pandas's \texttt{read\_csv} function does:
 \CommentTok{\# load a data file}
 \CommentTok{\# note the relative filepath! where is this file located?}
 \CommentTok{\# use dtype argument if you don\textquotesingle{}t want pandas to guess your data types}
-\NormalTok{df }\OperatorTok{=}\NormalTok{ pd.read\_csv(}\StringTok{\textquotesingle{}data/GTD\_2022.csv\textquotesingle{}}\NormalTok{, low\_memory }\OperatorTok{=} \VariableTok{False}\NormalTok{)}
+\NormalTok{df }\OperatorTok{=}\NormalTok{ pd.read\_csv(}\StringTok{\textquotesingle{}../data/GTD\_2022.csv\textquotesingle{}}\NormalTok{, low\_memory }\OperatorTok{=} \VariableTok{False}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -11773,7 +11790,7 @@ from a specific pair in August 2018.
 \NormalTok{    ]}
 
 \CommentTok{\# Destination folder}
-\NormalTok{folder }\OperatorTok{=} \StringTok{"/data/tfl"}
+\NormalTok{folder }\OperatorTok{=} \StringTok{"../data/tfl"}
 
 \CommentTok{\# Create the destination folder if it doesn\textquotesingle{}t exist}
 \NormalTok{os.makedirs(folder, exist\_ok}\OperatorTok{=}\VariableTok{True}\NormalTok{)}

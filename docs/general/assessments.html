@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.4.546">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../general/setUp.html" rel="next">
+<link href="../general/pythonwin.html" rel="next">
 <link href="../general/overview.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -72,12 +79,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../general/assessments.html">Assessments</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../general/assessments.html">Assessments</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -87,13 +94,13 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Web Mapping and Geovisualisation</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/GDSL-UL/wma" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="../Web-Mapping-and-Geovisualisation.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="https://github.com/GDSL-UL/wma" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="../Web-Mapping-and-Geovisualisation.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -130,8 +137,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../general/setUp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Setting up the Working Environment</span></a>
+  <a href="../general/pythonwin.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Set up Miniconda (and Python) in Windows</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -173,18 +180,29 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#assignment-i" id="toc-assignment-i" class="nav-link active" data-scroll-target="#assignment-i">Assignment I</a></li>
-  <li><a href="#assignment-ii" id="toc-assignment-ii" class="nav-link" data-scroll-target="#assignment-ii">Assignment II</a></li>
+  <li><a href="#assignment-i" id="toc-assignment-i" class="nav-link active" data-scroll-target="#assignment-i">Assignment I</a>
+  <ul class="collapse">
+  <li><a href="#design-data-pan-assemblage." id="toc-design-data-pan-assemblage." class="nav-link" data-scroll-target="#design-data-pan-assemblage.">Design, data pan assemblage.</a></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
+  <li><a href="#evaulation" id="toc-evaulation" class="nav-link" data-scroll-target="#evaulation">Evaulation</a></li>
+  <li><a href="#how-is-this-assignment-useful" id="toc-how-is-this-assignment-useful" class="nav-link" data-scroll-target="#how-is-this-assignment-useful"><em>How is this assignment useful?</em></a></li>
+  </ul></li>
+  <li><a href="#assignment-ii" id="toc-assignment-ii" class="nav-link" data-scroll-target="#assignment-ii">Assignment II</a>
+  <ul class="collapse">
+  <li><a href="#submission-1" id="toc-submission-1" class="nav-link" data-scroll-target="#submission-1">Submission</a></li>
+  <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation">Evaluation</a></li>
+  <li><a href="#how-is-this-assignment-useful-1" id="toc-how-is-this-assignment-useful-1" class="nav-link" data-scroll-target="#how-is-this-assignment-useful-1"><em>How is this assignment useful?</em></a></li>
+  </ul></li>
   <li><a href="#marking-criteria" id="toc-marking-criteria" class="nav-link" data-scroll-target="#marking-criteria">Marking Criteria</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/GDSL-UL/wma/edit/main/general/assessments.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/GDSL-UL/wma/edit/main/general/assessments.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -204,29 +222,117 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="assignment-i" class="level2">
 <h2 class="anchored" data-anchor-id="assignment-i">Assignment I</h2>
 <ul>
-<li><strong>Title:</strong> Exploring APIs in Python</li>
-<li><strong>Type:</strong> Coursework</li>
-<li>Due date: <strong>Week 6</strong></li>
-<li>50% of the final mark</li>
-<li>Chance to be reassessed</li>
-<li>Electronic submission only</li>
+<li><strong>Title:</strong> Exporing APIs in Plthon.</li>
+<li><strong>Type:</strong> Coursework.</li>
+<li><strong>Due: Thursday March 7thy, Week 6</strong>.</li>
+<li>50% of the final mark.</li>
+<li>Chance to be reassessed.</li>
+<li>Electronic submission only.</li>
 </ul>
+<p>In this assessment, you will have the opportunity to ex pore different solrces and coumine them in a map that can be explored interactively throbgh a web browser. <strong>The assignuent aims to evaluate your knowledge and aptitude in the following areas</strong>:</p>
+<ul>
+<li>Understanding of core “backend” concepts in web mapping such as tilesetsm,client-server architecture, and APIs.</li>
+<li>Ability to use the web as a resource for original data.</li>
+<li>Design skills to resent effectively a diverse set of geospatial data in a web map.</li>
+</ul>
+<section id="design-data-pan-assemblage." class="level3">
+<h3 class="anchored" data-anchor-id="design-data-pan-assemblage.">Design, data pan assemblage.</h3>
+<p>This assignment requires you to source data from the web in different formats, assemble them, and ddoument the process. To be successful, you will need to demonstrate your understanding not only of the technical aspects involved in the process, but also of the conceptual notions that underpin them. Below are described the required components for your submission.</p>
+<ol type="1">
+<li><strong>Data</strong>. Draft a list of potential spatial datasets that you can access by developing a simple API in Python. The data should contain spatial information or should be easy to link to other existing spatial data sources (e.g.&nbsp;combining different datasets). While you can make use of available datasets, you are required to demonstrate the ability to develop your own API. Once you know which datasets you are interested and able to obtain, think about what data/variables deserve consideration and how they could be presented.</li>
+<li><strong>Design</strong>. Start by designing a map that represents the spatial units of the dataset (e.g.&nbsp;buildings, train stations, cities, etc.). Use <code>folium</code> to incorporate initial basic interactivity. At this point, check on your ideas with the module teachers, who will be able to assess whether potential problems may arise from your choices. Move to the incorporation of data, both for categorical (if appropriate) and numerical variables, and consider how to represent it through the map. This stage should draw some inspiration from the first weeks of the course, where we looked for examples of web maps and spent time discussing what made them good and why.</li>
+<li><strong>Assemblage</strong>. Embellish your map, consider the usage of widgets for facilitating the exploration of the dataset. Play and choose one of the available tilesets. Conisder creating your own in <code>Mapbox</code> (this would be reflected in the final grade). Pay attention to the design aspects involved in this step too. For example, what is the extent of your map (not necessarily the extent of each of your data)? What are the zoom levels your map will allow? Do you have the same “map” for every zoom level? These are questions you will have to ask (and answer!) yourself to complete this stage successfully.</li>
+</ol>
+<p>Once you have developed your API and created the interactive map, you will need to present it. An important aspect of this stage is that it is not really the code/map you need to present, but the <em>process</em> of creation you have followed and the <em>design</em> choices you have made that should go into the text. Additionally, you will need to provide evidence that you understand the concepts behind some of the technologies you have used.</p>
+</section>
+<section id="submission" class="level3">
+<h3 class="anchored" data-anchor-id="submission">Submission</h3>
+<p>You will submit through Canvas a <code>.html</code> file obtained from a Python <code>.ipynb</code> Jupyter Notebook file. To do so, in your <code>.ipynb</code> file, follow these steps: <code>File</code> –&gt; <code>Save and Export as..</code> –&gt; <code>HTML</code>. Prior to this step, the notebook needs to be rendered (i.e.&nbsp;all the cells should be executed). Other file formats will not be accepted. Besides the necessary code, the report should include up to <strong>1,000</strong> words and the following:</p>
+<ul>
+<li><p>Map brief:</p>
+<ul>
+<li>About 250 words introducing the map. This should cover what it tries to represent (what is it about?) and the choices you have made along the way to take that idea into fruition.</li>
+<li>About 250 words discussing and motivating the sources of data you have used. Here you should engage not only with what data you are using but why and what they bring to the map. Everything should be in the map for a reason, make sure to spell it out clearly.</li>
+</ul></li>
+<li><p>Conceptual background:</p>
+<ul>
+<li>About 250 words with your description of what an API is, how it works and how it has made your map possible.</li>
+<li>About 250 words with your description of how tile-based maps work.</li>
+</ul></li>
+</ul>
+</section>
+<section id="evaulation" class="level3">
+<h3 class="anchored" data-anchor-id="evaulation">Evaulation</h3>
+<p>The assignment will be evaluated based on four main pillars, on which you will have to be successful to achieve a good mark:</p>
+<ol type="1">
+<li><strong>Map design abilities.</strong> This includes ideas that were discussed in week 2, 3 and 4.</li>
+<li><strong>Technical skills</strong>. This includes your ability to master technologies that allow you to create a compelling map, but also to access interesting and sophiticated data sources.</li>
+<li><strong>Overall narrative</strong>. This assesses your aptitude to introduce, motivate and justify your map, as well as you ability to bring each component of the assignment into a coherent whole that “fits together”.</li>
+<li><strong>Conceptual understanding of key technologies</strong> presented in the course, in particular as regards the usage of APIs.</li>
+</ol>
+</section>
+<section id="how-is-this-assignment-useful" class="level3">
+<h3 class="anchored" data-anchor-id="how-is-this-assignment-useful"><em>How is this assignment useful?</em></h3>
+<p>This assessment includes several elements that will help you improve critical aspects of your web mapping skills:</p>
+<ul>
+<li><strong>Design</strong>: this is not about making maps, this is about making good maps. And behind every good map there is a set of conscious choices that you will have to think throug to be successful (what map? what data? how to present the data? etc.).</li>
+<li><strong>Technology</strong>: at the end of the day, building good web maps requires solid understanding of current technology that goes beyond what the average person can be expected to know. In this assignment, you will need to demonstrate you are proficient in a series of tasks manipulating geospatial data in a web environment.</li>
+<li><strong>Presentation</strong>: in many real-world contexts, your work is as good as it can come across to the audience it is intended to. This means that it is vital to be able to communicate not only what you are doing but why and on what building blocks it is based on.</li>
+</ul>
+</section>
 </section>
 <section id="assignment-ii" class="level2">
 <h2 class="anchored" data-anchor-id="assignment-ii">Assignment II</h2>
 <ul>
-<li><strong>Title:</strong></li>
-<li><strong>Type:</strong> Coursework</li>
-<li>Due date<strong>:</strong> <strong>Week 11</strong></li>
-<li>50% of the final mark</li>
-<li>Chance to be reassessed</li>
-<li>Electronic submission only</li>
+<li><strong>Title:</strong> <em>A dashboard that explores a Spatial Dataset</em>.</li>
+<li><strong>Type:</strong> Coursework.</li>
+<li><strong>Due: Thursday May 2nd, Week 11</strong>.</li>
+<li>50% of the final mark.</li>
+<li>Chance to be reassessed.</li>
+<li>Electronic submission only.</li>
 </ul>
+<p>This assignment requires you to build a dashboard for a <strong>spatial data set of your choice</strong>. To be successful, you will need to demonstrate your understanding not only of technical elements, but of the design process required to create a product that can communicate complex ideas effectively. There are three core building blocks you will have to assemble to build your dashboard: the main maps(s), base map, and widgets.</p>
+<ol type="1">
+<li><strong>The main map(s)</strong>. Import your data and start building a dashboard with <code>panel</code>. Think about what you want to show, how, which interactive elements you will allow the user to access and how they will let them modify the experience of your dashboard. It goes without saying that the dashbord should include interactive map(s), besides allowing the user to play with the dataset.</li>
+<li><strong>The basemap</strong>. Design your own basemap using <code>Mapbox</code> or through scripting (e.g.&nbsp;assembling a basemap with OpenStreetMap features in a unique layer). Think about the data in the background, which colors, the zoom levels that will be allowed, and how it all comes together to create a backdrop for your main message that is conducent to the experience you want to create. Use the basemap to enhance the visualisation experience of the user.</li>
+<li><strong>Additional widgets</strong>. One of the advantages of dashboards in comparison to standard web maps is that they allow to bring elements of analysis to a more finished product. Think about what you want your users to be able to analyse, why, and how that will modify the main map.</li>
+</ol>
+<section id="submission-1" class="level3">
+<h3 class="anchored" data-anchor-id="submission-1">Submission</h3>
+<p>You will submit through Canvas a <code>.html</code> file obtained from a Python <code>.ipynb</code> Jupyter Notebook file. To do so, in your <code>.ipynb</code> file, follow these steps: <code>File</code> –&gt; <code>Save and Export as..</code> –&gt; <code>HTML</code>. Prior to this step, the notebook needs to be rendered (i.e.&nbsp;all the cells should be executed). Other file formats will not be accepted. Besides the necessary code, the report should include up to <strong>1,000</strong> words and the following:</p>
+<ul>
+<li>About 250 words for the overall idea of the dashboard. What do you want to communicate? What is the story you want to tell?</li>
+<li>About 250 words for the data used. Which datasets are you using? Why? What new information do they bring and how they complement each other?</li>
+<li>About 250 words to describe your design choices in the layers presented (e.g.&nbsp;choropleths).</li>
+<li>About 250 words to describe your design choices around interactivity, including both cartographic elements (e.g.&nbsp;zooming, panning) as well as additional interactivity built around components such as widgets.</li>
+</ul>
+</section>
+<section id="evaluation" class="level3">
+<h3 class="anchored" data-anchor-id="evaluation">Evaluation</h3>
+<p>The assignment will be evaluated based on four main pillars, on which you will have to be successful to achieve a good mark:</p>
+<ol type="1">
+<li><em>Overall design of the experience.</em> It is very important you think through every step of preparing this assignment as if it was part of something bigger towards which it contributes. Because that is exactly what it is. Everything should have a reason to be there, and every aspect of the dashboard should be connected to each other following a common thread. And, of course, make this connection and holistic approach come alive in your report.</li>
+<li><em>Map design</em>. Critically introduce every aspect you have thought about when designing the maps, and explicitly connect it to the overall aim of the dashboard. Be clear in your descriptions and critical in how you engage every design choice.</li>
+<li><em>Interactivity design.</em> Your dashboard should use interactivity when necessary to deliver a more compelling and fuller experience that better gets your message across. Be sure to clearly lay out in your report which elements are used and why.</li>
+<li><em>Narrative around the description of the process.</em> Finally, the final mark will also take into account not only how good your dashboard is, but how well you are able to introduce it. Start with the key goals, and then unpack every element in an integrated and compelling way.</li>
+</ol>
+</section>
+<section id="how-is-this-assignment-useful-1" class="level3">
+<h3 class="anchored" data-anchor-id="how-is-this-assignment-useful-1"><em>How is this assignment useful?</em></h3>
+<p>This assignment combines several elements that will help you improve critical aspects of web mapping:</p>
+<ul>
+<li><em>Design</em>: this is not about making maps, this is about making good maps. And behind every good map there is a set of conscious choices that you will have to think through to be successful (what map? what data? how to present the data? etc.).</li>
+<li><em>Technology</em>: at the end of the day, building good web maps requires familiarity with the state-of-the-art in terms of web mapping tools. In this assignment, you will need to demonstrate your mastering of some of the key tools that are leading both industry and academia.</li>
+<li><em>Presentation</em>: in many real-world contexts, your work is as good as it can come across to the audience it is intended to. This means that it is vital to be able to communicate not only what you are doing but why and on what building blocks it is based on.</li>
+</ul>
+</section>
 </section>
 <section id="marking-criteria" class="level2">
 <h2 class="anchored" data-anchor-id="marking-criteria">Marking Criteria</h2>
@@ -324,10 +430,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -337,8 +442,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -351,6 +465,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -394,6 +627,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -419,6 +653,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -480,26 +740,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../general/overview.html" class="pagination-link">
+      <a href="../general/overview.html" class="pagination-link  aria-label=" overview"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Overview</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../general/setUp.html" class="pagination-link">
-        <span class="nav-page-text">Setting up the Working Environment</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../general/pythonwin.html" class="pagination-link" aria-label="Set up Miniconda (and Python) in Windows">
+        <span class="nav-page-text">Set up Miniconda (and Python) in Windows</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Web Mapping and Geovisualisation by Gabriele Filomena and Elisabetta Pietrostefani.</div>   
+    <div class="nav-footer-left">
+<p>Web Mapping and Geovisualisation by Gabriele Filomena and Elisabetta Pietrostefani.</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
-    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/GDSL-UL/wma/edit/main/general/assessments.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
   </div>
 </footer>
+
 
 
 

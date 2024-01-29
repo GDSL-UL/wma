@@ -31,6 +31,7 @@ book:
     - labs/w03_webArch.ipynb
     - labs/w04_dataArch.ipynb
     - labs/w05_interactive.ipynb
+    - labs/w07_OSM.ipynb
     
 bibliography: references.bib
 

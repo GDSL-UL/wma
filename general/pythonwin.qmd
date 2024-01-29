@@ -30,7 +30,7 @@ envs456/
 
 <img src = "../img/anaconda_windows.png" width="100%">
 
-2. Download the file [envs456.yml](https://github.com/GDSL-UL/wma/blob/main/envs456.yml) in the folder `envs456`
+2. Download the file [envs456.yml](https://github.com/GDSL-UL/wma/blob/main/envs456.yml) in the folder `envs456`.
 3. In the **Anaconda Terminal** write  `conda env create -n envs456 --file C:\envs456\envs456.yml` and press `Enter`; if the file is located elsewhere you'll need to use the corresponding file path.
 4. If you are prompted any questions, press `y`. This process will install all the packages necessary to carry out the lab sessions.
 5. In the **Anaconda Terminal** write `conda activate envs456` and press `Enter`. This activates your working environment.

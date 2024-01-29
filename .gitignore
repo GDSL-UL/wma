@@ -14,3 +14,4 @@ vignettes/*.pdf
 /notebooks/cache/
 
 /.quarto/
+.Rproj.user

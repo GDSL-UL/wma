@@ -36,7 +36,7 @@ We will use `Minconda` to handle our working environment. *Miniconda is a free m
 
 ## Start a Lab Session
 1. Download the Jupyter Notebook of the session in your folder. Choose one jupyter notebook and click "Dowload raw file" as shown below
-<img src=img/raw.svg/>
+<img src=../img/raw.svg/>
 3. Save the file in the `webmapping` folder on your machine
 4.  Type in the search bar, find and open the `Anaconda Prompt (miniconda 3)`. 
 5. Write and run `conda activate envs456`

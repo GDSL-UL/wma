@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.546">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Elisabetta Pietrostefani">
+<meta name="dcterms.date" content="2024-01-29">
+
+<title>Web Mapping and Geovisualisation - 3&nbsp; Web Architectures and APIs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../labs/w04_dataArch.html" rel="next">
+<link href="../labs/w02_maps.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/w03_webArch.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Web Architectures and APIs</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Web Mapping and Geovisualisation</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/GDSL-UL/wma" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="../Web-Mapping-and-Geovisualisation.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../general/structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../general/overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../general/assessments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assessments</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../general/setUp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Setting up the Working Environment</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w01_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction &amp; Python Refresher</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w02_maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Static Maps in Python</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w03_webArch.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Web Architectures and APIs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w04_dataArch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Architectures and Tiles</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w05_interactive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Interactive Maps</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w07_OSM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Retrieving Data From OpenStreetMap</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-do-apis-actually-do" id="toc-what-do-apis-actually-do" class="nav-link active" data-scroll-target="#what-do-apis-actually-do"><span class="header-section-number">3.1</span> What do APIs actually do?</a>
+  <ul class="collapse">
+  <li><a href="#restful-web-apis-are-all-around-you." id="toc-restful-web-apis-are-all-around-you." class="nav-link" data-scroll-target="#restful-web-apis-are-all-around-you."><span class="header-section-number">3.1.1</span> RESTful Web APIs are all around you.</a></li>
+  <li><a href="#group-activity" id="toc-group-activity" class="nav-link" data-scroll-target="#group-activity"><span class="header-section-number">3.1.2</span> Group activity</a></li>
+  </ul></li>
+  <li><a href="#api-python-libraries" id="toc-api-python-libraries" class="nav-link" data-scroll-target="#api-python-libraries"><span class="header-section-number">3.2</span> API Python libraries</a></li>
+  <li><a href="#your-own-api-request-demo" id="toc-your-own-api-request-demo" class="nav-link" data-scroll-target="#your-own-api-request-demo"><span class="header-section-number">3.3</span> Your own API request demo</a></li>
+  <li><a href="#geocoding-api" id="toc-geocoding-api" class="nav-link" data-scroll-target="#geocoding-api"><span class="header-section-number">3.4</span> Geocoding API</a></li>
+  <li><a href="#group-activity-answers" id="toc-group-activity-answers" class="nav-link" data-scroll-target="#group-activity-answers"><span class="header-section-number">3.5</span> <em>Group activity answers</em></a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3.6</span> References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.dev/GDSL-UL/wma/blob/main/labs/w03_webArch.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Web Architectures and APIs</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Elisabetta Pietrostefani </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 29, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>The <strong>Lecture slides</strong> can be found <a href="https://github.com/GDSL-UL/wma/raw/main/lectures/w03.html">here</a>.</p>
+<section id="what-do-apis-actually-do" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="what-do-apis-actually-do"><span class="header-section-number">3.1</span> What do APIs actually do?</h2>
+<p>In this lab, we will unpack how Application Programming Interfaces (“APIs”) work and we cover the basics of accessing an API using Python. Instead of downloading a data set, APIs allow programmers, statisticians (or students) to request data directly from a server to a local machine. When you work with web APIs, two different computers — a client and server — will interact with each other to request and provide data, respectively.</p>
+<section id="restful-web-apis-are-all-around-you." class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="restful-web-apis-are-all-around-you."><span class="header-section-number">3.1.1</span> RESTful Web APIs are all around you.</h3>
+<p><strong>Web APIs</strong></p>
+<ul>
+<li>Allow you query a remote database over the internet</li>
+<li>Take on a variety of formats</li>
+<li>Adhere to a particular style known as Representation State Transfer or REST (in most cases)</li>
+<li>RESTful APIs are convenient because we use them to query database using URLs</li>
+</ul>
+<p><strong>Consider a simple Google search:</strong></p>
+<p><img src="../img/google.png" width="70%"></p>
+<p>Ever wonder what all that extra stuff in the address bar was all about? In this case, the full address is Google’s way of sending a query to its databases requesting information related to the search term <em>liverpool top attractions</em>.</p>
+<p><img src="../img/liv_attractions.png" width="70%"></p>
+<p>In fact, it looks like Google makes its query by taking the search terms, separating each of them with a <strong>+</strong>, and appending them to the link <a href="https://www.google.com/#q=" class="uri">https://www.google.com/#q=</a>. Therefore, we should be able to actually change our Google search by adding some terms to the URL:</p>
+<p><img src="../img/beatles.png" width="70%"></p>
+<p>Learning how to use RESTful APIs is all about learning how to format these URLs so that you can get the response you want.</p>
+</section>
+<section id="group-activity" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="group-activity"><span class="header-section-number">3.1.2</span> Group activity</h3>
+<p>Get into groups of 5 or 6 students. Using your friend the internet, look up answers to the following questions. Each group will be assigned one question and asked to present their findings in 5 min to discuss with the entire class.</p>
+<ol type="1">
+<li>What is a <code>URL</code> and how can it help us query data? What is a response status and what are the possible categories?</li>
+<li>What is a <code>GET</code> request? How does a <code>GET</code> request work?</li>
+<li>What are API keys and how do you obtain them? What kinds of restrictions to they impose on users? Find an example of an API key, what does it look like?</li>
+<li>(For 2 groups) More and more APIs pop up every day. Do a bit of quick research and find 2 different examples of APIs that you would be interested in using. 2 groups, 2 or 3 APIs each.</li>
+</ol>
+<p>There are two ways to collect data through APIs in Python:</p>
+<ul>
+<li><strong>Plug-n-play packages.</strong> Many common APIs are available through user-written Python (or R) Packages. These packages offer functions that conveniently “wrap” API queries and format the response. These packages are usually much more convenient than writing our own query, so it is worth searching for a package that works with the API we need.</li>
+<li><strong>Writing our own API request.</strong> If no wrapper function is available, web have to write our own API request and format the response ourselves using Python. This is tricky, but definitely doable.</li>
+</ul>
+</section>
+</section>
+<section id="api-python-libraries" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="api-python-libraries"><span class="header-section-number">3.2</span> API Python libraries</h2>
+<div class="alert alert-success">
+<p><strong>Exercise: <code>census</code> pair activity</strong>:</p>
+<p>Some Python packages “wrap” API queries and format the response. Lucky us! In pairs, let’s have a look at <a href="https://github.com/datamade/census/tree/master"><code>census</code></a>, a wrapper or the United States Census Bureau’s API You can also have a look at the different APIs available from the <a href="https://www.census.gov/data/developers.html">United States Census Bureau</a>.</p>
+</div>
+<div id="c84120f1-b637-4da0-8e01-c8b81a21e4ad" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> census <span class="im">import</span> Census</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To get started working, set you Census API key. A key can be obtained from http://api.census.gov/data/key_signup.html.</p>
+<div id="bbada437-baf4-4480-8390-a5f069b426e2" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>census_api_key <span class="op">=</span> <span class="st">""</span> <span class="co"># Replace 'YOUR_CENSUS_API_KEY_HERE' with your actual Census API key.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="5f77b2c5-3651-4132-97b4-517796907fa2" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set API key</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> Census(census_api_key)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Variables in tidycensus are identified by their Census ID, e.g.&nbsp;B19013_001.</li>
+<li>Entire tables of variables can be requested with the table argument, e.g.&nbsp;table = ‘B19001’.</li>
+<li>Users can request multiple variables at a time, and set custom names with a named vector.</li>
+</ul>
+<p>In Python we can use the library <a href="https://github.com/datamade/census"><code>census</code></a> to access the American Community Survey (ACS) 5-Year Data (2016-2020)</p>
+<div class="alert alert-success">
+<p><strong>Exercise</strong>:</p>
+<p>In pairs explore some of the different variables available in the 5-Year ACS (2016-2020). Make a note of 3 variables you would be interested in exploring. The <a href="https://api.census.gov/data/2020/acs/acs5/variables.html">ACS2 variablespage</a> might help.</p>
+</div>
+<p>Let’s explore income data for example.</p>
+<div id="26f349b9-18ea-4f31-9ff2-bd845c7c160c" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve income data by state using the ACS table B19001</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: The variable 'B19001_001E' represents "Estimate!!Total" in table B19001</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>income_data <span class="op">=</span> c.acs5.state((<span class="st">'NAME'</span>, <span class="st">'B19001_001E'</span>), Census.ALL, year<span class="op">=</span><span class="dv">2020</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>income_data[:<span class="dv">10</span>] <span class="co"># just first ten "rows"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>[{'NAME': 'Pennsylvania', 'B19001_001E': 5106601.0, 'state': '42'},
+ {'NAME': 'California', 'B19001_001E': 13103114.0, 'state': '06'},
+ {'NAME': 'West Virginia', 'B19001_001E': 734235.0, 'state': '54'},
+ {'NAME': 'Utah', 'B19001_001E': 1003345.0, 'state': '49'},
+ {'NAME': 'New York', 'B19001_001E': 7417224.0, 'state': '36'},
+ {'NAME': 'District of Columbia', 'B19001_001E': 288307.0, 'state': '11'},
+ {'NAME': 'Alaska', 'B19001_001E': 255173.0, 'state': '02'},
+ {'NAME': 'Florida', 'B19001_001E': 7931313.0, 'state': '12'},
+ {'NAME': 'South Carolina', 'B19001_001E': 1961481.0, 'state': '45'},
+ {'NAME': 'North Dakota', 'B19001_001E': 320873.0, 'state': '38'}]</code></pre>
+</div>
+</div>
+<div id="a1783e26-12c4-4906-8a2d-b2ffff0976f1" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>income_df <span class="op">=</span> pd.DataFrame(income_data)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>income_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">NAME</th>
+<th data-quarto-table-cell-role="th">B19001_001E</th>
+<th data-quarto-table-cell-role="th">state</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Pennsylvania</td>
+<td>5106601.0</td>
+<td>42</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>California</td>
+<td>13103114.0</td>
+<td>06</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>West Virginia</td>
+<td>734235.0</td>
+<td>54</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Utah</td>
+<td>1003345.0</td>
+<td>49</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>New York</td>
+<td>7417224.0</td>
+<td>36</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="alert alert-success">
+<p><strong>Exercise</strong>:</p>
+<p>Discuss the format of the data obtained with your partner and then use the function <code>acs5.state</code> to explore the 3 variables you discussed in the previous exercise.</p>
+</div>
+<p>You can also get more variables by passing the names in a <code>tuple</code>. The code below, for example, fetches all the columns from the B19001 table, which include various income brackets. The tuple in the request generates a list of column names (like ‘B19001_001E’, ‘B19001_002E’, …, ‘B19001_017E’).</p>
+<div id="97290329-0fef-443f-bbe9-b45d6906b9cb" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>variables <span class="op">=</span> <span class="bu">tuple</span>(<span class="ss">f'B19001_</span><span class="sc">{</span><span class="bu">str</span>(i)<span class="sc">.</span>zfill(<span class="dv">3</span>)<span class="sc">}</span><span class="ss">E'</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">18</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="this-is-what-the-line-above-does" class="level4" data-number="3.2.0.1">
+<h4 data-number="3.2.0.1" class="anchored" data-anchor-id="this-is-what-the-line-above-does"><span class="header-section-number">3.2.0.1</span> This is what the line above does:</h4>
+<ul>
+<li><code>range(1, 18)</code>: This part generates a sequence of numbers from 1 to 17. In Python, range(start, stop) generates numbers from start up to but not including stop.</li>
+<li><code>for i in range(1, 18)</code>: This is a loop within a comprehension that iterates over each number in the range from 1 to 17.</li>
+<li><code>str(i).zfill(3)</code>: For each number <code>i</code>, this converts <code>i</code> to a string. Then, <code>.zfill(3)</code> pads the string with zeros to make it 3 characters long. For example, if <code>i</code> is 2, <code>str(i).zfill(3)</code> becomes ‘002’.</li>
+<li><code>f'B19001_{str(i).zfill(3)}E'</code>: This is an <code>f-string</code>, a way to format strings in Python. It inserts the zero-padded string into a larger string. So, for i = 2, you would get ‘B19001_002E’.</li>
+<li>Finally, the comprehension is wrapped in <code>tuple(...)</code>, which converts the entire series of strings into a tuple.</li>
+</ul>
+<div id="b126a446-1614-476f-b1b0-b5b0b1c15d99" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>wide_data <span class="op">=</span> c.acs5.state((<span class="st">'NAME'</span>,) <span class="op">+</span> variables, Census.ALL, year<span class="op">=</span><span class="dv">2020</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to a Pandas DataFrame</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>wide_df <span class="op">=</span> pd.DataFrame(wide_data)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>wide_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">NAME</th>
+<th data-quarto-table-cell-role="th">B19001_001E</th>
+<th data-quarto-table-cell-role="th">B19001_002E</th>
+<th data-quarto-table-cell-role="th">B19001_003E</th>
+<th data-quarto-table-cell-role="th">B19001_004E</th>
+<th data-quarto-table-cell-role="th">B19001_005E</th>
+<th data-quarto-table-cell-role="th">B19001_006E</th>
+<th data-quarto-table-cell-role="th">B19001_007E</th>
+<th data-quarto-table-cell-role="th">B19001_008E</th>
+<th data-quarto-table-cell-role="th">B19001_009E</th>
+<th data-quarto-table-cell-role="th">B19001_010E</th>
+<th data-quarto-table-cell-role="th">B19001_011E</th>
+<th data-quarto-table-cell-role="th">B19001_012E</th>
+<th data-quarto-table-cell-role="th">B19001_013E</th>
+<th data-quarto-table-cell-role="th">B19001_014E</th>
+<th data-quarto-table-cell-role="th">B19001_015E</th>
+<th data-quarto-table-cell-role="th">B19001_016E</th>
+<th data-quarto-table-cell-role="th">B19001_017E</th>
+<th data-quarto-table-cell-role="th">state</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Pennsylvania</td>
+<td>5106601.0</td>
+<td>296733.0</td>
+<td>206216.0</td>
+<td>223380.0</td>
+<td>227639.0</td>
+<td>226678.0</td>
+<td>231190.0</td>
+<td>210468.0</td>
+<td>214098.0</td>
+<td>193504.0</td>
+<td>389971.0</td>
+<td>506258.0</td>
+<td>674070.0</td>
+<td>484045.0</td>
+<td>316906.0</td>
+<td>341400.0</td>
+<td>364045.0</td>
+<td>42</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>California</td>
+<td>13103114.0</td>
+<td>614887.0</td>
+<td>507398.0</td>
+<td>435382.0</td>
+<td>474093.0</td>
+<td>454373.0</td>
+<td>475343.0</td>
+<td>440094.0</td>
+<td>461954.0</td>
+<td>414016.0</td>
+<td>844842.0</td>
+<td>1162681.0</td>
+<td>1616338.0</td>
+<td>1295090.0</td>
+<td>940024.0</td>
+<td>1227224.0</td>
+<td>1739375.0</td>
+<td>06</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>West Virginia</td>
+<td>734235.0</td>
+<td>62341.0</td>
+<td>43003.0</td>
+<td>45613.0</td>
+<td>44635.0</td>
+<td>40805.0</td>
+<td>38618.0</td>
+<td>36587.0</td>
+<td>36099.0</td>
+<td>31345.0</td>
+<td>59462.0</td>
+<td>71705.0</td>
+<td>84975.0</td>
+<td>54432.0</td>
+<td>32924.0</td>
+<td>28689.0</td>
+<td>23002.0</td>
+<td>54</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Utah</td>
+<td>1003345.0</td>
+<td>36211.0</td>
+<td>27395.0</td>
+<td>28460.0</td>
+<td>32497.0</td>
+<td>36116.0</td>
+<td>36578.0</td>
+<td>36663.0</td>
+<td>42449.0</td>
+<td>38972.0</td>
+<td>77693.0</td>
+<td>114434.0</td>
+<td>154963.0</td>
+<td>115843.0</td>
+<td>77194.0</td>
+<td>77824.0</td>
+<td>70053.0</td>
+<td>49</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>New York</td>
+<td>7417224.0</td>
+<td>471680.0</td>
+<td>340614.0</td>
+<td>303901.0</td>
+<td>298025.0</td>
+<td>276764.0</td>
+<td>283648.0</td>
+<td>257624.0</td>
+<td>270607.0</td>
+<td>242385.0</td>
+<td>480086.0</td>
+<td>637950.0</td>
+<td>887731.0</td>
+<td>690906.0</td>
+<td>498076.0</td>
+<td>623359.0</td>
+<td>853868.0</td>
+<td>36</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Let’s make our query a bit more precise. We are going to query data on median household income and median age by county in the state of Louisiana from the 2016-2020 ACS. We can use the library <code>us</code> to get the code of each of the state by passing their name.</p>
+<div id="1bcd99c4-b71a-4184-8a36-e54dd63ceb6a" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> us</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the state object for Louisiana</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>state_obj <span class="op">=</span> us.states.lookup(<span class="st">'Louisiana'</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the FIPS code (state code)</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>code <span class="op">=</span> state_obj.fips</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="ff428de3-4f90-45ac-b1ff-af9e70e6cc80" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve wide format data for median income and median age by county in Louisiana for the year 2020</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>louisiana_data <span class="op">=</span> c.acs5.state_county((<span class="st">'B19013_001E'</span>, <span class="st">'B01002_001E'</span>), code, Census.ALL, year<span class="op">=</span><span class="dv">2020</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to a Pandas DataFrame</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>louisiana_df <span class="op">=</span> pd.DataFrame(louisiana_data)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Renaming the columns for clarity</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>louisiana_df.rename(columns<span class="op">=</span>{<span class="st">'B19013_001E'</span>: <span class="st">'median_income'</span>, <span class="st">'B01002_001E'</span>: <span class="st">'median_age'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>louisiana_df.head()  <span class="co"># Display the first few rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">median_income</th>
+<th data-quarto-table-cell-role="th">median_age</th>
+<th data-quarto-table-cell-role="th">state</th>
+<th data-quarto-table-cell-role="th">county</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>82594.0</td>
+<td>36.0</td>
+<td>22</td>
+<td>005</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>49256.0</td>
+<td>37.5</td>
+<td>22</td>
+<td>011</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>42003.0</td>
+<td>37.8</td>
+<td>22</td>
+<td>017</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>56902.0</td>
+<td>44.9</td>
+<td>22</td>
+<td>023</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>36294.0</td>
+<td>37.4</td>
+<td>22</td>
+<td>029</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Let’s plot one of our variables.</p>
+<div id="db713935-340a-4ca3-8709-8e0cd6bd24e8" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting histogram for median income with 15 bins</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>plt.hist(louisiana_df[<span class="st">'median_income'</span>], bins<span class="op">=</span><span class="dv">15</span>, edgecolor<span class="op">=</span><span class="st">'white'</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Median Income'</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Histogram of Median Income'</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w03_webArch_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can also explore correlations between variables. Let’s use <code>seaborn</code>.</p>
+<div id="46a0be9f-e743-4461-ae97-95cc283b2ecb" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a scatter plot with a linear regression line</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>sns.lmplot(x<span class="op">=</span><span class="st">'median_age'</span>, y<span class="op">=</span><span class="st">'median_income'</span>, data<span class="op">=</span>louisiana_df, aspect<span class="op">=</span><span class="fl">1.5</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Median Age'</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Median Income'</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Louisiana, Relationship between Income and Age'</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w03_webArch_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="alert alert-success">
+<p><strong>Exercise</strong>:</p>
+<p>In pairs, modify the state, vairables and year parameters following the approach adopted above and produce some other simple scatter plots (cloud of points) that suggest correlations between your variables of interest.</p>
+</div>
+</section>
+</section>
+<section id="your-own-api-request-demo" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="your-own-api-request-demo"><span class="header-section-number">3.3</span> Your own API request demo</h2>
+<p>The Python libraries commonly used for API requests are <code>requests</code> and <code>json</code>.</p>
+<p>JSON stands for JavaScript Object Notation. Despite its association with JavaScript, JSON is widely used due to its readability and ease of use by computers, making it the primary format for data transmission through APIs. Most APIs return their responses in JSON format. The <code>json</code> library in Python allows you to parse and convert these JSON responses into Python data structures. JSON structures are composed of key-value pairs, similar to Python dictionaries.</p>
+<p>In Python, to make an API request and handle the response, you would typically use the the <code>requests</code> library. A standard API request involves sending a <code>GET</code> request to the server’s URL, which specifies the data you wish to retrieve. For instance, to request the locations of all the hire bike stations in London from the <strong>Transport for London</strong> <a href="https://api.tfl.gov.uk">API</a>, you would use the <code>requests.get()</code> method. This method requires a URL that directs the request to the appropriate server.</p>
+<div id="5a175119-ba8a-4b9b-9a9e-d9aa30b36486" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(<span class="st">"https://api.tfl.gov.uk/BikePoint/"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>response</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>&lt;Response [200]&gt;</code></pre>
+</div>
+</div>
+<p>Good! The response code 200 indicates a successful request</p>
+<p>Most GET request URLs for API querying have three or four components:</p>
+<ol type="1">
+<li>Authentication Key/Token: A user-specific character string appended to a base URL telling the server who is making the query; allows servers to efficiently manage database access.</li>
+<li>Base URL: A link stub that will be at the beginning of all calls to a given API; points the server to the location of an entire database.</li>
+<li>Search Parameters: A character string appended to a base URL that tells the server what to extract from the database; basically a series of filters used to point to specific parts of a database.</li>
+<li>Response Format: A character string indicating how the response should be formatted; usually one of .csv, .json, or .xml.</li>
+</ol>
+<div id="b964d70c-5d2f-41a7-82ad-529dd72f75ea" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Making the API request</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(<span class="st">"https://api.tfl.gov.uk/BikePoint/"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Parsing the response content as JSON and converting it to a DataFrame</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>bike_stations <span class="op">=</span> pd.DataFrame(response.json())</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing the column names</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(bike_stations.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['$type', 'id', 'url', 'commonName', 'placeType', 'additionalProperties',
+       'children', 'childrenUrls', 'lat', 'lon'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div id="93ebbe74-288e-4527-9b8c-c5c674ca8d7b" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a new column 'Station ID' by extracting the numeric part from the 'id' column</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>bike_stations[<span class="st">'Station ID'</span>] <span class="op">=</span> bike_stations[<span class="st">'id'</span>].<span class="bu">str</span>.extract(<span class="vs">r'BikePoints_(\d+)'</span>, expand<span class="op">=</span><span class="va">False</span>).astype(<span class="bu">float</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>bike_stations.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">$type</th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">url</th>
+<th data-quarto-table-cell-role="th">commonName</th>
+<th data-quarto-table-cell-role="th">placeType</th>
+<th data-quarto-table-cell-role="th">additionalProperties</th>
+<th data-quarto-table-cell-role="th">children</th>
+<th data-quarto-table-cell-role="th">childrenUrls</th>
+<th data-quarto-table-cell-role="th">lat</th>
+<th data-quarto-table-cell-role="th">lon</th>
+<th data-quarto-table-cell-role="th">Station ID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Tfl.Api.Presentation.Entities.Place, Tfl.Api.P...</td>
+<td>BikePoints_1</td>
+<td>/Place/BikePoints_1</td>
+<td>River Street , Clerkenwell</td>
+<td>BikePoint</td>
+<td>[{'$type': 'Tfl.Api.Presentation.Entities.Addi...</td>
+<td>[]</td>
+<td>[]</td>
+<td>51.529163</td>
+<td>-0.109970</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Tfl.Api.Presentation.Entities.Place, Tfl.Api.P...</td>
+<td>BikePoints_2</td>
+<td>/Place/BikePoints_2</td>
+<td>Phillimore Gardens, Kensington</td>
+<td>BikePoint</td>
+<td>[{'$type': 'Tfl.Api.Presentation.Entities.Addi...</td>
+<td>[]</td>
+<td>[]</td>
+<td>51.499606</td>
+<td>-0.197574</td>
+<td>2.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Tfl.Api.Presentation.Entities.Place, Tfl.Api.P...</td>
+<td>BikePoints_3</td>
+<td>/Place/BikePoints_3</td>
+<td>Christopher Street, Liverpool Street</td>
+<td>BikePoint</td>
+<td>[{'$type': 'Tfl.Api.Presentation.Entities.Addi...</td>
+<td>[]</td>
+<td>[]</td>
+<td>51.521283</td>
+<td>-0.084605</td>
+<td>3.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Tfl.Api.Presentation.Entities.Place, Tfl.Api.P...</td>
+<td>BikePoints_4</td>
+<td>/Place/BikePoints_4</td>
+<td>St. Chad's Street, King's Cross</td>
+<td>BikePoint</td>
+<td>[{'$type': 'Tfl.Api.Presentation.Entities.Addi...</td>
+<td>[]</td>
+<td>[]</td>
+<td>51.530059</td>
+<td>-0.120973</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Tfl.Api.Presentation.Entities.Place, Tfl.Api.P...</td>
+<td>BikePoints_5</td>
+<td>/Place/BikePoints_5</td>
+<td>Sedding Street, Sloane Square</td>
+<td>BikePoint</td>
+<td>[{'$type': 'Tfl.Api.Presentation.Entities.Addi...</td>
+<td>[]</td>
+<td>[]</td>
+<td>51.493130</td>
+<td>-0.156876</td>
+<td>5.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>By now you should be able to visualise the data that you have obtained through this API.</p>
+<div id="2f34dbe2-2ddc-4b7a-b1bf-3acd441900b3" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> contextily <span class="im">as</span> ctx</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert DataFrame to GeoDataFrame</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> gpd.GeoDataFrame(bike_stations, geometry<span class="op">=</span>gpd.points_from_xy(bike_stations.lon, bike_stations.lat))</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting the Coordinate Reference System (CRS) to WGS84 (EPSG:4326)</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>gdf.set_crs(epsg<span class="op">=</span><span class="dv">4326</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># project to British Grid</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>gdf.to_crs(epsg<span class="op">=</span> <span class="dv">27700</span>, inplace <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting bikepoints on a map</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>gdf.plot(ax <span class="op">=</span> ax, color<span class="op">=</span><span class="st">'red'</span>, markersize<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>source <span class="op">=</span> ctx.providers.CartoDB.Positron</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>ctx.add_basemap(ax, crs<span class="op">=</span> gdf.crs.to_string(), source<span class="op">=</span> source)</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Bike Points in London'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>Text(0.5, 1.0, 'Bike Points in London')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w03_webArch_files/figure-html/cell-16-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="geocoding-api" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="geocoding-api"><span class="header-section-number">3.4</span> Geocoding API</h2>
+<p>Below is a short exploration of a the <code>geocoder</code> provided by the library <code>geopy</code>. The <code>geocoder</code> relies on various external geocoding services. When using <code>Nominatim</code>, it accesses data from OpenStreetMap. OpenStreetMap’s data includes a vast array of geographical information sourced from contributors globally. This includes street addresses, points of interest, and other location-based data. When you provide an address to the Nominatim geocoder, it queries OpenStreetMap’s databases to find the corresponding geographical coordinates.</p>
+<p>In your own time, try to use it to automatically embed coordinates between addresses.</p>
+<div id="3989a392-690d-4140-86e4-daae12c0ea27" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geopy.geocoders <span class="im">import</span> Nominatim</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a DataFrame with addresses</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>some_addresses <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'name'</span>: [<span class="st">"South Campus Teaching Hub"</span>, <span class="st">"Sefton Park"</span>, <span class="st">"Stanley Street"</span>],</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'addr'</span>: [<span class="st">"140 Chatham St, Liverpool L7 7BA"</span>, <span class="st">"Sefton Park, Liverpool L17 1AP"</span>, <span class="st">"4 Stanley St, Liverpool L1 6AA"</span>]</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize geocoder</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>geolocator <span class="op">=</span> Nominatim(user_agent<span class="op">=</span><span class="st">"geoapiExercises"</span>)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for geocoding</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> geocode(address):</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    location <span class="op">=</span> geolocator.geocode(address)</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.Series([location.latitude, location.longitude], index<span class="op">=</span>[<span class="st">'latitude'</span>, <span class="st">'longitude'</span>])</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Geocode the addresses</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>lat_longs <span class="op">=</span> some_addresses[<span class="st">'addr'</span>].<span class="bu">apply</span>(geocode)</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding the results back to the DataFrame</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>some_addresses <span class="op">=</span> some_addresses.join(lat_longs)</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>some_addresses</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">addr</th>
+<th data-quarto-table-cell-role="th">latitude</th>
+<th data-quarto-table-cell-role="th">longitude</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>South Campus Teaching Hub</td>
+<td>140 Chatham St, Liverpool L7 7BA</td>
+<td>53.400188</td>
+<td>-2.964437</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Sefton Park</td>
+<td>Sefton Park, Liverpool L17 1AP</td>
+<td>53.389846</td>
+<td>-2.923999</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Stanley Street</td>
+<td>4 Stanley St, Liverpool L1 6AA</td>
+<td>53.407363</td>
+<td>-2.987240</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<section id="reverse-geocoding" class="level4" data-number="3.4.0.1">
+<h4 data-number="3.4.0.1" class="anchored" data-anchor-id="reverse-geocoding"><span class="header-section-number">3.4.0.1</span> Reverse Geocoding</h4>
+<p>You can also reverse geo-code the data, open the output and see what the result is.</p>
+<div id="40cb1cda-2c8c-4545-afbf-cf11060de216" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reverse geocoding (optional)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> reverse_geocode(lat, lon):</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    location <span class="op">=</span> geolocator.reverse((lat, lon))</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> location.address</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply reverse geocoding</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>some_addresses[[<span class="st">'latitude'</span>, <span class="st">'longitude'</span>]].<span class="bu">apply</span>(<span class="kw">lambda</span> x: reverse_geocode(x[<span class="st">'latitude'</span>], x[<span class="st">'longitude'</span>]), axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>0    148, Chatham Street, Canning / Georgian Quarte...
+1    Sefton Park, Smithdown Road, Wavertree, Liverp...
+2    Davies Street, Cavern Quarter, Liverpool, Live...
+dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="geographic-data-through-apis-and-the-web" class="level4" data-number="3.4.0.2">
+<h4 data-number="3.4.0.2" class="anchored" data-anchor-id="geographic-data-through-apis-and-the-web"><span class="header-section-number">3.4.0.2</span> Geographic Data through APIs and the web</h4>
+<p>APIs can help us generate and create spatial data. In this lab, we have both:</p>
+<ul>
+<li>Written <strong>our own API request.</strong></li>
+<li>Used <strong>Plug-n-play packages.</strong></li>
+</ul>
+<p>There are many APIs where we can get data these days. A few other examples include</p>
+<ul>
+<li><a href="https://data.london.gov.uk/developers/">The London DataStore API</a></li>
+<li><a href="https://data.thameswater.co.uk/s/">Thames Water API</a></li>
+<li><a href="https://www.londonair.org.uk/Londonair/API/">London Air API</a></li>
+<li><a href="https://data.police.uk/docs/method/crime-street/">Crime data</a></li>
+</ul>
+</section>
+</section>
+<section id="group-activity-answers" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="group-activity-answers"><span class="header-section-number">3.5</span> <em>Group activity answers</em></h2>
+<ol type="1">
+<li><p>Uniform Resource Location (<code>URL</code>) is a string of characters that, when interpreted via the Hypertext Transfer Protocol (<code>HTTP</code>). URLs point to a data resource, notably files written in Hypertext Markup Language (<code>HTML</code>) or a subset of a database.</p>
+<ul>
+<li>1xx informational response - the request was received, continuing process</li>
+<li>2xx successful - the request was successfully received, understood, and accepted</li>
+<li>3xx redirection - further action needs to be taken in order to complete the request</li>
+<li>4xx client error - the request contains bad syntax or cannot be fulfilled</li>
+<li>5xx server error - the server failed to fulfil an apparently valid request</li>
+</ul></li>
+<li><p><code>GET</code> requests a representation of a data resource corresponding to a particular <code>URL</code>. The process of executing the <code>GET</code> method is often referred to as a <code>GET request</code> and is the main method used for querying RESTful databases. <code>HEAD</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>: other common methods, though mostly never used for database querying.</p>
+<p>Surfing the web is basically equivalent to sending a bunch of <code>GET</code> requests to different servers and asking for different files written in <code>HTML</code>. Suppose, for instance, I wanted to look something up on Wikipedia. Your first step would be to open your web browser and type in http://www.wikipedia.org. Once you hit return, you would see the page below. Several different processes occured, however, between you hitting “return” and the page finally being rendered:</p>
+<ol type="1">
+<li>The web browser took the entered character string, used the command-line tool “Curl” to write a properly formatted <code>HTTP GET</code> request, and submitted it to the server that hosts the Wikipedia homepage.</li>
+<li>After receiving this request, the server sent an <code>HTTP</code> response, from which <code>Curl</code> extracted the HTML code for the page (partially shown below).</li>
+<li>The raw <code>HTML</code> code was parsed and then executed by the web browser, rendering the page as seen in the window.</li>
+<li>Most APIs requires a key or other user credentials before you can query their database. Getting credentialised with a API requires that you register with the organization. Once you have successfully registered, you will be assigned one or more keys, tokens, or other credentials that must be supplied to the server as part of any API call you make. To make sure users are not abusing their data access privileges (e.g., by making many rapid queries), each set of keys will be given rate limits governing the total number of calls that can be made over certain intervals of time.</li>
+</ol></li>
+<li><p>Most APIs requires a key before you can query their database. This usually requires you to register with the organization. Most APIs are set up for developers, so you will likely be asked to register an “application.” All this really entails is coming up with a name for your app/bot/project and providing your real name, organization, and email. Note that some more popular APIs (e.g., Twitter, Facebook) will require additional information, such as a web address or mobile number. Once you have registered, you will be assigned one or more keys, tokens, or other credentials that must be supplied to the server as part of any API call you make. Most API keys limits the total number of calls that can be made over certain intervals of time. This is so users do not busing their data access privileges.</p></li>
+</ol>
+</section>
+<section id="references" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="references"><span class="header-section-number">3.6</span> References</h2>
+<ul>
+<li><a href="https://www.internetsociety.org/resources/doc/2017/brief-history-internet/">Brief History of the Internet</a>, by the Internet Society, is a handy (and free!) introduction to how it all came to be.</li>
+<li>Haklay, M., Singleton, A., Parker, C. 2008. <a href="https://compass.onlinelibrary.wiley.com/doi/abs/10.1111/j.1749-8198.2008.00167.x">“Web Mapping 2.0: The Neogeography of the GeoWeb”</a>. Geography Compass, 2(6):2011–2039</li>
+<li><a href="https://joemorrison.medium.com/death-of-an-open-source-business-model-62bc227a7e9b">A blog post from JoeMorrison</a> commenting on the recent change of licensing for some of the core software from Mapbox</li>
+<li>Terman, R., 2020. <a href="https://plsc-31101.github.io/course/">Computational Tools for Social Science</a></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../labs/w02_maps.html" class="pagination-link  aria-label=" &lt;span="" maps="" in="" python&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Static Maps in Python</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../labs/w04_dataArch.html" class="pagination-link" aria-label="<span class='chapter-number'>4</span>&nbsp; <span class='chapter-title'>Data Architectures and Tiles</span>">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data Architectures and Tiles</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Web Mapping and Geovisualisation by Gabriele Filomena and Elisabetta Pietrostefani.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/GDSL-UL/wma/blob/main/labs/w03_webArch.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

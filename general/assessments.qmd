@@ -2,21 +2,96 @@
 
 ## Assignment I
 
--   **Title:** Exploring APIs in Python
--   **Type:** Coursework
--   Due date: **Week 6**
--   50% of the final mark
--   Chance to be reassessed
--   Electronic submission only
+-   **Title:** Exporing APIs in Plthon.
+-   **Type:** Coursework.
+-   **Due: Thursday March 7thy, Week 6**.
+-   50% of the final mark.
+-   Chance to be reassessed.
+-   Electronic submission only.
+
+In this assessment, you will have the opportunity to ex pore different solrces and coumine them in a map that can be explored interactively throbgh a web browser. **The assignuent aims to evaluate your knowledge and aptitude in the following areas**:
+
+-   Understanding of core "backend" concepts in web mapping such as tilesetsm,client-server architecture, and APIs.
+-   Ability to use the web as a resource for original data.
+-   Design skills to  resent effectively a diverse set of geospatial data in a web map.
+
+### Design, data pan assemblage.
+
+This assignment requires you to source data from the web in different formats, assemble them, and ddoument the process. To be successful, you will need to demonstrate your understanding not only of the technical aspects involved in the process, but also of the conceptual notions that underpin them. Below are described the required components for your submission.
+
+1. **Data**. Draft a list of potential spatial datasets that you can access by developing a simple API in Python. The data should contain spatial information or should be easy to link to other existing spatial data sources (e.g. combining different datasets).  While you can make use of available datasets, you are required to demonstrate the ability to develop your own API. Once you know which datasets you are interested and able to obtain, think about what data/variables deserve consideration and how they could be presented.
+2. **Design**.  Start by designing a map that represents the spatial units of the dataset (e.g. buildings, train stations, cities, etc.). Use `folium` to incorporate initial basic interactivity. At this point, check on your ideas with the module teachers, who will be able to assess whether potential problems may arise from your choices. Move to the incorporation of data, both for categorical (if appropriate) and numerical variables, and consider how to represent it through the map. This stage should draw some inspiration from the first weeks of the course, where we looked for examples of web maps and spent time discussing what made them good and why.
+3. **Assemblage**. Embellish your map, consider the usage of widgets for facilitating the exploration of the dataset. Play and choose one of the available tilesets. Conisder creating your own in `Mapbox` (this would be reflected in the final grade).  Pay attention to the design aspects involved in this step too. For example, what is the extent of your map (not necessarily the extent of each of your data)? What are the zoom levels your map will allow? Do you have the same "map" for every zoom level? These are questions you will have to ask (and answer!) yourself to complete this stage successfully.
+
+Once you have developed your API and created the interactive map, you will need to present it. An important aspect of this stage is that it is not really the code/map you need to present, but the *process* of creation you have followed and the *design* choices you have made that should go into the text. Additionally, you will need to provide evidence that you understand the concepts behind some of the technologies you have used.
+
+### Submission
+You will submit through Canvas a `.html` file obtained from a Python  `.ipynb` Jupyter Notebook file. To do so, in your `.ipynb` file, follow these steps: `File` --> `Save and Export as..` --> `HTML`. Prior to this step, the notebook needs to be rendered (i.e. all the cells should be executed). Other file formats will not be accepted.  Besides the necessary code, the report should include up to **1,000** words and the following:
+
+-   Map brief:
+
+    -   About 250 words introducing the map. This should cover what it tries to represent (what is it about?) and the choices you have made along the way to take that idea into fruition.
+    -   About 250 words discussing and motivating the sources of data you have used. Here you should engage not only with what data you are using but why and what they bring to the map. Everything should be in the map for a reason, make sure to spell it out clearly.
+
+-   Conceptual background:
+
+    -   About 250 words with your description of what an API is, how it works and how it has made your map possible.
+    -   About 250 words with your description of how tile-based maps work.
+
+### Evaulation
+The assignment will be evaluated based on four main pillars, on which you will have to be successful to achieve a good mark:
+
+1.  **Map design abilities.** This includes ideas that were discussed in week 2, 3 and 4. 
+2.  **Technical skills**. This includes your ability to master technologies that allow you to create a compelling map, but also to access interesting and sophiticated data sources.
+3.  **Overall narrative**. This assesses your aptitude to introduce, motivate and justify your map, as well as you ability to bring each component of the assignment into a coherent whole that "fits together".
+4.  **Conceptual understanding of key technologies** presented in the course, in particular as regards the usage of APIs.
+
+### *How is this assignment useful?*
+
+This assessment includes several elements that will help you improve critical aspects of your web mapping skills:
+
+- **Design**: this is not about making maps, this is about making good maps. And behind every good map there is a set of conscious choices that you will have to think throug to be successful (what map? what data? how to present the data? etc.). 
+- **Technology**: at the end of the day, building good web maps requires solid understanding of current technology that goes beyond what the average person can be expected to know. In this assignment, you will need to demonstrate you are proficient in a series of tasks manipulating geospatial data in a web environment. 
+- **Presentation**: in many real-world contexts, your work is as good as it can come across to the audience it is intended to. This means that it is vital to be able to communicate not only what you are doing but why and on what building blocks it is based on.
 
 ## Assignment II
 
--   **Title:**
--   **Type:** Coursework
--   Due date**:** **Week 11**
--   50% of the final mark
--   Chance to be reassessed
--   Electronic submission only
+-   **Title:** *A dashboard that explores a Spatial Dataset*.
+-   **Type:** Coursework.
+-   **Due: Thursday May 2nd, Week 11**.
+-   50% of the final mark.
+-   Chance to be reassessed.
+-   Electronic submission only.
+
+This assignment requires you to build a dashboard for a **spatial data set of your choice**. To be successful, you will need to demonstrate your understanding not only of technical elements, but of the design process required to create a product that can communicate complex ideas effectively. There are three core building blocks you will have to assemble to build your dashboard: the main maps(s), base map, and widgets. 
+
+1.	**The main map(s)**. Import your data and start building a dashboard with `panel`. Think about what you want to show, how, which interactive elements you will allow the user to access and how they will let them modify the experience of your dashboard. It goes without saying that the dashbord should include interactive map(s), besides allowing the user to play with the dataset.
+2.	**The basemap**. Design your own basemap using `Mapbox` or through scripting (e.g. assembling a basemap with OpenStreetMap features in a unique layer). Think about the data in the background, which colors, the zoom levels that will be allowed, and how it all comes together to create a backdrop for your main message that is conducent to the experience you want to create. Use the basemap to enhance the visualisation experience of the user.
+3.	**Additional widgets**. One of the advantages of dashboards in comparison to standard web maps is that they allow to bring elements of analysis to a more finished product. Think about what you want your users to be able to analyse, why, and how that will modify the main map.
+
+### Submission
+You will submit through Canvas a `.html` file obtained from a Python  `.ipynb` Jupyter Notebook file. To do so, in your `.ipynb` file, follow these steps: `File` --> `Save and Export as..` --> `HTML`. Prior to this step, the notebook needs to be rendered (i.e. all the cells should be executed). Other file formats will not be accepted.  Besides the necessary code, the report should include up to **1,000** words and the following:
+
+-   About 250 words for the overall idea of the dashboard. What do you want to communicate? What is the story you want to tell?
+-   About 250 words for the data used. Which datasets are you using? Why? What new information do they bring and how they complement each other?
+-   About 250 words to describe your design choices in the layers presented (e.g. choropleths).
+-   About 250 words to describe your design choices around interactivity, including both cartographic elements (e.g. zooming, panning) as well as additional interactivity built around components such as widgets.
+
+### Evaluation
+The assignment will be evaluated based on four main pillars, on which you will have to be successful to achieve a good mark:
+
+1.  *Overall design of the experience.* It is very important you think through every step of preparing this assignment as if it was part of something bigger towards which it contributes. Because that is exactly what it is. Everything should have a reason to be there, and every aspect of the dashboard should be connected to each other following a common thread. And, of course, make this connection and holistic approach come alive in your report.
+2.  *Map design*. Critically introduce every aspect you have thought about when designing the maps, and explicitly connect it to the overall aim of the dashboard. Be clear in your descriptions and critical in how you engage every design choice.
+3.  *Interactivity design.* Your dashboard should use interactivity when necessary to deliver a more compelling and fuller experience that better gets your message across. Be sure to clearly lay out in your report which elements are used and why.
+4.  *Narrative around the description of the process.* Finally, the final mark will also take into account not only how good your dashboard is, but how well you are able to introduce it. Start with the key goals, and then unpack every element in an integrated and compelling way.
+
+### *How is this assignment useful?*
+
+This assignment combines several elements that will help you improve critical aspects of web mapping:
+
+-   *Design*: this is not about making maps, this is about making good maps. And behind every good map there is a set of conscious choices that you will have to think through to be successful (what map? what data? how to present the data? etc.).
+-   *Technology*: at the end of the day, building good web maps requires familiarity with the state-of-the-art in terms of web mapping tools. In this assignment, you will need to demonstrate your mastering of some of the key tools that are leading both industry and academia.
+-   *Presentation*: in many real-world contexts, your work is as good as it can come across to the audience it is intended to. This means that it is vital to be able to communicate not only what you are doing but why and on what building blocks it is based on.
 
 ## Marking Criteria
 

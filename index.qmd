@@ -1,6 +1,6 @@
 # Welcome {.unnumbered}
 
-This is the website for "Web Mapping and Geovisualisation" (module **ENVS456**) at the University of Liverpool. This course is designed and delivered by Dr. Elisabetta Pietrostefani and Dr. Gabriele Filomena from the Geographic Data Science Lab at the University of Liverpool, United Kingdom.
+This is the website for "Web Mapping and Geovisualisation" (module **ENVS456**) at the University of Liverpool. This course is designed and delivered by Dr. Gabriele Filomena and Dr. Elisabetta Pietrostefani from the Geographic Data Science Lab at the University of Liverpool, United Kingdom.
 The module has two main aims. It seeks to provide hands-on experience and training in:
 
 - The design and generation of web-based mapping and geographical information tools. 

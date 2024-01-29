@@ -4,7 +4,7 @@ author: Gabriele Filomena
 date: 'January 10th, 2024'
 format:
   html:
-    code-fold: true
+    code-fold: false
 jupyter:
   jupytext:
     text_representation:
@@ -18,7 +18,7 @@ jupyter:
     name: python3
 ---
 
-# Interactive maps
+# 5. Interactive Maps
 
 [Online maps](https://link.springer.com/referenceworkentry/10.1007/978-3-319-23519-6_1485-2) have been interactive for a long time: virtually all online maps allow to zoom in and out, to pan the map extent, and to select map features, or otherwise query information about them. Interactive content in web pages, such as online maps, are typically implemented using [*JavaScript*/*ECMAScript*](https://en.wikipedia.org/wiki/ECMAScript), a scripting language originally targeted at web pages, primarily, but used for many otherapplications.
 

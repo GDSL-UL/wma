@@ -1,42 +1,58 @@
 # Syllabus {.unnumbered}
 
 **Week 1**
+
 -   Lecture: Introduction to the module
+
 -   Lab: Powerful examples and Python Refresher
 
 **Week 2**
+
 -   Lecture: Geovisualisation: Design Principles and Statistical Visualisation
+
 -   Lab: Static Maps
 
 **Week 3**
+
 -   Lecture: The Web's Architecture
+
 -   Lab: Web Architectures and APIs
 
 **Week 4**
+
 -   Lecture: Data architechtures & formats
+
 -   Lab: Data architechtures & Tiles
 
 **Week 5**
+
 -   Lecture: Interactive Maps 
+
 -   Lab: Interactive Maps
 
 **Week 6**
+
 -   Lecture & Lab: Q&A & Assignment I Clinic
+
 -   **Assignment I Due**
 
 **Week 7**
+
 -   Lecture: OpenStreetMap Data & Spatial Network
+
 -   Lab: Retrieving Data From OpenStreetMap
 
 **Week 8**
+
 -   Lecture: Dashboards
+
 -   Lab: Designing Dashboard for Geovisualisation
 
 **Week 9**
--   Lecture: Advanced Tools
--   Lab: Kepler and Pydeck
 
-## Dashboards
+-   Lecture: Advanced Tools
+
+-   Lab
 
 **Week 10**
 -  Lecture & Lab: Review & Assignment II clinic

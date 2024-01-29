@@ -1,4 +1,7 @@
-﻿# Install Miniconda (and Python) in Windows {.unnumbered}
+﻿
+# Set up Miniconda (and Python) in Windows {.unnumbered}
+
+## Installation 
 
 1. Install Miniconda:
 	- *Option 1*: On a UoL Machine: Download and install Miniconda from [here](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe). This will install Miniconda and Python in `C:\`. If this process is aborted because it requires administrator rights, press `Start`, select `Install University Applications`, type and choose `Miniconda`.
@@ -26,9 +29,10 @@ envs456/
 ```
 
 ## Set up the Python Environment
+
 1. Type in the search bar and find the `Anaconda Prompt (miniconda 3)`. Launch it. The terminal should appear.
 
-<img src = "../img/anaconda_windows.png" width="100%">
+<img src = "../img/windows_anaconda.png" width="80%">
 
 2. Download the file [envs456.yml](https://github.com/GDSL-UL/wma/blob/main/envs456.yml) in the folder `envs456`.
 3. In the **Anaconda Terminal** write  `conda env create -n envs456 --file C:\envs456\envs456.yml` and press `Enter`; if the file is located elsewhere you'll need to use the corresponding file path.
@@ -45,14 +49,14 @@ envs456/
 ## Start a Lab Session
 1. Download the Jupyter Notebook of the session in your folder. Choose one jupyter notebook and click "Dowload raw file" as shown below
 
-<img src = "../img/raw.png" width="100%">
+<img src = "../img/raw.png" width="80%">
 
 2. Save the file in the `labs` folder within your `envs456` folder on your machine.
 3. Type in the search bar, find and open the `Anaconda Prompt (miniconda 3)`. 
 4. In the **Anaconda Terminal** write and run `conda activate envs456`.
 5. In the **Anaconda Terminal** write and run `jupyter notebook`. This should open Jupyter Notebook in your default browser. 
 
-<img src = "../img/jupyter.png" width="100%">
+<img src = "../img/jupyter.png" width="80%">
 
 6. Navigate to your course folder in and double click on the notebook downloaded in step 1. 
 7. You can now work on your copy of the notebook.

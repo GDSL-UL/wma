@@ -1,9 +1,11 @@
-﻿# Setting up the Working Environment for Webmapping and Geovisualisation {.unnumbered}
-
+﻿
 Follow these instructions and test your installation **prior to the first Lab Session** (Wed, 31st of January). If you experience any issues, write a message on the Ms Teams channel of the module.
 Setting up the Python environment is necessary for:
+
 - Executing the [Jupyter Notebooks](https://docs.jupyter.org/en/latest/) of the Lab sessions of the course.
 - Preparing your own Jupyter Notebooks for the assignments (one each).
+
+# Setting up the Working Environment {.unnumbered}
 
 ## Install Miniconda (and Python)
 We will use `Minconda` to handle our working environment. *Miniconda is a free minimal installer for conda. It is a small bootstrap version of Anaconda that includes only conda, Python, the packages they both depend on, and a small number of other useful packages (like pip, zlib, and a few others)*
@@ -31,17 +33,19 @@ We will use `Minconda` to handle our working environment. *Miniconda is a free m
 5. Save the file and close it.
 
 ## Prepare the Lab Data
-1. Download the [data](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/GDSL-UL/wma/tree/main/labs/data) and the [images](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/GDSL-UL/wma/tree/main/labs/img) for running and rendering the jupyter notebooks. 
+1. Download the [data](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/GDSL-UL/wma/tree/main/data) and the [images](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/GDSL-UL/wma/tree/main/img) for running and rendering the jupyter notebooks. 
 2. Unzip the folders and move the nested folders into the folder `webmapping`.
 
 ## Start a Lab Session
 1. Download the Jupyter Notebook of the session in your folder. Choose one jupyter notebook and click "Dowload raw file" as shown below
-<img src=../img/raw.svg/>
-3. Save the file in the `webmapping` folder on your machine
-4.  Type in the search bar, find and open the `Anaconda Prompt (miniconda 3)`. 
-5. Write and run `conda activate envs456`
-6. Write and run `jupyter notebook`. This should open Jupyter Notebook in your default browser. Navigate to your course folder in and open the notebook downloaded in step 1. 
-7. You can now work on your copy of the notebook.
+
+![Download raw file instruction](../img/raw.svg)
+
+2. Save the file in the `webmapping` folder on your machine, inside another folder called, for example `labs` or `notebooks`. Your `webmapping` folder should at least contain a `data` and a `labs` folder.
+3. Type in the search bar, find and open the `Anaconda Prompt (miniconda 3)`. 
+4. Write and run `conda activate envs456`
+5. Write and run `jupyter notebook`. This should open Jupyter Notebook in your default browser. Navigate to your course folder in and open the notebook downloaded in step 1. 
+6. You can now work on your copy of the notebook.
 
 
 

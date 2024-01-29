@@ -16,7 +16,6 @@ book:
   site-url:  https://gdsl-ul.github.io/wma
   repo-url: https://github.com/GDSL-UL/wma
   repo-actions: [edit]
-  sharing: [twitter, facebook]
   sidebar:
     style: docked
     background: light
@@ -25,14 +24,13 @@ book:
     - index.qmd
     - general/structure.qmd
     - general/overview.qmd
-    - general/assess.qmd
+    - general/assessments.qmd
     - general/setUp.qmd
-    - labs/w01_introduction.qmd
-    - labs/w01_refresher.qmd
-    - labs/w02_maps.qmd
-    - labs/w03_webArch.qmd
-    - labs/w04_dataArch.qmd
-    - labs/w05_interactive.qmd
+    - labs/w01_intro.ipynb
+    - labs/w02_maps.ipynb
+    - labs/w03_webArch.ipynb
+    - labs/w04_dataArch.ipynb
+    - labs/w05_interactive.ipynb
     
 bibliography: references.bib
 

@@ -2,11 +2,10 @@
 
 ## Assignment I
 
--   **Title:** Exporing APIs in Plthon.
+-   **Title:** Exporing APIs in Python.
 -   **Type:** Coursework.
 -   **Due: Thursday March 7thy, Week 6**.
 -   50% of the final mark.
--   Chance to be reassessed.
 -   Electronic submission only.
 
 In this assessment, you will have the opportunity to ex pore different solrces and coumine them in a map that can be explored interactively throbgh a web browser. **The assignuent aims to evaluate your knowledge and aptitude in the following areas**:
@@ -60,7 +59,6 @@ This assessment includes several elements that will help you improve critical as
 -   **Type:** Coursework.
 -   **Due: Thursday May 2nd, Week 11**.
 -   50% of the final mark.
--   Chance to be reassessed.
 -   Electronic submission only.
 
 This assignment requires you to build a dashboard for a **spatial data set of your choice**. To be successful, you will need to demonstrate your understanding not only of technical elements, but of the design process required to create a product that can communicate complex ideas effectively. There are three core building blocks you will have to assemble to build your dashboard: the main maps(s), base map, and widgets. 

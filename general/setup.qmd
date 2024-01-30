@@ -15,7 +15,7 @@ We will use `Minconda` to handle our working environment. *Miniconda is a free m
 
 1. Install Miniconda:
 	- *Option 1*: On a UoL Machine: Download and install Miniconda from [here](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe). This will install Miniconda and Python in `C:\`. If this process is aborted because it requires administrator rights, press `Start`, select `Install University Applications`, type and choose `Miniconda`.
-	- *Option 2, **Recommended***: Install Miniconda on your personal Laptop: Follow the instructions [here](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html).
+	- *Option 2*, **Recommended**: Install Miniconda on your personal Laptop: Follow the instructions [here](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html).
 2. During the installation, leave the default settings. In particular, when asked whom to "Install Miniconda for", choose "Just for me".
 
 **Important:** If you do choose to work on University Machines you will have to reinstall `Miniconda` every lab session unless you use a PC where Miniconda has been installed already. 

@@ -1,7 +1,7 @@
 
 # Setting up the Working Environment {.unnumbered}
 
-Follow the instructions for yuour Operating System and test your installation **prior to the first Lab Session** (Wed, 31st of January). If you experience any issues, write a message on the Ms Teams channel of the module.
+Follow the instructions for yuour Operating System and test your installation. If you experience any issues, write a message on the Ms Teams channel of the module.
 Setting up the Python environment is necessary for:
 
 - Executing the [Jupyter Notebooks](https://docs.jupyter.org/en/latest/) of the Lab sessions of the course.

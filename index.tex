@@ -183,7 +183,7 @@
 
 \title{Web Mapping and Geovisualisation}
 \author{Gabriele Filomena and Elisabetta Pietrostefani}
-\date{2024-01-29}
+\date{2024-01-30}
 
 \begin{document}
 \maketitle
@@ -410,13 +410,6 @@ the forum Monday to Friday 9am-5pm, but it will be open to students to
 make contributions at all times. Response time will vary depending on
 the complexity of the question and staff availability.
 
-\section*{Computational Environment}\label{computational-environment}
-\addcontentsline{toc}{section}{Computational Environment}
-
-\markright{Computational Environment}
-
-See the corresponding page.
-
 \bookmarksetup{startatroot}
 
 \chapter*{Assessments}\label{assessments}
@@ -432,15 +425,13 @@ See the corresponding page.
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Title:} Exporing APIs in Plthon.
+  \textbf{Title:} Exporing APIs in Python.
 \item
   \textbf{Type:} Coursework.
 \item
   \textbf{Due: Thursday March 7thy, Week 6}.
 \item
   50\% of the final mark.
-\item
-  Chance to be reassessed.
 \item
   Electronic submission only.
 \end{itemize}
@@ -627,8 +618,6 @@ critical aspects of your web mapping skills:
 \item
   50\% of the final mark.
 \item
-  Chance to be reassessed.
-\item
   Electronic submission only.
 \end{itemize}
 
@@ -798,19 +787,43 @@ part of the work being assessed:
 
 \bookmarksetup{startatroot}
 
-\chapter*{Set up Miniconda (and Python) in
-Windows}\label{set-up-miniconda-and-python-in-windows}
-\addcontentsline{toc}{chapter}{Set up Miniconda (and Python) in Windows}
+\chapter*{Setting up the Working
+Environment}\label{setting-up-the-working-environment}
+\addcontentsline{toc}{chapter}{Setting up the Working Environment}
 
-\markboth{Set up Miniconda (and Python) in Windows}{Set up Miniconda
-(and Python) in Windows}
+\markboth{Setting up the Working Environment}{Setting up the Working
+Environment}
 
+Follow the instructions for yuour Operating System and test your
+installation \textbf{prior to the first Lab Session} (Wed, 31st of
+January). If you experience any issues, write a message on the Ms Teams
+channel of the module. Setting up the Python environment is necessary
+for:
 
+\begin{itemize}
+\tightlist
+\item
+  Executing the \href{https://docs.jupyter.org/en/latest/}{Jupyter
+  Notebooks} of the Lab sessions of the course.
+\item
+  Preparing your own Jupyter Notebooks for the assignments (one each).
+\end{itemize}
 
-\section*{Installation}\label{installation}
-\addcontentsline{toc}{section}{Installation}
+We will use \texttt{Minconda} to handle our working environment.
+\emph{Miniconda is a free minimal installer for conda. It is a small
+bootstrap version of Anaconda that includes only conda, Python, the
+packages they both depend on, and a small number of other useful
+packages (like pip, zlib, and a few others)}
 
-\markright{Installation}
+\section*{Set up Miniconda (and Python) on Ms
+Windows}\label{set-up-miniconda-and-python-on-ms-windows}
+\addcontentsline{toc}{section}{Set up Miniconda (and Python) on Ms
+Windows}
+
+\markright{Set up Miniconda (and Python) on Ms Windows}
+
+\subsection*{Installation}\label{installation}
+\addcontentsline{toc}{subsection}{Installation}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -853,10 +866,8 @@ course repository
 this option, you do not need to follow the rest of the instructions
 below.
 
-\section*{Set up the Directories}\label{set-up-the-directories}
-\addcontentsline{toc}{section}{Set up the Directories}
-
-\markright{Set up the Directories}
+\subsection*{Set up the Directories}\label{set-up-the-directories}
+\addcontentsline{toc}{subsection}{Set up the Directories}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -871,7 +882,7 @@ below.
   Download the
   \href{https://minhaskamal.github.io/DownGit/\#/home?url=https://github.com/GDSL-UL/wma/tree/main/data}{data}
   and the
-  \href{https://minhaskamal.github.io/DownGit/\#/home?url=https://github.com/GDSL-UL/wma/tree/main/lab_img}{images}
+  \href{https://minhaskamal.github.io/DownGit/\#/home?url=https://github.com/GDSL-UL/wma/tree/main/labs_img}{images}
   for running and rendering the jupyter notebooks.
 \item
   Unzip the folders and move the nested folders into the folder
@@ -889,11 +900,9 @@ envs456/
 └── labs/
 \end{verbatim}
 
-\section*{Set up the Python
+\subsection*{Set up the Python
 Environment}\label{set-up-the-python-environment}
-\addcontentsline{toc}{section}{Set up the Python Environment}
-
-\markright{Set up the Python Environment}
+\addcontentsline{toc}{subsection}{Set up the Python Environment}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -909,9 +918,10 @@ Environment}\label{set-up-the-python-environment}
 \setcounter{enumi}{1}
 \tightlist
 \item
-  Download the file
-  \href{https://github.com/GDSL-UL/wma/blob/main/envs456.yml}{envs456.yml}
-  in the folder \texttt{envs456}.
+  Download the \texttt{envs456.yml} from GitHub by cliciking
+  \texttt{Download\ raw\ file}, top right,
+  \href{https://github.com/GDSL-UL/wma/blob/main/envs456.yml}{here} and
+  save in the folder \texttt{envs456}.
 \item
   In the \textbf{Anaconda Terminal} write
   \texttt{conda\ env\ create\ -n\ envs456\ -\/-file\ C:\textbackslash{}envs456\textbackslash{}envs456.yml}
@@ -948,17 +958,16 @@ Environment}\label{set-up-the-python-environment}
   \end{itemize}
 \end{enumerate}
 
-\section*{Start a Lab Session}\label{start-a-lab-session}
-\addcontentsline{toc}{section}{Start a Lab Session}
-
-\markright{Start a Lab Session}
+\subsection*{Start a Lab Session}\label{start-a-lab-session}
+\addcontentsline{toc}{subsection}{Start a Lab Session}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   Download the Jupyter Notebook of the session in your folder. Choose
-  one jupyter notebook and click ``Dowload raw file'' as shown below
+  one jupyter notebook and click \texttt{Dowload\ raw\ file} as shown
+  below
 \end{enumerate}
 
 \begin{enumerate}
@@ -989,6 +998,149 @@ Environment}\label{set-up-the-python-environment}
   downloaded in step 1.
 \item
   You can now work on your copy of the notebook.
+\end{enumerate}
+
+Follow these instructions and test your installation \textbf{prior to
+the first Lab Session} (Wed, 31st of January). If you experience any
+issues, write a message on the Ms Teams channel of the module. Setting
+up the Python environment is necessary for:
+
+\begin{itemize}
+\tightlist
+\item
+  Executing the \href{https://docs.jupyter.org/en/latest/}{Jupyter
+  Notebooks} of the Lab sessions of the course.
+\item
+  Preparing your own Jupyter Notebooks for the assignments (one each).
+\end{itemize}
+
+\section*{Set up Miniconda (and Python) on
+MAC}\label{set-up-miniconda-and-python-on-mac}
+\addcontentsline{toc}{section}{Set up Miniconda (and Python) on MAC}
+
+\markright{Set up Miniconda (and Python) on MAC}
+
+\subsection*{Installation}\label{installation-1}
+\addcontentsline{toc}{subsection}{Installation}
+
+To install Miniconda on your personal laptop, Follow the instructions
+\href{https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html}{here}.
+During the installation, leave the default settings. In particular, when
+asked whom to ``Install Miniconda for'', choose ``Just for me''.
+
+\subsection*{Set up the Directories}\label{set-up-the-directories-1}
+\addcontentsline{toc}{subsection}{Set up the Directories}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create a folder where you want to keep your work conducted throughout
+  this course. For example, call it \texttt{envs456}. You can save it
+  wherever you want. For example, Elisabetta has named her folder
+  \texttt{envs456} and it's in her Dropbox in
+  \texttt{Users/PIETROST/Library/CloudStorage/Dropbox/envs456}
+\item
+  Download the
+  \href{https://minhaskamal.github.io/DownGit/\#/home?url=https://github.com/GDSL-UL/wma/tree/main/data}{data}
+  and the
+  \href{https://minhaskamal.github.io/DownGit/\#/home?url=https://github.com/GDSL-UL/wma/tree/main/labs_img}{images}
+  for running and rendering the jupyter notebooks.
+\item
+  Unzip the folders and move the nested folders into the folder
+  \texttt{envs456}.
+\item
+  Create another folder called \texttt{labs}
+\end{enumerate}
+
+The folder structure should look like:
+
+\begin{verbatim}
+envs456/
+├── data/
+├── labs_img/
+└── labs/
+\end{verbatim}
+
+\subsection*{Set up the Python
+Environment}\label{set-up-the-python-environment-1}
+\addcontentsline{toc}{subsection}{Set up the Python Environment}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Type in the search bar and open the \textbf{Terminal}.
+\item
+  Download the \texttt{envs456.yml} file from GitHub by cliciking
+  \texttt{Download\ raw\ file} top right,
+  \href{https://github.com/GDSL-UL/wma/blob/main/envs456.yml}{here} and
+  save in the folder \texttt{envs456}.
+\item
+  Create a \texttt{envs456} folder for the course and place the
+  \texttt{.yml} in it. Then, in the \textbf{Terminal} write
+  \texttt{conda\ env\ create\ -n\ envs456\ -\/-file\ envs456.yml} and
+  press \texttt{Enter}. This will need to be modified according to where
+  you placed the \texttt{envs456} folder. For example, Elisabetta has
+  named her folder \texttt{envs456} and it's in her Dropbox in
+  \texttt{Users/PIETROST/Library/CloudStorage/Dropbox/envs456/envs456.yml}.
+  If you created the \texttt{envs456} folder on your desktop, the path
+  would be \texttt{Desktop/envs456}.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  If you are prompted any questions, press \texttt{y}. This process will
+  install all the packages necessary to carry out the lab sessions.
+\end{enumerate}
+
+\subsection*{Start a Lab Session}\label{start-a-lab-session-1}
+\addcontentsline{toc}{subsection}{Start a Lab Session}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Download the Jupyter Notebook of the session in your folder. Choose
+  one jupyter notebook and click \texttt{Dowload\ raw\ file} as shown
+  below
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Save the file in the \texttt{labs} folder within your \texttt{envs456}
+  folder on your machine.
+\item
+  Type in the search bar, find and open the \textbf{Terminal}.
+\item
+  In the \textbf{Terminal} write and run
+  \texttt{conda\ activate\ envs456}.
+\item
+  In the \textbf{Terminal} write and run \texttt{jupyter\ notebook}.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  This should open Jupyter Notebook in your default browser. You should
+  see something like this:
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Navigate to your folder. You can now work on your copy of the
+  notebook.
 \end{enumerate}
 
 \bookmarksetup{startatroot}
@@ -1131,7 +1283,7 @@ the following questions:
   What technology do they use?
 \end{enumerate}
 
-\subsubsection{References}\label{references}
+\subsection{References}\label{references}
 
 \begin{itemize}
 \tightlist
@@ -2632,8 +2784,8 @@ fundamental types are:
 \item
   \textbf{Point} data: represents a single point in space.
 \item
-  \textbf{Line} data (``LineString''): represents a sequence of points
-  that form a line.
+  \textbf{Line} data (``LineString''): represented as a sequence of
+  points that form a line.
 \item
   \textbf{Polygon} data: represents a filled area.
 \end{itemize}
@@ -2892,7 +3044,7 @@ Both datasets are provided as spatial datasets using a GIS file format.
 
 \textbf{Excercise 1}:
 
-We will start with exploring the bicycle station dataset (available as a
+We will start by exploring the bicycle station dataset (available as a
 GeoPackage file: \texttt{data/paris\_bike\_stations\_mercator.gpkg})
 
 \begin{itemize}
@@ -2937,7 +3089,7 @@ Hints
 
 Next, we will explore the dataset on the administrative districts of
 Paris (available as a GeoJSON file:
-``../data/paris\_districts\_utm.geojson'')
+\texttt{../data/paris\_districts\_utm.geojson})
 
 \begin{itemize}
 \tightlist
@@ -2965,7 +3117,7 @@ What are the largest districts (biggest area)?
 \item
   Add this area as a new column to the \texttt{districts} dataframe.
 \item
-  Sort the dataframe by this area column for largest to smallest values
+  Sort the dataframe by the area column from largest to smallest values
   (descending).
 \end{itemize}
 
@@ -3173,10 +3325,10 @@ references system of your dataset, for example:
 
 \textbf{Important:}
 
-All the calculations (e.g.~distance, spatial operations, etc.) that
-happen in \texttt{GeoPandas} and \texttt{Shapely} assume that your data
-is in a 2D cartesian plane, and thus the result of those calculations
-will only be correct if your data is properly projected.
+All the calculations (e.g.~distance, spatial operations, etc.) that take
+place in \texttt{GeoPandas} and \texttt{Shapely} assume that your data
+is represented in a 2D cartesian plane, and thus the result of those
+calculations will only be correct if your data is properly projected.
 
 \section{Practice}\label{practice-1}
 
@@ -3189,9 +3341,9 @@ Going back to the Paris districts dataset, this is now provided as a
 GeoJSON file (\texttt{"../data/paris\_districts.geojson"}) in geographic
 coordinates.
 
-For converting to projected coordinates, we will use the standard
-projected CRS for France is the RGF93 / Lambert-93 reference system,
-referenced by the \texttt{EPSG:2154} number.
+For converting the layer to projected coordinates, we will use the
+standard projected CRS for France is the RGF93 / Lambert-93 reference
+system, referenced by the \texttt{EPSG:2154} number.
 
 \textbf{Exercise: Projecting a GeoDataFrame}
 
@@ -3672,12 +3824,12 @@ layer with different properties.
   Copy and paste the code and execute the functions playing with the
   different parameters.
 \item
-  Produce a neat map using the GeoDataFrames avaible in this notebook or
-  the ones employed in the previous sessions, making use of the
-  elements/parameters discussed here.
+  Produce a neat map using the \texttt{GeoDataFrame}s available in this
+  notebook or the ones employed in the previous sessions, making use of
+  the elements/parameters discussed here.
 \item
   Try out different tiles for the basemap to familiarise yourself with
-  what's aveilable.
+  what's available.
 \end{itemize}
 
 \section{Part II: Choropleth Mapping}\label{part-ii-choropleth-mapping}
@@ -3776,19 +3928,19 @@ Text(0.5, 1.0, 'Serbian Municipalities')
 \subsection{Choropleth Maps for Numerical
 Variables}\label{choropleth-maps-for-numerical-variables}
 
-We are essentialy using the same approach emplyed for creating basic
+We are essentially using the same approach employed for creating basic
 maps, the method \texttt{plot}, but we now need to pass arguments to
 some new parameters to specify which column is to be represented and
 how. As an optional argument, one can set legend to \texttt{True} and
-the resulting figure will include a color bar.
+the resulting figure will include a colour bar.
 
 \begin{itemize}
 \tightlist
 \item
   \texttt{column}: the name of the column representing the variable that
-  we want to used to colour-code our shapes.
+  we want to use to colour-code our shapes.
 \item
-  \texttt{scheme}: the scheme used to color the shapes based on the
+  \texttt{scheme}: the scheme used to colour the shapes based on the
   variable values.
 \item
   \texttt{cmap}: the colormap used to show variation.
@@ -3796,7 +3948,7 @@ the resulting figure will include a color bar.
 
 \subsubsection{Colormaps}\label{colormaps}
 
-Built-in color maps can be found here
+Built-in colour maps can be found here
 https://matplotlib.org/stable/gallery/color/colormap\_reference.html.
 However one can create new ones as follows from a list of colours:
 
@@ -3821,7 +3973,7 @@ However one can create new ones as follows from a list of colours:
 \end{Highlighting}
 \end{Shaded}
 
-or from color names:
+or from colour names:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3865,14 +4017,14 @@ being visualized:
 \tightlist
 \item
   Continuous Data: For columns with continuous data (like population
-  estimates, temperatures, etc.), a color bar is generated as the
+  estimates, temperatures, etc.), a colour bar is generated as the
   legend. This color bar represents a range of values with a gradient,
-  indicating how data values correspond to colors on the map.
+  indicating how data values correspond to colours on the map.
 \item
   Categorical Data: For columns with categorical data (like country
   names, types of land use, etc.), if you specify \texttt{legend=True},
   \texttt{GeoPandas} will try to create a legend that categorizes these
-  distinct values with different colors. However, creating legends for
+  distinct values with different colours. However, creating legends for
   categorical data is not as straightforward as with continuous data and
   might require additional handling for a clear and informative legend
   (see below).
@@ -3881,8 +4033,8 @@ being visualized:
 \subsubsection{Scheme}\label{scheme}
 
 It is important to keep in mind that choropleth maps strongly depend on
-the scheme that it is passed (or the dafult one) to classify the data in
-groups. The plot above only shows one municipality cooloured in dark
+the scheme that it is passed (or the default one) to classify the data
+in groups. The plot above only shows one municipality coloured in dark
 blue.
 
 Look at the following plots and how three different classifiers produce
@@ -3934,10 +4086,11 @@ further details
 \begin{itemize}
 \tightlist
 \item
-  \emph{Equal intervals} splits the range of the distribution, the
-  difference between the minimum and maximum value, into equally large
-  segments and to assign a different color to each of them according to
-  a palette that reflects the fact that values are ordered.
+  The \emph{Equal intervals} method splits the range of the
+  distribution, the difference between the minimum and maximum value,
+  into equally large segments and to assign a different colour to each
+  of them according to a palette that reflects the fact that values are
+  ordered.
 \item
   To obtain a more balanced classification, one can use the
   \emph{Quantiles} scheme. This assigns the same amount of values to
@@ -3950,17 +4103,17 @@ further details
 \item
   Amongst many other, the \emph{Fisher Jenks} dynamically minimises the
   sum of the absolute deviations around class medians. The Fisher-Jenks
-  alorithm is guaranteed to produce an optimal classification for a
+  algorithm is guaranteed to produce an optimal classification for a
   prespecified number of classes.
 \end{itemize}
 
 The only additional arguments to pass for producing a choropleth,
 therefore, are the actual variable we would like to classify and the
 number of segments we want to create, \texttt{k}. This is, in other
-words, the number of colors that will be plotted on the map so, although
-having several can give more detail, at some point the marginal value of
-an additional one is fairly limited, given the ability of teh human
-brain to tell any differences.
+words, the number of colours that will be plotted on the map so,
+although having several can give more detail, at some point the marginal
+value of an additional one is fairly limited, given the ability of the
+human brain to tell any differences.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4019,8 +4172,8 @@ Sad.'' (see:
 \href{https://en.wikipedia.org/wiki/City_municipality_of_Novi_Sad}{wikipedia}).
 
 On the contrary, Grad Beograd, that is Belgrade, is correctly split into
-different municipalities and its popoulation, when visualised, is spread
-out across the different geometries of its municipalities, In other
+different municipalities and its population, when visualised, is spread
+out across the different geometries of its municipalities. In other
 words, our map depends on the geometries of the areas and on how the
 data was collected. While it could be that these areas were indeed
 identified by population size in the first place, the point is that the
@@ -4031,7 +4184,7 @@ unfairly)
 This may happen with different types of data, particularly with
 administrative boundaries and it is crucial to reflect on how Choropleth
 maps may be impacted. One can look for more granular data or consider to
-weight the continous value with the texent of the are (i.e.~obtaining
+weight the continuous value with the extent of the area (i.e.~obtaining
 density values).
 
 \subsubsection{An alternative to scheme: ColorMap
@@ -4057,7 +4210,7 @@ a less informative visualization if not `normalized' and treated as if
 they corresponded to 40° C values.
 
 For our dataset, we can use as \texttt{vmax} the value corresponding to
-the 90th percentle.
+the 90th percentile.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4089,7 +4242,7 @@ arguments to the \texttt{scheme} parameter. For continuous variables,
 \texttt{norm} maps each value directly to a color, making discrete
 categorization redundant. In other words, it allows for a direct mapping
 of data values to the color map, eliminating the need for intermediary
-classification schemes.\texttt{norm} ensures a smooth gradient in the
+classification schemes. \texttt{norm} ensures a smooth gradient in the
 color map without artificially segmenting the data.
 
 \subsubsection{Customising the colorbar}\label{customising-the-colorbar}
@@ -4128,9 +4281,9 @@ color.
 \subsubsection{Varying alpha transparency based on an
 array}\label{varying-alpha-transparency-based-on-an-array}
 
-Finally, we can also convey variation in a continuos scale through
+Finally, we can also convey variation in a continuous scale through
 transparency. \texttt{alpha} doesn't expect column names, so we cannot
-just pass the name of the column containing the variable. Instead we
+just pass the name of the column containing the variable. Instead, we
 have to create an array from 0.0 to 1.0 values. To so we can a) use
 normalisation methods, or b) rescale the original values within 0 to 1
 based on the original min and max values.
@@ -4194,8 +4347,8 @@ Text(0.5, 1.0, 'Terrorist Attacks in Germany, by Group')
 The map above is what you would get from datasets that are not
 cleaned/manipulated directly or when there are too many categories in
 the selected column. First, let's get a slimmer slice of the gdf that
-only contains attacks that cause a number of fatalies and wounded higher
-than 10.
+only contains attacks that cause a number of fatalities and wounded
+higher than 10.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4246,7 +4399,7 @@ the number of categories. This creates random \texttt{HUE}-based colors:
 
 \includegraphics{labs/w02_maps_files/figure-pdf/cell-45-output-1.png}
 
-We also place the legend on the center left. This is done automatically,
+We also place the legend on the centre left. This is done automatically,
 but the legend and its items can be manipulated directly. Legends in
 \texttt{matplotlib} are extremely complex to personalise. However, do
 have a look at
@@ -4288,15 +4441,14 @@ We can also convey the impact of the events through the
 \includegraphics{labs/w02_maps_files/figure-pdf/cell-48-output-1.png}
 
 \section{Part III: Cartograms - Manipulating the Geometry size for
-showing the magitude of a
-value}\label{part-iii-cartograms---manipulating-the-geometry-size-for-showing-the-magitude-of-a-value}
+showing the magnitude of a
+value}\label{part-iii-cartograms---manipulating-the-geometry-size-for-showing-the-magnitude-of-a-value}
 
 \href{https://www.data-to-viz.com/graph/cartogram.html}{Cartograms} are
 maps that represent the spatial distribution of a variable not by
 encoding it in a color palette but rather by modifying geographical
 objects. There are many algorithms to distort the shapes of geographical
-entities according to values, some of them incredibly complicated and
-complex.
+entities according to values, some of them are rather complex.
 
 \subsection{Polygons}\label{polygons}
 
@@ -4344,15 +4496,15 @@ and pass a column name to \texttt{markersize}.
 
 \includegraphics{labs/w02_maps_files/figure-pdf/cell-51-output-1.png}
 
-One can also convert convert polygons into points by using their
-centroids, and then define the size of the dot proportionally to the
-value of the variable we want to display.
+One can also convert polygons into points by using their centroids, and
+then define the size of the dot proportionally to the value of the
+variable we want to display.
 
 \subsection{LineString}\label{linestring}
 
 For \texttt{LineString} we pass the column name to \texttt{linewidth}.
 
-Let's load a shapefile of lines. These lines represent frequnecy of
+Let's load a shapefile of lines. These lines represent frequency of
 train connections from/to train stations in the region of Liguria
 (Italy) to other stations within or outside the region. Each line refers
 to a connection between two specific stations, through a certain type of
@@ -4415,7 +4567,7 @@ The usage of \texttt{linewdith} is a bit different from
 \texttt{markersize} for some reason. We have to pass an \texttt{array}
 of N values, where N is equal to the GeoDataFrame size. In other words,
 we have to pass the column we want to use to regulate the line width
-direclty as a list/array. Specifying the column name is not enough.
+directly as a list/array. Specifying the column name is not enough.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -4429,7 +4581,7 @@ direclty as a list/array. Specifying the column name is not enough.
 
 As you can see, the default arguments and simply passing the column
 values do not produce pretty results. The first thing to look at is the
-values that are passed to \texttt{linewidth}. In some cases the min and
+values that are passed to \texttt{linewidth}. In some cases, the min and
 max values, as well as their distribution, are not ideal for visually
 conveying the magnitude of the variable attached to the geometry. One
 option is to use a multiplier factor (see below), or to rescale the
@@ -4450,8 +4602,8 @@ multiplier.
 
 While this looks a bit better, this visualisation is not ideal because
 the frequencies are not snapped to the actual railway network. The lines
-represent instead connection between train stops and therefore their
-coordinatse only include the ones corresponding to the stations where
+represent, instead, connection between train stops and therefore their
+coordinates only include the ones corresponding to the stations where
 the different services call at. One can devise approaches to:
 
 \begin{itemize}
@@ -4460,7 +4612,7 @@ the different services call at. One can devise approaches to:
   Assigning the frequencies, or any other value, to the corresponding
   infrastructure's section. For example, the railway section between two
   stations could be associated with a value representing the total
-  number of REG services along it.
+  number of regional/local services travelling along it.
 \item
   Smoothing the lines representing the services by adding further
   coordinates along the line.
@@ -4472,20 +4624,21 @@ information one wants to displays.
 
 \textbf{Exercise}:
 
-Today we've seen how to exploit matplotlib to plot GeoDataFrame. Go
-through the notebook again if you feel that there's something you need
-to review. You are not expected to remember each step/method/parameter.
-Rather, this notebook should be used as a reference from producing maps
-in python. Do keep in mind that most of the maps above have been
-produced with just a bunch of rows, so each of them can be improved and
-embellished with some more effort.
+Today we've seen how to exploit \texttt{matplotlib} to plot
+\texttt{GeoDataFrame} layers. Go through the notebook again if you feel
+that there's something you need to review. You are not expected to
+remember each step/method/parameter. Rather, this notebook should be
+used as a reference for producing maps in Python. Do keep in mind that
+most of the maps above have been produced with just a bunch of rows, so
+each of them can be improved and embellished with some more effort.
 
 Now, if you are not overwhelmed, have a look at the very last map and
 produce some nice visualisation using the same data. You can further
-improve it clarity, add a legend that refers to the line width,
-visualise only a certain type of service, or add information/context,
-for example. In the folder `\data' you can also find a shapefile
-containing all the train stations in Italy, should you need that.
+improve its clarity, add a legend that refers to the line width,
+visualise only a certain type of services, or add information/context,
+for example. In the folder \texttt{\textbackslash{}data} you can also
+find a \texttt{.shp} file containing all the train stations in Italy,
+should you need that.
 
 \subsubsection{\texorpdfstring{Saving figures (check
 \href{https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html}{here
@@ -4858,7 +5011,7 @@ We can also explore correlations between variables. Let's use
 
 \textbf{Exercise}:
 
-In pairs, modify the state, vairables and year parameters following the
+In pairs, modify the state, variables and year parameters following the
 approach adopted above and produce some other simple scatter plots
 (cloud of points) that suggest correlations between your variables of
 interest.
@@ -4877,7 +5030,7 @@ into Python data structures. JSON structures are composed of key-value
 pairs, similar to Python dictionaries.
 
 In Python, to make an API request and handle the response, you would
-typically use the the \texttt{requests} library. A standard API request
+typically use the \texttt{requests} library. A standard API request
 involves sending a \texttt{GET} request to the server's URL, which
 specifies the data you wish to retrieve. For instance, to request the
 locations of all the hire bike stations in London from the
@@ -4915,8 +5068,8 @@ Most GET request URLs for API querying have three or four components:
   given API; points the server to the location of an entire database.
 \item
   Search Parameters: A character string appended to a base URL that
-  tells the server what to extract from the database; basically a series
-  of filters used to point to specific parts of a database.
+  tells the server what to extract from the database; basically, a
+  series of filters used to point to specific parts of a database.
 \item
   Response Format: A character string indicating how the response should
   be formatted; usually one of .csv, .json, or .xml.
@@ -5171,7 +5324,7 @@ answers}}{Group activity answers}}\label{group-activity-answers}
   files written in \texttt{HTML}. Suppose, for instance, I wanted to
   look something up on Wikipedia. Your first step would be to open your
   web browser and type in http://www.wikipedia.org. Once you hit return,
-  you would see the page below. Several different processes occured,
+  you would see the page below. Several different processes occurred,
   however, between you hitting ``return'' and the page finally being
   rendered:
 
@@ -5192,8 +5345,8 @@ answers}}{Group activity answers}}\label{group-activity-answers}
     browser, rendering the page as seen in the window.
   \item
     Most APIs requires a key or other user credentials before you can
-    query their database. Getting credentialised with a API requires
-    that you register with the organization. Once you have successfully
+    query their database. Getting credentials for an API requires that
+    you register with the organization. Once you have successfully
     registered, you will be assigned one or more keys, tokens, or other
     credentials that must be supplied to the server as part of any API
     call you make. To make sure users are not abusing their data access
@@ -5288,7 +5441,7 @@ files:
   A polygon of what you consider to be the boundary of the neighbourhood
   where you live and the city centre of Liverpool. Name each.
 \item
-  A route that captures one of your favorite walks around the Liverpool
+  A route that captures one of your favourite walks around the Liverpool
   region
 \end{enumerate}
 
@@ -5299,7 +5452,7 @@ them with peers.
 
 With the files from the exercise at hand, we will learn how to open them
 in a Python environment. Then, let's begin by importing the necessary
-libraries; \texttt{geojson}is used for handling GeoJSON files.
+libraries; \texttt{geojson} is used for handling GeoJSON files.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5307,8 +5460,8 @@ libraries; \texttt{geojson}is used for handling GeoJSON files.
 \end{Highlighting}
 \end{Shaded}
 
-Now, place the .geojson files you have created in the data folder used
-in these sessions. As always, the data folder should be stored in the
+Now, place the geojson files you have created in the data folder used in
+these sessions. As always, the data folder should be stored in the
 directory where the notebook is running from. For this example, we will
 assume that the file is called \texttt{map.geojson}. We can read the
 file as:
@@ -5439,7 +5592,7 @@ Then, register for a MapBox account
 \subsection{Optional: Generating .mbtiles in
 Python}\label{optional-generating-.mbtiles-in-python}
 
-In Python, you can use \texttt{togeojsontiles} to make a dynamic
+In Python, you can use \texttt{togeojsontiles} to make dynamic
 \texttt{.mbtiles} files. This is useful to visualize large data
 appropriately at any zoom level. \textbf{This step cannot be ran on
 University Machines} It requires the installation of \texttt{tippecanoe}
@@ -5545,8 +5698,8 @@ Or through \emph{scripting} with Mapbox's Uploads API (see above)
 \subsection{\texorpdfstring{Visualizing the Tiles with
 \texttt{Folium}:}{Visualizing the Tiles with Folium:}}\label{visualizing-the-tiles-with-folium}
 
-First we need to get the \texttt{id} of your Mapbox style by copying its
-url:
+First, we need to get the \texttt{id} of your Mapbox style by copying
+its url:
 
 \emph{url example}:
 \url{mapbox://styles/gabrif/clrpby9lc00a501pecacz8b7h}
@@ -5602,7 +5755,7 @@ features, or otherwise query information about them. Interactive content
 in web pages, such as online maps, are typically implemented using
 \href{https://en.wikipedia.org/wiki/ECMAScript}{\emph{JavaScript}/\emph{ECMAScript}},
 a scripting language originally targeted at web pages, primarily, but
-used for many otherapplications.
+used for many other applications.
 
 In the open source realm, there exists a number of different
 \emph{JavaScript} libraries for interactive web cartography, including
@@ -5716,14 +5869,15 @@ adding basemaps to our static maps in the 2nd session, rely on built-in
 tilesets borrowed from the
 \href{https://github.com/geopandas/xyzservices}{\texttt{xyzservices}}
 package. The XYZ protocol exposes maps as images for portions of the
-Earth we will call tiles. The XYZ name stands from the ``coordinates''
-used to locate a given tile. This of the entire planet split up into
-squares, each of them available with a unique combination of X and Y
-numbers. Now add a third one (Z) for the zoom level: lower values use
-less tiles to cover the world, while higher resolution levels (higher Z)
-will cover progressively smaller areas, but with more detail. Most XYZ
-APIs expose tiles directly over HTTP, which means we can access them
-from the browser.he attr keyword.
+Earth, which we refer to as `tiles.' The term `XYZ' originates from the
+coordinates used to locate a specific tile. Think of the entire planet
+divided into squares, each identified by a unique combination of X and Y
+numbers. Now, add a third component (Z) for the zoom level: lower values
+use fewer tiles to cover the world, while higher zoom levels (higher Z)
+provide progressively smaller areas with more detail. Most XYZ APIs
+serve tiles directly over HTTP, enabling us to access them from the
+browser. In a nuthesell, XYZ Tiles is a method of expressing map tile
+mosaics, indexed by (x,y) offsets and zoom levels (z).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -11671,7 +11825,8 @@ scheme. Then we pass these colors to the same features in the
 transparent. Finally, as before, we add a \texttt{tooltip} and a
 \texttt{popup}.
 
-The popup appears when the polygon is clicked but
+The popup appears when the polygon is clicked but this aspect can be
+personalised too.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -12047,9 +12202,9 @@ Let's define again a styling function for our lines.
 \end{verbatim}
 
 \textbf{Exercise}: Look at the documentation for one of the APIs that we
-discussed last week (see the notebook of the practical session). - Think
-of 2 ideas of web maps you could construct from your chosen API/data. -
-Think about the basemap and data you would plot on top.
+discussed last week. - Think of 2 ideas of web maps you could construct
+from your chosen API/data. - Think about the basemap and the data you
+would plot on top.
 
 \emph{Folium} is just one of many packages that provide an easy way to
 create interactive maps using data stored in (geo-)pandas
@@ -12067,8 +12222,8 @@ create interactive maps using data stored in (geo-)pandas
   \href{https://deckgl.readthedocs.io/en/latest/}{pydeck}.
 \end{itemize}
 
-Neverthess, Folium allows for a huge degree of personalisation and it's
-worth exploring further its
+Nevertheless, Folium allows for a huge degree of personalisation and
+it's worth exploring further its
 \href{https://python-visualization.github.io/folium/latest/reference.html}{documentation}.
 
 \bookmarksetup{startatroot}
@@ -12101,7 +12256,7 @@ global effort to collect free and open geodata. \emph{Source:
 OpenStreetMap (OSM) is a global collaborative (crowd-sourced) database
 and project that aims at creating a free editable map of the world
 containing of information about our environment. It contains data about
-streets, buildings,different services, and landuse, to mention just a
+streets, buildings, different services, and landuse, to mention just a
 few.
 
 OSM has more than 8 million registered users who contribute around 4
@@ -12235,7 +12390,7 @@ place name query, OSMnx uses the Nominatim Geocoding API. This means
 that place names should exist in the OpenStreetMap database (run a test
 search at \href{https://www.openstreetmap.org/}{openstreetmap.org} or
 \href{https://nominatim.openstreetmap.org/ui/search.html}{nominatim.openstreetmap.org}).
-\texttt{OSMnx}, amongst its several functionalities, lets you analyise,
+\texttt{OSMnx}, amongst its several functionalities, lets you analyse,
 plot, and export the network in different file formats. The downloaded
 street networks are by default \textbf{directed} and preserve one-way
 directionality. For a more in-depth demonstration of creating street
@@ -12243,7 +12398,7 @@ networks, see \href{03-graph-place-queries.ipynb}{this notebook}.
 
 You can download a street network by providing OSMnx any of the
 following (demonstrated in the examples below): - a bounding box - a
-lat-long point plus a distance - an address plus a distance - a place
+lat-lon point plus a distance - an address plus a distance - a place
 name or list of place names (to automatically geocode and get the
 boundary of) - a polygon of the desired street network's boundaries - a
 .osm formatted xml file
@@ -12280,9 +12435,9 @@ follows the procedures and methods discussed in session II.
 
 \includegraphics{labs/w07_OSM_files/figure-pdf/cell-6-output-1.png}
 
-\subsubsection{Method \#2: Passing a lat-lng point and bounding box
+\subsubsection{Method \#2: Passing a lat-lon point and bounding box
 distance in
-meters}\label{method-2-passing-a-lat-lng-point-and-bounding-box-distance-in-meters}
+meters}\label{method-2-passing-a-lat-lon-point-and-bounding-box-distance-in-meters}
 
 This creates a bounding box \emph{n} meters North, South, East, and West
 of the point, then constructs the network from all the OSM nodes and
@@ -12301,9 +12456,9 @@ useful tool for defining bboxes}
 
 \includegraphics{labs/w07_OSM_files/figure-pdf/cell-7-output-1.png}
 
-\subsubsection{\texorpdfstring{Method \#3: Passing a lat-lng point and
+\subsubsection{\texorpdfstring{Method \#3: Passing a lat-lon point and
 \emph{network} distance in
-meters}{Method \#3: Passing a lat-lng point and network distance in meters}}\label{method-3-passing-a-lat-lng-point-and-network-distance-in-meters}
+meters}{Method \#3: Passing a lat-lon point and network distance in meters}}\label{method-3-passing-a-lat-lon-point-and-network-distance-in-meters}
 
 This creates a bounding box \emph{n} meters North, South, East, and West
 of the point, then constructs the network from all the OSM nodes and
@@ -12333,8 +12488,8 @@ can specify
 \texttt{network\_type=\textquotesingle{}walk\textquotesingle{}} to build
 a street network only of paths that walking is allowed on. This also
 makes every path bi-directional in the directed network, because you can
-walk in either direction on the sidewalk of a one-way street. Thus, the
-750m now takes into account those nodes you can reach within 750m while
+walk in either direction on the sidewalk of a one-way street. The 750m
+now takes into account those nodes you can reach within 750m while
 traveling in either direction (even if it's a one-way street).
 
 \begin{Shaded}
@@ -12564,9 +12719,9 @@ that overlap, whereas the former checks the topology of the overlapping
 node buffers before merging them. This prevents topologically remote but
 spatially proximate nodes from being merged. For example: - A street
 intersection may lie directly below a freeway overpass's intersection
-with an on-ramp. We would not want to merge these together and connnect
+with an on-ramp. We would not want to merge these together and connect
 their edges: they are distinct junctions in the system of roads. - In a
-residential neighborhood, a bollarded street may create a dead-end
+residential neighbourhood, a bollarded street may create a dead-end
 immediately next to an intersection or traffic circle. We would not want
 to merge this dead-end with the intersection and connect their edges.
 
@@ -12582,13 +12737,13 @@ Classes}\label{from-osmnx-to-networkx-and-geopandas-classes}
 
 Now, we have seen how to use some basic \texttt{osmnx} functions to
 obtain a graph representation of the street network. While this is
-simple and strightforward, I advise working on the street network
+simple and straightforward, I advise working on the street network
 represented as \texttt{geopandas.GeoDataFrame}s and \texttt{networkx}
 graphs. While at the beginning this may be more tedious, it also gives
-us much more control, both in terms of visualisation anad analysis
-depth. Before proceeding, it is important to keep in mind what type of
-graphs can be modelled through OSMNx and NetworkX, and what that means
-for the infrastructure we are modelling.
+us much more control, both in terms of visualisation and analysis depth.
+Before proceeding, it is important to keep in mind what type of graphs
+can be modelled through OSMNx and NetworkX, and what that means for the
+infrastructure we are modelling.
 
 Have a look at NetworkX
 \href{https://networkx.org/documentation/stable/reference/classes/index.html}{documentation}
@@ -12614,7 +12769,7 @@ for details.
 
 \includegraphics{labs/w07_OSM_files/figure-pdf/cell-22-output-1.png}
 
-We can visualise major roads on top of the stree network:
+We can visualise major roads on top of the street network:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -12690,7 +12845,7 @@ As you can see an edge's index is a \texttt{MultiIndex} given by
 \texttt{key}, on the other hand, indicates whether more than one edge
 links \texttt{u} and \texttt{v}. When a pair of \texttt{u} and
 \texttt{v} nodes have more then one edge, every other edge will have an
-incrimental \texttt{key} value (the second one 1, the third one 2, etc.,
+incremental \texttt{key} value (the second one 1, the third one 2, etc.,
 very rare that there are more than two edges per pair of nodes). This
 means that we are dealing with a \texttt{MultiGraph} representation of
 the street network. In other words, we have two street segments
@@ -12727,7 +12882,7 @@ verify whether we are working with bidirectional edges.
 Copying the nodes' attributes (this step is not particularly essential
 unless we need some information associated with the nodes that we want
 to use when executing \texttt{networkx} methods). Anything else we can
-rely on the informaiton that is in the \texttt{GeoDataFrame}.
+rely on the information that is in the \texttt{GeoDataFrame}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -12776,10 +12931,10 @@ This is a very rough approach.
 \end{Shaded}
 
 Then, we copy the attributes with the same approach used before,
-although, this time, withouth adding the \texttt{key} value to the
-edges. The function \texttt{add\_edge}of the class the \texttt{graph}
-does not take the \texttt{key} argument as there could be only one edge
-between two nodes.
+although, this time, without adding the \texttt{key} value to the edges.
+The function \texttt{add\_edge} of the class the \texttt{graph} does not
+take the \texttt{key} argument as there could be only one edge between
+two nodes.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -12841,7 +12996,7 @@ based on the purposes of the user.
 \end{Highlighting}
 \end{Shaded}
 
-\texttt{shortest\_path}, the simplest function for computing shortes
+\texttt{shortest\_path}, the simplest function for computing shortest
 paths in \texttt{networkx}, returns the list of nodes traversed by the
 path, including the origin and the destination nodes. We have to
 transform the sequence of nodes into a sequence of edges to get the
@@ -12893,11 +13048,11 @@ And then we can plot the route.
 \textbf{Exercise}:
 
 Compute different shortest paths between a node (1) of your choice and a
-set of 20 other random nodes, for a ciclyst, a driver, and a walker.
-Visualise and compare the results. In order to differentiate the users,
-you are expected to consider their travelling speed, in relation to the
-speed limit of the edges. Consider that, at least for the driver, you
-may want to do that in a \texttt{MultiDiGraph}.
+set of 20 other random nodes, for a driver and a walker. Visualise and
+compare the results. In order to differentiate the users, you are
+expected to consider their travelling speeds, in relation to the speed
+limit of the edges. Consider that, at least for the driver, you may want
+to do that in a \texttt{MultiDiGraph}.
 
 You can use as case-study one of the graphs used above for Siracusa
 (Italy) or Sarajevo (Bosnia). Otherwise, just pick a city you like.
@@ -12916,7 +13071,7 @@ custom ways filter to be used instead of the network\_type presets e.g.,
 \texttt{{[}“highway”\textasciitilde{}”motorway\textbar{}trunk”{]}}.
 
 This method does not work with bus services, since they are not stored
-in OpenStreetMapData as Links but rather relations. See
+in OpenStreetMap Data as Links but rather relations. See
 \href{https://wiki.openstreetmap.org/wiki/Buses}{here} for more info.
 
 \begin{Shaded}

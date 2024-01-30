@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriele Filomena">
-<meta name="dcterms.date" content="2024-01-29">
+<meta name="dcterms.date" content="2024-01-30">
 
 <title>Web Mapping and Geovisualisation - 1&nbsp; Introduction &amp; Python Refresher</title>
 <style>
@@ -67,7 +67,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../labs/w02_maps.html" rel="next">
-<link href="../general/pythonwin.html" rel="prev">
+<link href="../general/setup.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -176,8 +176,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../general/pythonwin.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Set up Miniconda (and Python) in Windows</span></a>
+  <a href="../general/setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Setting up the Working Environment</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -230,6 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#paired-activity" id="toc-paired-activity" class="nav-link" data-scroll-target="#paired-activity"><span class="header-section-number">1.1.1</span> Paired Activity</a></li>
   <li><a href="#class-discussion" id="toc-class-discussion" class="nav-link" data-scroll-target="#class-discussion"><span class="header-section-number">1.1.2</span> Class discussion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">1.1.3</span> References</a></li>
   </ul></li>
   <li><a href="#part-ii-pythonpandas-refresher" id="toc-part-ii-pythonpandas-refresher" class="nav-link" data-scroll-target="#part-ii-pythonpandas-refresher"><span class="header-section-number">1.2</span> Part II: Python/Pandas (Refresher)</a>
   <ul class="collapse">
@@ -284,7 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 29, 2024</p>
+      <p class="date">January 30, 2024</p>
     </div>
   </div>
   
@@ -360,14 +361,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>What design elements do they rely on?</li>
 <li>What technology do they use?</li>
 </ol>
-<section id="references" class="level4" data-number="1.1.2.1">
-<h4 data-number="1.1.2.1" class="anchored" data-anchor-id="references"><span class="header-section-number">1.1.2.1</span> References</h4>
+</section>
+<section id="references" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="references"><span class="header-section-number">1.1.3</span> References</h3>
 <ul>
 <li>For an excellent coverage of “visualisation literacy”, Chapter 11 of Andy Kirk’s <a href="https://www.visualisingdata.com/book/">“Data Visualisation”</a> is a great start. Lab: Getting up to speed for web mapping</li>
 <li>A comprehensive overview of computational notebooks and how they relate to modern scientific work is available on <a href="https://geographicdata.science/book/notebooks/01_geo_thinking.html">Ch.1 of the GDS book</a>.</li>
 <li>A recent overview of notebooks in Geography is available in <a href="https://gistbok.ucgis.org/bok-topics/gis-and-computational-notebooks">Boeing &amp; Arribas-Bel (2021)</a></li>
 </ul>
-</section>
 </section>
 </section>
 <section id="part-ii-pythonpandas-refresher" class="level2" data-number="1.2">
@@ -3378,7 +3379,7 @@ Length: 177, dtype: float64</code></pre>
 <p><img src="../labs_img/simple_features_3_text.svg" width="70%"></p>
 <ul>
 <li><strong>Point</strong> data: represents a single point in space.</li>
-<li><strong>Line</strong> data (“LineString”): represents a sequence of points that form a line.</li>
+<li><strong>Line</strong> data (“LineString”): represented as a sequence of points that form a line.</li>
 <li><strong>Polygon</strong> data: represents a filled area.</li>
 </ul>
 <p>And each of them can also be combined in multi-part geometries (See https://shapely.readthedocs.io/en/stable/manual.html#geometric-objects for extensive overview).</p>
@@ -3608,7 +3609,7 @@ Length: 177, dtype: float64</code></pre>
 <p>Both datasets are provided as spatial datasets using a GIS file format.</p>
 <div class="alert alert-success">
 <p><strong>Excercise 1</strong>:</p>
-<p>We will start with exploring the bicycle station dataset (available as a GeoPackage file: <code>data/paris_bike_stations_mercator.gpkg</code>)</p>
+<p>We will start by exploring the bicycle station dataset (available as a GeoPackage file: <code>data/paris_bike_stations_mercator.gpkg</code>)</p>
 <ul>
 <li>Read the stations datasets into a GeoDataFrame called <code>stations</code>.</li>
 <li>Check the type of the returned object</li>
@@ -3635,7 +3636,7 @@ Hints
 </div>
 <div class="alert alert-success">
 <p><strong>Exercise 3</strong>:</p>
-<p>Next, we will explore the dataset on the administrative districts of Paris (available as a GeoJSON file: “../data/paris_districts_utm.geojson”)</p>
+<p>Next, we will explore the dataset on the administrative districts of Paris (available as a GeoJSON file: <code>../data/paris_districts_utm.geojson</code>)</p>
 <ul>
 <li>Read the dataset into a GeoDataFrame called <code>districts</code>.</li>
 <li>Check the first rows of the dataframe. What kind of geometries does this dataset contain?</li>
@@ -3649,7 +3650,7 @@ Hints
 <ul>
 <li>Calculate the area of each district.</li>
 <li>Add this area as a new column to the <code>districts</code> dataframe.</li>
-<li>Sort the dataframe by this area column for largest to smallest values (descending).</li>
+<li>Sort the dataframe by the area column from largest to smallest values (descending).</li>
 </ul>
 <details>
 <summary>
@@ -3785,7 +3786,7 @@ Datum: World Geodetic System 1984 ensemble
 </ul>
 <div class="alert alert-info" style="font-size:120%">
 <p><strong>Important:</strong></p>
-<p>All the calculations (e.g.&nbsp;distance, spatial operations, etc.) that happen in <code>GeoPandas</code> and <code>Shapely</code> assume that your data is in a 2D cartesian plane, and thus the result of those calculations will only be correct if your data is properly projected.</p>
+<p>All the calculations (e.g.&nbsp;distance, spatial operations, etc.) that take place in <code>GeoPandas</code> and <code>Shapely</code> assume that your data is represented in a 2D cartesian plane, and thus the result of those calculations will only be correct if your data is properly projected.</p>
 </div>
 </section>
 </section>
@@ -3794,7 +3795,7 @@ Datum: World Geodetic System 1984 ensemble
 <h2 data-number="2.2" class="anchored" data-anchor-id="practice-1"><span class="header-section-number">2.2</span> Practice</h2>
 <p>Again, we will go back to the Paris datasets. Up to now, we provided the datasets in an appropriate projected CRS for the exercises. But the original data were actually using geographic coordinates. In the following exercises, we will start from there.</p>
 <p>Going back to the Paris districts dataset, this is now provided as a GeoJSON file (<code>"../data/paris_districts.geojson"</code>) in geographic coordinates.</p>
-<p>For converting to projected coordinates, we will use the standard projected CRS for France is the RGF93 / Lambert-93 reference system, referenced by the <code>EPSG:2154</code> number.</p>
+<p>For converting the layer to projected coordinates, we will use the standard projected CRS for France is the RGF93 / Lambert-93 reference system, referenced by the <code>EPSG:2154</code> number.</p>
 <div class="alert alert-success">
 <p><strong>Exercise: Projecting a GeoDataFrame</strong></p>
 <ul>
@@ -4212,8 +4213,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../general/pythonwin.html" class="pagination-link  aria-label=" set="" up="" miniconda="" (and="" python)="" in="" windows"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Set up Miniconda (and Python) in Windows</span>
+      <a href="../general/setup.html" class="pagination-link  aria-label=" setting="" up="" the="" working="" environment"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Setting up the Working Environment</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

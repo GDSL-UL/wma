@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Elisabetta Pietrostefani and Gabriele Filomena">
-<meta name="dcterms.date" content="2024-01-29">
+<meta name="dcterms.date" content="2024-01-30">
 
 <title>Web Mapping and Geovisualisation - 4&nbsp; Data Architectures and Tiles</title>
 <style>
@@ -176,8 +176,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../general/pythonwin.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Set up Miniconda (and Python) in Windows</span></a>
+  <a href="../general/setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Setting up the Working Environment</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -261,7 +261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 29, 2024</p>
+      <p class="date">January 30, 2024</p>
     </div>
   </div>
   
@@ -294,17 +294,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li>Your five favourite spots in Liverpool</li>
 <li>A polygon of what you consider to be the boundary of the neighbourhood where you live and the city centre of Liverpool. Name each.</li>
-<li>A route that captures one of your favorite walks around the Liverpool region</li>
+<li>A route that captures one of your favourite walks around the Liverpool region</li>
 </ol>
 <p>If you are comfortable, upload the files to Microsoft Teams to share them with peers.</p>
 </div>
 <section id="geojson-in-python" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="geojson-in-python"><span class="header-section-number">4.1.1</span> GeoJSON in Python</h3>
-<p>With the files from the exercise at hand, we will learn how to open them in a Python environment. Then, let’s begin by importing the necessary libraries; <code>geojson</code>is used for handling GeoJSON files.</p>
+<p>With the files from the exercise at hand, we will learn how to open them in a Python environment. Then, let’s begin by importing the necessary libraries; <code>geojson</code> is used for handling GeoJSON files.</p>
 <div id="9a74b752" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now, place the .geojson files you have created in the data folder used in these sessions. As always, the data folder should be stored in the directory where the notebook is running from. For this example, we will assume that the file is called <code>map.geojson</code>. We can read the file as:</p>
+<p>Now, place the geojson files you have created in the data folder used in these sessions. As always, the data folder should be stored in the directory where the notebook is running from. For this example, we will assume that the file is called <code>map.geojson</code>. We can read the file as:</p>
 <div id="a76fbf57" class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>liverpool <span class="op">=</span> gpd.read_file(<span class="st">"../data/map.geojson"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>liverpool.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -380,7 +380,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Then, register for a MapBox account <a href="https://account.mapbox.com/auth/signup/?route-to=%22https%3A%2F%2Faccount.mapbox.com%2Faccess-tokens%2F%22">here</a>.</p>
 <section id="optional-generating-.mbtiles-in-python" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="optional-generating-.mbtiles-in-python"><span class="header-section-number">4.2.1</span> Optional: Generating .mbtiles in Python</h3>
-<p>In Python, you can use <code>togeojsontiles</code> to make a dynamic <code>.mbtiles</code> files. This is useful to visualize large data appropriately at any zoom level. <strong>This step cannot be ran on University Machines</strong> It requires the installation of <code>tippecanoe</code> on your machine. Follow the corresponding instructions for <a href="https://gist.github.com/ryanbaumann/e5c7d76f6eeb8598e66c5785b677726e">Windows</a> and for <a href="https://github.com/mapbox/tippecanoe">MAC</a></p>
+<p>In Python, you can use <code>togeojsontiles</code> to make dynamic <code>.mbtiles</code> files. This is useful to visualize large data appropriately at any zoom level. <strong>This step cannot be ran on University Machines</strong> It requires the installation of <code>tippecanoe</code> on your machine. Follow the corresponding instructions for <a href="https://gist.github.com/ryanbaumann/e5c7d76f6eeb8598e66c5785b677726e">Windows</a> and for <a href="https://github.com/mapbox/tippecanoe">MAC</a></p>
 <div id="da5e2d99-db77-437c-b116-51a617c56a10" class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pip install togeojsontiles</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> togeojsontiles <span class="im">import</span> geojson_to_mbtiles</span>
@@ -453,7 +453,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="visualizing-the-tiles-with-folium" class="level3" data-number="4.2.3">
 <h3 data-number="4.2.3" class="anchored" data-anchor-id="visualizing-the-tiles-with-folium"><span class="header-section-number">4.2.3</span> Visualizing the Tiles with <code>Folium</code>:</h3>
-<p>First we need to get the <code>id</code> of your Mapbox style by copying its url:</p>
+<p>First, we need to get the <code>id</code> of your Mapbox style by copying its url:</p>
 <p><img src="../labs_img/mapbox_styleid.png" width="80%"></p>
 <p><em>url example</em>: <a href="mapbox://styles/gabrif/clrpby9lc00a501pecacz8b7h">mapbox://styles/gabrif/clrpby9lc00a501pecacz8b7h</a></p>
 <p>the <code>style_id</code> is the last section of the URL, in this case <code>clrpby9lc00a501pecacz8b7h</code></p>

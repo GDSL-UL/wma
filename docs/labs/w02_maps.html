@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriele Filomena">
-<meta name="dcterms.date" content="2024-01-29">
+<meta name="dcterms.date" content="2024-01-30">
 
 <title>Web Mapping and Geovisualisation - 2&nbsp; Static Maps in Python</title>
 <style>
@@ -176,8 +176,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../general/pythonwin.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Set up Miniconda (and Python) in Windows</span></a>
+  <a href="../general/setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Setting up the Working Environment</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -239,7 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#choropleth-maps-for-numerical-variables" id="toc-choropleth-maps-for-numerical-variables" class="nav-link" data-scroll-target="#choropleth-maps-for-numerical-variables"><span class="header-section-number">2.2.1</span> Choropleth Maps for Numerical Variables</a></li>
   <li><a href="#choropleth-maps-for-categorical-variables" id="toc-choropleth-maps-for-categorical-variables" class="nav-link" data-scroll-target="#choropleth-maps-for-categorical-variables"><span class="header-section-number">2.2.2</span> Choropleth Maps for Categorical Variables</a></li>
   </ul></li>
-  <li><a href="#part-iii-cartograms---manipulating-the-geometry-size-for-showing-the-magitude-of-a-value" id="toc-part-iii-cartograms---manipulating-the-geometry-size-for-showing-the-magitude-of-a-value" class="nav-link" data-scroll-target="#part-iii-cartograms---manipulating-the-geometry-size-for-showing-the-magitude-of-a-value"><span class="header-section-number">2.3</span> Part III: Cartograms - Manipulating the Geometry size for showing the magitude of a value</a>
+  <li><a href="#part-iii-cartograms---manipulating-the-geometry-size-for-showing-the-magnitude-of-a-value" id="toc-part-iii-cartograms---manipulating-the-geometry-size-for-showing-the-magnitude-of-a-value" class="nav-link" data-scroll-target="#part-iii-cartograms---manipulating-the-geometry-size-for-showing-the-magnitude-of-a-value"><span class="header-section-number">2.3</span> Part III: Cartograms - Manipulating the Geometry size for showing the magnitude of a value</a>
   <ul class="collapse">
   <li><a href="#polygons" id="toc-polygons" class="nav-link" data-scroll-target="#polygons"><span class="header-section-number">2.3.1</span> Polygons</a></li>
   <li><a href="#points" id="toc-points" class="nav-link" data-scroll-target="#points"><span class="header-section-number">2.3.2</span> Points</a></li>
@@ -270,7 +270,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 29, 2024</p>
+      <p class="date">January 30, 2024</p>
     </div>
   </div>
   
@@ -641,8 +641,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Think about the plots above and how they could be improved.</li>
 <li>Copy and paste the code and execute the functions playing with the different parameters.</li>
-<li>Produce a neat map using the GeoDataFrames avaible in this notebook or the ones employed in the previous sessions, making use of the elements/parameters discussed here.</li>
-<li>Try out different tiles for the basemap to familiarise yourself with what’s aveilable.</li>
+<li>Produce a neat map using the <code>GeoDataFrame</code>s available in this notebook or the ones employed in the previous sessions, making use of the elements/parameters discussed here.</li>
+<li>Try out different tiles for the basemap to familiarise yourself with what’s available.</li>
 </ul>
 </div>
 </section>
@@ -715,15 +715,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="choropleth-maps-for-numerical-variables" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="choropleth-maps-for-numerical-variables"><span class="header-section-number">2.2.1</span> Choropleth Maps for Numerical Variables</h3>
-<p>We are essentialy using the same approach emplyed for creating basic maps, the method <code>plot</code>, but we now need to pass arguments to some new parameters to specify which column is to be represented and how. As an optional argument, one can set legend to <code>True</code> and the resulting figure will include a color bar.</p>
+<p>We are essentially using the same approach employed for creating basic maps, the method <code>plot</code>, but we now need to pass arguments to some new parameters to specify which column is to be represented and how. As an optional argument, one can set legend to <code>True</code> and the resulting figure will include a colour bar.</p>
 <ul>
-<li><code>column</code>: the name of the column representing the variable that we want to used to colour-code our shapes.</li>
-<li><code>scheme</code>: the scheme used to color the shapes based on the variable values.</li>
+<li><code>column</code>: the name of the column representing the variable that we want to use to colour-code our shapes.</li>
+<li><code>scheme</code>: the scheme used to colour the shapes based on the variable values.</li>
 <li><code>cmap</code>: the colormap used to show variation.</li>
 </ul>
 <section id="colormaps" class="level4" data-number="2.2.1.1">
 <h4 data-number="2.2.1.1" class="anchored" data-anchor-id="colormaps"><span class="header-section-number">2.2.1.1</span> Colormaps</h4>
-<p>Built-in color maps can be found here https://matplotlib.org/stable/gallery/color/colormap_reference.html. However one can create new ones as follows from a list of colours:</p>
+<p>Built-in colour maps can be found here https://matplotlib.org/stable/gallery/color/colormap_reference.html. However one can create new ones as follows from a list of colours:</p>
 <div id="ddd0affc" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> seaborn <span class="im">import</span> palplot</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.colors <span class="im">import</span> LinearSegmentedColormap</span>
@@ -744,7 +744,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="e9d7b935" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>kindlmann <span class="op">=</span> LinearSegmentedColormap.from_list(<span class="st">'kindlmann'</span>, colors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>or from color names:</p>
+<p>or from colour names:</p>
 <div id="8328e5d7" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> [<span class="st">"white"</span>, <span class="st">"yellow"</span>, <span class="st">"red"</span>]</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>palplot(colors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -779,13 +779,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>With <code>GeoPandas</code>, when you use the <code>plot</code> method with <code>legend=True</code> the type of legend that appears depends on the data being visualized:</p>
 <ul>
-<li>Continuous Data: For columns with continuous data (like population estimates, temperatures, etc.), a color bar is generated as the legend. This color bar represents a range of values with a gradient, indicating how data values correspond to colors on the map.</li>
-<li>Categorical Data: For columns with categorical data (like country names, types of land use, etc.), if you specify <code>legend=True</code>, <code>GeoPandas</code> will try to create a legend that categorizes these distinct values with different colors. However, creating legends for categorical data is not as straightforward as with continuous data and might require additional handling for a clear and informative legend (see below).</li>
+<li>Continuous Data: For columns with continuous data (like population estimates, temperatures, etc.), a colour bar is generated as the legend. This color bar represents a range of values with a gradient, indicating how data values correspond to colours on the map.</li>
+<li>Categorical Data: For columns with categorical data (like country names, types of land use, etc.), if you specify <code>legend=True</code>, <code>GeoPandas</code> will try to create a legend that categorizes these distinct values with different colours. However, creating legends for categorical data is not as straightforward as with continuous data and might require additional handling for a clear and informative legend (see below).</li>
 </ul>
 </section>
 <section id="scheme" class="level4" data-number="2.2.1.2">
 <h4 data-number="2.2.1.2" class="anchored" data-anchor-id="scheme"><span class="header-section-number">2.2.1.2</span> Scheme</h4>
-<p>It is important to keep in mind that choropleth maps strongly depend on the scheme that it is passed (or the dafult one) to classify the data in groups. The plot above only shows one municipality cooloured in dark blue.</p>
+<p>It is important to keep in mind that choropleth maps strongly depend on the scheme that it is passed (or the default one) to classify the data in groups. The plot above only shows one municipality coloured in dark blue.</p>
 <p>Look at the following plots and how three different classifiers produce different results for the same data.</p>
 <p>Refer to https://geopandas.org/en/stable/gallery/choropleths.html and https://geographicdata.science/book/notebooks/05_choropleth.html for further details</p>
 <div id="40926603" class="cell" data-execution_count="33">
@@ -825,11 +825,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb41-34"><a href="#cb41-34" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li><em>Equal intervals</em> splits the range of the distribution, the difference between the minimum and maximum value, into equally large segments and to assign a different color to each of them according to a palette that reflects the fact that values are ordered.</li>
+<li>The <em>Equal intervals</em> method splits the range of the distribution, the difference between the minimum and maximum value, into equally large segments and to assign a different colour to each of them according to a palette that reflects the fact that values are ordered.</li>
 <li>To obtain a more balanced classification, one can use the <em>Quantiles</em> scheme. This assigns the same amount of values to each bin: the entire series is laid out in order and break points are assigned in a way that leaves exactly the same amount of observations between each of them. This “observation-based” approach contrasts with the “value-based” method of equal intervals and, although it can obscure the magnitude of extreme values, it can be more informative in cases with skewed distributions.</li>
-<li>Amongst many other, the <em>Fisher Jenks</em> dynamically minimises the sum of the absolute deviations around class medians. The Fisher-Jenks alorithm is guaranteed to produce an optimal classification for a prespecified number of classes.</li>
+<li>Amongst many other, the <em>Fisher Jenks</em> dynamically minimises the sum of the absolute deviations around class medians. The Fisher-Jenks algorithm is guaranteed to produce an optimal classification for a prespecified number of classes.</li>
 </ul>
-<p>The only additional arguments to pass for producing a choropleth, therefore, are the actual variable we would like to classify and the number of segments we want to create, <code>k</code>. This is, in other words, the number of colors that will be plotted on the map so, although having several can give more detail, at some point the marginal value of an additional one is fairly limited, given the ability of teh human brain to tell any differences.</p>
+<p>The only additional arguments to pass for producing a choropleth, therefore, are the actual variable we would like to classify and the number of segments we want to create, <code>k</code>. This is, in other words, the number of colours that will be plotted on the map so, although having several can give more detail, at some point the marginal value of an additional one is fairly limited, given the ability of the human brain to tell any differences.</p>
 <div id="9e9afe3e" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>schemes <span class="op">=</span> [<span class="st">'equal_interval'</span>, <span class="st">'quantiles'</span>, <span class="st">'fisher_jenks'</span>]</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> scheme <span class="kw">in</span> schemes:</span>
@@ -942,14 +942,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>In our dataset, the city of Novi Sad is categorised as a municipality by itself, because the administrative boundaries file is not updated. In reality, “since 2002, when the new statute of the city of Novi Sad came into effect, Novi Sad is divided into two city municipalities, Petrovaradin and Novi Sad. From 1989 until 2002, the name Municipality of Novi Sad meant the whole territory of the present-day city of Novi Sad.” (see: <a href="https://en.wikipedia.org/wiki/City_municipality_of_Novi_Sad">wikipedia</a>).</p>
-<p>On the contrary, Grad Beograd, that is Belgrade, is correctly split into different municipalities and its popoulation, when visualised, is spread out across the different geometries of its municipalities, In other words, our map depends on the geometries of the areas and on how the data was collected. While it could be that these areas were indeed identified by population size in the first place, the point is that the fact that Novi Sad is not split into more areas, as Belgrade is, makes it stound out more clearly from the map (and to some extent a bit unfairly)</p>
-<p>This may happen with different types of data, particularly with administrative boundaries and it is crucial to reflect on how Choropleth maps may be impacted. One can look for more granular data or consider to weight the continous value with the texent of the are (i.e.&nbsp;obtaining density values).</p>
+<p>On the contrary, Grad Beograd, that is Belgrade, is correctly split into different municipalities and its population, when visualised, is spread out across the different geometries of its municipalities. In other words, our map depends on the geometries of the areas and on how the data was collected. While it could be that these areas were indeed identified by population size in the first place, the point is that the fact that Novi Sad is not split into more areas, as Belgrade is, makes it stound out more clearly from the map (and to some extent a bit unfairly)</p>
+<p>This may happen with different types of data, particularly with administrative boundaries and it is crucial to reflect on how Choropleth maps may be impacted. One can look for more granular data or consider to weight the continuous value with the extent of the area (i.e.&nbsp;obtaining density values).</p>
 </section>
 <section id="an-alternative-to-scheme-colormap-normalisation" class="level4" data-number="2.2.1.3">
 <h4 data-number="2.2.1.3" class="anchored" data-anchor-id="an-alternative-to-scheme-colormap-normalisation"><span class="header-section-number">2.2.1.3</span> An alternative to scheme: ColorMap Normalisation</h4>
 <p>The <code>mpl.colors.Normalize</code> function in <code>matplotlib</code> creates a normalization object, which adjusts data values into a range that is ideal for colour mapping in a colormap. This function is particularly beneficial in scenarios where precise control over the mapping of data values to colour representations is needed.</p>
 <p>When employed in a plotting function, this normalization object ensures that the data values are scaled to fit a pre-defined range (for instance, <code>norm = mpl.colors.Normalize(vmin=0, vmax=40)</code>). Any values falling below 0 are mapped to the lowest colour on the colormap scale, while values exceeding 40 are mapped to the highest colour. This approach is especially useful when aiming to highlight differences within a specific data range; it can significantly enhance the visualization of data, by, for example, emphasizing temperature variations between 0°C and 40°C. This becomes crucial in instances where a few data points with high values (e.g., 50°C) might otherwise lead to a less informative visualization if not ‘normalized’ and treated as if they corresponded to 40° C values.</p>
-<p>For our dataset, we can use as <code>vmax</code> the value corresponding to the 90th percentle.</p>
+<p>For our dataset, we can use as <code>vmax</code> the value corresponding to the 90th percentile.</p>
 <div id="3cfef5f0-b104-4a8b-828e-daa355165846" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>serbia_admin[<span class="st">'pop'</span>].quantile(<span class="fl">0.90</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
@@ -973,7 +973,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="alert alert-info" style="font-size:120%">
 <p><strong>Important</strong>: <br></p>
-<p>When passing <code>norm</code> in the <code>plot</code> method, do not pass the arguments to the <code>scheme</code> parameter. For continuous variables, <code>norm</code> maps each value directly to a color, making discrete categorization redundant. In other words, it allows for a direct mapping of data values to the color map, eliminating the need for intermediary classification schemes.<code>norm</code> ensures a smooth gradient in the color map without artificially segmenting the data.</p>
+<p>When passing <code>norm</code> in the <code>plot</code> method, do not pass the arguments to the <code>scheme</code> parameter. For continuous variables, <code>norm</code> maps each value directly to a color, making discrete categorization redundant. In other words, it allows for a direct mapping of data values to the color map, eliminating the need for intermediary classification schemes. <code>norm</code> ensures a smooth gradient in the color map without artificially segmenting the data.</p>
 </div>
 </section>
 <section id="customising-the-colorbar" class="level4" data-number="2.2.1.4">
@@ -1009,7 +1009,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="varying-alpha-transparency-based-on-an-array" class="level4" data-number="2.2.1.5">
 <h4 data-number="2.2.1.5" class="anchored" data-anchor-id="varying-alpha-transparency-based-on-an-array"><span class="header-section-number">2.2.1.5</span> Varying alpha transparency based on an array</h4>
-<p>Finally, we can also convey variation in a continuos scale through transparency. <code>alpha</code> doesn’t expect column names, so we cannot just pass the name of the column containing the variable. Instead we have to create an array from 0.0 to 1.0 values. To so we can a) use normalisation methods, or b) rescale the original values within 0 to 1 based on the original min and max values.</p>
+<p>Finally, we can also convey variation in a continuous scale through transparency. <code>alpha</code> doesn’t expect column names, so we cannot just pass the name of the column containing the variable. Instead, we have to create an array from 0.0 to 1.0 values. To so we can a) use normalisation methods, or b) rescale the original values within 0 to 1 based on the original min and max values.</p>
 <p>For example, with square root normalization:</p>
 <div id="25111239-162a-4e53-afc2-92daf3ef7c34" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Create an alpha array based on a normalized value (e.g., population)</span></span>
@@ -1059,7 +1059,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>The map above is what you would get from datasets that are not cleaned/manipulated directly or when there are too many categories in the selected column. First, let’s get a slimmer slice of the gdf that only contains attacks that cause a number of fatalies and wounded higher than 10.</p>
+<p>The map above is what you would get from datasets that are not cleaned/manipulated directly or when there are too many categories in the selected column. First, let’s get a slimmer slice of the gdf that only contains attacks that cause a number of fatalities and wounded higher than 10.</p>
 <div id="bb7aea60" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>condition <span class="op">=</span> (gdf.nkill <span class="op">+</span> gdf.nwound) <span class="op">&gt;</span> <span class="dv">10</span></span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>gdf_filtered <span class="op">=</span> gdf[condition].copy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1099,7 +1099,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div style="vertical-align: middle;"><strong>new_map</strong> </div><div class="cmap"><img alt="new_map colormap" title="new_map" style="border: 1px solid #555;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAABACAYAAABsv8+/AAAAFnRFWHRUaXRsZQBuZXdfbWFwIGNvbG9ybWFwk+4SdgAAABx0RVh0RGVzY3JpcHRpb24AbmV3X21hcCBjb2xvcm1hcDTAow8AAAAwdEVYdEF1dGhvcgBNYXRwbG90bGliIHYzLjguMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZw8V3hIAAAAydEVYdFNvZnR3YXJlAE1hdHBsb3RsaWIgdjMuOC4yLCBodHRwczovL21hdHBsb3RsaWIub3JnIbNBNQAAAaJJREFUeJzt1iFOnAEYRdEfHEGhJmELiHEVDQ0EAQpD2EbbkCAq6rCEVbAD1jAGDKL4VjVNTQXB0mV84p6zgede7tbHm4v3Zcjpye7I7r+fryO7vx++juyuD76P7B4/XY7sXp9tRnbP749GdjeHH0Z2V5++jOy+/Lkd2V0/3o3s/vg185Pvq9XI7v7nvyO7V297I7vfnndGdpdlWbbHlgGAMQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQNB/Hr8ZxSkt0dUAAAAASUVORK5CYII="></div><div style="vertical-align: middle; max-width: 514px; display: flex; justify-content: space-between;"><div style="float: left;"><div title="#3b8453ff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #3b8453ff;"></div> under</div><div style="margin: 0 auto; display: inline-block;">bad <div title="#00000000" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #00000000;"></div></div><div style="float: right;">over <div title="#3e9079ff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #3e9079ff;"></div></div>
 </div>
 </div>
-<p>We also place the legend on the center left. This is done automatically, but the legend and its items can be manipulated directly. Legends in <code>matplotlib</code> are extremely complex to personalise. However, do have a look at https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend for both automatic and explicit manipulation.</p>
+<p>We also place the legend on the centre left. This is done automatically, but the legend and its items can be manipulated directly. Legends in <code>matplotlib</code> are extremely complex to personalise. However, do have a look at https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend for both automatic and explicit manipulation.</p>
 <div id="f559603e" class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>legend_kwds<span class="op">=</span>{<span class="st">"loc"</span>: <span class="st">"center left"</span>, <span class="st">"bbox_to_anchor"</span>: (<span class="dv">1</span>, <span class="fl">0.5</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1134,9 +1134,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div></section>
 </section>
-<section id="part-iii-cartograms---manipulating-the-geometry-size-for-showing-the-magitude-of-a-value" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="part-iii-cartograms---manipulating-the-geometry-size-for-showing-the-magitude-of-a-value"><span class="header-section-number">2.3</span> Part III: Cartograms - Manipulating the Geometry size for showing the magitude of a value</h2>
-<p><a href="https://www.data-to-viz.com/graph/cartogram.html">Cartograms</a> are maps that represent the spatial distribution of a variable not by encoding it in a color palette but rather by modifying geographical objects. There are many algorithms to distort the shapes of geographical entities according to values, some of them incredibly complicated and complex.</p>
+<section id="part-iii-cartograms---manipulating-the-geometry-size-for-showing-the-magnitude-of-a-value" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="part-iii-cartograms---manipulating-the-geometry-size-for-showing-the-magnitude-of-a-value"><span class="header-section-number">2.3</span> Part III: Cartograms - Manipulating the Geometry size for showing the magnitude of a value</h2>
+<p><a href="https://www.data-to-viz.com/graph/cartogram.html">Cartograms</a> are maps that represent the spatial distribution of a variable not by encoding it in a color palette but rather by modifying geographical objects. There are many algorithms to distort the shapes of geographical entities according to values, some of them are rather complex.</p>
 <section id="polygons" class="level3" data-number="2.3.1">
 <h3 data-number="2.3.1" class="anchored" data-anchor-id="polygons"><span class="header-section-number">2.3.1</span> Polygons</h3>
 <p>You can obtain cartograms for <code>Polygon</code> with <code>geoplot</code>: see https://residentmario.github.io/geoplot/</p>
@@ -1180,12 +1180,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>One can also convert convert polygons into points by using their centroids, and then define the size of the dot proportionally to the value of the variable we want to display.</p>
+<p>One can also convert polygons into points by using their centroids, and then define the size of the dot proportionally to the value of the variable we want to display.</p>
 </section>
 <section id="linestring" class="level3" data-number="2.3.3">
 <h3 data-number="2.3.3" class="anchored" data-anchor-id="linestring"><span class="header-section-number">2.3.3</span> LineString</h3>
 <p>For <code>LineString</code> we pass the column name to <code>linewidth</code>.</p>
-<p>Let’s load a shapefile of lines. These lines represent frequnecy of train connections from/to train stations in the region of Liguria (Italy) to other stations within or outside the region. Each line refers to a connection between two specific stations, through a certain type of service and contains information about the frequency of that type of service. For example, the cities of Savona and Finale Ligure might be connected by 5 InterCity trains and 50 regional services. These services correspond to 2 different records.</p>
+<p>Let’s load a shapefile of lines. These lines represent frequency of train connections from/to train stations in the region of Liguria (Italy) to other stations within or outside the region. Each line refers to a connection between two specific stations, through a certain type of service and contains information about the frequency of that type of service. For example, the cities of Savona and Finale Ligure might be connected by 5 InterCity trains and 50 regional services. These services correspond to 2 different records.</p>
 <div id="9af4db79-0b0f-443f-a01a-e73724b48bd1" class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>trains_freq <span class="op">=</span> gpd.read_file(<span class="st">"../data/trains_liguria.shp"</span> )</span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>trains_freq.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1219,7 +1219,7 @@ Datum: Monte Mario
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>to_keep <span class="op">=</span> [<span class="st">'REG'</span>, <span class="st">'IC'</span>, <span class="st">'AV'</span>]</span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>trains_freq <span class="op">=</span> trains_freq[trains_freq[<span class="st">'train_type'</span>].isin(to_keep)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The usage of <code>linewdith</code> is a bit different from <code>markersize</code> for some reason. We have to pass an <code>array</code> of N values, where N is equal to the GeoDataFrame size. In other words, we have to pass the column we want to use to regulate the line width direclty as a list/array. Specifying the column name is not enough.</p>
+<p>The usage of <code>linewdith</code> is a bit different from <code>markersize</code> for some reason. We have to pass an <code>array</code> of N values, where N is equal to the GeoDataFrame size. In other words, we have to pass the column we want to use to regulate the line width directly as a list/array. Specifying the column name is not enough.</p>
 <div id="7d081a7c-d2a7-4e14-b8fc-562f53079f62" class="cell" data-execution_count="54">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">15</span>))</span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>trains_freq.plot(ax <span class="op">=</span> ax, linewidth <span class="op">=</span> trains_freq[<span class="st">'freq'</span>])</span>
@@ -1232,7 +1232,7 @@ Datum: Monte Mario
 </div>
 </div>
 </div>
-<p>As you can see, the default arguments and simply passing the column values do not produce pretty results. The first thing to look at is the values that are passed to <code>linewidth</code>. In some cases the min and max values, as well as their distribution, are not ideal for visually conveying the magnitude of the variable attached to the geometry. One option is to use a multiplier factor (see below), or to rescale the values from 0 to 1, for example, and then, again, if necessary use a multiplier.</p>
+<p>As you can see, the default arguments and simply passing the column values do not produce pretty results. The first thing to look at is the values that are passed to <code>linewidth</code>. In some cases, the min and max values, as well as their distribution, are not ideal for visually conveying the magnitude of the variable attached to the geometry. One option is to use a multiplier factor (see below), or to rescale the values from 0 to 1, for example, and then, again, if necessary use a multiplier.</p>
 <div id="085e6a6c-9288-4c43-aa6d-824ff7369f58" class="cell" data-execution_count="55">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">20</span>))</span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>lw <span class="op">=</span> trains_freq[<span class="st">'freq'</span>] <span class="op">*</span> <span class="fl">0.15</span></span>
@@ -1247,16 +1247,16 @@ Datum: Monte Mario
 </div>
 </div>
 </div>
-<p>While this looks a bit better, this visualisation is not ideal because the frequencies are not snapped to the actual railway network. The lines represent instead connection between train stops and therefore their coordinatse only include the ones corresponding to the stations where the different services call at. One can devise approaches to:</p>
+<p>While this looks a bit better, this visualisation is not ideal because the frequencies are not snapped to the actual railway network. The lines represent, instead, connection between train stops and therefore their coordinates only include the ones corresponding to the stations where the different services call at. One can devise approaches to:</p>
 <ul>
-<li>Assigning the frequencies, or any other value, to the corresponding infrastructure’s section. For example, the railway section between two stations could be associated with a value representing the total number of REG services along it.</li>
+<li>Assigning the frequencies, or any other value, to the corresponding infrastructure’s section. For example, the railway section between two stations could be associated with a value representing the total number of regional/local services travelling along it.</li>
 <li>Smoothing the lines representing the services by adding further coordinates along the line.</li>
 </ul>
 <p>Both these processes go beyond the scopes of this lab and require several considerations depending on the data, the scale, and what information one wants to displays.</p>
 <div class="alert alert-success">
 <p><strong>Exercise</strong>:</p>
-<p>Today we’ve seen how to exploit matplotlib to plot GeoDataFrame. Go through the notebook again if you feel that there’s something you need to review. You are not expected to remember each step/method/parameter. Rather, this notebook should be used as a reference from producing maps in python. Do keep in mind that most of the maps above have been produced with just a bunch of rows, so each of them can be improved and embellished with some more effort.</p>
-<p>Now, if you are not overwhelmed, have a look at the very last map and produce some nice visualisation using the same data. You can further improve it clarity, add a legend that refers to the line width, visualise only a certain type of service, or add information/context, for example. In the folder ‘’ you can also find a shapefile containing all the train stations in Italy, should you need that.</p>
+<p>Today we’ve seen how to exploit <code>matplotlib</code> to plot <code>GeoDataFrame</code> layers. Go through the notebook again if you feel that there’s something you need to review. You are not expected to remember each step/method/parameter. Rather, this notebook should be used as a reference for producing maps in Python. Do keep in mind that most of the maps above have been produced with just a bunch of rows, so each of them can be improved and embellished with some more effort.</p>
+<p>Now, if you are not overwhelmed, have a look at the very last map and produce some nice visualisation using the same data. You can further improve its clarity, add a legend that refers to the line width, visualise only a certain type of services, or add information/context, for example. In the folder <code>\data</code> you can also find a <code>.shp</code> file containing all the train stations in Italy, should you need that.</p>
 </div>
 <section id="saving-figures-check-here-for-details" class="level4" data-number="2.3.3.1">
 <h4 data-number="2.3.3.1" class="anchored" data-anchor-id="saving-figures-check-here-for-details"><span class="header-section-number">2.3.3.1</span> Saving figures (check <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html">here for details</a>)</h4>

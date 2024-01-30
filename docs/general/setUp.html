@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.4.546">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -47,7 +47,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -56,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -72,12 +79,12 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../general/setUp.html">Setting up the Working Environment</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../general/setup.html">Setting up the Working Environment</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -87,13 +94,13 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Web Mapping and Geovisualisation</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/GDSL-UL/wma" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="../Web-Mapping-and-Geovisualisation.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="https://github.com/GDSL-UL/wma" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="../Web-Mapping-and-Geovisualisation.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
       </div>
@@ -130,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../general/setUp.html" class="sidebar-item-text sidebar-link active">
+  <a href="../general/setup.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Setting up the Working Environment</span></a>
   </div>
 </li>
@@ -173,20 +180,29 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#install-miniconda-and-python" id="toc-install-miniconda-and-python" class="nav-link active" data-scroll-target="#install-miniconda-and-python">Install Miniconda (and Python)</a></li>
-  <li><a href="#set-up-the-miniconda-environment" id="toc-set-up-the-miniconda-environment" class="nav-link" data-scroll-target="#set-up-the-miniconda-environment">Set up the Miniconda Environment</a></li>
+  <li><a href="#set-up-miniconda-and-python-on-ms-windows" id="toc-set-up-miniconda-and-python-on-ms-windows" class="nav-link active" data-scroll-target="#set-up-miniconda-and-python-on-ms-windows">Set up Miniconda (and Python) on Ms Windows</a>
+  <ul class="collapse">
+  <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
   <li><a href="#set-up-the-directories" id="toc-set-up-the-directories" class="nav-link" data-scroll-target="#set-up-the-directories">Set up the Directories</a></li>
-  <li><a href="#prepare-the-lab-data" id="toc-prepare-the-lab-data" class="nav-link" data-scroll-target="#prepare-the-lab-data">Prepare the Lab Data</a></li>
+  <li><a href="#set-up-the-python-environment" id="toc-set-up-the-python-environment" class="nav-link" data-scroll-target="#set-up-the-python-environment">Set up the Python Environment</a></li>
   <li><a href="#start-a-lab-session" id="toc-start-a-lab-session" class="nav-link" data-scroll-target="#start-a-lab-session">Start a Lab Session</a></li>
+  </ul></li>
+  <li><a href="#set-up-miniconda-and-python-on-mac" id="toc-set-up-miniconda-and-python-on-mac" class="nav-link" data-scroll-target="#set-up-miniconda-and-python-on-mac">Set up Miniconda (and Python) on MAC</a>
+  <ul class="collapse">
+  <li><a href="#installation-1" id="toc-installation-1" class="nav-link" data-scroll-target="#installation-1">Installation</a></li>
+  <li><a href="#set-up-the-directories-1" id="toc-set-up-the-directories-1" class="nav-link" data-scroll-target="#set-up-the-directories-1">Set up the Directories</a></li>
+  <li><a href="#set-up-the-python-environment-1" id="toc-set-up-the-python-environment-1" class="nav-link" data-scroll-target="#set-up-the-python-environment-1">Set up the Python Environment</a></li>
+  <li><a href="#start-a-lab-session-1" id="toc-start-a-lab-session-1" class="nav-link" data-scroll-target="#start-a-lab-session-1">Start a Lab Session</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/GDSL-UL/wma/edit/main/general/setUp.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/GDSL-UL/wma/edit/main/general/setup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -206,76 +222,145 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
 
+
+<p>Follow the instructions for yuour Operating System and test your installation <strong>prior to the first Lab Session</strong> (Wed, 31st of January). If you experience any issues, write a message on the Ms Teams channel of the module. Setting up the Python environment is necessary for:</p>
+<ul>
+<li>Executing the <a href="https://docs.jupyter.org/en/latest/">Jupyter Notebooks</a> of the Lab sessions of the course.</li>
+<li>Preparing your own Jupyter Notebooks for the assignments (one each).</li>
+</ul>
+<p>We will use <code>Minconda</code> to handle our working environment. <em>Miniconda is a free minimal installer for conda. It is a small bootstrap version of Anaconda that includes only conda, Python, the packages they both depend on, and a small number of other useful packages (like pip, zlib, and a few others)</em></p>
+<section id="set-up-miniconda-and-python-on-ms-windows" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="set-up-miniconda-and-python-on-ms-windows">Set up Miniconda (and Python) on Ms Windows</h2>
+<section id="installation" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="installation">Installation</h3>
+<ol type="1">
+<li>Install Miniconda:
+<ul>
+<li><em>Option 1</em>: On a UoL Machine: Download and install Miniconda from <a href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe">here</a>. This will install Miniconda and Python in <code>C:\</code>. If this process is aborted because it requires administrator rights, press <code>Start</code>, select <code>Install University Applications</code>, type and choose <code>Miniconda</code>.</li>
+<li><em>Option 2, <strong>Recommended</strong></em>: Install Miniconda on your personal Laptop: Follow the instructions <a href="https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html">here</a>.</li>
+</ul></li>
+<li>During the installation, leave the default settings. In particular, when asked whom to “Install Miniconda for”, choose “Just for me”.</li>
+</ol>
+<p><strong>Important:</strong> If you do choose to work on University Machines you will have to reinstall <code>Miniconda</code> every lab session unless you use a PC where Miniconda has been installed already.</p>
+<p><strong>Alternatively</strong>, you can work on the lab notebooks directly on the web. This does not require to install <code>Miniconda</code>. However, it represents a much slower option, especially when setting up the environment. To do so, you can access the data and the lab notebooks in the <code>\labs</code> directory from a virtual copy of the course repository <a href="https://mybinder.org/v2/gh/GDSL-UL/wma/HEAD">here</a>. If you opt for this option, you do not need to follow the rest of the instructions below.</p>
+</section>
+<section id="set-up-the-directories" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="set-up-the-directories">Set up the Directories</h3>
+<ol type="1">
+<li>Create a folder where you want to keep your work conducted throughout this course. For example, call it <code>envs456</code>. You can save it wherever you want. If you are working on a university machine, it could be worth creating it in <code>M:/</code>, which should your “virtual” hard-disk.</li>
+<li>Download the <a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/GDSL-UL/wma/tree/main/data">data</a> and the <a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/GDSL-UL/wma/tree/main/labs_img">images</a> for running and rendering the jupyter notebooks.</li>
+<li>Unzip the folders and move the nested folders into the folder <code>envs456</code>.</li>
+<li>Create another folder called <code>labs</code></li>
+</ol>
+<p>The folder structure should look like:</p>
+<pre><code>envs456/
+├── data/
+├── labs_img/
+└── labs/</code></pre>
+</section>
+<section id="set-up-the-python-environment" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="set-up-the-python-environment">Set up the Python Environment</h3>
+<ol type="1">
+<li>Type in the search bar and find the <code>Anaconda Prompt (miniconda 3)</code>. Launch it. The terminal should appear.</li>
+</ol>
+<p><img src="../img/windows_anaconda.png" width="80%"></p>
+<ol start="2" type="1">
+<li>Download the <code>envs456.yml</code> from GitHub by cliciking <code>Download raw file</code>, top right, <a href="https://github.com/GDSL-UL/wma/blob/main/envs456.yml">here</a> and save in the folder <code>envs456</code>.</li>
+<li>In the <strong>Anaconda Terminal</strong> write <code>conda env create -n envs456 --file C:\envs456\envs456.yml</code> and press <code>Enter</code>; if the file is located elsewhere you’ll need to use the corresponding file path.</li>
+<li>If you are prompted any questions, press <code>y</code>. This process will install all the packages necessary to carry out the lab sessions.</li>
+<li>In the <strong>Anaconda Terminal</strong> write <code>conda activate envs456</code> and press <code>Enter</code>. This activates your working environment.</li>
+<li><em>Optional</em>: Configuration of Jupyter Notebooks
+<ul>
+<li>In the <strong>Anaconda Terminal</strong>, write <code>jupyter server --generate-config</code> and press enter. This, at least in Windows, should create a file to: <code>C:\Users\username\.jupyter\jupyter_server_config.py</code>.</li>
+<li>Open the file with a text editor (e.g.&nbsp;<a href="https://notepad-plus-plus.org">Notepad++</a>), do a <code>ctrl-f</code> search for: <code>c.ServerApp.root_dir</code>, uncomment it by removing the and change it to <code>c.ServerApp.notebook_dir = 'C:\\your\\new\\path</code>, for example the directory where you created the <code>envs456</code> folder. In the University Machines, it is advised to work on the directory <code>M:\</code>.</li>
+<li>Save the file and close it.</li>
+</ul></li>
+</ol>
+<p><img src="../img/config.png" width="80%"></p>
+</section>
+<section id="start-a-lab-session" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="start-a-lab-session">Start a Lab Session</h3>
+<ol type="1">
+<li>Download the Jupyter Notebook of the session in your folder. Choose one jupyter notebook and click <code>Dowload raw file</code> as shown below</li>
+</ol>
+<p><img src="../img/raw.png" width="80%"></p>
+<ol start="2" type="1">
+<li>Save the file in the <code>labs</code> folder within your <code>envs456</code> folder on your machine.</li>
+<li>Type in the search bar, find and open the <code>Anaconda Prompt (miniconda 3)</code>.</li>
+<li>In the <strong>Anaconda Terminal</strong> write and run <code>conda activate envs456</code>.</li>
+<li>In the <strong>Anaconda Terminal</strong> write and run <code>jupyter notebook</code>. This should open Jupyter Notebook in your default browser.</li>
+</ol>
+<p><img src="../img/jupyter.png" width="80%"></p>
+<ol start="6" type="1">
+<li>Navigate to your course folder in and double click on the notebook downloaded in step 1.</li>
+<li>You can now work on your copy of the notebook.</li>
+</ol>
 <p>Follow these instructions and test your installation <strong>prior to the first Lab Session</strong> (Wed, 31st of January). If you experience any issues, write a message on the Ms Teams channel of the module. Setting up the Python environment is necessary for:</p>
 <ul>
 <li>Executing the <a href="https://docs.jupyter.org/en/latest/">Jupyter Notebooks</a> of the Lab sessions of the course.</li>
 <li>Preparing your own Jupyter Notebooks for the assignments (one each).</li>
 </ul>
-<section id="install-miniconda-and-python" class="level2">
-<h2 class="anchored" data-anchor-id="install-miniconda-and-python">Install Miniconda (and Python)</h2>
-<p>We will use <code>Minconda</code> to handle our working environment. <em>Miniconda is a free minimal installer for conda. It is a small bootstrap version of Anaconda that includes only conda, Python, the packages they both depend on, and a small number of other useful packages (like pip, zlib, and a few others)</em></p>
-<ol type="1">
-<li>Install Miniconda:
-<ul>
-<li><em>Option 1</em>: On a UoL Machine: Download and install Miniconda from <a href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe">here</a>. This will install Miniconda and Python in <code>C:\</code>. If this process is aborted because it requires administrator rights, press <code>Start</code>, select <code>Install University Applications</code>, type and choose <code>Miniconda</code>.</li>
-<li><em>Option 2, <strong>Recommended</strong></em>: Install Miniconda on your personal Laptop: Follow the instructions <a href="https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html">here</a>, depending on your OS.</li>
-</ul></li>
-<li>During the installation, leave the default settings. In particular, when asked whom to “Install Miniconda for”, choose “Just for me”.</li>
-</ol>
-<p><strong>Important:</strong> If you do choose to work on University Machines you will have to reinstall <code>Miniconda</code> every lab session unless you use a PC where Miniconda has been installed already.</p>
-<p><strong>Alternatively</strong>, you can work on the lab notebooks directly on the web. This does not require to install <code>Miniconda</code>. However, it represents a much slower option, especially when setting up the environment. To do so, you can access the data and the lab notebooks in the <code>\labs</code> directory from a virtual copy of the course repository <a href="https://mybinder.org/v2/gh/GDSL-UL/wma/HEAD">here</a>. If you opt for this session, you do not need to follow the rest of the instructions below.</p>
 </section>
-<section id="set-up-the-miniconda-environment" class="level2">
-<h2 class="anchored" data-anchor-id="set-up-the-miniconda-environment">Set up the Miniconda Environment</h2>
+</section>
+<section id="set-up-miniconda-and-python-on-mac" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="set-up-miniconda-and-python-on-mac">Set up Miniconda (and Python) on MAC</h2>
+<section id="installation-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="installation-1">Installation</h3>
+<p>To install Miniconda on your personal laptop, Follow the instructions <a href="https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html">here</a>. During the installation, leave the default settings. In particular, when asked whom to “Install Miniconda for”, choose “Just for me”.</p>
+</section>
+<section id="set-up-the-directories-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="set-up-the-directories-1">Set up the Directories</h3>
 <ol type="1">
-<li>Type in the search bar and find the <code>Anaconda Prompt (miniconda 3)</code>. Launch it, and write <code>conda update</code>.</li>
-<li>Download the <a href="https://github.com/GDSL-UL/wma/blob/main/envs456.yml">environment.yml</a> whenever it’s handy for you, write <code>conda env create -n envs456 --file envs456.yml</code> in the prompt and press <code>Enter</code>; unless the <code>envs456.yml</code> file is located in the main directory that you see in the prompt, e.g.&nbsp;<code>C:\</code>, you need to specify the full directory of the file (including the file name).</li>
+<li>Create a folder where you want to keep your work conducted throughout this course. For example, call it <code>envs456</code>. You can save it wherever you want. For example, Elisabetta has named her folder <code>envs456</code> and it’s in her Dropbox in <code>Users/PIETROST/Library/CloudStorage/Dropbox/envs456</code></li>
+<li>Download the <a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/GDSL-UL/wma/tree/main/data">data</a> and the <a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/GDSL-UL/wma/tree/main/labs_img">images</a> for running and rendering the jupyter notebooks.</li>
+<li>Unzip the folders and move the nested folders into the folder <code>envs456</code>.</li>
+<li>Create another folder called <code>labs</code></li>
+</ol>
+<p>The folder structure should look like:</p>
+<pre><code>envs456/
+├── data/
+├── labs_img/
+└── labs/</code></pre>
+<p><img src="../img/mac_folder.png" width="80%"></p>
+</section>
+<section id="set-up-the-python-environment-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="set-up-the-python-environment-1">Set up the Python Environment</h3>
+<ol type="1">
+<li>Type in the search bar and open the <strong>Terminal</strong>.</li>
+<li>Download the <code>envs456.yml</code> file from GitHub by cliciking <code>Download raw file</code> top right, <a href="https://github.com/GDSL-UL/wma/blob/main/envs456.yml">here</a> and save in the folder <code>envs456</code>.</li>
+<li>Create a <code>envs456</code> folder for the course and place the <code>.yml</code> in it. Then, in the <strong>Terminal</strong> write <code>conda env create -n envs456 --file envs456.yml</code> and press <code>Enter</code>. This will need to be modified according to where you placed the <code>envs456</code> folder. For example, Elisabetta has named her folder <code>envs456</code> and it’s in her Dropbox in <code>Users/PIETROST/Library/CloudStorage/Dropbox/envs456/envs456.yml</code>. If you created the <code>envs456</code> folder on your desktop, the path would be <code>Desktop/envs456</code>.</li>
+</ol>
+<p><img src="../img/mac_env.png" width="80%"></p>
+<ol start="4" type="1">
 <li>If you are prompted any questions, press <code>y</code>. This process will install all the packages necessary to carry out the lab sessions.</li>
 </ol>
 </section>
-<section id="set-up-the-directories" class="level2">
-<h2 class="anchored" data-anchor-id="set-up-the-directories">Set up the Directories</h2>
+<section id="start-a-lab-session-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="start-a-lab-session-1">Start a Lab Session</h3>
 <ol type="1">
-<li>Create a folder where you want to keep your work conducted throughout this course. For example, call it <code>ENVS456</code>. You can save it wherever you want. If you are working on a university machine, it could be worth creating it in <code>M:/</code>, which should your “virtual” hard-disk.</li>
-<li>In <code>Miniconda</code> write <code>conda activate envs456</code> and press <code>Enter</code>. This activates your working environment.</li>
-<li>Afterwards, run <code>jupyter server --generate-config</code> in <code>Miniconda</code>. This, at least in Windows, should create a file to: <code>C:\Users\username\.jupyter\jupyter_server_config.py</code>.</li>
-<li>Open the file with a text editor (e.g.&nbsp;<a href="https://notepad-plus-plus.org">Notepad++</a>), do a <code>ctrl-f</code> search for: <code>c.ServerApp.root_dir</code>, uncomment it by removing the and change it to <code>c.ServerApp.notebook_dir = 'C:\\your\\new\\path</code>, for example the directory where you created the <code>webmapping</code> folder. In the University Machines, it is advised to work on the directory <code>M:\</code>.</li>
-<li>Save the file and close it.</li>
+<li>Download the Jupyter Notebook of the session in your folder. Choose one jupyter notebook and click <code>Dowload raw file</code> as shown below</li>
 </ol>
-</section>
-<section id="prepare-the-lab-data" class="level2">
-<h2 class="anchored" data-anchor-id="prepare-the-lab-data">Prepare the Lab Data</h2>
-<ol type="1">
-<li>Download the <a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/GDSL-UL/wma/tree/main/data">data</a> and the <a href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/GDSL-UL/wma/tree/main/img">images</a> for running and rendering the jupyter notebooks.</li>
-<li>Unzip the folders and move the nested folders into the folder <code>webmapping</code>.</li>
-</ol>
-</section>
-<section id="start-a-lab-session" class="level2">
-<h2 class="anchored" data-anchor-id="start-a-lab-session">Start a Lab Session</h2>
-<ol type="1">
-<li>Download the Jupyter Notebook of the session in your folder. Choose one jupyter notebook and click “Dowload raw file” as shown below</li>
-</ol>
-<<<<<<< Updated upstream
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../img/raw.svg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Download raw file instruction</figcaption>
-</figure>
-</div>
-=======
-<p><img src="../img/raw.png" width="70%">.</p>
->>>>>>> Stashed changes
+<p><img src="../img/raw.png" width="80%"></p>
 <ol start="2" type="1">
-<li>Save the file in the <code>webmapping</code> folder on your machine, inside another folder called, for example <code>labs</code> or <code>notebooks</code>. Your <code>webmapping</code> folder should at least contain a <code>data</code> and a <code>labs</code> folder.</li>
-<li>Type in the search bar, find and open the <code>Anaconda Prompt (miniconda 3)</code>.</li>
-<li>Write and run <code>conda activate envs456</code>.</li>
-<li>Write and run <code>jupyter notebook</code>. This should open Jupyter Notebook in your default browser. Navigate to your course folder in and open the notebook downloaded in step 1.</li>
-<li>You can now work on your copy of the notebook.</li>
+<li>Save the file in the <code>labs</code> folder within your <code>envs456</code> folder on your machine.</li>
+<li>Type in the search bar, find and open the <strong>Terminal</strong>.</li>
+<li>In the <strong>Terminal</strong> write and run <code>conda activate envs456</code>.</li>
+<li>In the <strong>Terminal</strong> write and run <code>jupyter notebook</code>.</li>
+</ol>
+<p><img src="../img/mac_activate.png" width="80%"></p>
+<ol start="6" type="1">
+<li>This should open Jupyter Notebook in your default browser. You should see something like this:</li>
+</ol>
+<p><img src="../img/mac_jupyter.png" width="80%"></p>
+<ol start="7" type="1">
+<li>Navigate to your folder. You can now work on your copy of the notebook.</li>
 </ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -358,10 +443,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -371,8 +455,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -385,6 +478,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -428,6 +640,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -453,6 +666,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -514,12 +753,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../general/assessments.html" class="pagination-link">
+      <a href="../general/assessments.html" class="pagination-link  aria-label=" assessments"="">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Assessments</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../labs/w01_intro.html" class="pagination-link">
+      <a href="../labs/w01_intro.html" class="pagination-link" aria-label="<span class='chapter-number'>1</span>&nbsp; <span class='chapter-title'>Introduction &amp; Python Refresher</span>">
         <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction &amp; Python Refresher</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -527,13 +766,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Web Mapping and Geovisualisation by Gabriele Filomena and Elisabetta Pietrostefani.</div>   
+    <div class="nav-footer-left">
+<p>Web Mapping and Geovisualisation by Gabriele Filomena and Elisabetta Pietrostefani.</p>
+</div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
-    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/GDSL-UL/wma/edit/main/general/setup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
   </div>
 </footer>
+
 
 
 

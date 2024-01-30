@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriele Filomena">
-<meta name="dcterms.date" content="2024-01-29">
+<meta name="dcterms.date" content="2024-01-30">
 
 <title>Web Mapping and Geovisualisation - 6&nbsp; Retrieving Data From OpenStreetMap</title>
 <style>
@@ -175,8 +175,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../general/pythonwin.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Set up Miniconda (and Python) in Windows</span></a>
+  <a href="../general/setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Setting up the Working Environment</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -264,7 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 29, 2024</p>
+      <p class="date">January 30, 2024</p>
     </div>
   </div>
   
@@ -284,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The <strong>Lecture slides</strong> can be found <a href="https://github.com/GDSL-UL/wma/raw/main/html/w07.html">here</a>.</p>
 <section id="what-is-openstreetmap" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="what-is-openstreetmap"><span class="header-section-number">6.1</span> What is OpenStreetMap?</h2>
-<p>OpenStreetMap is a free and open map service. It is a collaborative global effort to collect free and open geodata. <em>Source: <a href="https://wiki.openstreetmap.org/wiki/Logos">wiki.openstreetmap.org</a></em>. OpenStreetMap (OSM) is a global collaborative (crowd-sourced) database and project that aims at creating a free editable map of the world containing of information about our environment. It contains data about streets, buildings,different services, and landuse, to mention just a few.</p>
+<p>OpenStreetMap is a free and open map service. It is a collaborative global effort to collect free and open geodata. <em>Source: <a href="https://wiki.openstreetmap.org/wiki/Logos">wiki.openstreetmap.org</a></em>. OpenStreetMap (OSM) is a global collaborative (crowd-sourced) database and project that aims at creating a free editable map of the world containing of information about our environment. It contains data about streets, buildings, different services, and landuse, to mention just a few.</p>
 <p>OSM has more than 8 million registered users who contribute around 4 million changes daily. Its database contains data that is described by <a href="http://wiki.openstreetmap.org/wiki/Stats">more than 7 billion nodes</a> (that make up lines, polygons and other objects). While the most well-known side of OpenStreetMap is the map itself, the project is much more than that. OSM’s data can be used for many other purposes such as <strong>routing</strong>, <strong>geocoding</strong>, <strong>education</strong>, and <strong>research</strong>. OSM is also widely used for humanitarian response, e.g., in crisis areas (e.g.&nbsp;after natural disasters) and for fostering economic development. Read more about humanitarian projects that use OSM data from the <a href="https://www.hotosm.org">Humanitarian OpenStreetMap Team (HOTOSM) website</a>.</p>
 <section id="main-tools-in-this-lesson" class="level3" data-number="6.1.1">
 <h3 data-number="6.1.1" class="anchored" data-anchor-id="main-tools-in-this-lesson"><span class="header-section-number">6.1.1</span> Main tools in this lesson</h3>
@@ -363,8 +363,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="download-and-model-street-networks" class="level3" data-number="6.2.2">
 <h3 data-number="6.2.2" class="anchored" data-anchor-id="download-and-model-street-networks"><span class="header-section-number">6.2.2</span> Download and model Street Networks</h3>
-<p>The <a href="https://osmnx.readthedocs.io/en/stable/osmnx.html#module-osmnx.graph"><code>osmnx.graph</code>module</a> downloads data to construct a routable road network graph, based on an user-defined area of interest. This area of interest can be specified, for instance, using a place name, a bounding box, or a polygon. In the place name query, OSMnx uses the Nominatim Geocoding API. This means that place names should exist in the OpenStreetMap database (run a test search at <a href="https://www.openstreetmap.org/">openstreetmap.org</a> or <a href="https://nominatim.openstreetmap.org/ui/search.html">nominatim.openstreetmap.org</a>). <code>OSMnx</code>, amongst its several functionalities, lets you analyise, plot, and export the network in different file formats. The downloaded street networks are by default <strong>directed</strong> and preserve one-way directionality. For a more in-depth demonstration of creating street networks, see <a href="03-graph-place-queries.ipynb">this notebook</a>.</p>
-<p>You can download a street network by providing OSMnx any of the following (demonstrated in the examples below): - a bounding box - a lat-long point plus a distance - an address plus a distance - a place name or list of place names (to automatically geocode and get the boundary of) - a polygon of the desired street network’s boundaries - a .osm formatted xml file</p>
+<p>The <a href="https://osmnx.readthedocs.io/en/stable/osmnx.html#module-osmnx.graph"><code>osmnx.graph</code>module</a> downloads data to construct a routable road network graph, based on an user-defined area of interest. This area of interest can be specified, for instance, using a place name, a bounding box, or a polygon. In the place name query, OSMnx uses the Nominatim Geocoding API. This means that place names should exist in the OpenStreetMap database (run a test search at <a href="https://www.openstreetmap.org/">openstreetmap.org</a> or <a href="https://nominatim.openstreetmap.org/ui/search.html">nominatim.openstreetmap.org</a>). <code>OSMnx</code>, amongst its several functionalities, lets you analyse, plot, and export the network in different file formats. The downloaded street networks are by default <strong>directed</strong> and preserve one-way directionality. For a more in-depth demonstration of creating street networks, see <a href="03-graph-place-queries.ipynb">this notebook</a>.</p>
+<p>You can download a street network by providing OSMnx any of the following (demonstrated in the examples below): - a bounding box - a lat-lon point plus a distance - an address plus a distance - a place name or list of place names (to automatically geocode and get the boundary of) - a polygon of the desired street network’s boundaries - a .osm formatted xml file</p>
 <p>You can also specify several different network types: - <code>drive</code> - get drivable public streets (but not service roads) - <code>drive_service</code> - get drivable streets, including service roads - <code>walk</code> - get all streets and paths that pedestrians can use (this network type ignores one-way directionality) - <code>bike</code> - get all streets and paths that cyclists can use - <code>all</code> - download all non-private OSM streets and paths (this is the default network type unless you specify a different one) - <code>all_private</code> - download all OSM streets and paths, including private-access ones</p>
 <section id="method-1-passing-a-bounding-box" class="level4" data-number="6.2.2.1">
 <h4 data-number="6.2.2.1" class="anchored" data-anchor-id="method-1-passing-a-bounding-box"><span class="header-section-number">6.2.2.1</span> Method #1: Passing a bounding box</h4>
@@ -387,8 +387,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="method-2-passing-a-lat-lng-point-and-bounding-box-distance-in-meters" class="level4" data-number="6.2.2.2">
-<h4 data-number="6.2.2.2" class="anchored" data-anchor-id="method-2-passing-a-lat-lng-point-and-bounding-box-distance-in-meters"><span class="header-section-number">6.2.2.2</span> Method #2: Passing a lat-lng point and bounding box distance in meters</h4>
+<section id="method-2-passing-a-lat-lon-point-and-bounding-box-distance-in-meters" class="level4" data-number="6.2.2.2">
+<h4 data-number="6.2.2.2" class="anchored" data-anchor-id="method-2-passing-a-lat-lon-point-and-bounding-box-distance-in-meters"><span class="header-section-number">6.2.2.2</span> Method #2: Passing a lat-lon point and bounding box distance in meters</h4>
 <p>This creates a bounding box <em>n</em> meters North, South, East, and West of the point, then constructs the network from all the OSM nodes and ways within the bounding box. <a href="https://bboxfinder.com">Here’s a useful tool for defining bboxes</a></p>
 <div id="cell-14" class="cell" data-execution_count="93">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define a point at the corner of California St and Mason St in SF</span></span>
@@ -405,8 +405,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="method-3-passing-a-lat-lng-point-and-network-distance-in-meters" class="level4" data-number="6.2.2.3">
-<h4 data-number="6.2.2.3" class="anchored" data-anchor-id="method-3-passing-a-lat-lng-point-and-network-distance-in-meters"><span class="header-section-number">6.2.2.3</span> Method #3: Passing a lat-lng point and <em>network</em> distance in meters</h4>
+<section id="method-3-passing-a-lat-lon-point-and-network-distance-in-meters" class="level4" data-number="6.2.2.3">
+<h4 data-number="6.2.2.3" class="anchored" data-anchor-id="method-3-passing-a-lat-lon-point-and-network-distance-in-meters"><span class="header-section-number">6.2.2.3</span> Method #3: Passing a lat-lon point and <em>network</em> distance in meters</h4>
 <p>This creates a bounding box <em>n</em> meters North, South, East, and West of the point, then constructs the network from all the OSM nodes and ways within the bounding box. Then it truncates the network by removing all nodes further than <em>n</em> meters from the point along the network.</p>
 <div id="cell-16" class="cell" data-execution_count="94">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>location_point <span class="op">=</span> (<span class="fl">53.40</span>, <span class="op">-</span><span class="fl">2.99</span>)</span>
@@ -421,7 +421,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p><em>Note</em> the plot above shows the network within 750m (traveling distance along the network) from the <code>location_point</code>. By default, the <code>network_type</code> parameter value is <code>all</code>, meaning that we do not filter out paths that restrict certain types of traffic. This also means that one-way streets are honored as one-way and you cannot travel the wrong direction down them. Thus, the 750m takes into account only those nodes you can reach within 500m while only traveling in the allowed direction of the street. Instead (below), we can specify <code>network_type='walk'</code> to build a street network only of paths that walking is allowed on. This also makes every path bi-directional in the directed network, because you can walk in either direction on the sidewalk of a one-way street. Thus, the 750m now takes into account those nodes you can reach within 750m while traveling in either direction (even if it’s a one-way street).</p>
+<p><em>Note</em> the plot above shows the network within 750m (traveling distance along the network) from the <code>location_point</code>. By default, the <code>network_type</code> parameter value is <code>all</code>, meaning that we do not filter out paths that restrict certain types of traffic. This also means that one-way streets are honored as one-way and you cannot travel the wrong direction down them. Thus, the 750m takes into account only those nodes you can reach within 500m while only traveling in the allowed direction of the street. Instead (below), we can specify <code>network_type='walk'</code> to build a street network only of paths that walking is allowed on. This also makes every path bi-directional in the directed network, because you can walk in either direction on the sidewalk of a one-way street. The 750m now takes into account those nodes you can reach within 750m while traveling in either direction (even if it’s a one-way street).</p>
 <div id="cell-18" class="cell" data-execution_count="96">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create network only of nodes within 750m walking along the network from point, only walkable edges</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>G2 <span class="op">=</span> ox.graph_from_point(location_point, dist<span class="op">=</span><span class="dv">750</span>, dist_type<span class="op">=</span><span class="st">"network"</span>, network_type<span class="op">=</span><span class="st">"walk"</span>)</span>
@@ -601,13 +601,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Notice how many nodes are merged into a new single centroid node, with edge geometries extended to connect to it. Similar consolidation occurs at the intersection of the divided roads.</p>
 <p><strong>Note</strong></p>
-<p>Running <code>consolidate_intersections</code> with <code>rebuild_graph=True</code> may yield somewhat (but not very) different intersection counts/densities compared to <code>rebuild_graph=False</code>. The difference lies in that the latter just merges buffered node points that overlap, whereas the former checks the topology of the overlapping node buffers before merging them. This prevents topologically remote but spatially proximate nodes from being merged. For example: - A street intersection may lie directly below a freeway overpass’s intersection with an on-ramp. We would not want to merge these together and connnect their edges: they are distinct junctions in the system of roads. - In a residential neighborhood, a bollarded street may create a dead-end immediately next to an intersection or traffic circle. We would not want to merge this dead-end with the intersection and connect their edges.</p>
+<p>Running <code>consolidate_intersections</code> with <code>rebuild_graph=True</code> may yield somewhat (but not very) different intersection counts/densities compared to <code>rebuild_graph=False</code>. The difference lies in that the latter just merges buffered node points that overlap, whereas the former checks the topology of the overlapping node buffers before merging them. This prevents topologically remote but spatially proximate nodes from being merged. For example: - A street intersection may lie directly below a freeway overpass’s intersection with an on-ramp. We would not want to merge these together and connect their edges: they are distinct junctions in the system of roads. - In a residential neighbourhood, a bollarded street may create a dead-end immediately next to an intersection or traffic circle. We would not want to merge this dead-end with the intersection and connect their edges.</p>
 <p>These examples illustrate (two-dimensional) geometric proximity, but topological remoteness. Accordingly, in some situations we may expect higher intersection counts when using <code>rebuild_graph=True</code> because it is more cautious with merging in these cases. The trade-off is that it has higher time complexity than <code>rebuild_graph=False</code>.</p>
 </section>
 </section>
 <section id="from-osmnx-to-networkx-and-geopandas-classes" class="level3" data-number="6.2.4">
 <h3 data-number="6.2.4" class="anchored" data-anchor-id="from-osmnx-to-networkx-and-geopandas-classes"><span class="header-section-number">6.2.4</span> From OSMNX to NetworkX and Geopandas Classes</h3>
-<p>Now, we have seen how to use some basic <code>osmnx</code> functions to obtain a graph representation of the street network. While this is simple and strightforward, I advise working on the street network represented as <code>geopandas.GeoDataFrame</code>s and <code>networkx</code> graphs. While at the beginning this may be more tedious, it also gives us much more control, both in terms of visualisation anad analysis depth. Before proceeding, it is important to keep in mind what type of graphs can be modelled through OSMNx and NetworkX, and what that means for the infrastructure we are modelling.</p>
+<p>Now, we have seen how to use some basic <code>osmnx</code> functions to obtain a graph representation of the street network. While this is simple and straightforward, I advise working on the street network represented as <code>geopandas.GeoDataFrame</code>s and <code>networkx</code> graphs. While at the beginning this may be more tedious, it also gives us much more control, both in terms of visualisation and analysis depth. Before proceeding, it is important to keep in mind what type of graphs can be modelled through OSMNx and NetworkX, and what that means for the infrastructure we are modelling.</p>
 <p><img src="../labs_img/graph_types.png" width="70%"></p>
 <p>Have a look at NetworkX <a href="https://networkx.org/documentation/stable/reference/classes/index.html">documentation</a> for details.</p>
 <p><strong>By default, the graphs obtained through OSMNX are ‘MultiDiGraph’</strong></p>
@@ -627,7 +627,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>We can visualise major roads on top of the stree network:</p>
+<p>We can visualise major roads on top of the street network:</p>
 <div id="cell-45" class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> edges[edges.highway.isin([<span class="st">'primary'</span>, <span class="st">'secondary'</span>])].plot()</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>edges.plot(ax <span class="op">=</span> ax, lw <span class="op">=</span> <span class="fl">0.2</span>, color <span class="op">=</span> <span class="st">'red'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -871,7 +871,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>As you can see an edge’s index is a <code>MultiIndex</code> given by <code>u</code>, <code>v</code>, and <code>key</code>. <code>u</code> and <code>v</code> in <code>networkx</code> language stand for “from-node” and “to-node”. <code>key</code>, on the other hand, indicates whether more than one edge links <code>u</code> and <code>v</code>. When a pair of <code>u</code> and <code>v</code> nodes have more then one edge, every other edge will have an incrimental <code>key</code> value (the second one 1, the third one 2, etc., very rare that there are more than two edges per pair of nodes). This means that we are dealing with a <code>MultiGraph</code> representation of the street network. In other words, we have two street segments connecting the same two nodes in different directions. This could, for example, indicate that the directionality is accounted for (one-way segments). Based on our objective and analysis, such an aspect might be relevant, or not.</p>
+<p>As you can see an edge’s index is a <code>MultiIndex</code> given by <code>u</code>, <code>v</code>, and <code>key</code>. <code>u</code> and <code>v</code> in <code>networkx</code> language stand for “from-node” and “to-node”. <code>key</code>, on the other hand, indicates whether more than one edge links <code>u</code> and <code>v</code>. When a pair of <code>u</code> and <code>v</code> nodes have more then one edge, every other edge will have an incremental <code>key</code> value (the second one 1, the third one 2, etc., very rare that there are more than two edges per pair of nodes). This means that we are dealing with a <code>MultiGraph</code> representation of the street network. In other words, we have two street segments connecting the same two nodes in different directions. This could, for example, indicate that the directionality is accounted for (one-way segments). Based on our objective and analysis, such an aspect might be relevant, or not.</p>
 <section id="reconverting-to-a-multigraphmultidigraph" class="level4" data-number="6.2.4.1">
 <h4 data-number="6.2.4.1" class="anchored" data-anchor-id="reconverting-to-a-multigraphmultidigraph"><span class="header-section-number">6.2.4.1</span> (Re)converting to a <code>MultiGraph</code>/<code>MultiDiGraph</code></h4>
 <p>First, we get rid of the <code>pandas</code> <code>MultiIndex</code> and we verify whether we are working with bidirectional edges.</p>
@@ -887,7 +887,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>Mg <span class="op">=</span> nx.MultiGraph()   </span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>Mg.add_nodes_from(nodes.index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Copying the nodes’ attributes (this step is not particularly essential unless we need some information associated with the nodes that we want to use when executing <code>networkx</code> methods). Anything else we can rely on the informaiton that is in the <code>GeoDataFrame</code>.</p>
+<p>Copying the nodes’ attributes (this step is not particularly essential unless we need some information associated with the nodes that we want to use when executing <code>networkx</code> methods). Anything else we can rely on the information that is in the <code>GeoDataFrame</code>.</p>
 <div id="cell-53" class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add the nodes' attributes</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>attributes <span class="op">=</span> nodes.to_dict()</span>
@@ -919,7 +919,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.Graph()   </span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>G.add_nodes_from(nodes.index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Then, we copy the attributes with the same approach used before, although, this time, withouth adding the <code>key</code> value to the edges. The function <code>add_edge</code>of the class the <code>graph</code> does not take the <code>key</code> argument as there could be only one edge between two nodes.</p>
+<p>Then, we copy the attributes with the same approach used before, although, this time, without adding the <code>key</code> value to the edges. The function <code>add_edge</code> of the class the <code>graph</code> does not take the <code>key</code> argument as there could be only one edge between two nodes.</p>
 <div id="cell-60" class="cell" data-execution_count="107">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ignore fields containing values of type list</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>attributes <span class="op">=</span> nodes.to_dict()</span>
@@ -965,7 +965,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>path_nodes <span class="op">=</span> nx.shortest_path(G, source<span class="op">=</span>origin_node, target<span class="op">=</span>destination_node, weight<span class="op">=</span><span class="st">'length'</span>, method<span class="op">=</span><span class="st">'dijkstra'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><code>shortest_path</code>, the simplest function for computing shortes paths in <code>networkx</code>, returns the list of nodes traversed by the path, including the origin and the destination nodes. We have to transform the sequence of nodes into a sequence of edges to get the corresponding route.</p>
+<p><code>shortest_path</code>, the simplest function for computing shortest paths in <code>networkx</code>, returns the list of nodes traversed by the path, including the origin and the destination nodes. We have to transform the sequence of nodes into a sequence of edges to get the corresponding route.</p>
 <div id="cell-67" class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>path_edges <span class="op">=</span> [(path_nodes[i], path_nodes[i <span class="op">+</span> <span class="dv">1</span>]) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(path_nodes) <span class="op">-</span> <span class="dv">1</span>)] </span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>path_edges[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -995,7 +995,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="alert alert-success">
 <p><strong>Exercise</strong>:</p>
-<p>Compute different shortest paths between a node (1) of your choice and a set of 20 other random nodes, for a ciclyst, a driver, and a walker. Visualise and compare the results. In order to differentiate the users, you are expected to consider their travelling speed, in relation to the speed limit of the edges. Consider that, at least for the driver, you may want to do that in a <code>MultiDiGraph</code>.</p>
+<p>Compute different shortest paths between a node (1) of your choice and a set of 20 other random nodes, for a driver and a walker. Visualise and compare the results. In order to differentiate the users, you are expected to consider their travelling speeds, in relation to the speed limit of the edges. Consider that, at least for the driver, you may want to do that in a <code>MultiDiGraph</code>.</p>
 <p>You can use as case-study one of the graphs used above for Siracusa (Italy) or Sarajevo (Bosnia). Otherwise, just pick a city you like.</p>
 </div>
 </section>
@@ -1003,7 +1003,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="6.4" class="anchored" data-anchor-id="fetching-other-networks-with-osmnx"><span class="header-section-number">6.4</span> Fetching other networks with OSMNX</h2>
 <p>When downloading graphs, one can also pass a <code>custom_filter</code> to specify what OSM ways/routes/links they want represented in their graph. This would override the fact that, by default, graph functions in <code>osmnx</code> fetch street networks.</p>
 <p>From <code>osmnx</code> documentation: <code>custom_filter</code> (string) – a custom ways filter to be used instead of the network_type presets e.g., <code>[“power”~”line”]</code> or <code>[“highway”~”motorway|trunk”]</code>.</p>
-<p>This method does not work with bus services, since they are not stored in OpenStreetMapData as Links but rather relations. See <a href="https://wiki.openstreetmap.org/wiki/Buses">here</a> for more info.</p>
+<p>This method does not work with bus services, since they are not stored in OpenStreetMap Data as Links but rather relations. See <a href="https://wiki.openstreetmap.org/wiki/Buses">here</a> for more info.</p>
 <div id="cell-79" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># railway infrastructures</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>place <span class="op">=</span> <span class="st">"Milan, Italy"</span></span>

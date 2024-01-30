@@ -40,12 +40,13 @@ envs456/
 
 ### Set up the Python Environment {.unnumbered}
 
-1. Type in the search bar and find the `Anaconda Prompt (miniconda 3)`. Launch it. The terminal should appear.
+1. Download the `envs456.yml` from GitHub by cliciking `Download raw file`, top right [at this page](https://github.com/GDSL-UL/wma/blob/main/envs456.yml) 
+2. Save it in the folder `envs456` created before.
+3. Type in the search bar and find the `Anaconda Prompt (miniconda 3)`. Launch it. The terminal should appear.
 
 <img src = "../img/windows_anaconda.png" width="80%">
 
-2. Download the `envs456.yml` from GitHub by cliciking `Download raw file`, top right, [here](https://github.com/GDSL-UL/wma/blob/main/envs456.yml) and save in the folder `envs456`.
-3. In the **Anaconda Terminal** write  `conda env create -n envs456 --file C:\envs456\envs456.yml` and press `Enter`; if the file is located elsewhere you'll need to use the corresponding file path.
+3. In the **Anaconda Terminal** write:  `conda env create -n envs456 --file C:\envs456\envs456.yml` and press `Enter`; if the file is located elsewhere you'll need to use the corresponding file path.
 4. If you are prompted any questions, press `y`. This process will install all the packages necessary to carry out the lab sessions.
 5. In the **Anaconda Terminal** write `conda activate envs456` and press `Enter`. This activates your working environment.
 6.  *Optional*: Configuration of Jupyter Notebooks
@@ -104,9 +105,10 @@ envs456/
 
 ### Set up the Python Environment{.unnumbered}
 
-1. Type in the search bar and open the **Terminal**. 
-2. Download the `envs456.yml` file from GitHub by cliciking `Download raw file` top right, [here](https://github.com/GDSL-UL/wma/blob/main/envs456.yml) and save in the folder `envs456`.
-3. Create a `envs456` folder for the course and place the `.yml` in it. Then, in the **Terminal** write `conda env create -n envs456 --file envs456.yml` and press `Enter`. This will need to be modified according to where you placed the `envs456` folder. For example, Elisabetta has named her folder `envs456` and it's in her Dropbox in `Users/PIETROST/Library/CloudStorage/Dropbox/envs456/envs456.yml`. If you created the `envs456` folder on your desktop, the path would be `Desktop/envs456`.
+1. Download the `envs456.yml` from GitHub by cliciking `Download raw file`, top right, [at this page](https://github.com/GDSL-UL/wma/blob/main/envs456.yml) 
+2. Save it in the folder `envs456` created before.
+2. Type in the search bar and open the **Terminal**. 
+3. In the **Terminal** write `conda env create -n envs456 --file envs456.yml` and press `Enter`. This will need to be modified according to where you placed the `envs456` folder. For example, Elisabetta has named her folder `envs456` and it's in her Dropbox in `Users/PIETROST/Library/CloudStorage/Dropbox/envs456/envs456.yml`. If you created the `envs456` folder on your desktop, the path would be `Desktop/envs456`.
 
 <img src = "../img/mac_env.png" width="80%">
 

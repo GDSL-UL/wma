@@ -49,9 +49,9 @@ envs456/
 3. In the **Anaconda Terminal** write:  `conda env create -n envs456 --file C:\envs456\envs456.yml` and press `Enter`; if the file is located elsewhere you'll need to use the corresponding file path.
 4. If you are prompted any questions, press `y`. This process will install all the packages necessary to carry out the lab sessions.
 5. In the **Anaconda Terminal** write `conda activate envs456` and press `Enter`. This activates your working environment.
-6.  *Optional*: Configuration of Jupyter Notebooks
+6. *Necessary* on University machines, otherwise *Optional*: Configuration of Jupyter Notebooks
 	- In the **Anaconda Terminal**, write `jupyter server --generate-config` and press enter. This, at least in Windows, should create a file to: `C:\Users\username\.jupyter\jupyter_server_config.py`.
-	- Open the file with a text editor (e.g. [Notepad++](https://notepad-plus-plus.org)), do a  `ctrl-f`  search for:  `c.ServerApp.root_dir`, uncomment it by removing the and change it to  `c.ServerApp.notebook_dir = 'C:\\your\\new\\path`, for example the directory where you created the `envs456` folder. In the University Machines, it is advised to work on the directory `M:\`. 
+	- Open the file with a text editor (e.g. [Notepad++](https://notepad-plus-plus.org)), do a  `ctrl-f`  search for: `c.ServerApp.root_dir`, uncomment it by removing the and change it to `c.ServerApp.notebook_dir = 'C:\\your\\new\\path`, for example the directory where you created the `envs456` folder. In the University Machines, it is advised to work on the directory `M:\`. 
 	- Save the file and close it.
 	
 <img src = "../img/config.png" width="80%">

@@ -4,7 +4,7 @@
 
 -   **Title:** Exporing APIs in Python.
 -   **Type:** Coursework.
--   **Due: Thursday March 7thy, Week 6**.
+-   **Due: Thursday March 7th, Week 6**.
 -   50% of the final mark.
 -   Electronic submission only.
 

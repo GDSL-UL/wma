@@ -15,3 +15,6 @@ vignettes/*.pdf
 
 /.quarto/
 .Rproj.user
+_quarto.yml
+_quarto.yml
+docs/general/setup.html

@@ -29,8 +29,8 @@ book:
     - labs/w01_intro.ipynb
     - labs/w02_maps.ipynb
     - labs/w03_webArch.ipynb
-    - labs/w04_dataArch.ipynb
-    - labs/w05_interactive.ipynb
+    - labs/w04_interactive.ipynb
+    - labs/w05_dataArch.ipynb
     - labs/w07_OSM.ipynb
     
 bibliography: references.bib

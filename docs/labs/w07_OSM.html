@@ -980,7 +980,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>However, for that edge, we want to get the attribute that refers to the index in the <code>edges_copy</code> <code>GeoDataFrame</code>. For that, We use a list comprehension.</p>
 <div id="cell-71" class="cell" data-execution_count="137">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>path_edges <span class="op">=</span> [G.edges[edge][<span class="st">'index'</span>] <span class="cf">for</span> edge <span class="kw">in</span> path_edges]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>path_edges <span class="op">=</span> [G.edges[edge][<span class="st">'Index'</span>] <span class="cf">for</span> edge <span class="kw">in</span> path_edges]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And then we can plot the route.</p>
 <div id="cell-73" class="cell" data-execution_count="141">

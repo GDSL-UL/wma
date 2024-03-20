@@ -196,7 +196,7 @@
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, frame hidden, boxrule=0pt, sharp corners, breakable, borderline west={3pt}{0pt}{shadecolor}, interior hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, enhanced, interior hidden, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, sharp corners, frame hidden]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 {
@@ -13191,7 +13191,8 @@ flexible enough to serve either as a standalone app or embedded in
 existing web applications, and it can be deployed easily. Have a look at
 this
 \href{https://medium.com/@marcskovmadsen/i-prefer-to-use-panel-for-my-data-apps-here-is-why-1ff5d2b98e8f}{article}
-for some insights on the power of \texttt{Panel}
+for some insights on how to exploit \texttt{Panel} for nice data
+visualisations.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -13267,15 +13268,25 @@ Panel to watch certain parameters (like the value of a widget) and call
 a specified function whenever those parameters change, automatically
 passing the new values to the function.
 
-Here's a breakdown of how pn.bind works: - \texttt{pn.bind} links a
-function to one or more parameters (often widget values). This function
-will be called whenever the linked parameters change. - When the linked
-parameters change, pn.bind automatically calls the specified function
-with the new values as arguments. This eliminates the need for manual
-event handling or value extraction within the function. - This binding
-creates a reactive link, meaning the output of the function will
-automatically update in the UI when the input parameters change. This is
-fundamental for creating interactive and dynamic dashboards.
+Here's a breakdown of how \texttt{pn.bind} works:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{pn.bind} links a function to one or more parameters (often
+  widget values). This function will be called whenever the linked
+  parameters change.
+\item
+  When the linked parameters change, pn.bind automatically calls the
+  specified function with the new values as arguments. This eliminates
+  the need for manual event handling or value extraction within the
+  function.
+\item
+  This binding creates a reactive link, meaning the output of the
+  function will automatically update in the UI when the input parameters
+  change. This is fundamental for creating interactive and dynamic
+  dashboards.
+\end{itemize}
 
 \textbf{Usage with Layouts:} When you use \texttt{pn.bind} within a
 Panel layout (like \texttt{pn.Column} or \texttt{pn.Row}), the return
@@ -13455,7 +13466,7 @@ it.
 \NormalTok{df }\OperatorTok{=}\NormalTok{ df.dropna(subset}\OperatorTok{=}\NormalTok{[}\StringTok{\textquotesingle{}latitude\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}longitude\textquotesingle{}}\NormalTok{])}
 \CommentTok{\# Widget to select a country}
 \NormalTok{countries }\OperatorTok{=} \BuiltInTok{sorted}\NormalTok{(df[}\StringTok{\textquotesingle{}country\_txt\textquotesingle{}}\NormalTok{].unique().tolist())}
-\NormalTok{country\_selector }\OperatorTok{=}\NormalTok{ pn.widgets.Select(name}\OperatorTok{=}\StringTok{\textquotesingle{}Country\textquotesingle{}}\NormalTok{, options}\OperatorTok{=}\NormalTok{countries)}
+\NormalTok{country\_selector }\OperatorTok{=}\NormalTok{ pn.widgets.Select(name}\OperatorTok{=}\StringTok{\textquotesingle{}Country\textquotesingle{}}\NormalTok{, options}\OperatorTok{=}\NormalTok{csountries)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -13571,6 +13582,7 @@ Unable to display output for mime type(s): application/vnd.holoviews_exec.v0+jso
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# reload the df}
 \NormalTok{df }\OperatorTok{=}\NormalTok{ pd.read\_csv(}\StringTok{\textquotesingle{}../data/GTD\_2022.csv\textquotesingle{}}\NormalTok{, low\_memory}\OperatorTok{=}\VariableTok{False}\NormalTok{)}
 \NormalTok{df }\OperatorTok{=}\NormalTok{ df.dropna(subset}\OperatorTok{=}\NormalTok{[}\StringTok{\textquotesingle{}latitude\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}longitude\textquotesingle{}}\NormalTok{])}
 \NormalTok{countries }\OperatorTok{=} \BuiltInTok{sorted}\NormalTok{(df[}\StringTok{\textquotesingle{}country\_txt\textquotesingle{}}\NormalTok{].unique().tolist())}
@@ -13655,8 +13667,13 @@ functions that automatically update their output when an input parameter
 changes. This is a core concept in creating interactive and dynamic
 dashboards with \texttt{Panel}.
 
-\hypertarget{grid-layout}{%
-\section{Grid Layout}\label{grid-layout}}
+\textbf{Exercise}:
+
+Now, try to create a layout where you put together the map, the
+dataframe panel and the scatter plot, using a Column or a Row Layout.
+
+\hypertarget{grid-layouts}{%
+\section{Grid Layouts}\label{grid-layouts}}
 
 \texttt{GridSpec} in \texttt{Panel} is a layout object that allows you
 to arrange your visual components in a grid-like structure, specifying
@@ -13706,10 +13723,23 @@ Unable to display output for mime type(s): application/vnd.holoviews_exec.v0+jso
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{\# reload the df}
 \NormalTok{df }\OperatorTok{=}\NormalTok{ pd.read\_csv(}\StringTok{\textquotesingle{}../data/GTD\_2022.csv\textquotesingle{}}\NormalTok{, low\_memory}\OperatorTok{=}\VariableTok{False}\NormalTok{)}
 \NormalTok{df }\OperatorTok{=}\NormalTok{ df.dropna(subset}\OperatorTok{=}\NormalTok{[}\StringTok{\textquotesingle{}latitude\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}longitude\textquotesingle{}}\NormalTok{])}
 \NormalTok{countries }\OperatorTok{=} \BuiltInTok{sorted}\NormalTok{(df[}\StringTok{\textquotesingle{}country\_txt\textquotesingle{}}\NormalTok{].unique().tolist())}
 \NormalTok{country\_selector }\OperatorTok{=}\NormalTok{ pn.widgets.Select(name}\OperatorTok{=}\StringTok{\textquotesingle{}Country\textquotesingle{}}\NormalTok{, options}\OperatorTok{=}\NormalTok{countries)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Making a smaller dataset}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OperatorTok{=}\NormalTok{ df[df.year }\OperatorTok{\textgreater{}} \DecValTok{2000}\NormalTok{]}\CommentTok{\# only 2000s}
 \end{Highlighting}
 \end{Shaded}
 
@@ -13773,17 +13803,17 @@ Unable to display output for mime type(s): application/vnd.holoviews_exec.v0+jso
 \NormalTok{    data }\OperatorTok{=}\NormalTok{ df[df[}\StringTok{\textquotesingle{}country\_txt\textquotesingle{}}\NormalTok{] }\OperatorTok{==}\NormalTok{ country]}
     
     \CommentTok{\# DataFrame pane}
-\NormalTok{    df\_pane }\OperatorTok{=}\NormalTok{ pn.widgets.DataFrame(data)}
+\NormalTok{    df\_pane }\OperatorTok{=}\NormalTok{ pn.widgets.DataFrame(data[columns])}
     
     \CommentTok{\# Scatter plot}
 \NormalTok{    plot }\OperatorTok{=}\NormalTok{ update\_scatter(data, title}\OperatorTok{=}\SpecialStringTok{f\textquotesingle{}Number of People Killed and Wounded Over Time in }\SpecialCharTok{\{}\NormalTok{country}\SpecialCharTok{\}}\SpecialStringTok{\textquotesingle{}}\NormalTok{).opts(legend\_position}\OperatorTok{=}\StringTok{\textquotesingle{}top\_left\textquotesingle{}}\NormalTok{)}
     
     \CommentTok{\# Use GridSpec for layouts}
-\NormalTok{    grid }\OperatorTok{=}\NormalTok{ pn.GridSpec(sizing\_mode}\OperatorTok{=}\StringTok{\textquotesingle{}stretch\_both\textquotesingle{}}\NormalTok{)  }\CommentTok{\# Changed to stretch\_width}
-\NormalTok{    grid[}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{] }\OperatorTok{=}\NormalTok{ pn.Row(country\_selector)}
-\NormalTok{    grid[}\DecValTok{1}\NormalTok{, :}\DecValTok{2}\NormalTok{] }\OperatorTok{=}\NormalTok{ map\_pane}
-\NormalTok{    grid[}\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{] }\OperatorTok{=}\NormalTok{ plot}
-\NormalTok{    grid[}\DecValTok{3}\NormalTok{, }\DecValTok{1}\NormalTok{] }\OperatorTok{=}\NormalTok{ df\_pane}
+\NormalTok{    grid }\OperatorTok{=}\NormalTok{ pn.GridSpec(width}\OperatorTok{=}\DecValTok{1400}\NormalTok{, height}\OperatorTok{=}\DecValTok{750}\NormalTok{)}
+\NormalTok{    grid[}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{:}\DecValTok{3}\NormalTok{] }\OperatorTok{=}\NormalTok{ country\_selector}
+\NormalTok{    grid[}\DecValTok{1}\NormalTok{:}\DecValTok{6}\NormalTok{, :}\DecValTok{3}\NormalTok{] }\OperatorTok{=}\NormalTok{ map\_pane}
+\NormalTok{    grid[}\DecValTok{1}\NormalTok{:}\DecValTok{3}\NormalTok{, }\DecValTok{3}\NormalTok{:}\DecValTok{6}\NormalTok{] }\OperatorTok{=}\NormalTok{ plot}
+\NormalTok{    grid[}\DecValTok{3}\NormalTok{:}\DecValTok{5}\NormalTok{, }\DecValTok{3}\NormalTok{:}\DecValTok{6}\NormalTok{] }\OperatorTok{=}\NormalTok{ df\_pane}
     
     \ControlFlowTok{return}\NormalTok{ grid}
 
@@ -13793,15 +13823,50 @@ Unable to display output for mime type(s): application/vnd.holoviews_exec.v0+jso
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+Column(design=<class 'panel.theme.materi...)
+    [0] ParamFunction(function, _pane=GridSpec, defer_load=False, design=<class 'panel.theme.materi...)
+\end{verbatim}
+
 Think about including other widgets to improve the visualisation. For
 some countries it's impossible to look at the scatter plot at first,
 because the amount of records associated with it.
+
+Also consider using \texttt{Spacer}s to organise your layout, see:
+https://panel.holoviz.org/reference/layouts/GridSpec.html
 
 \hypertarget{alternative-widgets}{%
 \section{Alternative Widgets}\label{alternative-widgets}}
 
 Let's play with another widget that we briefly mentioned above, the
 \texttt{RadioButtonGroup} widget.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# let\textquotesingle{}s reset variables to avoid interactions between different functions/dashboards}
+\OperatorTok{\%}\NormalTok{reset }\OperatorTok{{-}}\NormalTok{f }\OperatorTok{{-}}\NormalTok{s}
+
+\CommentTok{\# remporting again}
+\ImportTok{import}\NormalTok{ geopandas }\ImportTok{as}\NormalTok{ gpd}
+\ImportTok{import}\NormalTok{ hvplot.pandas}
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+\ImportTok{import}\NormalTok{ panel }\ImportTok{as}\NormalTok{ pn}
+\ImportTok{import}\NormalTok{ plotly.express }\ImportTok{as}\NormalTok{ px}
+
+\CommentTok{\# Initialize Panel with extensions}
+\NormalTok{pn.extension(}\StringTok{\textquotesingle{}plotly\textquotesingle{}}\NormalTok{, design}\OperatorTok{=}\StringTok{\textquotesingle{}material\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OperatorTok{=}\NormalTok{ pd.read\_csv(}\StringTok{\textquotesingle{}../data/GTD\_2022.csv\textquotesingle{}}\NormalTok{, low\_memory}\OperatorTok{=}\VariableTok{False}\NormalTok{)}
+\NormalTok{df }\OperatorTok{=}\NormalTok{ df.dropna(subset}\OperatorTok{=}\NormalTok{[}\StringTok{\textquotesingle{}latitude\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}longitude\textquotesingle{}}\NormalTok{])}
+\NormalTok{countries }\OperatorTok{=} \BuiltInTok{sorted}\NormalTok{(df[}\StringTok{\textquotesingle{}country\_txt\textquotesingle{}}\NormalTok{].unique().tolist())}
+\NormalTok{country\_selector }\OperatorTok{=}\NormalTok{ pn.widgets.Select(name}\OperatorTok{=}\StringTok{\textquotesingle{}Country\textquotesingle{}}\NormalTok{, options}\OperatorTok{=}\NormalTok{countries)}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -13862,17 +13927,21 @@ Let's play with another widget that we briefly mentioned above, the
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+Column(design=<class 'panel.theme.materi...)
+    [0] RadioButtonGroup(button_type='success', design=<class 'panel.theme.materi..., name='Select Option', options=['Killed', 'Wound'], value='Killed')
+    [1] ParamFunction(function, _pane=HTML, defer_load=False, design=<class 'panel.theme.materi...)
+\end{verbatim}
+
 This map is a bit slow in terms of reaction. Think about possible
 improvements or how you could tweak it (e.g.~recreating the map
 everytime the button is pressed, etc.).
 
-Also, consider using \texttt{panel} in combination with \texttt{Bokeh}
-or \texttt{Geoviews}. When integrating \texttt{Geoviews} with Panel for
-geospatial data visualizations, you can exploit its mapping capabilities
-alongside \texttt{GeoPandas} to create dynamic and interactive
-dashboards. Panel acts as a high-level framework that can host Geoviews
-plots, enabling the assembly of various visualization components,
-including maps, into a cohesive dashboard. You can use Geoviews plotting
+Also, consider using \texttt{Panel} in combination with \texttt{Bokeh}
+or \texttt{Geoviews}. For nice and smoother (although more pre-designed)
+for geospatial data visualizations, you can use Panel to host
+\texttt{Geoviews} plots, enabling the assembly of various visualization
+components into a cohesive dashboard. You can use Geoviews plotting
 tools to render maps with different geometries and overlay them on tile
 sources. See for example
 \href{https://dmnfarrell.github.io/bioinformatics/bokeh-maps}{here}, or
@@ -13880,8 +13949,8 @@ sources. See for example
 
 GeoViews is built on top of Bokeh and HoloViews. It simplifies the
 process of creating maps, allowing you to work directly with
-GeoDataFrames and use a variety of geometries (points, lines, polygons)
-for your visualizations. Check: https://geoviews.orgs.
+\textbf{GeoDataFrames} and use a variety of geometries (points, lines,
+polygons) for your visualizations. Check: https://geoviews.orgs.
 
 \textbf{Exercise}:
 
@@ -13897,9 +13966,17 @@ use was not demonstrated above.
 \textbf{Presentation}
 
 You will then have 30 seconds to present your dashboard and hit the
-following point - What the dashboard shows - What interactivity/analysis
-element(s) you have used - One thing you think is really effective about
-it
+following points:
+
+\begin{itemize}
+\tightlist
+\item
+  What the dashboard shows
+\item
+  What interactivity/analysis element(s) you have used
+\item
+  One thing you think is really effective about it
+\end{itemize}
 
 Remember, 30 seconds. Short and sweet. Make them count
 

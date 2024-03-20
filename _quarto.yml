@@ -32,6 +32,7 @@ book:
     - labs/w04_interactive.ipynb
     - labs/w05_dataArch.ipynb
     - labs/w07_OSM.ipynb
+    - labs/w08_dashboards.ipynb
     
 bibliography: references.bib
 

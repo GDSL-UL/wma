@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Gabriele Filomena">
+<meta name="dcterms.date" content="2024-03-20">
+
+<title>Web Mapping and Geovisualisation - 1&nbsp; Introduction &amp; Python Refresher</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../labs/w02_maps.html" rel="next">
+<link href="../general/setup.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/w01_intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction &amp; Python Refresher</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Web Mapping and Geovisualisation</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/GDSL-UL/wma" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="../Web-Mapping-and-Geovisualisation.pdf" rel="" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../general/structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../general/overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../general/assessments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assessments</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../general/setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Setting up the Working Environment</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w01_intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction &amp; Python Refresher</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w02_maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Static Maps in Python</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w03_webArch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Web Architectures and APIs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w04_interactive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Interactive Maps</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w05_dataArch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Data Architectures and Tiles</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w07_OSM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Retrieving Data From OpenStreetMap</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w08_dashboards.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Dashboards</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#part-i-powerful-web-mapping-examples" id="toc-part-i-powerful-web-mapping-examples" class="nav-link active" data-scroll-target="#part-i-powerful-web-mapping-examples"><span class="header-section-number">1.1</span> Part I: Powerful Web Mapping Examples</a>
+  <ul class="collapse">
+  <li><a href="#paired-activity" id="toc-paired-activity" class="nav-link" data-scroll-target="#paired-activity"><span class="header-section-number">1.1.1</span> Paired Activity</a></li>
+  <li><a href="#class-discussion" id="toc-class-discussion" class="nav-link" data-scroll-target="#class-discussion"><span class="header-section-number">1.1.2</span> Class discussion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">1.1.3</span> References</a></li>
+  </ul></li>
+  <li><a href="#part-ii-pythonpandas-refresher" id="toc-part-ii-pythonpandas-refresher" class="nav-link" data-scroll-target="#part-ii-pythonpandas-refresher"><span class="header-section-number">1.2</span> Part II: Python/Pandas (Refresher)</a>
+  <ul class="collapse">
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python"><span class="header-section-number">1.2.1</span> Python</a></li>
+  <li><a href="#pandas-series-and-dataframes" id="toc-pandas-series-and-dataframes" class="nav-link" data-scroll-target="#pandas-series-and-dataframes"><span class="header-section-number">1.2.2</span> <code>pandas</code> Series and DataFrames</a></li>
+  <li><a href="#loading-data-in-pandas" id="toc-loading-data-in-pandas" class="nav-link" data-scroll-target="#loading-data-in-pandas"><span class="header-section-number">1.2.3</span> Loading data in Pandas</a></li>
+  <li><a href="#selecting-and-slicing-data-from-a-dataframe" id="toc-selecting-and-slicing-data-from-a-dataframe" class="nav-link" data-scroll-target="#selecting-and-slicing-data-from-a-dataframe"><span class="header-section-number">1.2.4</span> Selecting and slicing data from a DataFrame</a></li>
+  <li><a href="#grouping-and-summarizing" id="toc-grouping-and-summarizing" class="nav-link" data-scroll-target="#grouping-and-summarizing"><span class="header-section-number">1.2.5</span> Grouping and summarizing</a></li>
+  <li><a href="#indexes" id="toc-indexes" class="nav-link" data-scroll-target="#indexes"><span class="header-section-number">1.2.6</span> Indexes</a></li>
+  </ul></li>
+  <li><a href="#part-iii-geospatial-vector-data-in-python" id="toc-part-iii-geospatial-vector-data-in-python" class="nav-link" data-scroll-target="#part-iii-geospatial-vector-data-in-python"><span class="header-section-number">1.3</span> Part III: Geospatial Vector data in Python</a>
+  <ul class="collapse">
+  <li><a href="#importing-geospatial-data" id="toc-importing-geospatial-data" class="nav-link" data-scroll-target="#importing-geospatial-data"><span class="header-section-number">1.3.1</span> Importing geospatial data</a></li>
+  <li><a href="#whats-a-geodataframe" id="toc-whats-a-geodataframe" class="nav-link" data-scroll-target="#whats-a-geodataframe"><span class="header-section-number">1.3.2</span> What’s a GeoDataFrame?</a></li>
+  <li><a href="#geometries-points-linestrings-and-polygons" id="toc-geometries-points-linestrings-and-polygons" class="nav-link" data-scroll-target="#geometries-points-linestrings-and-polygons"><span class="header-section-number">1.3.3</span> Geometries: Points, Linestrings and Polygons</a></li>
+  <li><a href="#the-shapely-library" id="toc-the-shapely-library" class="nav-link" data-scroll-target="#the-shapely-library"><span class="header-section-number">1.3.4</span> The <code>shapely</code> library</a></li>
+  <li><a href="#plotting" id="toc-plotting" class="nav-link" data-scroll-target="#plotting"><span class="header-section-number">1.3.5</span> Plotting</a></li>
+  <li><a href="#creating-geodataframes-withouth-specifying-the-crs" id="toc-creating-geodataframes-withouth-specifying-the-crs" class="nav-link" data-scroll-target="#creating-geodataframes-withouth-specifying-the-crs"><span class="header-section-number">1.3.6</span> Creating GeoDataFrames (withouth specifying the CRS)</a></li>
+  </ul></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice"><span class="header-section-number">2</span> Practice</a>
+  <ul class="collapse">
+  <li><a href="#part-iv-coordinate-reference-systems-projections" id="toc-part-iv-coordinate-reference-systems-projections" class="nav-link" data-scroll-target="#part-iv-coordinate-reference-systems-projections"><span class="header-section-number">2.1</span> Part IV: Coordinate reference systems &amp; Projections</a>
+  <ul class="collapse">
+  <li><a href="#coordinate-reference-systems" id="toc-coordinate-reference-systems" class="nav-link" data-scroll-target="#coordinate-reference-systems"><span class="header-section-number">2.1.1</span> Coordinate reference systems</a></li>
+  <li><a href="#projected-coordinates" id="toc-projected-coordinates" class="nav-link" data-scroll-target="#projected-coordinates"><span class="header-section-number">2.1.2</span> Projected coordinates</a></li>
+  <li><a href="#coordinate-reference-systems-in-python-geopandas" id="toc-coordinate-reference-systems-in-python-geopandas" class="nav-link" data-scroll-target="#coordinate-reference-systems-in-python-geopandas"><span class="header-section-number">2.1.3</span> Coordinate Reference Systems in Python / GeoPandas</a></li>
+  </ul></li>
+  <li><a href="#practice-1" id="toc-practice-1" class="nav-link" data-scroll-target="#practice-1"><span class="header-section-number">2.2</span> Practice</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/GDSL-UL/wma/blob/main/labs/w01_intro.ipynb" class="toc-action">Edit this page</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction &amp; Python Refresher</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gabriele Filomena </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 20, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p>The <strong>Lecture slides</strong> can be found <a href="https://slides.com/gfilo/web-mapping-and-geovisualisation-envs456/fullscreen">here</a>.</p>
+<p>This <strong>lab</strong>’s notebook can be downloaded from <a href="https://github.com/GDSL-UL/wma/blob/main/labs/w01_intro.ipynb">here</a>.</p>
+<section id="part-i-powerful-web-mapping-examples" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="part-i-powerful-web-mapping-examples"><span class="header-section-number">1.1</span> Part I: Powerful Web Mapping Examples</h2>
+<p>This part of the lab has two main components: 1. The first one will require you to find a partner and work together with her/him 2. And the second one will involve group discussion.</p>
+<section id="paired-activity" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="paired-activity"><span class="header-section-number">1.1.1</span> Paired Activity</h3>
+<p>In pairs, find <strong>three</strong> examples where web maps are used to communicate an idea. Complete the following sheet for each example:</p>
+<ul>
+<li><strong>Substantive</strong>
+<ul>
+<li><code>Title</code>: Title of the map/project</li>
+<li><code>Author</code>: Who is behind the project?</li>
+<li><code>Big idea</code>: a “one-liner” on what the project tries to accomplish –</li>
+<li><code>Message</code>: what does the map try to get accross</li>
+</ul></li>
+<li><strong>Technical</strong>
+<ul>
+<li><code>URL</code>:</li>
+<li><code>Interactivity</code>: does the map let you interact with it in any way? Yes/No</li>
+<li><code>Zoomable</code>: can you explore the map at different scales? Yes/No</li>
+<li><code>Tooltips</code>:</li>
+<li><code>Basemap</code>: Is there an underlying map providing geographical context? Yes/No.&nbsp;If so, who is it provided by?</li>
+<li><code>Technology</code>: can you guess what technology does this map rely on?</li>
+</ul></li>
+</ul>
+<p>Post each sheet as a separate item on the Teams channel for Lab No.1</p>
+<section id="example" class="level4" data-number="1.1.1.1">
+<h4 data-number="1.1.1.1" class="anchored" data-anchor-id="example"><span class="header-section-number">1.1.1.1</span> Example</h4>
+<p>The project “WHO Coronavirus (COVID-19) Dashboard”</p>
+<p><img src="../labs_img/who_covid.png" width="70%/"></p>
+<ul>
+<li><p><strong>Substantive</strong></p>
+<ul>
+<li><code>Title</code>: WHO Coronavirus (COVID-19) Dashboard</li>
+<li><code>Author</code>: World Health Organization</li>
+<li><code>Big idea</code>: Shows confirmed COVID-19 cases and deaths by country to date</li>
+<li><code>Message</code>: The project displays a map of the world where COVID-19 cases are shown by country. This element is used to show which countries have had more cases (large trends). A drop down button allows us to visualise the map by a) Total per 100,000 population b) % change in the last 7 days c) newly reported in the last 7 days d) newly reported in the last 24 hours.</li>
+</ul></li>
+<li><p><strong>Technical</strong></p>
+<ul>
+<li><code>URL</code>: <a href="https://covid19.who.int/"><code>https://covid19.who.int/</code></a></li>
+<li><code>Interactivity</code>: Yes</li>
+<li><code>Zoomable</code>: Yes</li>
+<li><code>Tooltips</code>: Yes</li>
+<li><code>Basemap</code>: No</li>
+<li><code>Technology</code>: Unknown</li>
+</ul></li>
+</ul>
+<p>Here are a couple of other COVID-19 examples of web-maps that where basemaps and technology is easier to spot.</p>
+<ul>
+<li><a href="https://vac-lshtm.shinyapps.io/ncov_tracker/?_ga=2.246644480.501918083.1674819300-1251881958.1674819300">“London School of Hygiene &amp; Tropical Medicine - COVID-19 tracker”</a></li>
+<li><a href="https://www.nytimes.com/interactive/2021/world/united-kingdom-covid-cases.html">“Tracking Coronavirus in the United Kingdom: Latest Map and Case Count”</a></li>
+</ul>
+</section>
+</section>
+<section id="class-discussion" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="class-discussion"><span class="header-section-number">1.1.2</span> Class discussion</h3>
+<p>We will select a few examples posted and collectively discuss (some of) the following questions:</p>
+<ol type="1">
+<li>What makes them powerful, what “speaks” to us?</li>
+<li>What could be improved, what is counter-intuitive?</li>
+<li>What design elements do they rely on?</li>
+<li>What technology do they use?</li>
+</ol>
+</section>
+<section id="references" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="references"><span class="header-section-number">1.1.3</span> References</h3>
+<ul>
+<li>For an excellent coverage of “visualisation literacy”, Chapter 11 of Andy Kirk’s <a href="https://www.visualisingdata.com/book/">“Data Visualisation”</a> is a great start. Lab: Getting up to speed for web mapping</li>
+<li>A comprehensive overview of computational notebooks and how they relate to modern scientific work is available on <a href="https://geographicdata.science/book/notebooks/01_geo_thinking.html">Ch.1 of the GDS book</a>.</li>
+<li>A recent overview of notebooks in Geography is available in <a href="https://gistbok.ucgis.org/bok-topics/gis-and-computational-notebooks">Boeing &amp; Arribas-Bel (2021)</a></li>
+</ul>
+</section>
+</section>
+<section id="part-ii-pythonpandas-refresher" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="part-ii-pythonpandas-refresher"><span class="header-section-number">1.2</span> Part II: Python/Pandas (Refresher)</h2>
+<p><em>Gabriele Filomena has prepared this notebook by readapting material shared on this <a href="https://github.com/gboeing/ppd599/tree/main">repository</a>. Copyright (c) 2013-2023 Geoff Boeing.</em></p>
+<section id="python" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="python"><span class="header-section-number">1.2.1</span> Python</h3>
+<p>A quick overview of ubiquitous programming concepts including data types, for loops, if-then-else conditionals, and functions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># integers (int)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># floating-point numbers (float)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">100.5</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sequence of characters (str)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">'Los Angeles, CA 90089'</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># list of items</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">'USC'</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sets are unique</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> {<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">1</span>}</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tuples are immutable sequences</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>latlng <span class="op">=</span> (<span class="fl">34.019425</span>, <span class="op">-</span><span class="fl">118.283413</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(latlng)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you can unpack a tuple</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>lat, lng <span class="op">=</span> latlng</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(lat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dictionary of key:value pairs</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>iceland <span class="op">=</span> {<span class="st">'Country'</span>: <span class="st">'Iceland'</span>, <span class="st">'Population'</span>: <span class="dv">372520</span>, <span class="st">'Capital'</span>: <span class="st">'Reykjavík'</span>, <span class="st">'</span><span class="sc">% F</span><span class="st">oreign Population'</span> : <span class="fl">0.18</span> }</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(iceland)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you can convert types</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">'100'</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(x))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="bu">int</span>(x)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you can loop through an iterable, such as a list or tuple</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> coord <span class="kw">in</span> latlng:</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Current coordinate is:'</span>, coord)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># loop through a dictionary keys and values as tuples</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key, value <span class="kw">in</span> iceland.items():</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(key, value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># booleans are trues/falses</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">101</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">&gt;</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use two == for equality and one = for assignment</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">==</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if, elif, else for conditional branching execution</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">101</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">100</span>:</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Value is greater than 100.'</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> x <span class="op">&lt;</span> <span class="dv">100</span>:</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Value is less than 100.'</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Value is 100.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use functions to encapsulate and reuse bits of code</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> convert_items(my_list, new_type<span class="op">=</span><span class="bu">str</span>):</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># convert each item in a list to a new type</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    new_list <span class="op">=</span> [new_type(item) <span class="cf">for</span> item <span class="kw">in</span> my_list]</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> new_list</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>l <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>convert_items(l)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="pandas-series-and-dataframes" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="pandas-series-and-dataframes"><span class="header-section-number">1.2.2</span> <code>pandas</code> Series and DataFrames</h3>
+<p><a href="https://pandas.pydata.org/">pandas</a> has two primary data structures we will work with: <code>Series</code> and <code>DataFrame</code>.</p>
+<section id="pandas-series" class="level4" data-number="1.2.2.1">
+<h4 data-number="1.2.2.1" class="anchored" data-anchor-id="pandas-series"><span class="header-section-number">1.2.2.1</span> Pandas Series</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a pandas series is based on a numpy array: it's fast, compact, and has more functionality</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># it has an index which allows you to work naturally with tabular data</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">8</span>, <span class="dv">5</span>, <span class="dv">77</span>, <span class="dv">2</span>]</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>my_series <span class="op">=</span> pd.Series(my_list)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>my_series</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># look at a list-representation of the index</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>my_series.index.tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># look at the series' values themselves</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>my_series.values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># what's the data type of the series' values?</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(my_series.values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># what's the data type of the individual values themselves?</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>my_series.dtype</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="pandas-dataframes" class="level4" data-number="1.2.2.2">
+<h4 data-number="1.2.2.2" class="anchored" data-anchor-id="pandas-dataframes"><span class="header-section-number">1.2.2.2</span> Pandas DataFrames</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a dict can contain multiple lists and label them</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>my_dict <span class="op">=</span> {<span class="st">'hh_income'</span>  : [<span class="dv">75125</span>, <span class="dv">22075</span>, <span class="dv">31950</span>, <span class="dv">115400</span>],</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>           <span class="st">'home_value'</span> : [<span class="dv">525000</span>, <span class="dv">275000</span>, <span class="dv">395000</span>, <span class="dv">985000</span>]}</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>my_dict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a pandas dataframe can contain one or more columns</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># each column is a pandas series</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># each row is a pandas series</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># you can create a dataframe by passing in a list, array, series, or dict</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(my_dict)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the row labels in the index are accessed by the .index attribute of the DataFrame object</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>df.index.tolist()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the column labels are accessed by the .columns attribute of the DataFrame object</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the data values are accessed by the .values attribute of the DataFrame object</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this is a numpy (two-dimensional) array</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>df.values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="loading-data-in-pandas" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="loading-data-in-pandas"><span class="header-section-number">1.2.3</span> Loading data in Pandas</h3>
+<p>Usually, you’ll work with data by loading a dataset file into pandas. CSV is the most common format. But pandas can also ingest tab-separated data, JSON, and proprietary file formats like Excel .xlsx files, Stata, SAS, and SPSS.</p>
+<p>Below, notice what pandas’s <code>read_csv</code> function does:</p>
+<ol type="1">
+<li>Recognize the header row and get its variable names.</li>
+<li>Read all the rows and construct a pandas DataFrame (an assembly of pandas Series rows and columns).</li>
+<li>Construct a unique index, beginning with zero.</li>
+<li>Infer the data type of each variable (i.e., column).</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load a data file</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># note the relative filepath! where is this file located?</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># use dtype argument if you don't want pandas to guess your data types</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../data/GTD_2022.csv'</span>, low_memory <span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>to_replace <span class="op">=</span> [<span class="op">-</span><span class="dv">9</span>, <span class="op">-</span><span class="dv">99</span>, <span class="st">"-9"</span>, <span class="st">"-99"</span>]</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> value <span class="kw">in</span> to_replace:</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> df.replace(value, np.NaN)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'eventid'</span>] <span class="op">=</span> df[<span class="st">'eventid'</span>].astype(<span class="st">"Int64"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dataframe shape as rows, columns</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>df.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or use len to just see the number of rows</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view the dataframe's "head"</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view the dataframe's "tail"</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>df.tail()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># column data types</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>df.dtypes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> dt <span class="kw">in</span> df.columns[:<span class="dv">10</span>]:</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(dt, <span class="bu">type</span>(dt))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="selecting-and-slicing-data-from-a-dataframe" class="level3" data-number="1.2.4">
+<h3 data-number="1.2.4" class="anchored" data-anchor-id="selecting-and-slicing-data-from-a-dataframe"><span class="header-section-number">1.2.4</span> Selecting and slicing data from a DataFrame</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CHEAT SHEET OF COMMON TASKS</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Operation                       Syntax           Result</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co">#------------------------------------------------------------</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Select column by name           df[col]          Series</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Select columns by name          df[col_list]     DataFrame</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Select row by label             df.loc[label]    Series</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Select row by integer location  df.iloc[loc]     Series</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Slice rows by label             df.loc[a:c]      DataFrame</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Select rows by boolean vector   df[mask]         DataFrame</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="select-dataframes-columns-by-name" class="level4" data-number="1.2.4.1">
+<h4 data-number="1.2.4.1" class="anchored" data-anchor-id="select-dataframes-columns-by-name"><span class="header-section-number">1.2.4.1</span> Select DataFrame’s column(s) by name</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select a single column by column name</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this is a pandas series</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'country'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select multiple columns by a list of column names</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this is a pandas dataframe that is a subset of the original</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'country_txt'</span>, <span class="st">'year'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a new column by assigning df['new_col'] to some values</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># people killed every perpetrator </span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'killed_per_attacker'</span>] <span class="op">=</span> df[<span class="st">'nkill'</span>] <span class="op">/</span> df[<span class="st">'nperps'</span>]</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co"># inspect the results</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'country'</span>, <span class="st">'year'</span>, <span class="st">'nkill'</span>, <span class="st">'nperps'</span>, <span class="st">'killed_per_attacker'</span>]].head(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="select-rows-by-label" class="level4" data-number="1.2.4.2">
+<h4 data-number="1.2.4.2" class="anchored" data-anchor-id="select-rows-by-label"><span class="header-section-number">1.2.4.2</span> Select row(s) by label</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use .loc to select by row label</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co"># returns the row as a series whose index is the dataframe column names</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use .loc to select single value by row label, column name</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="dv">15</span>, <span class="st">'gname'</span>] <span class="co">#group name</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># slice of rows from label 5 to label 7, inclusive</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># this returns a pandas dataframe</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="dv">5</span>:<span class="dv">7</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># slice of rows from label 17 to label 27, inclusive</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="co"># slice of columns from country_txt to city, inclusive</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="dv">17</span>:<span class="dv">27</span>, <span class="st">'country_txt'</span>:<span class="st">'city'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subset of rows from with labels in list</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># subset of columns with names in list</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>df.loc[[<span class="dv">1</span>, <span class="dv">350</span>], [<span class="st">'country'</span>, <span class="st">'gname'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you can use a column of identifiers as the index (indices do not *need* to be unique)</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>df_gname <span class="op">=</span> df.set_index(<span class="st">'gname'</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>df_gname.index.is_unique</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>df_gname.head(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># .loc works by label, not by position in the dataframe</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    df_gname.loc[<span class="dv">0</span>]</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">KeyError</span> <span class="im">as</span> e:</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'label not found'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the index now contains gname values, so you have to use .loc accordingly to select by row label</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>df_gname.loc[<span class="st">'Taliban'</span>].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="select-by-integer-position---independent-from-actual-index" class="level4" data-number="1.2.4.3">
+<h4 data-number="1.2.4.3" class="anchored" data-anchor-id="select-by-integer-position---independent-from-actual-index"><span class="header-section-number">1.2.4.3</span> Select by (integer) position - Independent from actual Index</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the row in the zero-th position in the dataframe</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>df.iloc[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you can slice as well</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="co"># note, while .loc is inclusive, .iloc is not</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="co"># get the rows from position 0 up to but not including position 3 (ie, rows 0, 1, and 2)</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>df.iloc[<span class="dv">0</span>:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the value from the row in position 3 and the column in position 2 (zero-indexed)</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>df.iloc[<span class="dv">3</span>, <span class="dv">6</span>] <span class="co">#country_txt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="selectfilter-by-value" class="level4" data-number="1.2.4.4">
+<h4 data-number="1.2.4.4" class="anchored" data-anchor-id="selectfilter-by-value"><span class="header-section-number">1.2.4.4</span> Select/filter by value</h4>
+<p>You can subset or filter a dataframe for based on the values in its rows/columns.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter the dataframe by urban areas with more than 25 million residents</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">'nkill'</span>] <span class="op">&gt;</span> <span class="dv">30</span>].head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you can chain multiple conditions together</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pandas logical operators are: | for or, &amp; for and, ~ for not</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co"># these must be grouped by using parentheses due to order of operations</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'country'</span>,<span class="st">'nkill'</span>, <span class="st">'nwound'</span>]][(df[<span class="st">'nkill'</span>] <span class="op">&gt;</span> <span class="dv">200</span>) <span class="op">&amp;</span> (df[<span class="st">'nwound'</span>] <span class="op">&gt;</span> <span class="dv">10</span>)].head()</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="co"># columns on the left-hand side are here used to slice the resulting output</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ~ means not... it essentially flips trues to falses and vice-versa</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'country'</span>,<span class="st">'nkill'</span>, <span class="st">'nwound'</span>]][<span class="op">~</span>(df[<span class="st">'nkill'</span>] <span class="op">&gt;</span> <span class="dv">200</span>) <span class="op">&amp;</span> (df[<span class="st">'nwound'</span>] <span class="op">&gt;</span> <span class="dv">10</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="grouping-and-summarizing" class="level3" data-number="1.2.5">
+<h3 data-number="1.2.5" class="anchored" data-anchor-id="grouping-and-summarizing"><span class="header-section-number">1.2.5</span> Grouping and summarizing</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># group by terroristic group name</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>groups <span class="op">=</span> df.groupby(<span class="st">'gname'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># what is the median number of people killed per event across the different groups?</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>groups[<span class="st">'nkill'</span>].median().sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># look at several columns' medians by group</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>groups[[<span class="st">'nkill'</span>, <span class="st">'nwound'</span>, <span class="st">'nperps'</span>]].median()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you can create a new dataFrame by directly passing columns between "[[ ]]", after the groupby function</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="co"># to do so, you also need to pass a function that can deal with the values (e.g. sum..etc) </span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>western_europe <span class="op">=</span> df[df.region_txt <span class="op">==</span> <span class="st">'Western Europe'</span>]</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>western_europe.groupby(<span class="st">'country_txt'</span>)[[<span class="st">'nkill'</span>, <span class="st">'nwound'</span>]].<span class="bu">sum</span>().sort_values(<span class="st">'nkill'</span>, ascending <span class="op">=</span> <span class="va">False</span>).reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="indexes" class="level3" data-number="1.2.6">
+<h3 data-number="1.2.6" class="anchored" data-anchor-id="indexes"><span class="header-section-number">1.2.6</span> Indexes</h3>
+<p>Each <code>DataFrame</code> has an index. Indexes do not have to be unique (but that would be for the best)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># resetting index (when loading a .csv file pandas creates an index automatically, from 0 to Nrecords-1)</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>df.reset_index(drop <span class="op">=</span> <span class="va">True</span>).sort_index().head() <span class="co"># this does not assign the new index though, it just shows you a temp copy</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co">#this does assign the new index to your df</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.reset_index(drop <span class="op">=</span> <span class="va">True</span>).sort_index() </span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># index isn't unique</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>df.index.is_unique</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you can set a new index</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="co"># drop -&gt; Delete columns to be used as the new index.</span></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a><span class="co"># append -&gt;  whether to append columns to existing index.</span></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.set_index(<span class="st">'eventid'</span>, drop<span class="op">=</span><span class="va">True</span>, append<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>df.index.name <span class="op">=</span> <span class="va">None</span> <span class="co"># remove the index "name"</span></span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>df.head()</span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a><span class="co"># this index is not ideal, but it's the original source's id</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="part-iii-geospatial-vector-data-in-python" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="part-iii-geospatial-vector-data-in-python"><span class="header-section-number">1.3</span> Part III: Geospatial Vector data in Python</h2>
+<p><em>Gabriele Filomena has prepared this notebook by readapting material shared on this <a href="https://github.com/jorisvandenbossche/geopandas-tutorial">repository</a>. Copyright (c) 2018, Joris Van den Bossche.</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="importing-geospatial-data" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="importing-geospatial-data"><span class="header-section-number">1.3.1</span> Importing geospatial data</h3>
+<p>GeoPandas builds on Pandas types <code>Series</code> and <code>Dataframe</code>, by incorporating information about geographical space.</p>
+<ul>
+<li><code>GeoSeries</code>: a Series object designed to store shapely geometry object</li>
+<li><code>GeoDataFrame</code>: object is a pandas DataFrame that has a column with geometry (that contains a <em>Geoseries</em>)</li>
+</ul>
+<p>We can use the GeoPandas library to read many of GIS file formats (relying on the <code>fiona</code> library under the hood, which is an interface to GDAL/OGR), using the <code>gpd.read_file</code> function. For example, let’s start by reading a shapefile with all the countries of the world (adapted from http://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-admin-0-countries/, zip file is available in the <code>/data</code> directory), and inspect the data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>countries <span class="op">=</span> gpd.read_file(<span class="st">"../data/ne_countries.zip"</span>)</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or if the archive is unpacked:</span></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="co"># countries = gpd.read_file("../data/ne_countries.shp")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>countries.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>countries.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We observe that:</p>
+<ul>
+<li>Using <code>.head()</code> we can see the first rows of the dataset, just like we can do with Pandas.</li>
+<li>There is a <code>geometry</code> column and the different countries are represented as polygons</li>
+<li>We can use the <code>.plot()</code> (matplotlib) method to quickly get a <em>basic</em> visualization of the data</li>
+</ul>
+</section>
+<section id="whats-a-geodataframe" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="whats-a-geodataframe"><span class="header-section-number">1.3.2</span> What’s a GeoDataFrame?</h3>
+<p>We used the GeoPandas library to read in the geospatial data, and this returned us a <code>GeoDataFrame</code>:</p>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(countries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A GeoDataFrame contains a tabular, geospatial dataset:</p>
+<ul>
+<li>It has a ‘geometry’ column that holds the geometry information (or features in GeoJSON).</li>
+<li>The other columns are the <strong>attributes</strong> (or properties in GeoJSON) that describe each of the geometries.</li>
+</ul>
+<p>Such a <code>GeoDataFrame</code> is just like a pandas <code>DataFrame</code>, but with some additional functionality for working with geospatial data: * A <code>geometry</code> attribute that always returns the column with the geometry information (returning a <code>GeoSeries</code>). The column name itself does not necessarily need to be ‘geometry’, but it will always be accessible as the <code>geometry</code> attribute. * It has some extra methods for working with spatial data (area, distance, buffer, intersection, …) <a href="https://github.com/jorisvandenbossche/geopandas-tutorial/blob/main/04-spatial-operations-overlays.ipynb">see here, for example</a>.</p>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>countries.geometry.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(countries.geometry)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>countries.geometry.area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>It’s still a <code>DataFrame</code>, so we have all the <code>pandas</code> functionality available to use on the geospatial dataset, and to do data manipulations with the attributes and geometry information together. For example, we can calculate the average population over all countries (by accessing the ‘pop_est’ column, and calling the <code>mean</code> method on it):</p>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>countries[<span class="st">'pop_est'</span>].mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>africa <span class="op">=</span> countries[countries[<span class="st">'continent'</span>] <span class="op">==</span> <span class="st">'Africa'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>africa.plot()<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The rest of the tutorial is going to assume you already know some pandas basics, but we will try to give hints for that part for those that are not familiar.</p>
+<div class="alert alert-info" style="font-size:120%">
+<p><strong>Important:</strong> <br></p>
+<ul>
+<li>A <code>GeoDataFrame</code> allows to perform typical tabular data analysis together with spatial operations</li>
+<li>A <code>GeoDataFrame</code> (or <em>Feature Collection</em>) consists of:
+<ul>
+<li><strong>Geometries</strong> or <strong>features</strong>: the spatial objects</li>
+<li><strong>Attributes</strong> or <strong>properties</strong>: columns with information about each spatial object</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="geometries-points-linestrings-and-polygons" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="geometries-points-linestrings-and-polygons"><span class="header-section-number">1.3.3</span> Geometries: Points, Linestrings and Polygons</h3>
+<p>Spatial <strong>vector</strong> data can consist of different types, and the 3 fundamental types are:</p>
+<p><img src="../labs_img/simple_features_3_text.svg" width="70%"></p>
+<ul>
+<li><strong>Point</strong> data: represents a single point in space.</li>
+<li><strong>Line</strong> data (“LineString”): represented as a sequence of points that form a line.</li>
+<li><strong>Polygon</strong> data: represents a filled area.</li>
+</ul>
+<p>And each of them can also be combined in multi-part geometries (See https://shapely.readthedocs.io/en/stable/manual.html#geometric-objects for extensive overview).</p>
+<p>For the example we have seen up to now, the individual geometry objects are Polygons:</p>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(countries.geometry[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s import some other datasets with different types of geometry objects.</p>
+<p>A dateset about cities in the world (adapted from http://www.naturalearthdata.com/downloads/110m-cultural-vectors/110m-populated-places/, zip file is available in the <code>/data</code> directory), consisting of <code>Point</code> data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>cities <span class="op">=</span> gpd.read_file(<span class="st">"../data/ne_cities.zip"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cities.geometry[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And a dataset of rivers in the world (from http://www.naturalearthdata.com/downloads/50m-physical-vectors/50m-rivers-lake-centerlines/, zip file is available in the <code>/data</code> directory) where each river is a <code>(Multi-)LineString</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>rivers <span class="op">=</span> gpd.read_file(<span class="st">"../data/ne_rivers.zip"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(rivers.geometry[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="the-shapely-library" class="level3" data-number="1.3.4">
+<h3 data-number="1.3.4" class="anchored" data-anchor-id="the-shapely-library"><span class="header-section-number">1.3.4</span> The <code>shapely</code> library</h3>
+<p>The individual geometry objects are provided by the <a href="https://shapely.readthedocs.io/en/stable/"><code>shapely</code></a> library</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> Point, Polygon, LineString</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(countries.geometry[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To construct one ourselves:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> Point(<span class="dv">0</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>polygon <span class="op">=</span> Polygon([(<span class="dv">1</span>, <span class="dv">1</span>), (<span class="dv">2</span>,<span class="dv">2</span>), (<span class="dv">2</span>, <span class="dv">1</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>polygon.area</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>polygon.distance(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="alert alert-info" style="font-size:120%">
+<p><strong>Important</strong>: <br></p>
+<p>Single geometries are represented by <code>shapely</code> objects:</p>
+<ul>
+<li>If you access a single geometry of a GeoDataFrame, you get a shapely geometry object</li>
+<li>Those objects have similar functionality as geopandas objects (GeoDataFrame/GeoSeries). For example:
+<ul>
+<li><code>single_shapely_object.distance(other_point)</code> -&gt; distance between two points</li>
+<li><code>geodataframe.distance(other_point)</code> -&gt; distance for each point in the geodataframe to the other point</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="plotting" class="level3" data-number="1.3.5">
+<h3 data-number="1.3.5" class="anchored" data-anchor-id="plotting"><span class="header-section-number">1.3.5</span> Plotting</h3>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">10</span>))</span>
+<span id="cb85-6"><a href="#cb85-6" aria-hidden="true" tabindex="-1"></a>countries.plot(ax <span class="op">=</span> ax, edgecolor<span class="op">=</span><span class="st">'k'</span>, facecolor<span class="op">=</span><span class="st">'none'</span>)</span>
+<span id="cb85-7"><a href="#cb85-7" aria-hidden="true" tabindex="-1"></a>rivers.plot(ax<span class="op">=</span>ax)</span>
+<span id="cb85-8"><a href="#cb85-8" aria-hidden="true" tabindex="-1"></a>cities.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb85-9"><a href="#cb85-9" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(xlim<span class="op">=</span>(<span class="op">-</span><span class="dv">20</span>, <span class="dv">60</span>), ylim<span class="op">=</span>(<span class="op">-</span><span class="dv">40</span>, <span class="dv">40</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="creating-geodataframes-withouth-specifying-the-crs" class="level3" data-number="1.3.6">
+<h3 data-number="1.3.6" class="anchored" data-anchor-id="creating-geodataframes-withouth-specifying-the-crs"><span class="header-section-number">1.3.6</span> Creating GeoDataFrames (withouth specifying the CRS)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>gpd.GeoDataFrame({</span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'geometry'</span>: [Point(<span class="dv">1</span>, <span class="dv">1</span>), Point(<span class="dv">2</span>, <span class="dv">2</span>)],</span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'attribute1'</span>: [<span class="dv">1</span>, <span class="dv">2</span>],</span>
+<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'attribute2'</span>: [<span class="fl">0.1</span>, <span class="fl">0.2</span>]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a GeoDataFrame from an existing dataframe</span></span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, if you have lat/lon coordinates in two columns:</span></span>
+<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(</span>
+<span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a>    {<span class="st">'City'</span>: [<span class="st">'Buenos Aires'</span>, <span class="st">'Brasilia'</span>, <span class="st">'Santiago'</span>, <span class="st">'Bogota'</span>, <span class="st">'Caracas'</span>],</span>
+<span id="cb87-5"><a href="#cb87-5" aria-hidden="true" tabindex="-1"></a>     <span class="st">'Country'</span>: [<span class="st">'Argentina'</span>, <span class="st">'Brazil'</span>, <span class="st">'Chile'</span>, <span class="st">'Colombia'</span>, <span class="st">'Venezuela'</span>],</span>
+<span id="cb87-6"><a href="#cb87-6" aria-hidden="true" tabindex="-1"></a>     <span class="st">'Latitude'</span>: [<span class="op">-</span><span class="fl">34.58</span>, <span class="op">-</span><span class="fl">15.78</span>, <span class="op">-</span><span class="fl">33.45</span>, <span class="fl">4.60</span>, <span class="fl">10.48</span>],</span>
+<span id="cb87-7"><a href="#cb87-7" aria-hidden="true" tabindex="-1"></a>     <span class="st">'Longitude'</span>: [<span class="op">-</span><span class="fl">58.66</span>, <span class="op">-</span><span class="fl">47.91</span>, <span class="op">-</span><span class="fl">70.66</span>, <span class="op">-</span><span class="fl">74.08</span>, <span class="op">-</span><span class="fl">66.86</span>]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> gpd.GeoDataFrame(df, geometry<span class="op">=</span>gpd.points_from_xy(df.Longitude, df.Latitude))</span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>gdf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="practice" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Practice</h1>
+<p>Throughout the exercises in this course, we will work with several datasets about the city of Paris.</p>
+<p>Here, we start with the following datasets:</p>
+<ul>
+<li>The administrative districts of Paris (https://opendata.paris.fr/explore/dataset/quartier_paris/): <code>paris_districts_utm.geojson</code></li>
+<li>Real-time (at the moment I downloaded them ..) information about the public bicycle sharing system in Paris (vélib, https://opendata.paris.fr/explore/dataset/stations-velib-disponibilites-en-temps-reel/information/): <code>data/paris_bike_stations_mercator.gpkg</code></li>
+</ul>
+<p>Both datasets are provided as spatial datasets using a GIS file format.</p>
+<div class="alert alert-success">
+<p><strong>Excercise 1</strong>:</p>
+<p>We will start by exploring the bicycle station dataset (available as a GeoPackage file: <code>data/paris_bike_stations_mercator.gpkg</code>)</p>
+<ul>
+<li>Read the stations datasets into a GeoDataFrame called <code>stations</code>.</li>
+<li>Check the type of the returned object</li>
+<li>Check the first rows of the dataframes. What kind of geometries does this datasets contain?</li>
+<li>How many features are there in the dataset?</li>
+</ul>
+<details>
+<summary>
+Hints
+</summary>
+<ul>
+<li>Use <code>type(..)</code> to check any Python object type</li>
+<li>The <code>gpd.read_file()</code> function can read different geospatial file formats. You pass the file name as first argument.</li>
+<li>Use the <code>.shape</code> attribute to get the number of features</li>
+</ul>
+</details>
+</div>
+<div class="alert alert-success">
+<p><strong>Exercise 2</strong>:</p>
+<ul>
+<li>Make a quick plot of the <code>stations</code> dataset.</li>
+<li>Make the plot a bit larger by setting the figure size to (12, 6) (hint: the <code>plot</code> method accepts a <code>figsize</code> keyword).</li>
+</ul>
+</div>
+<div class="alert alert-success">
+<p><strong>Exercise 3</strong>:</p>
+<p>Next, we will explore the dataset on the administrative districts of Paris (available as a GeoJSON file: <code>../data/paris_districts_utm.geojson</code>)</p>
+<ul>
+<li>Read the dataset into a GeoDataFrame called <code>districts</code>.</li>
+<li>Check the first rows of the dataframe. What kind of geometries does this dataset contain?</li>
+<li>How many features are there in the dataset? (hint: use the <code>.shape</code> attribute)</li>
+<li>Make a quick plot of the <code>districts</code> dataset (set the figure size to (12, 6)).</li>
+</ul>
+</div>
+<div class="alert alert-success">
+<p><strong>Exercise 4</strong>:</p>
+<p>What are the largest districts (biggest area)?</p>
+<ul>
+<li>Calculate the area of each district.</li>
+<li>Add this area as a new column to the <code>districts</code> dataframe.</li>
+<li>Sort the dataframe by the area column from largest to smallest values (descending).</li>
+</ul>
+<details>
+<summary>
+Hints
+</summary>
+<ul>
+<li>Adding a column can be done by assigning values to a column using the same square brackets syntax: <code>df['new_col'] = values</code></li>
+<li>To sort the rows of a DataFrame, use the <code>sort_values()</code> method, specifying the colum to sort on with the <code>by='col_name'</code> keyword. Check the help of this method to see how to sort ascending or descending.</li>
+</ul>
+</details>
+</div>
+<section id="part-iv-coordinate-reference-systems-projections" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="part-iv-coordinate-reference-systems-projections"><span class="header-section-number">2.1</span> Part IV: Coordinate reference systems &amp; Projections</h2>
+<p><em>Gabriele Filomena has prepared this notebook by readapting material shared on this <a href="https://github.com/jorisvandenbossche/geopandas-tutorial">repository</a>. Copyright (c) 2018, Joris Van den Bossche.</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>countries <span class="op">=</span> gpd.read_file(<span class="st">"../data/ne_countries.zip"</span>)</span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>cities <span class="op">=</span> gpd.read_file(<span class="st">"../data/ne_cities.zip"</span>)</span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>rivers <span class="op">=</span> gpd.read_file(<span class="st">"../data/ne_rivers.zip"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="coordinate-reference-systems" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="coordinate-reference-systems"><span class="header-section-number">2.1.1</span> Coordinate reference systems</h3>
+<p>Up to now, we have used the geometry data with certain coordinates without further wondering what those coordinates mean or how they are expressed.</p>
+<blockquote class="blockquote">
+<p>The <strong>Coordinate Reference System (CRS)</strong> relates the coordinates to a specific location on earth.</p>
+</blockquote>
+<p>For an in-depth explanation, see https://docs.qgis.org/2.8/en/docs/gentle_gis_introduction/coordinate_reference_systems.html</p>
+<section id="geographic-coordinates" class="level4" data-number="2.1.1.1">
+<h4 data-number="2.1.1.1" class="anchored" data-anchor-id="geographic-coordinates"><span class="header-section-number">2.1.1.1</span> Geographic coordinates</h4>
+<blockquote class="blockquote">
+<p>Degrees of latitude and longitude.</p>
+<p>E.g. 48°51′N, 2°17′E</p>
+</blockquote>
+<p>The most known type of coordinates are geographic coordinates: we define a position on the globe in degrees of latitude and longitude, relative to the equator and the prime meridian. With this system, we can easily specify any location on earth. It is used widely, for example in GPS. If you inspect the coordinates of a location in Google Maps, you will also see latitude and longitude.</p>
+<p><strong>Attention!</strong></p>
+<p>in Python we use (lon, lat) and not (lat, lon)</p>
+<ul>
+<li>Longitude: [-180, 180]{{1}}</li>
+<li>Latitude: [-90, 90]{{1}}</li>
+</ul>
+</section>
+</section>
+<section id="projected-coordinates" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="projected-coordinates"><span class="header-section-number">2.1.2</span> Projected coordinates</h3>
+<blockquote class="blockquote">
+<p><code>(x, y)</code> coordinates are usually in meters or feet</p>
+</blockquote>
+<p>Although the earth is a globe, in practice we usually represent it on a flat surface: think about a physical map, or the figures we have made with Python on our computer screen. Going from the globe to a flat map is what we call a <em>projection</em>.</p>
+<p><img src="../labs_img/projection.png" width="70%"></p>
+<p>We project the surface of the earth onto a 2D plane so we can express locations in cartesian x and y coordinates, on a flat surface. In this plane, we then typically work with a length unit such as meters instead of degrees, which makes the analysis more convenient and effective.</p>
+<p>However, there is an important remark: the 3 dimensional earth can never be represented perfectly on a 2 dimensional map, so projections inevitably introduce distortions. To minimize such errors, there are different approaches to project, each with specific advantages and disadvantages.</p>
+<p>Some projection systems will try to preserve the area size of geometries, such as the Albers Equal Area projection. Other projection systems try to preserve angles, such as the Mercator projection, but will see big distortions in the area. Every projection system will always have some distortion of area, angle or distance.</p>
+
+<table>
+<tbody><tr>
+<td>
+<img src="../labs_img/projections-AlbersEqualArea.png">
+</td>
+<td>
+<img src="../labs_img/projections-Mercator.png">
+</td>
+</tr>
+<tr>
+<td>
+<img src="../labs_img/projections-Robinson.png">
+</td>
+</tr>
+
+</tbody></table>
+<p><strong>Projected size vs actual size (Mercator projection)</strong>: <img src="../labs_img/mercator_projection_area.gif"></p>
+</section>
+<section id="coordinate-reference-systems-in-python-geopandas" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="coordinate-reference-systems-in-python-geopandas"><span class="header-section-number">2.1.3</span> Coordinate Reference Systems in Python / GeoPandas</h3>
+<p>A GeoDataFrame or GeoSeries has a <code>.crs</code> attribute which holds (optionally) a description of the coordinate reference system of the geometries:</p>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>countries.crs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For the <code>countries</code> dataframe, it indicates that it uses the EPSG 4326 / WGS84 lon/lat reference system, which is one of the most used for geographic coordinates.</p>
+<p>It uses coordinates as latitude and longitude in degrees, as can you be seen from the x/y labels on the plot:</p>
+<div class="cell" data-jupyter="{&quot;outputs_hidden&quot;:false}">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>countries.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>.crs</code> attribute returns a <code>pyproj.CRS</code> object. To specify a CRS, we typically use some string representation:</p>
+<ul>
+<li><strong>EPSG code</strong> Example: <code>EPSG:4326</code> = WGS84 geographic CRS (longitude, latitude)</li>
+</ul>
+<p>For more information, see also http://geopandas.readthedocs.io/en/latest/projections.html.</p>
+<section id="transforming-to-another-crs" class="level4" data-number="2.1.3.1">
+<h4 data-number="2.1.3.1" class="anchored" data-anchor-id="transforming-to-another-crs"><span class="header-section-number">2.1.3.1</span> Transforming to another CRS</h4>
+<p>We can convert a GeoDataFrame to another reference system using the <code>to_crs</code> function.</p>
+<p>For example, let’s convert the countries to the World Mercator projection (http://epsg.io/3395):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remove Antartica, as the Mercator projection cannot deal with the poles</span></span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>countries <span class="op">=</span> countries[(countries[<span class="st">'name'</span>] <span class="op">!=</span> <span class="st">"Antarctica"</span>)]</span>
+<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a>countries_mercator <span class="op">=</span> countries.to_crs(epsg<span class="op">=</span><span class="dv">3395</span>)  <span class="co"># or .to_crs("EPSG:3395")</span></span>
+<span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a>countries_mercator.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note the different scale of x and y.</p>
+</section>
+<section id="why-using-a-different-crs" class="level4" data-number="2.1.3.2">
+<h4 data-number="2.1.3.2" class="anchored" data-anchor-id="why-using-a-different-crs"><span class="header-section-number">2.1.3.2</span> Why using a different CRS?</h4>
+<p>There are sometimes good reasons you want to change the coordinate references system of your dataset, for example:</p>
+<ul>
+<li>Different sources with different CRS -&gt; need to convert to the same crs.<br>
+</li>
+<li>Different countries/geographical areas with different CRS.</li>
+<li>Mapping (distortion of shape and distances).</li>
+<li>Distance / area based calculations -&gt; ensure you use an appropriate projected coordinate system expressed in a meaningful unit such as meters or feet (<strong>not degrees!</strong>).</li>
+</ul>
+<div class="alert alert-info" style="font-size:120%">
+<p><strong>Important:</strong></p>
+<p>All the calculations (e.g.&nbsp;distance, spatial operations, etc.) that take place in <code>GeoPandas</code> and <code>Shapely</code> assume that your data is represented in a 2D cartesian plane, and thus the result of those calculations will only be correct if your data is properly projected.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="practice-1" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="practice-1"><span class="header-section-number">2.2</span> Practice</h2>
+<p>Again, we will go back to the Paris datasets. Up to now, we provided the datasets in an appropriate projected CRS for the exercises. But the original data were actually using geographic coordinates. In the following exercises, we will start from there.</p>
+<p>Going back to the Paris districts dataset, this is now provided as a GeoJSON file (<code>"../data/paris_districts.geojson"</code>) in geographic coordinates.</p>
+<p>For converting the layer to projected coordinates, we will use the standard projected CRS for France is the RGF93 / Lambert-93 reference system, referenced by the <code>EPSG:2154</code> number.</p>
+<div class="alert alert-success">
+<p><strong>Exercise: Projecting a GeoDataFrame</strong></p>
+<ul>
+<li>Read the districts datasets (<code>../data/paris_districts.geojson"</code>) into a GeoDataFrame called <code>districts</code>.</li>
+<li>Look at the CRS attribute of the GeoDataFrame. Do you recognize the EPSG number?</li>
+<li>Make a plot of the <code>districts</code> dataset.</li>
+<li>Calculate the area of all districts.</li>
+<li>Convert the <code>districts</code> to a projected CRS (using the <code>EPSG:2154</code> for France). Call the new dataset <code>districts_RGF93</code>.</li>
+<li>Make a similar plot of <code>districts_RGF93</code>.</li>
+<li>Calculate the area of all districts again with <code>districts_RGF93</code> (the result will now be expressed in m²).</li>
+</ul>
+<details>
+<summary>
+Hints
+</summary>
+<ul>
+<li>The CRS information is stored in the <code>.crs</code> attribute of a GeoDataFrame.</li>
+<li>Making a simple plot of a GeoDataFrame can be done with the <code>.plot()</code> method.</li>
+<li>Converting to a different CRS can be done with the <code>.to_crs()</code> method, and the CRS can be specified as an EPSG number using the <code>epsg</code> keyword.</li>
+</ul>
+</details>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../general/setup.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Setting up the Working Environment</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../labs/w02_maps.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Static Maps in Python</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Web Mapping and Geovisualisation by Gabriele Filomena and Elisabetta Pietrostefani.</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>

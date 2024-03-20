@@ -196,7 +196,7 @@
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, enhanced, breakable, sharp corners, boxrule=0pt, interior hidden, borderline west={3pt}{0pt}{shadecolor}]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, boxrule=0pt, interior hidden, borderline west={3pt}{0pt}{shadecolor}, sharp corners, enhanced, breakable]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table of contents}
 {
@@ -13078,11 +13078,6 @@ Text(0.5, 1.0, 'Public Transport Stops in Torino, Italy')
 \hypertarget{dashboards}{%
 \chapter{Dashboards}\label{dashboards}}
 
-\bookmarksetup{startatroot}
-
-\hypertarget{building-dasbhboards}{%
-\chapter{Building Dasbhboards}\label{building-dasbhboards}}
-
 The \textbf{Lecture slides} can be found
 \href{https://github.com/GDSL-UL/wma/raw/main/lectures/w08.pdf}{here}.
 
@@ -13143,8 +13138,7 @@ Unable to display output for mime type(s): application/javascript, application/v
 Unable to display output for mime type(s): text/html
 \end{verbatim}
 
-\hypertarget{importing-the-data}{%
-\section{Importing the Data}\label{importing-the-data}}
+\textbf{Importing the Data}
 
 \begin{Shaded}
 \begin{Highlighting}[]

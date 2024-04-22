@@ -1,3 +1,4 @@
+
 # Assessments {.unnumbered}
 
 ## Assignment I
@@ -68,13 +69,13 @@ This assessment includes several elements that will help you improve critical as
 
 -   **Title:** *A dashboard that explores a Spatial Dataset*.
 -   **Type:** Coursework.
--   **Due: Thursday May 2nd, Week 11**.
+-   **Due: Thursday May 2nd, Week 11, 2.00 pm**.
 -   50% of the final mark.
 -   Electronic submission only in HTML.
 
 This assignment requires you to build a dashboard for a **spatial data set of your choice**. To be successful, you will need to demonstrate your understanding not only of technical elements, but of the design process required to create a product that can communicate complex ideas effectively. There are three core building blocks you will have to assemble to build your dashboard: the main maps(s), base map, and widgets. 
 
-1.	**The main map(s)**. Import your data and start building a dashboard with `panel`. Think about what you want to show, how, which interactive elements you will allow the user to access and how they will let them modify the experience of your dashboard. It goes without saying that the dashboard should include interactive map(s), besides allowing the user to play with the dataset. Interactive maps should be built with `folium` or (optionally) with `pydeck`. **Holoviews, Bokeh, or Geoviews can be used as well, but only for showing alternative or secondary maps.**
+1.	**The main map(s)**. Import your data and start building a dashboard with `panel`. Think about what you want to show, how, which interactive elements you will allow the user to access and how they will let them modify the experience of your dashboard. It goes without saying that the dashboard should include interactive map(s), besides allowing the user to play with the dataset. Interactive maps should be built with `folium` or (optionally) with `pydeck`. **Holoviews, Geoviews, or other tools can be used as well, but only for showing alternative or secondary maps.**
 2.	**The basemap**. Design your own basemap through scripting (e.g. assembling a basemap with OpenStreetMap features in a unique layer) or use available TileSets. Think about the data in the background, which colors, the zoom levels that will be allowed, and how it all comes together to create a backdrop for your main message that is conducent to the experience you want to create. Use the basemap to enhance the visualisation experience of the user.
 3.	**Additional widgets**. One of the advantages of dashboards in comparison to standard web maps is that they allow to bring elements of analysis to a more finished product. Think about what you want your users to be able to analyse, why, and how that will modify the main map.
 
@@ -89,7 +90,13 @@ This assignment requires you to build a dashboard for a **spatial data set of yo
 - Present 2 or 3 NICE maps + the final one included in your dashboard.
 
 ### Submission
-You will submit through Canvas a `.html` file obtained from a Python  `.ipynb` Jupyter Notebook file. To do so, in your `.ipynb` file, follow these steps: `File` --> `Save and Export as..` --> `HTML`. Prior to this step, the notebook needs to be rendered (i.e. all the cells should be executed). Other file formats will not be accepted.  Besides the necessary code, the report should include up to **1,000** words and the following:
+**Important, before exporting your `.ipynb` to a `.html` file: follow the steps described [here](https://gdsl-ul.github.io/wma/labs/w10_w10_panelHTML.html) to include an interactive dashboard in the static html that will be sumbitted as your assignment. This is to guarantee that your dashboard works in the submission file.** 
+
+You will submit through Canvas a `.html` file obtained from a Python  `.ipynb` Jupyter Notebook file. To do so, in your `.ipynb` file, follow these steps: `File` --> `Save and Export as..` --> `HTML`. Prior to this step, the notebook needs to be rendered (i.e. all the cells should be executed). 
+
+**Other file formats will not be accepted**.  
+
+Besides the necessary code, the report should include up to **1,000** words and the following:
 
 -   About 250 words for the overall idea of the dashboard. What do you want to communicate? What is the story you want to tell?
 -   About 250 words for the data used. Which datasets are you using? Why? What new information do they bring and how they complement each other?

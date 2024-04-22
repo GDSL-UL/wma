@@ -34,6 +34,7 @@ book:
     - labs/w07_OSM.ipynb
     - labs/w08_dashboards.ipynb
     - labs/w09_advanced.ipynb
+    - labs/w10_panelHTML.ipynb
     
 bibliography: references.bib
 

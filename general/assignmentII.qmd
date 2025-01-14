@@ -23,7 +23,7 @@ This assignment requires you to build a dashboard for a **spatial data set of yo
 - All the necessary steps for building and refining the funcitoning of your Dashboard with `panel`.
 - An interactive final dashboard  (one) that also incoporates an interactive map.
 
-***You CANNOT employ for your *main* maps the following libraries: Holoviews, Geoviews, and Plotly***
+**You CANNOT employ for your main maps the following libraries: Holoviews, Geoviews, and Plotly**
 
 ### Text in Markdown Cells, 1,000 words, distributed across the notebook
 

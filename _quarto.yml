@@ -25,12 +25,14 @@ book:
     - general/structure.qmd
     - general/overview.qmd
     - general/assessments.qmd
+    - general/assignmentI.qmd
+    - general/assignmentII.qmd
     - general/setup.qmd
     - labs/w01_intro.ipynb
     - labs/w02_maps.ipynb
     - labs/w03_webArch.ipynb
-    - labs/w04_interactive.ipynb
-    - labs/w05_dataArch.ipynb
+    - labs/w04_dataArch.ipynb
+    - labs/w05_interactive.ipynb
     - labs/w07_OSM.ipynb
     - labs/w08_dashboards.ipynb
     - labs/w09_advanced.ipynb

@@ -1,0 +1,51 @@
+
+# Assignment II {.unnumbered}
+
+-   **Title:** *A dashboard that explores a Spatial Dataset*.
+-   **Type:** Coursework.
+-   **Due: Thursday May 8th (2.00 pm) - Week 12**.
+-   50% of the final mark.
+-   Submission on Canvas, `.html` files only.
+
+This assignment requires you to build a dashboard for a **spatial data set of your choice**. To be successful, you will need to demonstrate your understanding not only of technical elements, but of the design process required to create a product that can communicate complex ideas effectively. There are three core building blocks you will have to assemble to build your dashboard: the main maps(s), base map, and widgets. 
+
+1. **Context and Problem**: Identify a research problem with a geographical connotation. Discuss concisely recent research around it in physical or human geography (around 7–8 references). Introduce how you will explore and visualise dimensions of the problem (e.g., gentrification, access to healthy food in cities, urban heat islands, etc.).
+2.	**The Dashboard**. Import your data and start building a dashboard with `panel`. Think about what you want to show, which interactive elements you will allow the user to access and how they will let them modify the experience of your dashboard. The dashboard must incorporate interactive map(s), besides allowing the user to play with the dataset. Interactive maps should be built with `folium` or (optionally) with `pydeck`. 
+3.	**The basemap**. Design your own basemap through scripting (e.g. assembling a basemap with OpenStreetMap features in a unique layer) or use available TileSets. Think about the data in the background, which colors, the zoom levels that will be allowed, and how it all comes together to create a backdrop for your main message that is conducent to the experience you want to create. Use the basemap to enhance the visualisation experience of the user.
+4.	**Additional widgets**. One of the advantages of dashboards in comparison to standard web maps is that they allow to bring elements of analysis to a more finished product. Think about what you want your users to be able to analyse, why, and how that will modify the main map.
+
+## Expected Content
+
+### Code
+
+- Introductory Static Maps (2 to 3), presenting the topic and the geographic context.
+- An API request (optional) data calls, and necessary data cleaning operations.
+- All the necessary steps for building and refining the funcitoning of your Dashboard with `panel`.
+- An interactive final dashboard  (one) that also incoporates an interactive map.
+
+***You CANNOT employ for your *main* maps the following libraries: Holoviews, Geoviews, and Plotly***
+
+### Text in Markdown Cells, 1,000 words, distributed across the notebook
+
+- About 250 words introducing the research problem, the context, and existing recent research on the topic.
+- About 200 words presenting and motivating the chosen data sources, in relation to your research problem. Here you should engage not only with what data you are using but why and what they bring to the dashboard. 
+- About 200 words for the overall idea of the dashboard. What do you want to communicate? What is the story you want to tell?
+- About 200 words where you describe your design choices around interactivity, including both cartographic elements (e.g. zooming, panning) as well as additional interactivity built around components such as widgets.
+- About 150 words to summarise your research problem and how you tackled it by means of geovisualisation tools (Conclusion).
+
+## Evaluation
+The assignment will be evaluated based on 3 main pillars, on which you will have to be successful to achieve a good mark:
+
+1.  **Narrative**. The ability to identify and present a research problem, motivate and justify one's map, as well as the ability to bring each component of the assignment into a coherent whole that "fits together".
+2.  **Dashboard and Map(s) design**.  It is very important to think through every step of preparing this assignment as if it was part of something bigger towards which it contributes.  Critically introduce every aspect considered when designing the map(s), by explicitly connecting it to the overall aim of the dashboard. One should clearly and critically describe how they engaged with every design choice (e.g. adding certain widgets or interactivity functions in the dashboard).
+3.   **Technical skills**. The ability to master Python scripting and technologies that allow one to create an interactive, informative and compelling (geographic) dashboard, as well as to access interesting and sophisticated data sources.
+
+## How is this assignment useful?
+
+This assignment combines several elements that will help you improve critical aspects of web mapping:
+
+-   **Design**: this is not about making maps, this is about making good maps. And behind every good map there is a set of conscious choices that you will have to think through to be successful (what map? what data? how to present the data? etc.).
+-   **Technology**: at the end of the day, building good web maps requires familiarity with the state-of-the-art in terms of web mapping tools. In this assignment, you will need to demonstrate your mastery of some of the key tools that are leading both industry and academia.
+-   **Presentation**: in many real-world contexts, your work is as good as it can come across to the audience it is intended to. This means that it is vital to be able to communicate not only what you are doing but why and on what building blocks it is based on.
+
+

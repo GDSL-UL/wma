@@ -1,0 +1,50 @@
+# Assignment I {.unnumbered}
+
+-   **Title:** Exploring APIs and Interactive Maps in Python.
+-   **Type:** Coursework.
+-   **Due: Thursday March 3rd (2.00 pm) - Week 6**.
+-   50% of the final mark.
+-   Submission on Canvas, `.html` files only.
+
+**Context, Design, Data, and Assemblage**
+
+In this assessment, you will have the opportunity to explore different sources and combine them in a map that can be explored interactively through a web browser.  This assignment requires you to identify a research problem from literature, source relevant data from the web in different formats, assemble them, and document the process. To be successful, you will need to demonstrate your understanding not only of the technical aspects involved in the process but also of the conceptual notions underpinning them. Below are the required components for your submission:
+
+1. **Context and Problem**: Identify a research problem with a geographical connotation. Discuss concisely recent research around it in physical or human geography (around 7–8 references). Introduce how you will explore and visualise dimensions of the problem (e.g., gentrification, access to healthy food in cities, urban heat islands, etc.).
+2. **Data and Backend**: Draft a list of spatial datasets relevant to your research problem and demonstrate your ability to develop your own API request function in Python. Include datasets containing spatial information or linkable to other spatial sources. Highlight the data/variables worth considering and their role in representing the problem. Demonstrate your understanding of core "backend" web mapping concepts. Include an explanation of how tilesets, client-server architecture, and APIs are implemented and contribute to your map's functionality.
+4. **Design**: Create Good Looking static maps to represent your datasets, focusing on spatial units (e.g., buildings, cities). Move onto interactive visualisation with folium, incorporating interactivity for categorical and numerical variables. Seek feedback to refine your ideas. Use inspiration from web map examples discussed in the course to ensure effective representation of data.
+5. **Assemblage**: Enhance your map by incorporating widgets for dataset exploration and experimenting with tilesets, such as creating your own in Mapbox. Address design considerations, including the map's extent, zoom levels, and variable visibility at different zoom levels. Ensure consistency and aesthetic appeal to complete this stage successfully.
+
+## Expected Content
+
+### Code
+
+- Introductory Static Maps (2 to 3), presenting the topic and the geographic context.
+- An API request written by your own.
+- All the necessary steps for making your API work and for data cleaning/exploration.
+- An interactive final map. This should be fed with data obtained through the API request.
+
+***You CANNOT employ for your *main* maps the following libraries: Holoviews, Geoviews, and Plotly***
+
+### Text in Markdown Cells, 1,000 words, distributed across the notebook:
+
+- About 250 words introducing the research problem, the context, and existing recent research on the topic.
+- About 200 words presenting and motivating the chosen data sources, in relation to your research problem. Here you should engage not only with what data you are using but why and what they bring to the map. Everything should be in the map for a reason.
+- About 200 words with your description of what your API is, how it works and how it will made your map possible.
+- About 200 words with a description of how your interactive map works, its components and your design ideas.
+- About 150 words to summarise your research problem and how you tackled it by means of geovisualisation tools (Conclusion).
+
+## Evaulation
+The assignment will be evaluated based on 3 main pillars, on which you will have to be successful to achieve a good mark:
+
+1.  **Narrative**. The ability to identify and present a research problem, motivate and justify one's map, as well as the ability to bring each component of the assignment into a coherent whole that "fits together".
+2.  **Map design abilities.** The ability to demonstrate the understanding of geovisualisation and interactivity design principles. 
+3.  **Technical skills**. The ability to master Python scripting and technologies that allow one to create a compelling map, but also to access interesting and sophisticated data sources.
+
+## How is this assignment useful?
+
+This assessment includes several elements that will help you improve critical aspects of your web mapping skills:
+
+- **Design**: this is not about making maps, this is about making good maps. And behind every good map there is a set of conscious choices that you will have to think throug to be successful (what map? what data? how to present the data? etc.). 
+- **Technology**: at the end of the day, building good web maps requires solid understanding of current technology that goes beyond what the average person can be expected to know. In this assignment, you will need to demonstrate you are proficient in a series of tasks manipulating geospatial data in a web environment. 
+- **Presentation**: in many real-world contexts, your work is as good as it can come across to the audience it is intended to. This means that it is vital to be able to communicate not only what you are doing but why and on what building blocks it is based on.

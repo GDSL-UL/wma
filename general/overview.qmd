@@ -10,7 +10,6 @@ This module aims to provide hands-on experience and training in:
 
 By the end of the module, students should be able to:
 
-
 (2) Visualise and represent geo-data through static and dynamic maps.
 (2) Recognise and describe the component of web based mapping infrastructure.
 (3) Collect Web-based data.

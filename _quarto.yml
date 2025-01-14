@@ -23,7 +23,6 @@ book:
   chapters:
     - index.qmd
     - general/structure.qmd
-    - general/overview.qmd
     - general/assessments.qmd
     - general/assignmentI.qmd
     - general/assignmentII.qmd

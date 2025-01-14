@@ -4,17 +4,27 @@
     "href": "index.html",
     "title": "Web Mapping and Geovisualisation",
     "section": "",
-    "text": "Welcome\nThis is the website for “Web Mapping and Geovisualisation” (module ENVS456) at the University of Liverpool. This course is designed and delivered by Dr. Gabriele Filomena and Dr. Elisabetta Pietrostefani from the Geographic Data Science Lab at the University of Liverpool, United Kingdom. The module has two main aims. It seeks to provide hands-on experience and training in:\nThe website is free to use and is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International. A compilation of this web course is hosted as a GitHub repository that you can access:",
+    "text": "Welcome\nThis is the website for “Web Mapping and Geovisualisation” (module ENVS456) at the University of Liverpool. This course is designed by Dr. Gabriele Filomena and Dr. Elisabetta Pietrostefani from the Geographic Data Science Lab at the University of Liverpool, United Kingdom. The module has two main aims. It seeks to provide hands-on experience and training in:\nThe website is free to use and is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International. A compilation of this web course is hosted as a GitHub repository that you can access:",
     "crumbs": [
       "Welcome"
     ]
   },
   {
-    "objectID": "index.html#contact",
-    "href": "index.html#contact",
+    "objectID": "index.html#contact-2024-25",
+    "href": "index.html#contact-2024-25",
     "title": "Web Mapping and Geovisualisation",
-    "section": "Contact",
-    "text": "Contact\n\nGabriele Filomena - gfilo [at] liverpool.ac.uk Lecturer in Geographic Data Science Office 1xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.\n\n\nElisabetta Pietrostefani - e.pietrostefani [at] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.",
+    "section": "Contact 2024-25",
+    "text": "Contact 2024-25\n\nGabriele Filomena - gfilo [at] liverpool.ac.uk Lecturer in Geographic Data Science Office 1xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.\n\n\nMatt Howard - e.pietrostefani [at] liverpool.ac.uk Lecturer in Geographic Data Science Office 6xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#overview",
+    "href": "index.html#overview",
+    "title": "Web Mapping and Geovisualisation",
+    "section": "Overview",
+    "text": "Overview\n\nAims\nThis module aims to provide hands-on experience and training in: - The design and generation of (good looking) web-based mapping and geographical information tools. - The use of software to access, analyse and visualize web-based geographical information.\n\n\nLearning Outcomes\nBy the end of the module, students should be able to:\n\nVisualise and represent geo-data through static and dynamic maps.\nRecognise and describe the component of web based mapping infrastructure.\nCollect Web-based data.\nGenerate interactive maps and dashboards.\nUnderstand basic concepts of spatial network analysis.\nManipulate geo-data through scripting in Python.\n\n\n\nAsking for Help\nVerbal face-to-face feedback. Immediate face-to-face feedback will be provided during computer, discussion and clinic sessions in interaction with staff. This will take place in all live sessions during the semester. Teams Forum. Asynchronous written feedback will be provided via Teams. Students are encouraged to contribute by asking and answering questions relating to the module content. Staff will monitor the forum Monday to Friday 9am-5pm, but it will be open to students to make contributions at all times. Response time will vary depending on the complexity of the question and staff availability.\n\n\nAssessment:\nTwo pieces of coursework (Assignment 1 50% and Assignment 2 50%). Equivalent to 2,500 words each. See guidilines on the assignment pages, submission and marking criteria here.",
     "crumbs": [
       "Welcome"
     ]
@@ -27,36 +37,6 @@
     "text": "Week 1\n\nLecture: Introduction to the module\nLab: Powerful examples and Python Refresher\n\nWeek 2\n\nLecture: Geovisualisation: Design Principles and Statistical Visualisation\nLab: Static Maps\n\nWeek 3\n\nLecture: The Web’s Architecture\nLab: Web Architectures and APIs\n\nWeek 4\n\nLecture: Data architechtures & formats\nLab: Data architechtures & Tiles\n\nWeek 5\n\nLecture: Interactive Maps\nLab: Interactive Maps\n\nWeek 6\n\nLecture & Lab: Q&A & Assignment I Clinic\nAssignment I Due\n\nWeek 7\n\nLecture: OpenStreetMap Data & Spatial Network\nLab: Retrieving Data From OpenStreetMap\n\nWeek 8\n\nLecture: Dashboards\nLab: Designing Dashboard for Geovisualisation\n\nWeek 9\n\nLecture & Lab: Advanced Tools\n\nWeek 11\n\nLecture & Lab: Review & Assignment II clinic\nAssignment II Due (Week 12)",
     "crumbs": [
       "Syllabus"
-    ]
-  },
-  {
-    "objectID": "general/overview.html",
-    "href": "general/overview.html",
-    "title": "Overview",
-    "section": "",
-    "text": "Aims\nThis module aims to provide hands-on experience and training in: - The design and generation of (good looking) web-based mapping and geographical information tools. - The use of software to access, analyse and visualize web-based geographical information.",
-    "crumbs": [
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "general/overview.html#learning-outcomes",
-    "href": "general/overview.html#learning-outcomes",
-    "title": "Overview",
-    "section": "Learning Outcomes",
-    "text": "Learning Outcomes\nBy the end of the module, students should be able to:\n\nVisualise and represent geo-data through static and dynamic maps.\nRecognise and describe the component of web based mapping infrastructure.\nCollect Web-based data.\nGenerate interactive maps and dashboards.\nUnderstand basic concepts of spatial network analysis.\nManipulate geo-data through scripting in Python.",
-    "crumbs": [
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "general/overview.html#feedback",
-    "href": "general/overview.html#feedback",
-    "title": "Overview",
-    "section": "Feedback",
-    "text": "Feedback\nFormal assessment. Two pieces of coursework (50%/50%). Equivalent to 2,500 words each\nVerbal face-to-face feedback. Immediate face-to-face feedback will be provided during computer, discussion and clinic sessions in interaction with staff. This will take place in all live sessions during the semester. Teams Forum. Asynchronous written feedback will be provided via Teams. Students are encouraged to contribute by asking and answering questions relating to the module content. Staff will monitor the forum Monday to Friday 9am-5pm, but it will be open to students to make contributions at all times. Response time will vary depending on the complexity of the question and staff availability.",
-    "crumbs": [
-      "Overview"
     ]
   },
   {
@@ -104,7 +84,7 @@
     "href": "general/assignmentI.html#expected-content",
     "title": "Assignment I",
     "section": "",
-    "text": "Code\n\nIntroductory Static Maps (2 to 3), presenting the topic and the geographic context.\nAn API request written by your own.\nAll the necessary steps for making your API work and for data cleaning/exploration.\nAn interactive final map. This should be fed with data obtained through the API request.\n\nYou CANNOT employ for your main* maps the following libraries: Holoviews, Geoviews, and Plotly*\n\n\nText in Markdown Cells, 1,000 words, distributed across the notebook:\n\nAbout 250 words introducing the research problem, the context, and existing recent research on the topic.\nAbout 200 words presenting and motivating the chosen data sources, in relation to your research problem. Here you should engage not only with what data you are using but why and what they bring to the map. Everything should be in the map for a reason.\nAbout 200 words with your description of what your API is, how it works and how it will made your map possible.\nAbout 200 words with a description of how your interactive map works, its components and your design ideas.\nAbout 150 words to summarise your research problem and how you tackled it by means of geovisualisation tools (Conclusion).",
+    "text": "Code\n\nIntroductory Static Maps (2 to 3), presenting the topic and the geographic context.\nAn API request written by your own.\nAll the necessary steps for making your API work and for data cleaning/exploration.\nAn interactive final map. This should be fed with data obtained through the API request.\n\nYou CANNOT employ for your main maps the following libraries: Holoviews, Geoviews, and Plotly\n\n\nText in Markdown Cells, 1,000 words, distributed across the notebook:\n\nAbout 250 words introducing the research problem, the context, and existing recent research on the topic.\nAbout 200 words presenting and motivating the chosen data sources, in relation to your research problem. Here you should engage not only with what data you are using but why and what they bring to the map. Everything should be in the map for a reason.\nAbout 200 words with your description of what your API is, how it works and how it will made your map possible.\nAbout 200 words with a description of how your interactive map works, its components and your design ideas.\nAbout 150 words to summarise your research problem and how you tackled it by means of geovisualisation tools (Conclusion).",
     "crumbs": [
       "Assignment I"
     ]
@@ -144,7 +124,7 @@
     "href": "general/assignmentII.html#expected-content",
     "title": "Assignment II",
     "section": "",
-    "text": "Code\n\nIntroductory Static Maps (2 to 3), presenting the topic and the geographic context.\nAn API request (optional) data calls, and necessary data cleaning operations.\nAll the necessary steps for building and refining the funcitoning of your Dashboard with panel.\nAn interactive final dashboard (one) that also incoporates an interactive map.\n\nYou CANNOT employ for your main* maps the following libraries: Holoviews, Geoviews, and Plotly*\n\n\nText in Markdown Cells, 1,000 words, distributed across the notebook\n\nAbout 250 words introducing the research problem, the context, and existing recent research on the topic.\nAbout 200 words presenting and motivating the chosen data sources, in relation to your research problem. Here you should engage not only with what data you are using but why and what they bring to the dashboard.\nAbout 200 words for the overall idea of the dashboard. What do you want to communicate? What is the story you want to tell?\nAbout 200 words where you describe your design choices around interactivity, including both cartographic elements (e.g. zooming, panning) as well as additional interactivity built around components such as widgets.\nAbout 150 words to summarise your research problem and how you tackled it by means of geovisualisation tools (Conclusion).",
+    "text": "Code\n\nIntroductory Static Maps (2 to 3), presenting the topic and the geographic context.\nAn API request (optional) data calls, and necessary data cleaning operations.\nAll the necessary steps for building and refining the funcitoning of your Dashboard with panel.\nAn interactive final dashboard (one) that also incoporates an interactive map.\n\nYou CANNOT employ for your main maps the following libraries: Holoviews, Geoviews, and Plotly\n\n\nText in Markdown Cells, 1,000 words, distributed across the notebook\n\nAbout 250 words introducing the research problem, the context, and existing recent research on the topic.\nAbout 200 words presenting and motivating the chosen data sources, in relation to your research problem. Here you should engage not only with what data you are using but why and what they bring to the dashboard.\nAbout 200 words for the overall idea of the dashboard. What do you want to communicate? What is the story you want to tell?\nAbout 200 words where you describe your design choices around interactivity, including both cartographic elements (e.g. zooming, panning) as well as additional interactivity built around components such as widgets.\nAbout 150 words to summarise your research problem and how you tackled it by means of geovisualisation tools (Conclusion).",
     "crumbs": [
       "Assignment II"
     ]

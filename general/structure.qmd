@@ -50,11 +50,9 @@
 
 **Week 9**
 
--   Lecture: Advanced Tools
+-   Lecture & Lab: Advanced Tools
 
--   Lab
-
-**Week 10**
+**Week 11**
 
 -   Lecture & Lab: Review & Assignment II clinic
--   **Assignment II Due (Week 11)**
+-   **Assignment II Due (Week 12)**

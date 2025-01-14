@@ -19,7 +19,7 @@ By the end of the module, students should be able to:
 
 ## Feedback
 
-[*Formal assessment*](https://gdsl-ul.github.io/wma/assess.html). Two pieces of coursework (50%/50%). Equivalent to 2,500 words each
+[*Formal assessment*]. Two pieces of coursework (50% and 50%). Equivalent to 2,500 words each
 
 *Verbal face-to-face feedback*. Immediate face-to-face feedback will be provided during computer, discussion and clinic sessions in interaction with staff. This will take place in all live sessions during the semester.
 *Teams Forum*. Asynchronous written feedback will be provided via Teams. Students are encouraged to contribute by asking and answering questions relating to the module content. Staff will monitor the forum Monday to Friday 9am-5pm, but it will be open to students to make contributions at all times. Response time will vary depending on the complexity of the question and staff availability.

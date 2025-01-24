@@ -3,7 +3,7 @@
 
 -   **Title:** *A dashboard that explores a Spatial Dataset*.
 -   **Type:** Coursework.
--   **Due: Thursday May 8th (2.00 pm) - Week 12**.
+-   **Due: Monday May 12th (2.00 pm) - Week 13**.
 -   50% of the final mark.
 -   Submission on Canvas, `.html` files only.
 

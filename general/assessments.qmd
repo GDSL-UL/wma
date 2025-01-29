@@ -3,8 +3,10 @@
 ## Submission
 Please follow these templates consistently: 
 
-Assignment I https://github.com/GDSL-UL/wma/blob/main/templates/Assignment2_template.ipynb
-Assignment II: https://github.com/GDSL-UL/wma/blob/main/templates/Assignment2_template.ipynb
+- [Assignment I](https://github.com/GDSL-UL/wma/blob/main/templates/Assignment2_template.ipynb)
+
+- [Assignment II](https://github.com/GDSL-UL/wma/blob/main/templates/Assignment2_template.ipynb)
+
 
 Download the as follows:
 <img src = "../img/raw.png" width="80%">

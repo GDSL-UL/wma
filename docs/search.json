@@ -44,7 +44,17 @@
     "href": "general/assessments.html",
     "title": "Assessments: General Remarks",
     "section": "",
-    "text": "Submission\nPlease follow these templates consistently:\nAssignment I https://github.com/GDSL-UL/wma/blob/main/templates/Assignment2_template.ipynb Assignment II: https://github.com/GDSL-UL/wma/blob/main/templates/Assignment2_template.ipynb\nDownload the as follows:  and edit them accordingly.\nYou will submit through Canvas a .html file obtained from a Python .ipynb Jupyter Notebook file. To do so, in your .ipynb file, follow these steps: File –&gt; Save and Export as.. –&gt; HTML. Prior to this step, the notebook needs to be rendered (i.e. all the cells should be executed).\nOther file formats will not be accepted.\nImportant for Assignment II, before exporting your .ipynb to a .html file: follow the steps described in the template to include an interactive dashboard in the static html that will be sumbitted as your assignment. This is to guarantee that your dashboard works in the submission file. You are responsible of your dashboard working as expected.",
+    "text": "Submission\nPlease follow these templates consistently:\nDownload the as follows:  and edit them accordingly.\nYou will submit through Canvas a .html file obtained from a Python .ipynb Jupyter Notebook file. To do so, in your .ipynb file, follow these steps: File –&gt; Save and Export as.. –&gt; HTML. Prior to this step, the notebook needs to be rendered (i.e. all the cells should be executed).\nOther file formats will not be accepted.\nImportant for Assignment II, before exporting your .ipynb to a .html file: follow the steps described in the template to include an interactive dashboard in the static html that will be sumbitted as your assignment. This is to guarantee that your dashboard works in the submission file. You are responsible of your dashboard working as expected.",
+    "crumbs": [
+      "Assessments: General Remarks"
+    ]
+  },
+  {
+    "objectID": "general/assessments.html#submission",
+    "href": "general/assessments.html#submission",
+    "title": "Assessments: General Remarks",
+    "section": "",
+    "text": "Assignment I\nAssignment II",
     "crumbs": [
       "Assessments: General Remarks"
     ]

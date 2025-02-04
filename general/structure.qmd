@@ -46,11 +46,16 @@
 
 **Week 8**
 
+- No class
+
+
+**Week 9**
+
 -   Lecture: Dashboards
 
 -   Lab: Designing Dashboard for Geovisualisation
 
-**Week 9**
+**Week 10**
 
 -   Lecture & Lab: Advanced Tools
 

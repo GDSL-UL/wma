@@ -8,7 +8,7 @@ Please follow these templates consistently:
 - [Assignment II](https://github.com/GDSL-UL/wma/blob/main/templates/Assignment2_template.ipynb)
 
 
-Download the as follows:
+Download the template as follows:
 <img src = "../img/raw.png" width="80%">
 and edit them accordingly.
 

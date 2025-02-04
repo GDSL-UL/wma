@@ -44,7 +44,7 @@
 
 -   Lab: Retrieving Data From OpenStreetMap
 
-**Week 8**
+**Week 8 (Field class week)**
 
 - No class
 
@@ -65,4 +65,4 @@
 
 - 	Lab: No Lab this week.
 
--   **Assignment II Due (Week 12)**
+-   **Assignment II Due (Week 13)**

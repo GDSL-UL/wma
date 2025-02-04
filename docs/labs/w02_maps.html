@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriele Filomena">
-<meta name="dcterms.date" content="2025-01-29">
+<meta name="dcterms.date" content="2025-02-04">
 
 <title>2&nbsp; Static Maps in Python – Web Mapping and Geovisualisation</title>
 <style>
@@ -294,7 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 29, 2025</p>
+      <p class="date">February 4, 2025</p>
     </div>
   </div>
   
@@ -342,8 +342,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>gdf.to_file(<span class="st">"../data/germany.shp"</span>)</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> gdf.to_crs(germany_crs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>C:\Users\gfilo\AppData\Local\Temp\ipykernel_700\3815068564.py:11: UserWarning: Column names longer than 10 characters will be truncated when saved to ESRI Shapefile.
-  gdf.to_file("data/germany.shp")</code></pre>
+<pre><code>C:\Users\gfilo\AppData\Local\Temp\ipykernel_20160\700421378.py:11: UserWarning: Column names longer than 10 characters will be truncated when saved to ESRI Shapefile.
+  gdf.to_file("../data/germany.shp")</code></pre>
 </div>
 </div>
 <p>Basic plotting</p>
@@ -1121,7 +1121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> rand_cmap(<span class="bu">len</span>(gdf_filtered.gname.unique()))</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>cmap</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="44">
-<div style="vertical-align: middle;"><strong>new_map</strong> </div><div class="cmap"><img alt="new_map colormap" title="new_map" style="border: 1px solid #555;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAABACAYAAABsv8+/AAAAFnRFWHRUaXRsZQBuZXdfbWFwIGNvbG9ybWFwk+4SdgAAABx0RVh0RGVzY3JpcHRpb24AbmV3X21hcCBjb2xvcm1hcDTAow8AAAAwdEVYdEF1dGhvcgBNYXRwbG90bGliIHYzLjguMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZw8V3hIAAAAydEVYdFNvZnR3YXJlAE1hdHBsb3RsaWIgdjMuOC4yLCBodHRwczovL21hdHBsb3RsaWIub3JnIbNBNQAAAaJJREFUeJzt1iFOnAEYRdEfHEGhJmELiHEVDQ0EAQpD2EbbkCAq6rCEVbAD1jAGDKL4VjVNTQXB0mV84p6zgede7tbHm4v3Zcjpye7I7r+fryO7vx++juyuD76P7B4/XY7sXp9tRnbP749GdjeHH0Z2V5++jOy+/Lkd2V0/3o3s/vg185Pvq9XI7v7nvyO7V297I7vfnndGdpdlWbbHlgGAMQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQJAAAIAgAQAAQQIAAIIEAAAECQAACBIAABAkAAAgSAAAQNB/Hr8ZxSkt0dUAAAAASUVORK5CYII="></div><div style="vertical-align: middle; max-width: 514px; display: flex; justify-content: space-between;"><div style="float: left;"><div title="#3b8453ff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #3b8453ff;"></div> under</div><div style="margin: 0 auto; display: inline-block;">bad <div title="#00000000" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #00000000;"></div></div><div style="float: right;">over <div title="#3e9079ff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #3e9079ff;"></div></div>
+<div style="vertical-align: middle;"><strong>new_map</strong> </div><div class="cmap"><img alt="new_map colormap" title="new_map" style="border: 1px solid #555;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAABACAYAAABsv8+/AAAAFnRFWHRUaXRsZQBuZXdfbWFwIGNvbG9ybWFwk+4SdgAAABx0RVh0RGVzY3JpcHRpb24AbmV3X21hcCBjb2xvcm1hcDTAow8AAAAwdEVYdEF1dGhvcgBNYXRwbG90bGliIHYzLjguMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZw8V3hIAAAAydEVYdFNvZnR3YXJlAE1hdHBsb3RsaWIgdjMuOC4yLCBodHRwczovL21hdHBsb3RsaWIub3JnIbNBNQAAAZ5JREFUeJzt1rtJmAEYQNE/1hJcwIRANvBRmFpC6oCkcAxRxMYFBHsLs0c6sbK3TCWiLpAiKjrGV9xzFrjt/XB8efi2DPn+aWeke3F6O9L9t/9lpPt69TjSPdr4O9L9/fXnSPfu4Wyku7X2Y6S7+//jSPfp85+R7vn580h3b317pHv/9jLSvfm2OdJdvT4Z6f5aOxjpLsuyrIyVAYAxBgAAggwAAAQZAAAIMgAAEGQAACDIAABAkAEAgCADAABBBgAAggwAAAQZAAAIMgAAEGQAACDIAABAkAEAgCADAABBBgAAggwAAAQZAAAIMgAAEGQAACDIAABAkAEAgCADAABBBgAAggwAAAQZAAAIMgAAEGQAACDIAABAkAEAgCADAABBBgAAggwAAAQZAAAIMgAAEGQAACDIAABAkAEAgCADAABBBgAAggwAAAQZAAAIMgAAEGQAACDIAABAkAEAgCADAABBBgAAggwAAAQZAAAIMgAAEGQAACDIAABAkAEAgCADAABBBgAAggwAAAQZAAAIMgAAEGQAACDIAABA0Dtn4RtNdJtlwQAAAABJRU5ErkJggg=="></div><div style="vertical-align: middle; max-width: 514px; display: flex; justify-content: space-between;"><div style="float: left;"><div title="#799f77ff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #799f77ff;"></div> under</div><div style="margin: 0 auto; display: inline-block;">bad <div title="#00000000" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #00000000;"></div></div><div style="float: right;">over <div title="#a47eaeff" style="display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: middle; border: 1px solid #555; background-color: #a47eaeff;"></div></div>
 </div>
 </div>
 <p>We also place the legend on the centre left. This is done automatically, but the legend and its items can be manipulated directly. Legends in <code>matplotlib</code> are extremely complex to personalise. However, do have a look at https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend for both automatic and explicit manipulation.</p>
@@ -1285,7 +1285,7 @@ Datum: Monte Mario
 </div>
 <section id="saving-figures-check-here-for-details" class="level4" data-number="2.3.3.1">
 <h4 data-number="2.3.3.1" class="anchored" data-anchor-id="saving-figures-check-here-for-details"><span class="header-section-number">2.3.3.1</span> Saving figures (check <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html">here for details</a>)</h4>
-<div id="e39ad6dd-c2c4-4830-b940-a162abdf3586" class="cell" data-execution_count="59">
+<div id="e39ad6dd-c2c4-4830-b940-a162abdf3586" class="cell" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">"fig1.pdf"</span>, dpi<span class="op">=</span><span class="st">'figure'</span>, <span class="bu">format</span><span class="op">=</span><span class="st">"pdf"</span>, bbox_inches <span class="op">=</span> <span class="st">'tight'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 

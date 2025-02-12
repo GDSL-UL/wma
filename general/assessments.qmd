@@ -3,7 +3,7 @@
 ## Submission
 Please follow these templates consistently: 
 
-- [Assignment I](https://github.com/GDSL-UL/wma/blob/main/templates/Assignment2_template.ipynb)
+- [Assignment I](https://github.com/GDSL-UL/wma/blob/main/templates/Assignment1_template.ipynb)
 
 - [Assignment II](https://github.com/GDSL-UL/wma/blob/main/templates/Assignment2_template.ipynb)
 

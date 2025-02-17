@@ -2,7 +2,7 @@
 
 -   **Title:** Exploring APIs and Interactive Maps in Python.
 -   **Type:** Coursework.
--   **Due: Thursday March 3rd (2.00 pm) - Week 6**.
+-   **Due: Thursday March 6th (2.00 pm) - Week 6**.
 -   50% of the final mark.
 -   Submission on Canvas, `.html` files only.
 

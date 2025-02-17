@@ -1,68 +1,62 @@
 # Syllabus {.unnumbered}
 
-**Week 1**
+**Week 1 MH**
 
 -   Lecture: Introduction to the module
 
 -   Lab: Powerful examples and Python Refresher
 
-**Week 2**
+**Week 2 GF**
 
 -   Lecture: Geovisualisation: Design Principles and Statistical Visualisation
 
 -   Lab: Static Maps
 
-**Week 3**
+**Week 3 MH**
 
 -   Lecture: The Web's Architecture
 
 -   Lab: Web Architectures and APIs
 
-**Week 4**
+**Week 4 MH**
 
--   Lecture: Data architechtures & formats
+-   Lecture: Data architechtures & formats. Room: Chemistry Building, Gossage LT
 
--   Lab: Data architechtures & Tiles
+-   Lab: Data architechtures & Tiles. Room: Central Teaching Lab - PC Teaching Centre
 
-**Week 5**
+**Week 5 GF**
 
--   Lecture: Interactive Maps
+-   Lecture: Interactive Maps. Room: Chemistry Building, Gossage LT
 
--   Lab: Interactive Maps
+-   Lab: Interactive Maps. Room: Rendall Teaching Centre - PC Teaching Centre
 
-**Week 6**
+**Week 6 MH**
 
--   Lecture: Q&A & Assignment I Clinic
-
-- 	Lab: No Lab this week.
+-   Lab (h 11.00 am): Q&A & Assignment I Clinic. Room 502 Building, PC Teaching Centre A + B (if necessary)
 
 -   **Assignment I Due**
 
-**Week 7**
+**Week 7 GF**
 
--   Lecture: OpenStreetMap Data & Spatial Network
+-   Lecture: OpenStreetMap Data & Spatial Network. Room: Chemistry Building, Gossage LT
 
--   Lab: Retrieving Data From OpenStreetMap
+-   Lab: Retrieving Data From OpenStreetMap. Room: Rendall Teaching Centre - PC Teaching Centre
 
-**Week 8 (Field class week)**
+**Week 8 GF**
 
-- No class
+-   Lecture: Dashboards. Room: Chemistry Building, Gossage LT
+
+-   Lab: Designing Dashboard for Geovisualisation. Room: Central Teaching Lab - PC Teaching Centre
 
 
-**Week 9**
+**Week 9 GF**
 
--   Lecture: Dashboards
+- Lab (h 11.00 am): Advanced Tools. Room: Central Teaching Lab - PC Teaching Centre	 
 
--   Lab: Designing Dashboard for Geovisualisation
+**Week 11 GF**
 
-**Week 10**
-
--   Lecture & Lab: Advanced Tools
-
-**Week 11**
-
--   Lecture: Review & Assignment II clinic
-
-- 	Lab: No Lab this week.
+- 	Lab (h 11.00 am): Review & Assignment II clinic. Room: Central Teaching Lab - PC Teaching Centre
 
 -   **Assignment II Due (Week 13)**
+
+

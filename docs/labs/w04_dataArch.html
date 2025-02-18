@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.32">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Elisabetta Pietrostefani and Gabriele Filomena">
-<meta name="dcterms.date" content="2025-02-17">
+<meta name="author" content="Elisabetta Pietrostefani, Gabriele Filomena and Matt Howard">
+<meta name="dcterms.date" content="2025-02-18">
 
 <title>4&nbsp; Data Architectures and Tiles – Web Mapping and Geovisualisation</title>
 <style>
@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-48fdb17b64b03c2d439d40eb95f1e9dc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-2a7818e10ffe1156910bef59d6201c79.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -250,15 +250,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#geojson" id="toc-geojson" class="nav-link active" data-scroll-target="#geojson"><span class="header-section-number">4.1</span> GeoJSON</a>
+  <li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro"><span class="header-section-number">4.1</span> Intro</a></li>
+  <li><a href="#geojsons" id="toc-geojsons" class="nav-link" data-scroll-target="#geojsons"><span class="header-section-number">4.2</span> GeoJSONs</a>
   <ul class="collapse">
-  <li><a href="#geojson-in-python" id="toc-geojson-in-python" class="nav-link" data-scroll-target="#geojson-in-python"><span class="header-section-number">4.1.1</span> GeoJSON in Python</a></li>
+  <li><a href="#geojson-in-python" id="toc-geojson-in-python" class="nav-link" data-scroll-target="#geojson-in-python"><span class="header-section-number">4.2.1</span> GeoJSON in Python</a></li>
   </ul></li>
-  <li><a href="#tilesets-and-mbtiles" id="toc-tilesets-and-mbtiles" class="nav-link" data-scroll-target="#tilesets-and-mbtiles"><span class="header-section-number">4.2</span> Tilesets and <code>Mbtiles</code></a>
+  <li><a href="#tilesets" id="toc-tilesets" class="nav-link" data-scroll-target="#tilesets"><span class="header-section-number">4.3</span> Tilesets</a></li>
+  <li><a href="#mapbox" id="toc-mapbox" class="nav-link" data-scroll-target="#mapbox"><span class="header-section-number">4.4</span> Mapbox</a></li>
+  <li><a href="#optional-generating-.mbtiles" id="toc-optional-generating-.mbtiles" class="nav-link" data-scroll-target="#optional-generating-.mbtiles"><span class="header-section-number">4.5</span> Optional: Generating .mbtiles</a>
   <ul class="collapse">
-  <li><a href="#optional-generating-.mbtiles-in-python" id="toc-optional-generating-.mbtiles-in-python" class="nav-link" data-scroll-target="#optional-generating-.mbtiles-in-python"><span class="header-section-number">4.2.1</span> Optional: Generating .mbtiles in Python</a></li>
-  <li><a href="#uploading-to-mapbox-studio" id="toc-uploading-to-mapbox-studio" class="nav-link" data-scroll-target="#uploading-to-mapbox-studio"><span class="header-section-number">4.2.2</span> Uploading to <strong>Mapbox Studio</strong>:</a></li>
-  <li><a href="#visualizing-the-tiles-with-folium" id="toc-visualizing-the-tiles-with-folium" class="nav-link" data-scroll-target="#visualizing-the-tiles-with-folium"><span class="header-section-number">4.2.3</span> Visualizing the Tiles with <code>Folium</code>:</a></li>
+  <li><a href="#mac-or-linux-devices-python" id="toc-mac-or-linux-devices-python" class="nav-link" data-scroll-target="#mac-or-linux-devices-python"><span class="header-section-number">4.5.1</span> MAC or Linux Devices (Python)</a></li>
+  <li><a href="#windows-devices-linux-terminal" id="toc-windows-devices-linux-terminal" class="nav-link" data-scroll-target="#windows-devices-linux-terminal"><span class="header-section-number">4.5.2</span> Windows Devices (Linux Terminal)</a></li>
+  <li><a href="#uploading-tiles" id="toc-uploading-tiles" class="nav-link" data-scroll-target="#uploading-tiles"><span class="header-section-number">4.5.3</span> Uploading Tiles</a></li>
+  </ul></li>
+  <li><a href="#mapbox-studio" id="toc-mapbox-studio" class="nav-link" data-scroll-target="#mapbox-studio"><span class="header-section-number">4.6</span> Mapbox Studio:</a>
+  <ul class="collapse">
+  <li><a href="#visualizing-the-tiles-with-folium" id="toc-visualizing-the-tiles-with-folium" class="nav-link" data-scroll-target="#visualizing-the-tiles-with-folium"><span class="header-section-number">4.6.1</span> Visualizing the Tiles with <code>Folium</code>:</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.dev/GDSL-UL/wma/blob/main/labs/w04_dataArch.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
@@ -278,14 +285,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Elisabetta Pietrostefani and Gabriele Filomena </p>
+             <p>Elisabetta Pietrostefani, Gabriele Filomena and Matt Howard </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 17, 2025</p>
+      <p class="date">February 18, 2025</p>
     </div>
   </div>
   
@@ -297,11 +304,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="intro" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="intro"><span class="header-section-number">4.1</span> Intro</h2>
 <p>The <strong>Lecture slides</strong> can be found <a href="https://github.com/GDSL-UL/wma/raw/main/lectures/w04.pdf">here</a>.</p>
 <p>This <strong>lab</strong>’s notebook can be downloaded from <a href="https://github.com/GDSL-UL/wma/blob/main/labs/w04_dataArch.ipynb">here</a>.</p>
 <p>In this lab, we will explore and familiarise with some of the most common data formats for web mapping: GeoJSON and Mbtiles.</p>
-<section id="geojson" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="geojson"><span class="header-section-number">4.1</span> GeoJSON</h2>
+</section>
+<section id="geojsons" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="geojsons"><span class="header-section-number">4.2</span> GeoJSONs</h2>
 <p>To get familiar with the format, we will start by creating a GeoJSON file from scratch. Head over to the following website:</p>
 <p><a href="https://geojson.io/" class="uri">https://geojson.io/</a></p>
 <p>In there, we will create together a small example to better understand the building blocks of this file format.</p>
@@ -323,19 +333,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p>If you are comfortable, upload the files to Microsoft Teams to share them with peers.</p>
 </div>
-<section id="geojson-in-python" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="geojson-in-python"><span class="header-section-number">4.1.1</span> GeoJSON in Python</h3>
+<section id="geojson-in-python" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="geojson-in-python"><span class="header-section-number">4.2.1</span> GeoJSON in Python</h3>
 <p>With the files from the exercise at hand, we will learn how to open them in a Python environment. Then, let’s begin by importing the necessary libraries; <code>geojson</code> is used for handling GeoJSON files.</p>
 <div id="9a74b752" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, place the geojson files you have created in the data folder used in these sessions. As always, the data folder should be stored in the directory where the notebook is running from. For this example, we will assume that the file is called <code>map.geojson</code>. We can read the file as:</p>
-<div id="a76fbf57" class="cell">
+<div id="a76fbf57" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>liverpool <span class="op">=</span> gpd.read_file(<span class="st">"../data/map.geojson"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>liverpool.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">geometry</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>POINT (-2.96320 53.40471)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>POINT (-2.96206 53.40471)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>POINT (-2.96513 53.40163)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>LINESTRING (-2.96510 53.40163, -2.96505 53.402...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>POLYGON ((-2.97048 53.40888, -2.96968 53.40573...</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
 </div>
 <p>We can also plot and explore the content of the GeoDataFrame with <code>Folium</code>. Folium, which we will see more in detail later on, helps create interactive maps from data stored in <code>geopandas.GeoDataFrame</code>.</p>
-<div id="dce09f74" class="cell">
+<div id="dce09f74" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> folium </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>liverpool_centroid <span class="op">=</span> (<span class="fl">53.41058</span>, <span class="op">-</span><span class="fl">2.97794</span>)</span>
@@ -345,160 +392,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the liverpool data to the map, this will plot each geometry in the GeoDataFrame</span></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>folium.GeoJson(liverpool).add_to(<span class="bu">map</span>)</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">map</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Once read, the geojson behaves exactly like any GeoDataFrame we have seen so far. We can therefore operate on it and tap into the functionality from <code>pandas</code> and <code>geopandas</code>. For example, we can and reproject the layer to the to British National Grid.</p>
-<div id="3405b69d" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>liverpool_bng <span class="op">=</span> liverpool.to_crs(crs <span class="op">=</span> <span class="st">"EPSG: 27700"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>When we inspected our geojson, we noted that the spatial data is stored in the following format <code>POINT (-2.977367 53.40753)</code>. This is called “well known text” (<code>wkt</code>) and is a representation that spatial databases like PostGIS use as well. Another way to store spatial data as text for storage or transfer, less (human) readable but more efficient is the “well known blurb” (<code>wkb</code>). We can use the <code>shapely</code> library to handle the WKT representation of the geometry and then convert it to WKB format.</p>
-<div id="83e8ae7c" class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely <span class="im">import</span> wkt</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> Point</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shapely.wkb</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the WKT representation of the point</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>wkt_string <span class="op">=</span> <span class="st">"POINT (-2.977367 53.40753)"</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the WKT representation into a Shapely Point object</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> wkt.loads(wkt_string)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the Point object into WKB format</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>wkb_data <span class="op">=</span> shapely.wkb.dumps(point)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>wkb_data.<span class="bu">hex</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="alert alert-success">
-<p><strong>Excercise</strong>: - Read the <code>GeoJSON</code> created for your favorite walks in Liverpool and calculate their length</p>
-</div>
-<p>Once you are happy with the data as we will hypothetically need it, you can write it out to any other file format supported in <code>geopandas</code>. For example, we can create a Geopackge file with the same information. For this, we can use the function <code>to_file</code>. See an example below:</p>
-<div id="5c4299f8" class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write 'liverpool_bng' to a GeoPackage file</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>liverpool_bng.to_file(<span class="st">"../data/liverpool_bng.gpkg"</span>, layer<span class="op">=</span><span class="st">"liverpool_bng"</span>, driver<span class="op">=</span><span class="st">"GPKG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-</section>
-<section id="tilesets-and-mbtiles" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="tilesets-and-mbtiles"><span class="header-section-number">4.2</span> Tilesets and <code>Mbtiles</code></h2>
-<p>In this section we will dive into the concept of tiles to understand why they have been so transformative in the world of web mapping. We have already seen the usage of tilesets above with <code>folium</code> and with <code>contextily</code> (although within a static context). We will see that <code>folium</code>, integrates different tileset options already.</p>
-<p>For this section, let’s start by getting the building footprints from OpenStreetMap with <code>osmnx</code></p>
-<div id="557e1563" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> osmnx <span class="im">as</span> ox</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>tags <span class="op">=</span> {<span class="st">"building"</span>: <span class="va">True</span>} <span class="co">#OSM tags</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>buildings <span class="op">=</span> ox.features_from_place(<span class="st">"Liverpool, UK"</span>, tags <span class="op">=</span> tags) </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>buildings <span class="op">=</span> buildings.reset_index()</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a> <span class="co"># sometimes building footprints are represented by Points, let's disregard them</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>buildings <span class="op">=</span> buildings[(buildings.geometry.geom_type <span class="op">==</span> <span class="st">'Polygon'</span>) <span class="op">|</span> (buildings.geometry.geom_type <span class="op">==</span> <span class="st">'MultiPolygon'</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="1723c02d" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>buildings.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="w04_dataArch_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Let’s save the GeoDataFrame a geojson and call it <code>buildings_liverpool.geojson</code>.</p>
-<div id="20e0f389" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>buildings[[<span class="st">'osmid'</span>,<span class="st">'geometry'</span>]].to_file(<span class="st">'data/buildings_liverpool.geojson'</span>,  driver<span class="op">=</span><span class="st">'GeoJSON'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Then, register for a MapBox account <a href="https://account.mapbox.com/auth/signup/?route-to=%22https%3A%2F%2Faccount.mapbox.com%2Faccess-tokens%2F%22">here</a>.</p>
-<section id="optional-generating-.mbtiles-in-python" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="optional-generating-.mbtiles-in-python"><span class="header-section-number">4.2.1</span> Optional: Generating .mbtiles in Python</h3>
-<p>In Python, you can use <code>togeojsontiles</code> to make dynamic <code>.mbtiles</code> files. This is useful to visualize large data appropriately at any zoom level. <strong>This step cannot be ran on University Machines</strong> It requires the installation of <code>tippecanoe</code> on your machine. Follow the corresponding instructions for <a href="https://gist.github.com/ryanbaumann/e5c7d76f6eeb8598e66c5785b677726e">Windows</a> and for <a href="https://github.com/mapbox/tippecanoe">MAC</a></p>
-<div id="da5e2d99-db77-437c-b116-51a617c56a10" class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pip install togeojsontiles</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> togeojsontiles <span class="im">import</span> geojson_to_mbtiles</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>TIPPECANOE_DIR <span class="op">=</span> <span class="st">'/usr/local/bin/'</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert GeoJSON to .mbtiles</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>togeojsontiles.geojson_to_mbtiles(</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    filepaths<span class="op">=</span>[<span class="st">'/data/buildings_liverpool.geojson'</span>],</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    tippecanoe_dir<span class="op">=</span>TIPPECANOE_DIR,</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    mbtiles_file<span class="op">=</span><span class="st">'liverpool.mbtiles'</span>,</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    maxzoom<span class="op">=</span><span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>You can also try <strong>uploading</strong> it directly to Mapbox. This part of the code has not been tested so it should serve as guidance.</p>
-<div id="8cf70aa2" class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define your Mapbox token</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>mapbox_token <span class="op">=</span> <span class="st">""</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Endpoint for Mapbox Tiling Service uploads</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://api.mapbox.com/uploads/v1/mapbox'</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Path to your .mbtiles file</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>mbtiles_file_path <span class="op">=</span> <span class="st">"../data/liverpool.mbtiles'</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="er"># Prepare the headers</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>headers <span class="op">=</span> {</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Authorization'</span>: <span class="ss">f'Bearer </span><span class="sc">{</span>MAPBOX_ACCESS_TOKEN<span class="sc">}</span><span class="ss">'</span>,</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Content-Type'</span>: <span class="st">'application/json'</span></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare the data for the POST request</span></span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(mbtiles_file_path, <span class="st">'rb'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    files <span class="op">=</span> {<span class="st">'file'</span>: <span class="bu">file</span>}</span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.post(url, headers<span class="op">=</span>headers, files<span class="op">=</span>files)</span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the response</span></span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Upload initiated successfully."</span>)</span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(response.json())</span>
-<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Failed to initiate upload."</span>)</span>
-<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(response.text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong><em>The optional steps end here</em></strong></p>
-</section>
-<section id="uploading-to-mapbox-studio" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="uploading-to-mapbox-studio"><span class="header-section-number">4.2.2</span> Uploading to <strong>Mapbox Studio</strong>:</h3>
-<p>After creating the <code>.mbtiles</code> file, you can upload it <em>manually</em> to Mapbox Studio (unless you managed to make the cell above work):</p>
-<ul>
-<li>Navigate to Mapbox Studio.</li>
-<li>Start a New Style and chose a template (Monochrome, blank etc.)</li>
-</ul>
-<p><img src="../labs_img/mapboxstyles.png" width="80%"></p>
-<ul>
-<li>Upload the <code>liverpool.mbtiles</code> (if you created it) or the <code>liverpool.geojson</code>. Press the <strong>+</strong> symbol, <code>Custom Layer</code> or <code>Data Visualisation</code>, <code>Upload Data</code>, and choose your file</li>
-</ul>
-<p><img src="../labs_img/mapbox_upload.png" width="80%"></p>
-<ul>
-<li>Once uploaded, you should see your layer in the existing sources.</li>
-</ul>
-<p><img src="../labs_img/mapbox_select.png" width="80%"></p>
-<ul>
-<li>Style it according to your requirements: It should look like a nicer version of this:</li>
-</ul>
-<p><img src="../labs_img/mapbox_building_studio.png" width="80%"></p>
-<p>Or through <em>scripting</em> with Mapbox’s Uploads API (see above)</p>
-</section>
-<section id="visualizing-the-tiles-with-folium" class="level3" data-number="4.2.3">
-<h3 data-number="4.2.3" class="anchored" data-anchor-id="visualizing-the-tiles-with-folium"><span class="header-section-number">4.2.3</span> Visualizing the Tiles with <code>Folium</code>:</h3>
-<p>First, we need to get the <code>id</code> of your Mapbox style by copying its url:</p>
-<p><img src="../labs_img/mapbox_styleid.png" width="80%"></p>
-<p><em>url example</em>: <a href="mapbox://styles/gabrif/clrpby9lc00a501pecacz8b7h">mapbox://styles/gabrif/clrpby9lc00a501pecacz8b7h</a></p>
-<p>the <code>style_id</code> is the last section of the URL, in this case <code>clrpby9lc00a501pecacz8b7h</code></p>
-<p>Then, we can use <code>folium</code>, which we will more in detail later on, and use our tileset. Folium essentially allows us to create interactive maps, usually starting from data stored in a <code>GeoDataFrame</code>. While folium provides a series of built-in tilesets, here it is demonstrated how to employ one’s own.</p>
-<div id="945526c5" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Folium map centered at a specific location</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> folium</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>mapbox_user <span class="op">=</span> <span class="st">'gabrif'</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>mapbox_token <span class="op">=</span> <span class="st">''</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>style_id <span class="op">=</span> <span class="st">'clrpby9lc00a501pecacz8b7h'</span> </span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>tiles <span class="op">=</span> <span class="st">'https://api.mapbox.com/styles/v1/'</span><span class="op">+</span>mapbox_user<span class="op">+</span><span class="st">'/'</span><span class="op">+</span>style_id<span class="op">+</span><span class="st">'/tiles/256/</span><span class="sc">{z}</span><span class="st">/</span><span class="sc">{x}</span><span class="st">/</span><span class="sc">{y}</span><span class="st">?access_token='</span><span class="op">+</span>mapbox_token</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="bu">map</span> <span class="op">=</span> folium.Map(location<span class="op">=</span>[<span class="fl">53.406872</span>, <span class="op">-</span><span class="fl">2.973286</span>], zoom_start<span class="op">=</span><span class="dv">14</span>,</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>               tiles<span class="op">=</span>tiles,</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>               attr<span class="op">=</span><span class="st">'Mapbox'</span>)</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the map</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="bu">map</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -&gt; Trust Notebook</span><iframe srcdoc="<!DOCTYPE html>
 <html>
 <head>
@@ -526,7 +420,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; />
             <style>
-                #map_7954ff5c7c2162bf0d5aa151ebc21eb2 {
+                #map_07e9f2a9cd94a92da99d6582d036f0fc {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -540,14 +434,296 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <body>
     
     
-            <div class=&quot;folium-map&quot; id=&quot;map_7954ff5c7c2162bf0d5aa151ebc21eb2&quot; ></div>
+            <div class=&quot;folium-map&quot; id=&quot;map_07e9f2a9cd94a92da99d6582d036f0fc&quot; ></div>
         
 </body>
 <script>
     
     
-            var map_7954ff5c7c2162bf0d5aa151ebc21eb2 = L.map(
-                &quot;map_7954ff5c7c2162bf0d5aa151ebc21eb2&quot;,
+            var map_07e9f2a9cd94a92da99d6582d036f0fc = L.map(
+                &quot;map_07e9f2a9cd94a92da99d6582d036f0fc&quot;,
+                {
+                    center: [53.41058, -2.97794],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_cd48afbe91ca2b773e7a34e1e195bc6a = L.tileLayer(
+                &quot;https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png&quot;,
+                {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\&quot;https://carto.com/attributions\&quot;\u003eCARTO\u003c/a\u003e&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 20, &quot;maxZoom&quot;: 20, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abcd&quot;, &quot;tms&quot;: false}
+            );
+        
+    
+            tile_layer_cd48afbe91ca2b773e7a34e1e195bc6a.addTo(map_07e9f2a9cd94a92da99d6582d036f0fc);
+        
+    
+
+        function geo_json_ac59b727a4e974a16e6b6c8b53c7bd12_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_ac59b727a4e974a16e6b6c8b53c7bd12 = L.geoJson(null, {
+                onEachFeature: geo_json_ac59b727a4e974a16e6b6c8b53c7bd12_onEachFeature,
+            
+        });
+
+        function geo_json_ac59b727a4e974a16e6b6c8b53c7bd12_add (data) {
+            geo_json_ac59b727a4e974a16e6b6c8b53c7bd12
+                .addData(data);
+        }
+            geo_json_ac59b727a4e974a16e6b6c8b53c7bd12_add({&quot;bbox&quot;: [-2.9704833609569903, 53.400742879363634, -2.961506627150129, 53.40888125752454], &quot;features&quot;: [{&quot;bbox&quot;: [-2.9632019061334915, 53.404705582550264, -2.9632019061334915, 53.404705582550264], &quot;geometry&quot;: {&quot;coordinates&quot;: [-2.9632019061334915, 53.404705582550264], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;0&quot;, &quot;properties&quot;: {}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-2.9620625964173257, 53.40471181383134, -2.9620625964173257, 53.40471181383134], &quot;geometry&quot;: {&quot;coordinates&quot;: [-2.9620625964173257, 53.40471181383134], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;1&quot;, &quot;properties&quot;: {}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-2.9651251445550884, 53.40162721817714, -2.9651251445550884, 53.40162721817714], &quot;geometry&quot;: {&quot;coordinates&quot;: [-2.9651251445550884, 53.40162721817714], &quot;type&quot;: &quot;Point&quot;}, &quot;id&quot;: &quot;2&quot;, &quot;properties&quot;: {}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-2.9651042397891274, 53.40162721817714, -2.9620416916514216, 53.4047367389461], &quot;geometry&quot;: {&quot;coordinates&quot;: [[-2.9651042397891274, 53.40162721817714], [-2.9650519778758166, 53.402088363865715], [-2.964132168195732, 53.40201981549882], [-2.963860406245601, 53.40411360669927], [-2.9633168823437472, 53.40410114396141], [-2.9633273347267846, 53.4042444652284], [-2.962731548910881, 53.40436909202418], [-2.962658382232462, 53.4047367389461], [-2.9620416916514216, 53.40471181383134]], &quot;type&quot;: &quot;LineString&quot;}, &quot;id&quot;: &quot;3&quot;, &quot;properties&quot;: {}, &quot;type&quot;: &quot;Feature&quot;}, {&quot;bbox&quot;: [-2.9704833609569903, 53.400742879363634, -2.961506627150129, 53.40888125752454], &quot;geometry&quot;: {&quot;coordinates&quot;: [[[-2.9704833609569903, 53.40888125752454], [-2.969679330723409, 53.40573034245341], [-2.9662474468507867, 53.40598877091978], [-2.966675373337324, 53.405280814347236], [-2.968555060293397, 53.40364086084526], [-2.968469287089789, 53.40339263448422], [-2.9669134205020953, 53.40330600759637], [-2.9671643466434148, 53.40094419038189], [-2.9623402922737796, 53.400742879363634], [-2.961506627150129, 53.40749710107053], [-2.9655757136168575, 53.40848830143628], [-2.9704833609569903, 53.40888125752454]]], &quot;type&quot;: &quot;Polygon&quot;}, &quot;id&quot;: &quot;4&quot;, &quot;properties&quot;: {}, &quot;type&quot;: &quot;Feature&quot;}], &quot;type&quot;: &quot;FeatureCollection&quot;});
+
+        
+    
+            geo_json_ac59b727a4e974a16e6b6c8b53c7bd12.addTo(map_07e9f2a9cd94a92da99d6582d036f0fc);
+        
+</script>
+</html>" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div></div>
+</div>
+</div>
+<p>Once read, the geojson behaves exactly like any GeoDataFrame we have seen so far. We can therefore operate on it and tap into the functionality from <code>pandas</code> and <code>geopandas</code>. For example, we can and reproject the layer to the to British National Grid.</p>
+<div id="3405b69d" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>liverpool_bng <span class="op">=</span> liverpool.to_crs(crs <span class="op">=</span> <span class="st">"EPSG: 27700"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When we inspected our geojson, we noted that the spatial data is stored in the following format <code>POINT (-2.977367 53.40753)</code>. This is called “well known text” (<code>wkt</code>) and is a representation that spatial databases like PostGIS use as well. Another way to store spatial data as text for storage or transfer, less (human) readable but more efficient is the “well known blurb” (<code>wkb</code>). We can use the <code>shapely</code> library to handle the WKT representation of the geometry and then convert it to WKB format.</p>
+<div id="83e8ae7c" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely <span class="im">import</span> wkt</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> Point</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> shapely.wkb</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the WKT representation of the point</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>wkt_string <span class="op">=</span> <span class="st">"POINT (-2.977367 53.40753)"</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the WKT representation into a Shapely Point object</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> wkt.loads(wkt_string)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the Point object into WKB format</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>wkb_data <span class="op">=</span> shapely.wkb.dumps(point)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>wkb_data.<span class="bu">hex</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>'01010000005e8429caa5d107c0c7116bf129b44a40'</code></pre>
+</div>
+</div>
+<div class="alert alert-success">
+<p><strong>Excercise</strong>: - Read the <code>GeoJSON</code> created for your favorite walks in Liverpool and calculate their length</p>
+</div>
+<p>Once you are happy with the data as we will hypothetically need it, you can write it out to any other file format supported in <code>geopandas</code>. For example, we can create a Geopackge file with the same information. For this, we can use the function <code>to_file</code>. See an example below:</p>
+<div id="5c4299f8" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write 'liverpool_bng' to a GeoPackage file</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>liverpool_bng.to_file(<span class="st">"../data/liverpool_bng.gpkg"</span>, layer<span class="op">=</span><span class="st">"liverpool_bng"</span>, driver<span class="op">=</span><span class="st">"GPKG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="tilesets" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="tilesets"><span class="header-section-number">4.3</span> Tilesets</h2>
+<p>In this section we will dive into the concept of tiles to understand why they have been so transformative in the world of web mapping. We have already seen the usage of tilesets above with <code>folium</code> and with <code>contextily</code> (although within a static context). We will see that <code>folium</code>, integrates different tileset options already.</p>
+<p>For this section, let’s start by getting the building footprints from OpenStreetMap with <code>osmnx</code></p>
+<div id="557e1563" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> osmnx <span class="im">as</span> ox</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>tags <span class="op">=</span> {<span class="st">"building"</span>: <span class="va">True</span>} <span class="co">#OSM tags</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>buildings <span class="op">=</span> ox.features_from_place(<span class="st">"Liverpool, UK"</span>, tags <span class="op">=</span> tags) </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>buildings <span class="op">=</span> buildings.reset_index()</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a> <span class="co"># sometimes building footprints are represented by Points, let's disregard them</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>buildings <span class="op">=</span> buildings[(buildings.geometry.geom_type <span class="op">==</span> <span class="st">'Polygon'</span>) <span class="op">|</span> (buildings.geometry.geom_type <span class="op">==</span> <span class="st">'MultiPolygon'</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="1723c02d" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>buildings.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w04_dataArch_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Let’s save the GeoDataFrame a geojson and call it <code>buildings_liverpool.geojson</code>.</p>
+<div id="20e0f389" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>buildings[[<span class="st">'osmid'</span>,<span class="st">'geometry'</span>]].to_file(<span class="st">'../data/buildings_liverpool.geojson'</span>,  driver<span class="op">=</span><span class="st">'GeoJSON'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="mapbox" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="mapbox"><span class="header-section-number">4.4</span> Mapbox</h2>
+<p><a href="https://account.mapbox.com/auth/signup/?route-to=%22https%3A%2F%2Faccount.mapbox.com%2Faccess-tokens%2F%22">Register for a MapBox account here.</a></p>
+<p>Once your account is created and verified, Save both your username and public token as variables below:</p>
+<div id="6440379c-bc26-4102-99a3-a61fa625b981" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mapbox_user <span class="op">=</span> <span class="st">''</span> <span class="co">#Add your username here</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>mapbox_token <span class="op">=</span> <span class="st">''</span> <span class="co">#Add your public token here (find this on the right hand side of the Mapbox console home page)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="optional-generating-.mbtiles" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="optional-generating-.mbtiles"><span class="header-section-number">4.5</span> Optional: Generating .mbtiles</h2>
+<strong>Note that this section is optional for those who are interested in trying out more advanced data formats. It is not required for this lab or the assignment</strong>
+<div class="alert alert-block alert-warning">
+<p>IMPORTANT: This step cannot be ran on University Machines as the installation requires admin rights. Please skip to the next section - ‘Mapbox Studio’</p>
+</div>
+<p>.mbtiles is a tile based data format, designed to assist the user in “making a scale-independent view of your data, so that at any level from the entire world to a single building, you can see the density and texture of the data rather than a simplification from dropping supposedly unimportant features or clustering or aggregating them. [<a href="https://github.com/mapbox/tippecanoe">Source</a>]”</p>
+<p>The following steps require the installation of <code>tippecanoe</code> on your machine. This cannot be installed directly onto Windows devices, and will require the installation of a local linux environment onto your device if you intend to use it.</p>
+<section id="mac-or-linux-devices-python" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="mac-or-linux-devices-python"><span class="header-section-number">4.5.1</span> MAC or Linux Devices (Python)</h3>
+<p>In Python, the <code>togeojsontiles</code> package allows for us to convert our geojsons into .mbtiles files within our python code. Ensure you have installed <strong>all</strong> the <a href="https://github.com/bartromgens/togeojsontiles">requirements</a> (ensuring that <code>togeojsontiles</code> is installed within the envs456 environment, not <em>base</em> and that ‘tippecanoe’ is properly set up from <a href="https://github.com/mapbox/tippecanoe">here</a>), before trying the code below:</p>
+<div id="da5e2d99-db77-437c-b116-51a617c56a10" class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> togeojsontiles <span class="im">import</span> geojson_to_mbtiles</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>TIPPECANOE_DIR <span class="op">=</span> <span class="st">'/usr/local/bin/'</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert GeoJSON to .mbtiles</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>geojson_to_mbtiles(</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    filepaths<span class="op">=</span>[<span class="st">'../data/buildings_liverpool.geojson'</span>],</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    tippecanoe_dir<span class="op">=</span>TIPPECANOE_DIR,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    mbtiles_file<span class="op">=</span><span class="st">'../data/liverpool.mbtiles'</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    maxzoom<span class="op">=</span><span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="windows-devices-linux-terminal" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="windows-devices-linux-terminal"><span class="header-section-number">4.5.2</span> Windows Devices (Linux Terminal)</h3>
+<p>Accessing <code>Tippecanoe</code> on windows machines is more complicated, <strong>and cannot be done at all on University machines.</strong> The above code is unlikely to work out of the box and in this case, the easiest way to access the functionality is through a Linux shell installed locally on your device. The steps to do this are outlined <a href="https://gist.github.com/ryanbaumann/e5c7d76f6eeb8598e66c5785b677726e">here</a>, and are briefly covered below:</p>
+<ol type="1">
+<li>Install a Linux Bash Shell (i.e.&nbsp;Ubuntu) - This can be done from the Microsoft Store.</li>
+<li>Run the installed shell, completing set up by creating a username and password (remember these!)</li>
+<li>Install Tippecanoe, using the commands listed in the above link.</li>
+<li>Direct the bash terminal to your data directory. This requires a more extended filepath than python due to crossing over the different OS environments, (i.e.&nbsp;if your data filepath was *C:, you would use the command: <code>$ cd ../../mnt/c/envs456/data</code>).</li>
+<li>run the tippecanoe command: <code>$ tippecanoe -zg -o liverpool.mbtiles --drop-densest-as-needed buildings_liverpool.geojson</code> (for an explanation of the arguments we’ve used here see the command overview <a href="https://github.com/mapbox/tippecanoe?tab=readme-ov-file#try-this-first">here</a>)</li>
+</ol>
+<p>This should build a .mbtile version of your ‘buildings_liverpool’ geojson directly into your data directory!</p>
+</section>
+<section id="uploading-tiles" class="level3" data-number="4.5.3">
+<h3 data-number="4.5.3" class="anchored" data-anchor-id="uploading-tiles"><span class="header-section-number">4.5.3</span> Uploading Tiles</h3>
+<p>Once the .mbtile is created and saved in your directory, you can also try <strong>uploading</strong> it directly to Mapbox. This part of the code has not been tested so it should serve as guidance.</p>
+<div id="8cf70aa2" class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Endpoint for Mapbox Tiling Service uploads</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://api.mapbox.com/uploads/v1/mapbox'</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Path to your .mbtiles file</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>mbtiles_file_path <span class="op">=</span> <span class="st">"../data/liverpool.mbtiles'</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="er"># Prepare the headers</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>headers <span class="op">=</span> {</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Authorization'</span>: <span class="ss">f'Bearer </span><span class="sc">{</span>mapbox_token<span class="sc">}</span><span class="ss">'</span>,</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Content-Type'</span>: <span class="st">'application/json'</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare the data for the POST request</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(mbtiles_file_path, <span class="st">'rb'</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    files <span class="op">=</span> {<span class="st">'file'</span>: <span class="bu">file</span>}</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.post(url, headers<span class="op">=</span>headers, files<span class="op">=</span>files)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the response</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Upload initiated successfully."</span>)</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(response.json())</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Failed to initiate upload."</span>)</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(response.text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br>
+<strong><em>The optional steps end here</em></strong></p>
+</section>
+</section>
+<section id="mapbox-studio" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="mapbox-studio"><span class="header-section-number">4.6</span> Mapbox Studio:</h2>
+<p>After creating the <code>.mbtiles</code> file, you can upload it <em>manually</em> to Mapbox Studio (unless you managed to make the optional cell above work):</p>
+<ul>
+<li>Navigate to the Mapbox Studio Console.</li>
+<li>Start a New Style and chose a template (Monochrome, blank etc.)</li>
+</ul>
+<p><img src="../labs_img/mapboxstyles.png" width="80%"></p>
+<ul>
+<li>Upload the <code>liverpool.mbtiles</code> (if you created it) or the <code>buildings_liverpool.geojson</code>. Press the <strong>+</strong> symbol, <code>Custom Layer</code> or <code>Data Visualisation</code>, <code>Upload Data</code>, and choose your file</li>
+</ul>
+<p><img src="../labs_img/mapbox_upload.png" width="80%"></p>
+<ul>
+<li>Once uploaded, you should see your layer in the existing sources. Select this as the data to use for your layer and it will load in. If you skipped the optional step and are using a <code>.geoJSON</code> file, the Liverpool buildings may only render at a high level of zoom.</li>
+</ul>
+<p><img src="../labs_img/mapbox_select.png" width="80%"></p>
+<ul>
+<li>Style it according to your requirements: It should look like a nicer version of this:</li>
+</ul>
+<p><img src="../labs_img/mapbox_building_studio.png" width="80%"></p>
+<p>Once you’re happy with your styling, remember to publish your map so that we can reference it directly through the API.</p>
+<section id="visualizing-the-tiles-with-folium" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="visualizing-the-tiles-with-folium"><span class="header-section-number">4.6.1</span> Visualizing the Tiles with <code>Folium</code>:</h3>
+<p>First, we need to get the <code>id</code> of your Mapbox style by copying its url:</p>
+<p><img src="../labs_img/mapbox_styleid.png" width="80%"></p>
+<p><em>url example</em>: <a href="mapbox://styles/gabrif/clrpby9lc00a501pecacz8b7h">mapbox://styles/gabrif/clrpby9lc00a501pecacz8b7h</a></p>
+<p>the <code>style_id</code> is the last section of the URL, in this case <code>clrpby9lc00a501pecacz8b7h</code></p>
+<p>Then, we can use <code>folium</code>, which we will more in detail later on, and use our tileset. Folium essentially allows us to create interactive maps, usually starting from data stored in a <code>GeoDataFrame</code>. While folium provides a series of built-in tilesets, here it is demonstrated how to employ one’s own.</p>
+<div id="945526c5" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Folium map centered at a specific location, using a custom Mapbox styling</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> folium</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># save your style's ID</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>style_id <span class="op">=</span> <span class="st">''</span> </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the API endpoint for your custom style</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>tiles <span class="op">=</span> <span class="st">"https://api.mapbox.com/styles/v1/"</span><span class="op">+</span>mapbox_user<span class="op">+</span><span class="st">"/"</span><span class="op">+</span>style_id<span class="op">+</span><span class="st">"/tiles/256/</span><span class="sc">{z}</span><span class="st">/</span><span class="sc">{x}</span><span class="st">/</span><span class="sc">{y}</span><span class="st">?access_token="</span><span class="op">+</span>mapbox_token</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create your map</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="bu">map</span> <span class="op">=</span> folium.Map(location<span class="op">=</span>[<span class="fl">53.406872</span>, <span class="op">-</span><span class="fl">2.973286</span>], zoom_start<span class="op">=</span><span class="dv">14</span>,</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>               tiles<span class="op">=</span>tiles,</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>               attr<span class="op">=</span><span class="st">'Mapbox'</span>)</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the map</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="bu">map</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -&gt; Trust Notebook</span><iframe srcdoc="<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;></script>
+    <script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;></script>
+    <script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;></script>
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;></script>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/>
+    
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; />
+            <style>
+                #map_b7f6f3fd32fc2dd0b884396b40036611 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class=&quot;folium-map&quot; id=&quot;map_b7f6f3fd32fc2dd0b884396b40036611&quot; ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b7f6f3fd32fc2dd0b884396b40036611 = L.map(
+                &quot;map_b7f6f3fd32fc2dd0b884396b40036611&quot;,
                 {
                     center: [53.406872, -2.973286],
                     crs: L.CRS.EPSG3857,
@@ -561,13 +737,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
         
     
-            var tile_layer_4308e48c65d9d059b9a40dd2d3a5faa8 = L.tileLayer(
-                &quot;https://api.mapbox.com/styles/v1/gabrif/clrpby9lc00a501pecacz8b7h/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2FicmlmIiwiYSI6ImNscjlqbnlwcDAzNG0yaXAxZnBydHE4ZXAifQ.fPM4d6yqzXoM57AjzFglpw&quot;,
+            var tile_layer_b88622e8c49c38fed9b1eba5a13f0a01 = L.tileLayer(
+                &quot;https://api.mapbox.com/styles/v1/staffmh/cm7apa5lt000o01s2dpzwev1e/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic3RhZmZtaCIsImEiOiJjbTc5NHU4M3YwMW9iMmpxeW1nbzJxODhmIn0.vbLrOO4950wmHqg3lRjOiw&quot;,
                 {&quot;attribution&quot;: &quot;Mapbox&quot;, &quot;detectRetina&quot;: false, &quot;maxNativeZoom&quot;: 18, &quot;maxZoom&quot;: 18, &quot;minZoom&quot;: 0, &quot;noWrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
             );
         
     
-            tile_layer_4308e48c65d9d059b9a40dd2d3a5faa8.addTo(map_7954ff5c7c2162bf0d5aa151ebc21eb2);
+            tile_layer_b88622e8c49c38fed9b1eba5a13f0a01.addTo(map_b7f6f3fd32fc2dd0b884396b40036611);
         
 </script>
 </html>" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div></div>
@@ -661,8 +837,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -773,7 +947,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

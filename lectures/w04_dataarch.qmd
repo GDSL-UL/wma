@@ -1,214 +1,250 @@
 ---
-title: "Geographic Data Science"
-subtitle: "Point Patterns"
-author: "Elisabetta Pietrostefani & Carmen Cabrera-Arnau"
+title: "Web Mapping and Geovisualisation"
+subtitle: "Data Architecture and Formats"
+author: "Matthew Howard, Elisabetta Pietrostefani and Dani Arribas-Bel"
 format: 
     revealjs:
-        navigation-mode: grid
-align-items: center;
+        center: true
 ---
 
-# The *point* of points
+# Today
 
-# Points like polygons
+- Spatial Data
+- Spatial Data Formats (old and new)
+- Selecting the right format
 
--   Points *can* represent "fixed" entities
--   In this case, points are qualitatively similar to polygons/lines
--   The goal here is, taking location fixed, to model other aspects of the data
+# Spatial Data
 
-# Points like polygons
+The data we use to represent space falls into one of two categories:
 
-Examples: - Cities (in most cases) - Buildings - Polygons represented as their centroid - ...
+- **Vector**
+- **Raster**
 
-# When points are not polygons
+# Vector
 
-Point data are not only a different geometry than polygons or lines... <br> ... Points can also represent a fundamentally different way to approach spatial analysis
+Space is divided into a finite set of entities, each of which is represented by a shape or geometry...
 
-# Points unlike polygons
+- (Multi-)Points
+- (Multi-)Lines
+- (Multi-)Polygons
+
 
 # A few examples
 
-# 
+# Points
 
 <center>
 
-<img alt="centered image" data-src="./figs/l09_crime.png" width="60%" height="60%"/>
+<img alt="centered image" data-src="./figs/restaurant_points.png" width="80%" height="60%"/>
 
 <center>
 
-# 
+[Source](https://www.google.co.uk/maps/search/restaurants/@53.4018835,-2.9810267)
+
+# Lines
 
 <center>
 
-<img alt="centered image" data-src="./figs/l09_trees.png" width="65%" height="65%"/>
+<img alt="centered image" data-src="./figs/lines.png" width="50%" height="50%"/>
 
 <center>
 
-# 
+[Source](https://www.dvrpc.org/webmaps/cyclephilly/)
+
+# Polygons
+
+<iframe width='100%' height='520' frameborder='0' src='https://code.waag.org/buildings/#52.3733,4.8958,15' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
+[Source](https://code.waag.org/buildings/#52.3733,4.8958,15)
+
+# Combinations
+
+<iframe width='100%' height='520' frameborder='0' src='https://d9a.carto.com/viz/b8854d5e-c2d6-11e4-8a0c-0e018d66dc29/embed_map' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+
+[Source](https://d9a.carto.com/viz/b8854d5e-c2d6-11e4-8a0c-0e018d66dc29/embed_map)
+
+# Raster
+
+Use an image and control pixel colors to encode value
+
+The value assigned for each cell represents the
+attribute of that cell, i.e:
+
+ - Continuous variables (temperature,elevation etc.)
+ - Satellite Imagery (e.g. land use/cover)
+
+# Continuous Example
 
 <center>
 
-<img alt="centered image" data-src="./figs/l09_mapbox.png" width="65%" height="65%"/>
+<img alt="centered image" data-src="./figs/relief.png" width="100%" height="70%"/>
 
 <center>
 
-# Points patterns
-
-# Points patterns
-
-Distribution of **points** over a portion of **space** Assumption is a point can happen anywhere on that space, but only happens in specific locations
-
--   **Unmarked**: locations only
--   **Marked**: values attached to each point
-
-# Point Pattern Analysis
-
-Describe, characterize, and explain point patterns, focusing on their **generating process**
-
--   Visual exploration
--   Clustering properties and clusters
--   Statistical modeling of the underlying processes
-
-# Visualization of Point Patterns
-
-# Visualization of PPs
-
-Four routes (today):
-
--   One-to-one mapping -- "Scatter plot"
--   Aggregate -- "Histogram"
--   Smooth -- KDE
--   Smooth -- Interpolation
-
-# One-to-one
-
--   Intuitive
--   Effective in small datasets
--   Limited as size increases until useless
-
-# One-to-one
+# Satellite Example
 
 <center>
 
-<img alt="centered image" data-src="./figs/l09_liv_pts.png" width="50%" height="50%"/>
+<img alt="centered image" data-src="./figs/planet.png" width="75%" height="50%"/>
 
 <center>
 
-# Aggregation
+# Spatial Data Formats
 
-# Points meet polygons
+#
+In general...
 
--   Use polygon boundaries and count points per area \[Insert your skills for choropleth mapping here!!!\]
--   But, the polygons need to *"make sense"* (their delineation needs to relate to the point generating process)
+- Points, lines, polygons -> Vector Formats
+- Images, surfaces -> Raster Formats
 
-# 
 
-<center>
+# Traditional formats
 
-<img data-src="./figs/l09_liv_pts.png" height="400"/>   <img data-src="./figs/l09_liv_cho.png" height="400"/>
+**Vector**
+- Individual entity type files: `shapefiles` etc.
 
-<center>
+**Raster**
+- Mostly (single) image formats: `GeoTIFFs` etc.
 
-# Hex-binning
+# However...
 
-If no polygon boundary seems like a good candidate for aggregation... ...draw a hexagonal (or squared) tesselation!!!
+many of these formats were designed for an *offline* world, so display some (or all) of the following:
 
-Hexagons...
-
--   Are regular
--   Exhaust the space (Unlike circles)
--   Have many sides (minimize boundary problems)
+- Binary
+- "Unqueriable"
+- complex structures
 
 # 
 
-<center>
+<iframe width='100%' height='780' frameborder='0' src='http://switchfromshapefile.org/' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 
-<img data-src="./figs/l09_liv_pts.png" height="300"/>   <img data-src="./figs/l09_liv_hex_empty.png" height="300"/>    <img data-src="./figs/l09_liv_hex_filled.png" height="300"/>
+[Switch from shapefile](http://switchfromshapefile.org/){preview-link="true"}
 
-<center>
+# Modern Formats
 
-# But
+New formats have appeared aiming to *“fix”* those issues, but also responding to web needs:
 
--   (Arbitrary) aggregation may induce MAUP 
--   Points usually represent events that affect only part of the population and hence are best considered as rates
+- Streamable( e.g. `GeoJSON`)
+- Queriable (e.g. `PostGIS/Geopackage`)
+- Single files (e.g. `.mbtiles`)
 
-# Kernet Density Estimation (KDE)
+We'll be focusing on 2 specific examples...
 
-# KDE
-
-Estimate the **(continuous)** observed distribution of a variable
-
--   Probability of finding an observation at a given point
--   "Continuous histogram"
--   Solves (much of) the MAUP problem, but not the underlying population issue
-
-# Bivariate (spatial) KDE
-
-Probability of finding observations at a given point in space
-
--   **Bivariate** version: distribution of pairs of values
--   In **space**: values are coordinates (XY), locations
--   Continuous "version" of a choropleth
-
-# 
+# GeoJSON
 
 <center>
 
-<img alt="centered image" data-src="./figs/l09_kde2d.png" width="75%" height="75%"/>
+<img alt="centered image" data-src="./figs/geojson.png" width="50%" height="50%"/>
 
 <center>
 
-# 
+[Source](https://geojson.org)
+
+# Advantages
+
+- Plain text (Human readable)
+- Streamable
+- Well intergrated with web standards (`JSON`)
+
+# Disadvantages
+
+- Plain text (inefficent)
+- Non-queriable
+- Vector only
+
+# Tilesets (.mbtiles)
 
 <center>
 
-<img data-src="./figs/l09_liv_pts.png" height="350"/>   <img data-src="./figs/l09_liv_kde.png" height="350"/>
+<img alt="centered image" data-src="./figs/tile_docs.png" width="70%" height="70%"/>
 
 <center>
 
-# Interpolation
+[Source](https://docs.mapbox.com/help/glossary/mbtiles/)
 
--   Estimating values spatially continuous variables for spatial locations where they **have not** been observed, based on observations.
--   **Geostatistics**, is concerned with the modelling, prediction and simulation of spatially continuous phenomena.
+# Why do we use tiles?
 
-# Inverse Distance Weighting (IDW)
-
--   We observe a property of a phenomenon $Z(s)$ at a **limited** number of sample locations, and are interested in the property value at **all** locations.
--   Have to predict it for unobserved locations.
-
-# Kriging
-
-If we were predicting prices
-
-$$Price_i = \sum^N_{j=1} w_j * Price_j + \epsilon_i$$
-
--   with $w_j = (\frac{1}{d_{ij}})^2$ for all $i$ and $j \neq i$
--   $d$ the distance between $i$ and $j$.
-
-# 
+#
 
 <center>
 
-<img alt="centered image" data-src="./figs/l09_idw.png" width="75%" height="75%"/>
+<img alt="centered image" data-src="./figs/map_tiles.png" width="100%" height="100%"/>
 
 <center>
 
-# Parametres
+#
 
--   **Variable**: for example price
--   **Nearest Neighbours** : the number of nearest observations that should be used
--   **idp** : set inverse distance power to 2
+<center>
 
-A super useful link [here](https://gisgeography.com/inverse-distance-weighting-idw-interpolation/)
+<img alt="centered image" data-src="./figs/map_tiles2.png" width="100%" height="100%"/>
 
-# Parametres
+<center>
 
-idp = 1 <img data-src="./figs/L09_pw1.png" height="250"/> <br> idp = 2 <img data-src="./figs/L09_pw2.png" height="250"/>
+# Advantages
 
-# Density-Based Spatial Clustering of Applications with Noise, or DBSCAN
+- Queriable (SQLite)
+- Fast access to large maps with limited resources (client/server model + queriable format)
+- Some (vector tiles) are stylable
 
-# Questions
+# Disadvantages
 
-# 
+- Designed for webmap services *not* analysis (e.g. rasters are just images)
+- A dataset needs to be stored at several zoom levels
+- Once created, hard to modify (e.g. reproject)
 
+# Selecting a format
+
+#
+
+No silver bullet…
+
+- What type of data do you want to store? Vector or raster
+- What are you going to do with the file? Analysis or serving
+- What environment are you working? Locally or web
+
+# Examples
+
+- Analysing a large geotagged dataset of social media posts? 'PostGIS/Geopackage'
+- Presenting drone imagery at a workshop? 'MBTiles'
+- A small dataset of greenspace areas in a neighborhood you want to upload to the web? 'GeoJSON'
+
+# LAB 4
+
+# GeoJSONs
+
+# Creating
+
+<center>
+
+<img alt="centered image" data-src="./figs/create_geojson.png" width="100%" height="70%"/>
+
+<center>
+
+[geojson.io](https://geojson.io)
+
+# Mapping
+
+<center>
+
+<img alt="centered image" data-src="./figs/campus.png" width="100%" height="70%"/>
+
+<center>
+
+# Mapbox and mbtiles
+
+# Creating .mbtiles and uploading
+
+- Creating is **optional**, but if you can get it to work will greatly enhance your map.
+- Upload either by the API (Again optional), or manually through the Mapbox Studio
+
+# Styles tool
+
+<center>
+
+<img alt="centered image" data-src="./figs/styling.png" width="70%" height="70%"/>
+
+<center>
+
+
+#
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Creative Commons License" style="border-width:0"/></a><br />[Geographic Data Science]{xmlns:dct="http://purl.org/dc/terms/" property="dct:title"} by <a xmlns:cc="http://creativecommons.org/ns#" href="http://pietrostefani.com" property="cc:attributionName" rel="cc:attributionURL">Elisabetta Pietrostefani</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.

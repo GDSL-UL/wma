@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.6.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Gabriele Filomena">
-<meta name="dcterms.date" content="2025-03-06">
+<meta name="dcterms.date" content="2025-03-12">
 
 <title>6&nbsp; Retrieving Data From OpenStreetMap – Web Mapping and Geovisualisation</title>
 <style>
@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-2a7818e10ffe1156910bef59d6201c79.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-48fdb17b64b03c2d439d40eb95f1e9dc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -289,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 6, 2025</p>
+      <p class="date">March 12, 2025</p>
     </div>
   </div>
   
@@ -325,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="networkx" class="level4" data-number="6.1.1.2">
 <h4 data-number="6.1.1.2" class="anchored" data-anchor-id="networkx"><span class="header-section-number">6.1.1.2</span> NetworkX</h4>
 <p>We will also use <a href="https://networkx.github.io/documentation//"><code>NetworkX</code></a> to manipulate and analyse the street network data retrieved from OpenStreetMap. NetworkX is a Python package that can be used to create, manipulate, and study the structure, dynamics, and functions of complex networks. <code>OSMNx</code> is built on top <code>NetworkX</code> and <code>GeoPandas</code>.</p>
-<div id="cell-3" class="cell" data-execution_count="10">
+<div id="cell-3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> osmnx <span class="im">as</span> ox</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -346,7 +346,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Important</strong>: <br></p>
 <p>Data downloaded from OSM are always in the WGS crs. You need to convert it for any type of spatial operation or computation to the appropriate coordinate reference system.</p>
 </div>
-<div id="cell-7" class="cell" data-execution_count="11">
+<div id="cell-7" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the boundary polygon for manhattan, project it, and plot it</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>city <span class="op">=</span> ox.geocode_to_gdf(<span class="st">"Manhattan"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> city.plot(fc<span class="op">=</span><span class="st">"gray"</span>, ec<span class="op">=</span><span class="st">"none"</span>)</span>
@@ -359,7 +359,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-8" class="cell" data-execution_count="12">
+<div id="cell-8" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>bulgaria <span class="op">=</span> ox.geocode_to_gdf(<span class="st">"Bulgaria"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> bulgaria.plot(fc<span class="op">=</span><span class="st">"gray"</span>, ec<span class="op">=</span><span class="st">"none"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>ax.axis(<span class="st">"off"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -371,7 +371,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-9" class="cell" data-execution_count="13">
+<div id="cell-9" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get boundary polygons for several authorities in the UK, and plot</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>place_names <span class="op">=</span> [<span class="st">"Merseyside"</span>, <span class="st">"Greater Manchester"</span>, <span class="st">"Cheshire"</span>]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>places <span class="op">=</span> ox.geocode_to_gdf(place_names)</span>
@@ -394,7 +394,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="method-1-passing-a-bounding-box" class="level4" data-number="6.2.2.1">
 <h4 data-number="6.2.2.1" class="anchored" data-anchor-id="method-1-passing-a-bounding-box"><span class="header-section-number">6.2.2.1</span> Method #1: Passing a bounding box</h4>
 <p>This constructs the network from all the OSM nodes and ways within the bounding box. The plot function is built on <code>Matplotlib</code>, thus it follows the procedures and methods discussed in session II.</p>
-<div id="cell-12" class="cell" data-execution_count="14">
+<div id="cell-12" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define a bounding box in San Francisco</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>north, south, east, west <span class="op">=</span> <span class="fl">37.79</span>, <span class="fl">37.78</span>, <span class="op">-</span><span class="fl">122.41</span>, <span class="op">-</span><span class="fl">122.43</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># define a bounding box around ITU</span></span>
@@ -415,7 +415,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="method-2-passing-a-lat-lon-point-and-bounding-box-distance-in-meters" class="level4" data-number="6.2.2.2">
 <h4 data-number="6.2.2.2" class="anchored" data-anchor-id="method-2-passing-a-lat-lon-point-and-bounding-box-distance-in-meters"><span class="header-section-number">6.2.2.2</span> Method #2: Passing a lat-lon point and bounding box distance in meters</h4>
 <p>This creates a bounding box <em>n</em> meters North, South, East, and West of the point, then constructs the network from all the OSM nodes and ways within the bounding box. <a href="https://bboxfinder.com">Here’s a useful tool for defining bboxes</a></p>
-<div id="cell-14" class="cell" data-execution_count="15">
+<div id="cell-14" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define a point at the corner of California St and Mason St in SF</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>location_point <span class="op">=</span> (<span class="fl">37.791427</span>, <span class="op">-</span><span class="fl">122.410018</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># create bikeable network from point, inside bounding box of N, S, E, W each 750m from point</span></span>
@@ -433,7 +433,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="method-3-passing-a-lat-lon-point-and-network-distance-in-meters" class="level4" data-number="6.2.2.3">
 <h4 data-number="6.2.2.3" class="anchored" data-anchor-id="method-3-passing-a-lat-lon-point-and-network-distance-in-meters"><span class="header-section-number">6.2.2.3</span> Method #3: Passing a lat-lon point and <em>network</em> distance in meters</h4>
 <p>This creates a bounding box <em>n</em> meters North, South, East, and West of the point, then constructs the network from all the OSM nodes and ways within the bounding box. Then it truncates the network by removing all nodes further than <em>n</em> meters from the point along the network.</p>
-<div id="cell-16" class="cell" data-execution_count="16">
+<div id="cell-16" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>location_point <span class="op">=</span> (<span class="fl">53.40</span>, <span class="op">-</span><span class="fl">2.99</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># create network only of nodes within 750m along the network from point</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>G1 <span class="op">=</span> ox.graph_from_point(location_point, dist<span class="op">=</span><span class="dv">1000</span>, dist_type<span class="op">=</span><span class="st">"network"</span>)</span>
@@ -447,7 +447,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><em>Note</em> the plot above shows the network within 750m (traveling distance along the network) from the <code>location_point</code>. By default, the <code>network_type</code> parameter value is <code>all</code>, meaning that we do not filter out paths that restrict certain types of traffic. This also means that one-way streets are honored as one-way and you cannot travel the wrong direction down them. Thus, the 750m takes into account only those nodes you can reach within 500m while only traveling in the allowed direction of the street. Instead (below), we can specify <code>network_type='walk'</code> to build a street network only of paths that walking is allowed on. This also makes every path bi-directional in the directed network, because you can walk in either direction on the sidewalk of a one-way street. The 750m now takes into account those nodes you can reach within 750m while traveling in either direction (even if it’s a one-way street).</p>
-<div id="cell-18" class="cell" data-execution_count="17">
+<div id="cell-18" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create network only of nodes within 750m walking along the network from point, only walkable edges</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>G2 <span class="op">=</span> ox.graph_from_point(location_point, dist<span class="op">=</span><span class="dv">750</span>, dist_type<span class="op">=</span><span class="st">"network"</span>, network_type<span class="op">=</span><span class="st">"walk"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ox.plot_graph(G2, node_color<span class="op">=</span><span class="st">"none"</span>, figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -463,7 +463,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="method-4-passing-an-address-and-distance-bounding-box-or-network-in-meters" class="level4" data-number="6.2.2.4">
 <h4 data-number="6.2.2.4" class="anchored" data-anchor-id="method-4-passing-an-address-and-distance-bounding-box-or-network-in-meters"><span class="header-section-number">6.2.2.4</span> Method #4, Passing an address and distance (<em>bounding box</em> or <em>network</em>) in meters</h4>
 <p>This geocodes the address, creates a bounding box, downloads the network, then truncates it by network distance (if distance_type=‘network’).</p>
-<div id="cell-20" class="cell" data-execution_count="18">
+<div id="cell-20" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># network from address, including only nodes within 1km along the network from the address</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> ox.graph_from_address(address<span class="op">=</span><span class="st">"350 5th Ave, New York, NY"</span>, dist<span class="op">=</span><span class="dv">1000</span>, dist_type<span class="op">=</span><span class="st">"network"</span>, network_type<span class="op">=</span><span class="st">"drive"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>ox.plot_graph(G, node_color<span class="op">=</span><span class="st">"r"</span>, figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -479,7 +479,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="method-5-passing-a-place-name" class="level4" data-number="6.2.2.5">
 <h4 data-number="6.2.2.5" class="anchored" data-anchor-id="method-5-passing-a-place-name"><span class="header-section-number">6.2.2.5</span> Method #5: Passing a place name</h4>
 <p>This geocodes the place name, gets the place’s boundary shape polygon and bounding box, downloads the network within the bounding box, then truncates it to the place’s boundary polygon.</p>
-<div id="cell-22" class="cell" data-execution_count="19">
+<div id="cell-22" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> ox.graph_from_place(<span class="st">"Bastia, Corsica"</span>, network_type<span class="op">=</span><span class="st">"drive"</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>ox.plot_graph(G, node_color<span class="op">=</span><span class="st">"none"</span>) <span class="co"># without plotting nodes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -491,9 +491,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Be aware that this is a <code>MultiDiGraph</code>, i.e.&nbsp;a multigraph (parallel edges are possible) that is directed. Because there can be multiple links between a pair of nodes, each link is identified with a triple: (node1id, node2id, counter)</p>
-<div id="cell-24" class="cell" data-execution_count="20">
+<div id="cell-24" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(G.edges)[:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>[(60370565, 338870652, 0),
  (60370565, 338870615, 0),
  (60370586, 338870618, 0),
@@ -510,7 +510,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="method-6-passing-a-poylgon-in-the-wgs-crs" class="level4" data-number="6.2.2.6">
 <h4 data-number="6.2.2.6" class="anchored" data-anchor-id="method-6-passing-a-poylgon-in-the-wgs-crs"><span class="header-section-number">6.2.2.6</span> Method #6 Passing a Poylgon in the WGS crs</h4>
-<div id="cell-27" class="cell" data-execution_count="21">
+<div id="cell-27" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the boundary polygon for Sarajevo, and plot it</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>city <span class="op">=</span> ox.geocode_to_gdf(<span class="st">"Sarajevo, Bosnia"</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>city_proj <span class="op">=</span> ox.project_gdf(city)</span>
@@ -524,7 +524,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-28" class="cell" data-execution_count="22">
+<div id="cell-28" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sarajevo <span class="op">=</span> ox.geocode_to_gdf(<span class="st">"Sarajevo, Bosnia"</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>polygon <span class="op">=</span> sarajevo[<span class="st">"geometry"</span>].iloc[<span class="dv">0</span>]</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -543,7 +543,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="simplifying-and-cleaning-the-street-network-topology" class="level3" data-number="6.2.3">
 <h3 data-number="6.2.3" class="anchored" data-anchor-id="simplifying-and-cleaning-the-street-network-topology"><span class="header-section-number">6.2.3</span> Simplifying and Cleaning the Street Network Topology</h3>
 <p>Simplification is normally done by <code>OSMnx</code> automatically under the hood, but we can break it out to see how it works. OpenStreetMap nodes are weird. They include intersections, but they also include all the points along a single block where the street curves. The latter are not nodes in the graph theory sense, so we remove them algorithmically and consolidate the set of edges between “true” network nodes into a single edge. There are two simplification modes, strict and non-strict. The main difference is that unlike strict mode, non-strict mode allows simplification to an “expansion graph” (i.e., if the graph were undirected, nodes with degree 2 as long as the incident edges have different OSM IDs).</p>
-<div id="cell-30" class="cell" data-execution_count="24">
+<div id="cell-30" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a network around some (lat, lng) point but do not simplify it yet</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>location_point <span class="op">=</span> (<span class="fl">33.299896</span>, <span class="op">-</span><span class="fl">111.831638</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> ox.graph_from_point(location_point, network_type<span class="op">=</span><span class="st">"drive_service"</span>, dist<span class="op">=</span><span class="dv">500</span>, simplify<span class="op">=</span><span class="va">False</span>)</span>
@@ -556,7 +556,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-31" class="cell" data-execution_count="25">
+<div id="cell-31" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># turn off strict mode and see what nodes we'd remove, in yellow</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> [<span class="st">"r"</span> <span class="cf">if</span> ox.simplification._is_endpoint(G, node) <span class="cf">else</span> <span class="st">"y"</span> <span class="cf">for</span> node <span class="kw">in</span> G.nodes()]</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> ox.plot_graph(G, node_color<span class="op">=</span>colors, figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -824,9 +824,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-47" class="cell" data-execution_count="25">
+<div id="cell-47" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>nodes.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="24">
 <div>
 
 
@@ -900,20 +900,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="reconverting-to-a-multigraphmultidigraph" class="level4" data-number="6.2.4.1">
 <h4 data-number="6.2.4.1" class="anchored" data-anchor-id="reconverting-to-a-multigraphmultidigraph"><span class="header-section-number">6.2.4.1</span> (Re)converting to a <code>MultiGraph</code>/<code>MultiDiGraph</code></h4>
 <p>First, we get rid of the <code>pandas</code> <code>MultiIndex</code> and we verify whether we are working with bidirectional edges.</p>
-<div id="cell-50" class="cell" data-execution_count="26">
+<div id="cell-50" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>edges.reset_index(inplace <span class="op">=</span> <span class="va">True</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>edges[<span class="st">'key'</span>].<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>96</code></pre>
 </div>
 </div>
-<div id="cell-51" class="cell" data-execution_count="27">
+<div id="cell-51" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>Mg <span class="op">=</span> nx.MultiGraph()   </span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>Mg.add_nodes_from(nodes.index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Copying the nodes’ attributes (this step is not particularly essential unless we need some information associated with the nodes that we want to use when executing <code>networkx</code> methods). Anything else we can rely on the information that is in the <code>GeoDataFrame</code>.</p>
-<div id="cell-53" class="cell" data-execution_count="28">
+<div id="cell-53" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add the nodes' attributes</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>attributes <span class="op">=</span> nodes.to_dict()</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -925,7 +925,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    nx.set_node_attributes(Mg, name<span class="op">=</span>attribute_name, values<span class="op">=</span>attribute_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We do something similar for edges. In this case, it is more likely that there is information that we want to copy, e.g.&nbsp;the length of the edges, into the <code>MultiGraph</code>.</p>
-<div id="cell-55" class="cell" data-execution_count="29">
+<div id="cell-55" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>edges[<span class="st">'length'</span>] <span class="op">=</span> edges.geometry.length</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># add the edges and attributes that are not u, v, key, null, or of type list</span></span>
@@ -939,13 +939,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="converting-to-a-graphdigraph" class="level4" data-number="6.2.4.2">
 <h4 data-number="6.2.4.2" class="anchored" data-anchor-id="converting-to-a-graphdigraph"><span class="header-section-number">6.2.4.2</span> Converting to a <code>Graph</code>/<code>DiGraph</code></h4>
 <p>In this case, we need to get rid of the “duplicated” edges. For the sake of simplicity, we remove al the edges with <code>key</code> equal to 1. This is a very rough approach.</p>
-<div id="cell-58" class="cell" data-execution_count="30">
+<div id="cell-58" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>edges_copy <span class="op">=</span> edges[edges.key <span class="op">==</span> <span class="dv">0</span>].copy()</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.Graph()   </span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>G.add_nodes_from(nodes.index)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then, we copy the attributes with the same approach used before, although, this time, without adding the <code>key</code> value to the edges. The function <code>add_edge</code> of the class the <code>graph</code> does not take the <code>key</code> argument as there could be only one edge between two nodes.</p>
-<div id="cell-60" class="cell" data-execution_count="31">
+<div id="cell-60" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ignore fields containing values of type list</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>attributes <span class="op">=</span> nodes.to_dict()</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -963,9 +963,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    G.add_edge(row.u, row.v, <span class="op">**</span>attrs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And just to be sure:</p>
-<div id="cell-62" class="cell" data-execution_count="32">
+<div id="cell-62" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(<span class="bu">list</span>(G.nodes())) <span class="op">==</span> <span class="bu">len</span>(nodes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="32">
+<div class="cell-output cell-output-display" data-execution_count="31">
 <pre><code>True</code></pre>
 </div>
 </div>
@@ -975,7 +975,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="routing-with-networkx" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="routing-with-networkx"><span class="header-section-number">6.3</span> Routing with NetworkX</h2>
 <p>Both with <code>osmnx</code> and <code>networkx</code> we can compute paths across the network, of different kinds, with different weights and methods (see <a href="https://networkx.org/documentation/stable/reference/algorithms/shortest_paths.html">here</a>. Shortest paths, while they seem to allude to an explicit reference to distance or time, may be computed in relation to other weights or costs, based on the purposes of the user.</p>
-<div id="cell-65" class="cell" data-execution_count="33">
+<div id="cell-65" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a list of all nodes in the graph</span></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>nodes <span class="op">=</span> <span class="bu">list</span>(G.nodes())</span>
@@ -991,24 +991,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>path_nodes <span class="op">=</span> nx.shortest_path(G, source<span class="op">=</span>origin_node, target<span class="op">=</span>destination_node, weight<span class="op">=</span><span class="st">'length'</span>, method<span class="op">=</span><span class="st">'dijkstra'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>shortest_path</code>, the simplest function for computing shortest paths in <code>networkx</code>, returns the list of nodes traversed by the path, including the origin and the destination nodes. We have to transform the sequence of nodes into a sequence of edges to get the corresponding route.</p>
-<div id="cell-67" class="cell" data-execution_count="34">
+<div id="cell-67" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>path_edges <span class="op">=</span> [(path_nodes[i], path_nodes[i <span class="op">+</span> <span class="dv">1</span>]) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(path_nodes) <span class="op">-</span> <span class="dv">1</span>)] </span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>path_edges[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="34">
-<pre><code>(8127132944, 607017640)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<pre><code>(1837729601, 8098914678)</code></pre>
 </div>
 </div>
 <p>When we look at the elements of the edges sequence, we can see that this is a tuple containing the index of the <code>u</code> and <code>v</code> nodes that the edge links together. This is the <code>networkx</code> representations of an edge inside a <code>graph</code>.</p>
-<div id="cell-69" class="cell" data-execution_count="35">
+<div id="cell-69" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>path_edges[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="35">
-<pre><code>(8127132944, 607017640)</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>(1837729601, 8098914678)</code></pre>
 </div>
 </div>
 <p>However, for that edge, we want to get the attribute that refers to the index in the <code>edges_copy</code> <code>GeoDataFrame</code>. For that, We use a list comprehension.</p>
-<div id="cell-71" class="cell" data-execution_count="40">
+<div id="cell-71" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>G[<span class="dv">33566408</span>][<span class="dv">297074052</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="40">
+<div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>{'Index': 429,
  'key': 0,
  'osmid': 828152472,
@@ -1020,11 +1020,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  'geometry': &lt;LINESTRING (2132466.835 4262786.532, 2132529.446 4262765.911)&gt;}</code></pre>
 </div>
 </div>
-<div id="cell-72" class="cell" data-execution_count="41">
+<div id="cell-72" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>path_edges <span class="op">=</span> [G.edges[edge][<span class="st">'Index'</span>] <span class="cf">for</span> edge <span class="kw">in</span> path_edges]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And then we can plot the route.</p>
-<div id="cell-74" class="cell" data-execution_count="42">
+<div id="cell-74" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> edges_copy[edges_copy.index.isin(path_edges)].plot()</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>edges_copy.plot(ax <span class="op">=</span> ax, lw <span class="op">=</span> <span class="fl">0.2</span>, color <span class="op">=</span> <span class="st">'red'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1046,7 +1046,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>When downloading graphs, one can also pass a <code>custom_filter</code> to specify what OSM ways/routes/links they want represented in their graph. This would override the fact that, by default, graph functions in <code>osmnx</code> fetch street networks.</p>
 <p>From <code>osmnx</code> documentation: <code>custom_filter</code> (string) – a custom ways filter to be used instead of the network_type presets e.g., <code>[“power”~”line”]</code> or <code>[“highway”~”motorway|trunk”]</code>.</p>
 <p>This method does not work with bus services, since they are not stored in OpenStreetMap Data as Links but rather relations. See <a href="https://wiki.openstreetmap.org/wiki/Buses">here</a> for more info.</p>
-<div id="cell-80" class="cell" data-execution_count="7">
+<div id="cell-80" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># railway infrastructures</span></span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>place <span class="op">=</span> <span class="st">"Milan, Italy"</span></span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> ox.graph_from_place(place, custom_filter<span class="op">=</span><span class="st">'["railway"~"rail"]'</span>)</span>
@@ -1059,8 +1059,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-81" class="cell" data-execution_count="160">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># network of the canals of amsterdam</span></span>
+<div id="cell-81" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># network of canals in Amsterdam</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>place <span class="op">=</span> <span class="st">"Amsterdam, Netherlands"</span></span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> ox.graph_from_place(place, custom_filter<span class="op">=</span><span class="st">'["waterway"~"canal"]'</span>)</span>
 <span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>ox.plot_graph(G, edge_color<span class="op">=</span><span class="st">"c"</span>, edge_linewidth<span class="op">=</span><span class="dv">1</span>, node_size<span class="op">=</span><span class="dv">0</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1078,7 +1078,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>OSMNx power also lies on the fact that it allows obtaining any other element represented in OpenStreetMap data. You can use the same methods described above for graphs. Instead of using <code>graph_from_place</code>, you would use, for example, <code>features_from_place</code>, <code>features_from_address</code>, etc.</p>
 <section id="fetching-building-footprints" class="level4" data-number="6.5.0.1">
 <h4 data-number="6.5.0.1" class="anchored" data-anchor-id="fetching-building-footprints"><span class="header-section-number">6.5.0.1</span> Fetching Building Footprints</h4>
-<div id="cell-84" class="cell" data-execution_count="4">
+<div id="cell-84" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the location and the data type</span></span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>place <span class="op">=</span> <span class="st">'Torino, Italy'</span></span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>tags <span class="op">=</span> {<span class="st">'building'</span>: <span class="va">True</span>}</span>
@@ -1090,21 +1090,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the building footprints</span></span>
 <span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> buildings.plot(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>), color <span class="op">=</span> <span class="st">'orange'</span>)</span>
 <span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Building Footprints in Torino, Italy'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+<pre><code>Text(0.5, 1.0, 'Building Footprints in Torino, Italy')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w07_OSM_files/figure-html/cell-43-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
 <section id="water-bodies" class="level4" data-number="6.5.0.2">
 <h4 data-number="6.5.0.2" class="anchored" data-anchor-id="water-bodies"><span class="header-section-number">6.5.0.2</span> Water bodies</h4>
-<div id="cell-86" class="cell" data-execution_count="146">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tags for waterbodies</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>water_tags <span class="op">=</span> {<span class="st">'natural'</span>: [<span class="st">'water'</span>]}</span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch water bodies</span></span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>waterbodies <span class="op">=</span> ox.features_from_place(place, tags<span class="op">=</span>water_tags)</span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot water bodies</span></span>
-<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> waterbodies.plot(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>), color<span class="op">=</span><span class="st">'blue'</span>)</span>
-<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Waterbodies in Torino, Italy'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="146">
+<div id="cell-86" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tags for waterbodies</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>water_tags <span class="op">=</span> {<span class="st">'natural'</span>: [<span class="st">'water'</span>]}</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch water bodies</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>waterbodies <span class="op">=</span> ox.features_from_place(place, tags<span class="op">=</span>water_tags)</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot water bodies</span></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> waterbodies.plot(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>), color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Waterbodies in Torino, Italy'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
 <pre><code>Text(0.5, 1.0, 'Waterbodies in Torino, Italy')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -1118,17 +1128,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="pois" class="level4" data-number="6.5.0.3">
 <h4 data-number="6.5.0.3" class="anchored" data-anchor-id="pois"><span class="header-section-number">6.5.0.3</span> POIs</h4>
-<div id="cell-88" class="cell" data-execution_count="152">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tags for POIs</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>poi_tags <span class="op">=</span> {<span class="st">'amenity'</span>: <span class="va">True</span>}</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch POIs</span></span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>pois <span class="op">=</span> ox.features_from_place(place, tags<span class="op">=</span>poi_tags)</span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>pois <span class="op">=</span> pois[pois.geometry.geom_type <span class="op">==</span> <span class="st">'Point'</span>]</span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot POIs</span></span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pois.plot(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>), color<span class="op">=</span><span class="st">'red'</span>, markersize <span class="op">=</span> <span class="fl">0.5</span>)</span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Points of Interest in Torino, Italy'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="152">
+<div id="cell-88" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tags for POIs</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>poi_tags <span class="op">=</span> {<span class="st">'amenity'</span>: <span class="va">True</span>}</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch POIs</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>pois <span class="op">=</span> ox.features_from_place(place, tags<span class="op">=</span>poi_tags)</span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>pois <span class="op">=</span> pois[pois.geometry.geom_type <span class="op">==</span> <span class="st">'Point'</span>]</span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot POIs</span></span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pois.plot(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>), color<span class="op">=</span><span class="st">'red'</span>, markersize <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Points of Interest in Torino, Italy'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="42">
 <pre><code>Text(0.5, 1.0, 'Points of Interest in Torino, Italy')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -1142,17 +1152,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="public-transport-bus-stops" class="level4" data-number="6.5.0.4">
 <h4 data-number="6.5.0.4" class="anchored" data-anchor-id="public-transport-bus-stops"><span class="header-section-number">6.5.0.4</span> Public Transport Bus Stops</h4>
-<div id="cell-90" class="cell" data-execution_count="164">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tags for public transport</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>tags <span class="op">=</span> {<span class="st">'public_transport'</span>: <span class="va">True</span>}</span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch public transport routes</span></span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>pt_stops <span class="op">=</span> ox.features_from_place(place, tags<span class="op">=</span>tags)</span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot bus routes</span></span>
-<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pt_stops.plot(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>), color<span class="op">=</span><span class="st">'blue'</span>, markersize <span class="op">=</span> <span class="fl">0.5</span>)</span>
-<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Public Transport Stops in Torino, Italy'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="164">
+<div id="cell-90" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tags for public transport</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>tags <span class="op">=</span> {<span class="st">'public_transport'</span>: <span class="va">True</span>}</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetch public transport routes</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>pt_stops <span class="op">=</span> ox.features_from_place(place, tags<span class="op">=</span>tags)</span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot bus routes</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> pt_stops.plot(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>), color<span class="op">=</span><span class="st">'blue'</span>, markersize <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Public Transport Stops in Torino, Italy'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="43">
 <pre><code>Text(0.5, 1.0, 'Public Transport Stops in Torino, Italy')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -1251,6 +1261,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1361,6 +1373,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

@@ -26,6 +26,7 @@ book:
     - general/assessments.qmd
     - general/assignmentI.qmd
     - general/assignmentII.qmd
+    - general/checklist.qmd
     - general/setup.qmd
     - labs/w01_intro.ipynb
     - labs/w02_maps.ipynb

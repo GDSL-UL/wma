@@ -1,5 +1,5 @@
 
-# Check-list Assignment 2 #
+# Check-list Assignment 2 {.unnumbered}
 
 - Make treasure of the feedback received for assignment 1. Do not make the same mistakes.
 - Only one file -> `.html`
@@ -9,5 +9,5 @@
 	- Upload the video on youtube or to a repository on Github.
 	- Provide a Link to the video at the bottom of the assignment.
 - See Examples from last year here (note: they do not render on Github) [here](https://github.com/GDSL-UL/wma/tree/main/examples/Dashboard);
-- Still issues, not addressed by the [guidelines](https://gdsl-ul.github.io/wma/general/assignmentII.html)?  ask/check if anyone has asked arlready on Ms Teams.
+- Still having issues that are not addressed by the [guidelines](https://gdsl-ul.github.io/wma/general/assignmentII.html)? Ask/check if anyone has asked arlready on Ms Teams.
 - BEFORE SUBMISSION -> Go through your static file and check whether it is completed and rendered. Ask a friend to have a look at it on ather PC, or do it yourself.

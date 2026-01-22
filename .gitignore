@@ -9,6 +9,7 @@ vignettes/*.pdf
 .httr-oauth
 
 *_cache/
+/admin/
 /cache/
 /labs/cache/
 /notebooks/cache/

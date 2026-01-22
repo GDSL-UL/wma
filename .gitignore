@@ -12,7 +12,10 @@ vignettes/*.pdf
 /admin/
 /cache/
 /labs/cache/
+/labs/old/
+/lectures/old/
 /notebooks/cache/
+
 
 /.quarto/
 .Rproj.user

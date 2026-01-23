@@ -13,7 +13,9 @@ vignettes/*.pdf
 /cache/
 /labs/cache/
 /labs/old/
+/labs/future/
 /lectures/old/
+/lectures/future/
 /notebooks/cache/
 
 

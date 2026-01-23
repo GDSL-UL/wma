@@ -2,7 +2,7 @@ name: geovis
 channels:
   - conda-forge
 dependencies:
-  - python=3.12
+  - python=3.11
   - pip
 
   # Jupyter
@@ -37,6 +37,7 @@ dependencies:
   - contextily
   - xyzservices
   - mercantile
+  - geoplot
 
   # other viz
   - bokeh

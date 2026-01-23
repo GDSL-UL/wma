@@ -1,62 +1,67 @@
 # Syllabus {.unnumbered}
 
-**Week 1 MH**
+**Week 1 GF** Central Teaching Lab: PC Teaching Centre BLUE ZONE (1 - 4pm)
 
 -   Lecture: Introduction to the module
 
 -   Lab: Powerful examples and Python Refresher
 
-**Week 2 GF**
+**Week 2 GF** Central Teaching Lab: PC Teaching Centre BLUE ZONE (1 - 4pm)
 
 -   Lecture: Geovisualisation: Design Principles and Statistical Visualisation
 
--   Lab: Static Maps
+-   Lab: Static Maps in Python.
 
-**Week 3 MH**
+**Week 3 GF** Central Teaching Lab: PC Teaching Centre BLUE ZONE (1 - 4pm)
+
+-   Lecture: Interactive Maps
+
+-   Lab: Interactive Maps with Folium.
+
+**Week 4 EP** Central Teaching Lab: PC Teaching Centre BLUE ZONE (1 - 4pm)
 
 -   Lecture: The Web's Architecture
 
--   Lab: Web Architectures and APIs
+-   Lab: Web Architectures and APIs in Python.
 
-**Week 4 MH**
+**Week 5 EP** Central Teaching Lab: PC Teaching Centre BLUE ZONE (2 - 4pm)
 
--   Lecture: Data architechtures & formats. Room: Chemistry Building, Gossage LT
+-   Lab only: Review & Assignment I clinic.
 
--   Lab: Data architechtures & Tiles. Room: Central Teaching Lab - PC Teaching Centre
+-   **Assignment I Due** 26th February 2.00pm
 
-**Week 5 GF**
+**Week 6 GF** Central Teaching Lab: PC Teaching Centre BLUE ZONE (1 - 4pm)
 
--   Lecture: Interactive Maps. Room: Chemistry Building, Gossage LT
+-   Lecture: OpenStreetMap Data & Spatial Network.
 
--   Lab: Interactive Maps. Room: Rendall Teaching Centre - PC Teaching Centre
+-   Lab: Retrieving Data From OpenStreetMap.
 
-**Week 6 MH**
+**Week 7 EP** Central Teaching Lab: PC Teaching Centre BLUE ZONE (1 - 4pm)
 
--   Lab (h 11.00 am): Q&A & Assignment I Clinic. Room 502 Building, PC Teaching Centre A + B (if necessary)
+-   Lecture: From Pixels to Patterns: Visualising Satellite Image Classification
 
--   **Assignment I Due**
+-   Lab: Satellite Image Classification in Python
 
-**Week 7 GF**
+**Week 8**
 
--   Lecture: OpenStreetMap Data & Spatial Network. Room: Chemistry Building, Gossage LT
+-   NO TEACHING
 
--   Lab: Retrieving Data From OpenStreetMap. Room: Rendall Teaching Centre - PC Teaching Centre
+**Week 9 GF** Central Teaching Lab: PC Teaching Centre BLUE ZONE (1 - 4pm)
 
-**Week 8 GF**
+-   Lecture: Simulating agents.
 
--   Lecture: Dashboards. Room: Chemistry Building, Gossage LT
+-   Lab: Agent-based modelling with Python.
 
--   Lab: Designing Dashboard for Geovisualisation. Room: Central Teaching Lab - PC Teaching Centre
+**Week 10 GF** Central Teaching Lab: PC Teaching Centre BLUE ZONE (1 - 4pm)
 
+-   Lecture: Time and Flows.
 
-**Week 9 GF**
+-   Lab: Visualising Flows in Python.
+    
+**Week 11 GF** Central Teaching Lab: PC Teaching Centre BLUE ZONE (2 - 4pm)
 
-- Lab (h 11.00 am): Advanced Tools. Room: Central Teaching Lab - PC Teaching Centre	 
+-   Lab only: Review & Assignment II clinic.
 
-**Week 11 GF**
-
-- 	Lab (h 11.00 am): Review & Assignment II clinic. Room: Central Teaching Lab - PC Teaching Centre
-
--   **Assignment II Due (Week 13)**
+-   **Assignment II Due (Week 11)* 30th April 2.00pm
 
 

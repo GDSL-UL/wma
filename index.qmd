@@ -1,10 +1,7 @@
+
 # Welcome {.unnumbered}
 
-This is the website for "Web Mapping and Geovisualisation" (module **ENVS456**) at the University of Liverpool. This course is designed by Dr. Gabriele Filomena and Dr. Elisabetta Pietrostefani from the Geographic Data Science Lab at the University of Liverpool, United Kingdom.
-The module has two main aims. It seeks to provide hands-on experience and training in:
-
-- The design and generation of web-based mapping and geographical information tools. 
-- The use of software to access, analyse and visualize web-based geographical information.
+This is the website for "Advanced Geovisualisation" (module **ENVS456**) at the University of Liverpool. This course is designed by Dr. Gabriele Filomena and Dr. Elisabetta Pietrostefani from the Geographic Data Science Lab at the University of Liverpool, United Kingdom.
 
 The website is **free to use** and is licensed under the [Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/). A compilation of this web course is hosted as a GitHub repository that you can access:
 
@@ -12,37 +9,49 @@ The website is **free to use** and is licensed under the [Attribution-NonCommerc
 -   As a [GitHub repository](https://github.com/GDSL-UL/wma).
 
 
-## Contact 2024-25 {.unnumbered}
+## Contact 2025-26 {.unnumbered}
 
-> Gabriele Filomena - gfilo \[at\] liverpool.ac.uk Lecturer in Geographic Data Science Office 1xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.
+> Gabriele Filomena - gfilo \[at\] liverpool.ac.uk Lecturer in Geographic Data Science
 
-> Matt Howard - Matthew.Howard \[at\] liverpool.ac.uk Lecturer in Geographic Data Science Office 1xx, Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT, United Kingdom.
+> Elisabetta Pietrostefani - E.Pietrostefani \[at\] liverpool.ac.uk Lecturer in Geographic Data Science
+
+Roxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT
 
 ## Overview 
 
 ### Aims
 
-This module aims to provide hands-on experience and training in:
-- The design and generation of (good looking) web-based mapping and geographical information tools.
-- The use of software to access, analyse and visualize web-based geographical information.
+This module aims to equip students with an advanced understanding of geovisualisation principles and techniques, combining theoretical knowledge of map design with practical computational skills. Students will apply these skills to address geographic research problems, utilizing the internet as both a source of geographical data and an analytical platform. The module also aims to help students create effective visual narratives on human and physical geography-related issues, by allowing them to employ advanced methods such as network analysis and basic simulation models.
 
 ### Learning Outcomes
 
-By the end of the module, students should be able to:
+By the end of the module, students will:
 
-(2) Visualise and represent geo-data through static and dynamic maps.
-(2) Recognise and describe the component of web based mapping infrastructure.
-(3) Collect Web-based data.
-(1) Generate interactive maps and dashboards.
-(4) Understand basic concepts of spatial network analysis.
-(5) Manipulate geo-data through scripting in Python.
+ - Acquire a deep understanding of theoretical principles in cartography.
+ - Develope advanced and grounded skills in the design of both static and dynamic maps in computational environments.
+ - Understand the infrastructure of spatial data formats and web-based applications.
+ - Master the acquisition and manipulation of data from the web, and the design of web-based visualisation and analysis.
 
-### Asking for Help
+Moreover, at the end of the module, they should able to:
 
+ 1. Visualise and represent geo-data through static and dynamic maps. 
+ 2. Collect Web-based data. 
+ 3. Generate interactive maps and dashboards. 
+ 4. Understand basic concepts of spatial network analysis. 
+ 5. Acquire introductory skills in satellite imagery, spatio-temporal, and mobility data visualisation.
+ 6. Manipulate geo-data through scripting in Python.
+
+### Asking for Academic Help:
 
 *Verbal face-to-face feedback*. Immediate face-to-face feedback will be provided during computer, discussion and clinic sessions in interaction with staff. This will take place in all live sessions during the semester.
+
 *Teams Forum*. Asynchronous written feedback will be provided via Teams. Students are encouraged to contribute by asking and answering questions relating to the module content. Staff will monitor the forum Monday to Friday 9am-5pm, but it will be open to students to make contributions at all times. Response time will vary depending on the complexity of the question and staff availability.
+
+***Direct emails will not be replied to, unless they pertain personal questions*.**
+
+Queries regarding deadlines, extenuating circumstances requests, etc. should be addressed to:
+envsci [at] liverpool.ac.uk
 
 ### Assessment:
 
-Two pieces of coursework ([Assignment 1](https://gdsl-ul.github.io/wma/general/assignmentI.html) 50% and [Assignment 2](https://gdsl-ul.github.io/wma/general/assignmentI.html) 50%). Equivalent to 2,500 words each. See guidilines on the assignment pages, submission and marking criteria [here](https://gdsl-ul.github.io/wma/general/assessments.html).
+Two pieces of coursework ([Assignment 1](https://gdsl-ul.github.io/wma/general/assignmentI.html) 50% and [Assignment 2](https://gdsl-ul.github.io/wma/general/assignmentI.html) 50%). See guidilines on the assignment pages, submission and marking criteria [here](https://gdsl-ul.github.io/wma/general/assessments.html).

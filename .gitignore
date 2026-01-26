@@ -24,3 +24,4 @@ vignettes/*.pdf
 _quarto.yml
 _quarto.yml
 docs/general/setup.html
+.DS_Store

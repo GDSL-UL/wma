@@ -3,13 +3,13 @@ project:
   output-dir: docs
 
 book:
-  title: "Web Mapping and Geovisualisation"
-  author: "Gabriele Filomena and Elisabetta Pietrostefani"
+  title: "Advanced Geovisualisation"
+  author: "Gabriele Filomena, Elisabetta Pietrostefani"
   date: today
 
   page-footer:
     left: |
-      Web Mapping and Geovisualisation by Gabriele Filomena, Elisabetta Pietrostefani, and Matt Howard.
+      Web Mapping and Geovisualisation by Gabriele Filomena, Elisabetta Pietrostefani.
     right: |
       This book was built with <a href="https://quarto.org/">Quarto</a>.
   search: true

@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Web Mapping and Geovisualisation",
+    "title": "Advanced Geovisualisation",
     "section": "",
     "text": "Welcome\nThis is the website for “Advanced Geovisualisation” (module ENVS456) at the University of Liverpool. This course is designed by Dr. Gabriele Filomena and Dr. Elisabetta Pietrostefani from the Geographic Data Science Lab at the University of Liverpool, United Kingdom.\nThe website is free to use and is licensed under the Attribution-NonCommercial-NoDerivatives 4.0 International. A compilation of this web course is hosted as a GitHub repository that you can access:",
     "crumbs": [
@@ -12,7 +12,7 @@
   {
     "objectID": "index.html#contact-2025-26",
     "href": "index.html#contact-2025-26",
-    "title": "Web Mapping and Geovisualisation",
+    "title": "Advanced Geovisualisation",
     "section": "Contact 2025-26",
     "text": "Contact 2025-26\n\nGabriele Filomena - gfilo [at] liverpool.ac.uk Lecturer in Geographic Data Science\n\n\nElisabetta Pietrostefani - E.Pietrostefani [at] liverpool.ac.uk Lecturer in Geographic Data Science\n\nRoxby Building, University of Liverpool - 74 Bedford St S, Liverpool, L69 7ZT",
     "crumbs": [
@@ -22,7 +22,7 @@
   {
     "objectID": "index.html#overview",
     "href": "index.html#overview",
-    "title": "Web Mapping and Geovisualisation",
+    "title": "Advanced Geovisualisation",
     "section": "Overview",
     "text": "Overview\n\nAims\nThis module aims to equip students with an advanced understanding of geovisualisation principles and techniques, combining theoretical knowledge of map design with practical computational skills. Students will apply these skills to address geographic research problems, utilizing the internet as both a source of geographical data and an analytical platform. The module also aims to help students create effective visual narratives on human and physical geography-related issues, by allowing them to employ advanced methods such as network analysis and basic simulation models.\n\n\nLearning Outcomes\nBy the end of the module, students will:\n\nAcquire a deep understanding of theoretical principles in cartography.\nDevelope advanced and grounded skills in the design of both static and dynamic maps in computational environments.\nUnderstand the infrastructure of spatial data formats and web-based applications.\nMaster the acquisition and manipulation of data from the web, and the design of web-based visualisation and analysis.\n\nMoreover, at the end of the module, they should able to:\n\nVisualise and represent geo-data through static and dynamic maps.\nCollect Web-based data.\nGenerate interactive maps and dashboards.\nUnderstand basic concepts of spatial network analysis.\nAcquire introductory skills in satellite imagery, spatio-temporal, and mobility data visualisation.\nManipulate geo-data through scripting in Python.\n\n\n\nAsking for Academic Help:\nVerbal face-to-face feedback. Immediate face-to-face feedback will be provided during computer, discussion and clinic sessions in interaction with staff. This will take place in all live sessions during the semester.\nTeams Forum. Asynchronous written feedback will be provided via Teams. Students are encouraged to contribute by asking and answering questions relating to the module content. Staff will monitor the forum Monday to Friday 9am-5pm, but it will be open to students to make contributions at all times. Response time will vary depending on the complexity of the question and staff availability.\nDirect emails will not be replied to, unless they pertain personal questions.\nQueries regarding deadlines, extenuating circumstances requests, etc. should be addressed to: envsci [at] liverpool.ac.uk\n\n\nAssessment:\nTwo pieces of coursework (Assignment 1 50% and Assignment 2 50%). See guidilines on the assignment pages, submission and marking criteria here.",
     "crumbs": [

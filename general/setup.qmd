@@ -21,6 +21,7 @@ We will use `Miniconda` to handle our working environment.
 1. Install Miniconda:
    - *Option 1*: On a UoL Machine: Download and install Miniconda from [here](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe). This will install Miniconda and Python in `C:\`. If this process is aborted because it requires administrator rights, press `Start`, select `Install University Applications`, type and choose `Miniconda`.
    - *Option 2*, **Recommended**: Install Miniconda on your personal laptop: Follow the instructions [here](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html).
+
 2. During the installation, leave the default settings. In particular, when asked whom to "Install Miniconda for", choose "Just for me".
 
 **Important:** If you do choose to work on University Machines you will have to reinstall `Miniconda` every lab session unless you use a PC where Miniconda has been installed already.
@@ -34,22 +35,27 @@ We will use `Miniconda` to handle our working environment.
    **Example fictional path (Windows, personal laptop):** `C:\Users\YourName\Documents\geovis\`  
    **Example path (Windows, UoL machine):** `M:\geovis\`
 
-2. Download the [data](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/GDSL-UL/wma/tree/main/data) and the [images](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/GDSL-UL/wma/tree/main/labs_img) for running and rendering the Jupyter notebooks.
+2. Download the [data](https://downgit.github.io/#/home?url=https://github.com/GDSL-UL/wma/tree/main/data) and the [images](https://downgit.github.io/#/home?url=https://github.com/GDSL-UL/wma/tree/main/labs_img) for running and rendering the Jupyter notebooks.
+
 3. Unzip the folders and move the nested folders into the folder `geovis`.
+
 4. Create another folder called `labs`.
 
 The folder structure should look like:
 
+```text
 geovis/
 ├── data/
 ├── labs_img/
 └── labs/
+```
 
 ---
 
 ### Set up the Python Environment {.unnumbered}
 
 1. Download the `geovis.yml` from GitHub by clicking `Download raw file`, top right, [at this page](https://github.com/GDSL-UL/wma/blob/main/geovis.yml).
+
 2. Save it in the folder `geovis` created before.
 
    **Example path:** `C:\Users\YourName\Documents\geovis\geovis.yml`; **UoL machine example:** `M:\geovis\geovis.yml`
@@ -58,10 +64,15 @@ geovis/
 
 <img src="../img/windows_anaconda.png" width="80%">
 
-4. In the **Anaconda Prompt**, run `conda env update -n geovis --file "C:\Users\YourName\Documents\geovis\geovis.yml" --prune || conda env create -n geovis --file "C:\Users\YourName\Documents\geovis\geovis.yml"`. This will create the environment, and install and update the necessary packages at once.
-5. If you are prompted any questions, press `y`. This process will install all the packages necessary to carry out the lab sessions.
-6. In the **Anaconda Prompt** write and run: `conda activate geovis`. This activates your working environment.
-7. *Necessary on University machines, otherwise optional:* configuration of Jupyter Notebooks
+4. In the **Anaconda Prompt**, run: `conda env create -n geovis --file "C:\Users\YourName\Documents\geovis\geovis.yml"`
+
+5. Then run: `conda env update -n geovis --file "C:\Users\YourName\Documents\geovis\geovis.yml" --prune`
+   
+6. If you are prompted any questions, press `y`. This process will install all the packages necessary to carry out the lab sessions.
+
+7. In the **Anaconda Prompt** write and run: `conda activate geovis`. This activates your working environment.
+
+8. *Necessary on University machines, otherwise optional:* configuration of Jupyter Notebooks
 
 - In the **Anaconda Prompt**, run: `jupyter server --generate-config`. This should create a file at:  `C:\Users\YourName\.jupyter\jupyter_server_config.py`
 
@@ -100,7 +111,7 @@ geovis/
 
 ---
 
-Follow these instructions and test your installation **prior to the first Lab Session** (Mon, 26th of January). If you experience any issues, write a message on the MS Teams channel of the module.
+Follow these instructions and test your installation **prior to the first Lab Session**. If you experience any issues, write a message on the MS Teams channel of the module.
 
 ---
 
@@ -128,10 +139,12 @@ To install Miniconda on your personal laptop, follow the instructions [here](htt
 
 The folder structure should look like:
 
+```text
 geovis/
 ├── data/
 ├── labs_img/
 └── labs/
+```
 
 <img src="../img/mac_folder.png" width="80%">
 
@@ -140,14 +153,21 @@ geovis/
 ### Set up the Python Environment {.unnumbered}
 
 1. Download the `geovis.yml` from GitHub by clicking `Download raw file`, top right, [at this page](https://github.com/GDSL-UL/wma/blob/main/geovis.yml).
+
+<img src="../img/raw_env.png" width="80%">
+
 2. Save it in the folder `geovis` created before.
+
 3. Open the **Terminal**.
 
-4. In the **Terminal**, run `conda env update -n geovis --file "/Users/yourname/Documents/geovis/geovis.yml" --prune || conda env create -n geovis --file "/Users/yourname/Documents/geovis/geovis.yml"` This will create the environment, and install and update the necessary packages at once.
 
-5. If you are prompted any questions, press `y`. This process will install all the packages necessary to carry out the lab sessions.
+4. In the **Anaconda Prompt**, run:  `conda env create -n geovis --file "/Users/yourname/Documents/geovis/geovis.yml"`
 
-6. Activate the environment: `conda activate geovis`
+5. Then run: `conda env update -n geovis --file "/Users/yourname/Documents/geovis/geovis.yml" --prune`
+
+6. If you are prompted any questions, press `y`. This process will install all the packages necessary to carry out the lab sessions.
+
+7. Activate the environment: `conda activate geovis`
 
 <img src="../img/mac_env.png" width="80%">
 
@@ -155,7 +175,7 @@ geovis/
 
 ### Start a Lab Session {.unnumbered}
 
-1. Download the Jupyter Notebook of the session in your folder. Choose one Jupyter notebook and click `Download raw file` as shown below.
+1. Download the Jupyter Notebook of the session in your folder. Choose one Jupyter notebook from [here](https://github.com/GDSL-UL/wma/tree/main/labs) and click `Download raw file` as shown below.
 
 <img src="../img/raw.png" width="80%">
 

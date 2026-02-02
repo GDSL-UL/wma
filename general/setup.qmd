@@ -56,6 +56,8 @@ geovis/
 
 1. Download the `geovis.yml` from GitHub by clicking `Download raw file`, top right, [at this page](https://github.com/GDSL-UL/wma/blob/main/geovis.yml).
 
+<img src="../img/raw_env.png" width="80%">
+
 2. Save it in the folder `geovis` created before.
 
    **Example path:** `C:\Users\YourName\Documents\geovis\geovis.yml`; **UoL machine example:** `M:\geovis\geovis.yml`
@@ -153,6 +155,7 @@ geovis/
 ### Set up the Python Environment {.unnumbered}
 
 1. Download the `geovis.yml` from GitHub by clicking `Download raw file`, top right, [at this page](https://github.com/GDSL-UL/wma/blob/main/geovis.yml).
+
 
 <img src="../img/raw_env.png" width="80%">
 

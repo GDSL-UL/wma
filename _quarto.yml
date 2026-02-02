@@ -9,7 +9,7 @@ book:
 
   page-footer:
     left: |
-      Web Mapping and Geovisualisation by Gabriele Filomena, Elisabetta Pietrostefani.
+      Advanced Geovisualisation by Gabriele Filomena, Elisabetta Pietrostefani.
     right: |
       This book was built with <a href="https://quarto.org/">Quarto</a>.
   search: true

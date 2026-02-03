@@ -56,25 +56,25 @@ geovis/
 
 1. Download the `geovis.yml` from GitHub by clicking `Download raw file`, top right, [at this page](https://github.com/GDSL-UL/wma/blob/main/geovis.yml).
 
-<img src="../img/raw_env.png" width="80%">
-
 2. Save it in the folder `geovis` created before.
 
-   **Example path:** `C:\Users\YourName\Documents\geovis\geovis.yml`; **UoL machine example:** `M:\geovis\geovis.yml`
+   **Example path:** `C:\Users\YourName\AnyFolder\geovis\geovis.yml`; **UoL machine example:** `M:\geovis\geovis.yml`
 
 3. Type in the search bar and find the `Anaconda Prompt (miniconda 3)`. Launch it. The terminal should appear.
 
 <img src="../img/windows_anaconda.png" width="80%">
 
-4. In the **Anaconda Prompt**, run: `conda env create -n geovis --file "C:\Users\YourName\Documents\geovis\geovis.yml"`
+4. In the **Anaconda Prompt**, run the following, one at the time:
+	- `conda install -n base -c conda-forge conda-libmamba-solver -y`
+	- `conda config --set solver libmamba`
+	- `conda config --set channel_priority strict`
+	- `conda env create -f "C:\Users\yourname\AnyFolder\geovis\geovis.yml"`
 
-5. Then run: `conda env update -n geovis --file "C:\Users\YourName\Documents\geovis\geovis.yml" --prune`
-   
-6. If you are prompted any questions, press `y`. This process will install all the packages necessary to carry out the lab sessions.
+5. If you are prompted any questions, press `y`. This process will install all the packages necessary to carry out the lab sessions.
 
-7. In the **Anaconda Prompt** write and run: `conda activate geovis`. This activates your working environment.
+6. In the **Anaconda Prompt** write and run: `conda activate geovis`. This activates your working environment.
 
-8. *Necessary on University machines, otherwise optional:* configuration of Jupyter Notebooks
+7. *Necessary on University machines, otherwise optional:* configuration of Jupyter Notebooks
 
 - In the **Anaconda Prompt**, run: `jupyter server --generate-config`. This should create a file at:  `C:\Users\YourName\.jupyter\jupyter_server_config.py`
 
@@ -91,7 +91,7 @@ geovis/
 
 ### Start a Lab Session {.unnumbered}
 
-1. Download the Jupyter Notebook of the session in your folder. Choose one Jupyter notebook and click `Download raw file` as shown below.
+1. Download the Jupyter Notebook of the session in your folder. Choose one Jupyter notebook from [here](https://github.com/GDSL-UL/wma/tree/main/labs) and click `Download raw file` as shown below.
 
 <img src="../img/raw.png" width="80%">
 
@@ -101,7 +101,7 @@ geovis/
 
 4. In the **Anaconda Prompt** run: `conda activate geovis`
 
-5. (*Recommended*) "Move" into your course folder so Jupyter opens in the right place: `cd "C:\Users\YourName\Documents\geovis\labs"`(or `cd "M:\geovis\labs"` on UoL machines).
+5. (*Recommended*) "Move" into your course folder so Jupyter opens in the right place: `cd "C:\Users\YourName\AnyFolder\geovis\labs"`(or `cd "M:\geovis\labs"` on UoL machines).
 
 6. In the **Anaconda Prompt** run: `jupyter notebook`. This should open Jupyter Notebook in your default browser.
 
@@ -156,21 +156,21 @@ geovis/
 
 1. Download the `geovis.yml` from GitHub by clicking `Download raw file`, top right, [at this page](https://github.com/GDSL-UL/wma/blob/main/geovis.yml).
 
-
 <img src="../img/raw_env.png" width="80%">
 
 2. Save it in the folder `geovis` created before.
 
 3. Open the **Terminal**.
 
+4. In the **Anaconda Prompt**, run the following, one at the time:
+   - `conda install -n base -c conda-forge conda-libmamba-solver -y`
+   - `conda config --set solver libmamba`
+   - `conda config --set channel_priority strict`
+   - `conda env create -f "/Users/yourname/Documents/geovis/geovis.yml"`
 
-4. In the **Anaconda Prompt**, run:  `conda env create -n geovis --file "/Users/yourname/Documents/geovis/geovis.yml"`
+5. If you are prompted any questions, press `y`. This process will install all the packages necessary to carry out the lab sessions.
 
-5. Then run: `conda env update -n geovis --file "/Users/yourname/Documents/geovis/geovis.yml" --prune`
-
-6. If you are prompted any questions, press `y`. This process will install all the packages necessary to carry out the lab sessions.
-
-7. Activate the environment: `conda activate geovis`
+6. Activate the environment: `conda activate geovis`
 
 <img src="../img/mac_env.png" width="80%">
 
@@ -188,8 +188,7 @@ geovis/
 
 4. Activate the environment: `conda activate geovis`
 
-5. (*Recommended*) "Move" into your `labs` folder so Jupyter opens in the right place:
-`cd "/Users/yourname/Documents/geovis/labs"`
+5. (*Recommended*) "Move" into your `labs` folder so Jupyter opens in the right place: `cd "/Users/yourname/Documents/geovis/labs"`
 
 6. Start Jupyter Notebook: `jupyter notebook`
 

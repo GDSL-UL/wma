@@ -1,6 +1,7 @@
 name: geovis
 channels:
   - conda-forge
+  - nodefaults
 dependencies:
   - python=3.11
   - pip
@@ -21,12 +22,13 @@ dependencies:
   - seaborn
   - plotly
 
-  # Geo stack 
+  # Geo stack
   - geopandas
   - shapely
   - pyproj
   - fiona
   - rasterio
+  - gdal          # helps keep GDAL aligned
   - rtree
   - cartopy
   - pyogrio
@@ -65,7 +67,6 @@ dependencies:
   - census
   - websocket-client
 
-  # Performance (keep conda-managed)
+  # Performance
   - numba
   - llvmlite
-

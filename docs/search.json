@@ -40,6 +40,46 @@
     ]
   },
   {
+    "objectID": "general/assessment.html",
+    "href": "general/assessment.html",
+    "title": "Assessments: General Remarks",
+    "section": "",
+    "text": "Submission\nPlease follow these templates consistently:\nDownload the template as follows:  and edit them accordingly.\nYou will submit through Canvas a .html file obtained from a Python .ipynb Jupyter Notebook file. To do so, in your .ipynb file, follow these steps: File –&gt; Save and Export as.. –&gt; HTML. Prior to this step, the notebook needs to be rendered (i.e. all the cells should be executed).\nOther file formats will not be accepted.",
+    "crumbs": [
+      "Assessments: General Remarks"
+    ]
+  },
+  {
+    "objectID": "general/assessment.html#submission",
+    "href": "general/assessment.html#submission",
+    "title": "Assessments: General Remarks",
+    "section": "",
+    "text": "Assignment I\nAssignment II(soon)",
+    "crumbs": [
+      "Assessments: General Remarks"
+    ]
+  },
+  {
+    "objectID": "general/assessment.html#marking-criteria",
+    "href": "general/assessment.html#marking-criteria",
+    "title": "Assessments: General Remarks",
+    "section": "Marking Criteria",
+    "text": "Marking Criteria\nThis course follows the standard marking criteria (the general ones and those relating to GIS assignments in particular) set by the School of Environmental Sciences. Please make sure to check the student handbook and familiarise with them. In addition to these generic criteria, the following specific criteria will be used in cases where computer code is part of the work being assessed:\n\n\n\n\n\n\n\n\n\n\n\n\nMark Range\nDescription\nNarrative\nMap(s) and/or Dashboard Design\nTechnical Skills\nInteractive Map Fully Working (required)\nAPI Call (required) (A1)\n\n\n\n\n0–15\nMinimal or no effort; incomplete submission or no functionality.\nProblem is unclear or missing; no justification.\nMinimal effort; no justification for design choices.\nCode does not run; no documentation.\nNo\nNo\n\n\n16–39\nBasic attempt with significant issues and/or missing components.\nProblem and justification are partially unclear or incomplete.\nDesign choices lack depth or a clear link to the visualisation’s aim.\nCode does not run or produces incorrect output. Some documentation is present but unclear or insufficient.\nPartially\nNo\n\n\n40–49\nMinimum requirements met; some functionality and basic clarity.\nProblem and justification are clear but weakly integrated into the overall framework.\nBasic design choices with a limited link to the visualisation outputs; lacks refinement.\nCode runs and produces expected output. Documentation is present but lacks depth and/or proper formatting.\nPartially\nNo\n\n\n50–59\nMeets expectations with functional output and clear structure.\nClear problem identification and justification, but limited integration across components.\nReasonable design choices with some consideration of usability and presentation.\nCode runs and produces expected output. Extensive documentation explains the logic.\nPartially\nYes\n\n\n60–69\nGood overall quality with functional, thoughtful design.\nProblem and justification are clear, with some integration across the framework.\nThoughtful design choices clearly connected to the interactive map (A1) or other visualisation devices (A2), with justification for interactivity\nCode runs and produces expected output. Extensive, well-formatted documentation demonstrates good conceptual understanding.\nYes\nYes\n\n\n70–79\nHigh-quality work showing advanced skills and strong integration.\nProblem and justification are clear and well integrated across all components, forming a cohesive narrative.\nExcellent design choices, strongly connected to (A1) and/or (A2), with well-justified interactivity (A1/A2).\nCode runs and produces expected output. Evidence of advanced skills is demonstrated through code design and implementation.\nYes\nYes\n\n\n80–100\nExceptional work with innovative contributions and flawless execution.\nProblem and justification are expertly presented and fully integrated into a cohesive, professional narrative.\nOutstanding, creative design with advanced interactivity and exceptional attention to detail.\nCode runs and produces expected output. Extensive, well-formatted documentation includes novel contributions (e.g., optimisations or new methods).\nYes\nYes",
+    "crumbs": [
+      "Assessments: General Remarks"
+    ]
+  },
+  {
+    "objectID": "general/assessment.html#dos-and-donts",
+    "href": "general/assessment.html#dos-and-donts",
+    "title": "Assessments: General Remarks",
+    "section": "DOs and DONTs",
+    "text": "DOs and DONTs\n\nDO NOT include “temporary” maps unless you really need to specifically show something to your reader.\n\nDO NOT include maps that have no actual differences, apart from few things (e.g. you changed the zoom level).\nDO Mix the accompanying text, in markdown cells, with the code.\nDO NOT include all the text at the beginning.\nDO provide theoretical context and motivation to your topic.\nDO Present 2 or 3 NICE static maps (max) and one final interactive map (Assignment I).",
+    "crumbs": [
+      "Assessments: General Remarks"
+    ]
+  },
+  {
     "objectID": "general/assignmentI.html",
     "href": "general/assignmentI.html",
     "title": "Assignment I",

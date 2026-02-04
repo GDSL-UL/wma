@@ -44,7 +44,7 @@
     "href": "general/assessment.html",
     "title": "Assessments: General Remarks",
     "section": "",
-    "text": "Submission\nPlease follow these templates consistently:\nDownload the template as follows:  and edit them accordingly.\nYou will submit through Canvas a .html file obtained from a Python .ipynb Jupyter Notebook file. To do so, in your .ipynb file, follow these steps: File –&gt; Save and Export as.. –&gt; HTML. Prior to this step, the notebook needs to be rendered (i.e. all the cells should be executed).\nOther file formats will not be accepted.",
+    "text": "Submission\nPlease follow these templates consistently:\nDownload the template as follows:\nand edit them accordingly.\nYou will submit through Canvas a .html file obtained from a Python .ipynb Jupyter Notebook file. To do so, in your .ipynb file, follow these steps: File –&gt; Save and Export as.. –&gt; HTML. Prior to this step, the notebook needs to be rendered (i.e. all the cells should be executed).\nOther file formats will not be accepted.",
     "crumbs": [
       "Assessments: General Remarks"
     ]

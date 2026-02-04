@@ -9,7 +9,9 @@ Please follow these templates consistently:
 
 
 Download the template as follows:
-<img src = "../img/raw.png" width="80%">
+
+<img src = "../img/raw_template.png" width="80%">
+
 and edit them accordingly.
 
 You will submit through Canvas a `.html` file obtained from a Python  `.ipynb` Jupyter Notebook file. To do so, in your `.ipynb` file, follow these steps: `File` --> `Save and Export as..` --> `HTML`. Prior to this step, the notebook needs to be rendered (i.e. all the cells should be executed). 

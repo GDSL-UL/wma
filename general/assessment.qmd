@@ -1,0 +1,42 @@
+# Assessments: General Remarks {.unnumbered}
+
+## Submission
+Please follow these templates consistently: 
+
+- [Assignment I](https://github.com/GDSL-UL/wma/blob/main/templates/Assignment1_template.ipynb)
+
+- Assignment II(soon)
+
+
+Download the template as follows:
+<img src = "../img/raw.png" width="80%">
+and edit them accordingly.
+
+You will submit through Canvas a `.html` file obtained from a Python  `.ipynb` Jupyter Notebook file. To do so, in your `.ipynb` file, follow these steps: `File` --> `Save and Export as..` --> `HTML`. Prior to this step, the notebook needs to be rendered (i.e. all the cells should be executed). 
+
+**Other file formats will not be accepted**.  
+
+
+## Marking Criteria
+
+This course follows the standard marking criteria (the general ones and those relating to GIS assignments in particular) set by the School of Environmental Sciences. Please make sure to check the student handbook and familiarise with them. In addition to these generic criteria, the following specific criteria will be used in cases where computer code is part of the work being assessed:
+
+| **Mark Range** | **Description**                                                       | **Narrative**                                                                                                  | **Map(s) and/or Dashboard Design**                                                                                                                | **Technical Skills**                                                                                                                               | **Interactive Map Fully Working (required)**| **API Call (required) (A1)** |
+|---             |---                                                                    |---                                                                                                             |---                                                                                                                                                |---                                                                                                                                                 |---                                          |---                           |
+| **0–15**       | Minimal or no effort; incomplete submission or no functionality.      | Problem is unclear or missing; no justification.                                                               | Minimal effort; no justification for design choices.                                                                                              | Code does not run; no documentation.                                                                                                               | No                                          | No                           |
+| **16–39**      | Basic attempt with significant issues and/or missing components.      | Problem and justification are partially unclear or incomplete.                                                 | Design choices lack depth or a clear link to the visualisation’s aim.                                                                             | Code does not run or produces incorrect output. Some documentation is present but unclear or insufficient.                                         | Partially                                   | No                           |
+| **40–49**      | Minimum requirements met; some functionality and basic clarity.       | Problem and justification are clear but weakly integrated into the overall framework.                          | Basic design choices with a limited link to the visualisation outputs; lacks refinement.                                                          | Code runs and produces expected output. Documentation is present but lacks depth and/or proper formatting.                                         | Partially                                   | No                           |
+| **50–59**      | Meets expectations with functional output and clear structure.        | Clear problem identification and justification, but limited integration across components.                     | Reasonable design choices with some consideration of usability and presentation.                                                                  | Code runs and produces expected output. Extensive documentation explains the logic.                                                                | Partially                                   | Yes                          |
+| **60–69**      | Good overall quality with functional, thoughtful design.              | Problem and justification are clear, with some integration across the framework.                               | Thoughtful design choices clearly connected to the interactive map (A1) or other visualisation devices (A2), with justification for interactivity | Code runs and produces expected output. Extensive, well-formatted documentation demonstrates good conceptual understanding.                        | Yes                                         | Yes                          |
+| **70–79**      | High-quality work showing advanced skills and strong integration.     | Problem and justification are clear and well integrated across all components, forming a cohesive narrative.   | Excellent design choices, strongly connected to (A1) and/or (A2), with well-justified interactivity (A1/A2).                                      | Code runs and produces expected output. Evidence of advanced skills is demonstrated through code design and implementation.                        | Yes                                         | Yes                          |
+| **80–100**     | Exceptional work with innovative contributions and flawless execution.| Problem and justification are expertly presented and fully integrated into a cohesive, professional narrative. | Outstanding, creative design with advanced interactivity and exceptional attention to detail.                                                     | Code runs and produces expected output. Extensive, well-formatted documentation includes novel contributions (e.g., optimisations or new methods). | Yes                                         | Yes                          |
+
+
+## DOs and DONTs
+
+- DO NOT include "temporary" maps unless you really need to specifically show something to your reader.  
+- DO NOT include maps that have no actual differences, apart from few things (e.g. you changed the zoom level).
+- DO Mix the accompanying text, in markdown cells, with the code. 
+- DO NOT include all the text at the beginning. 
+- DO provide theoretical context and motivation to your topic.
+- DO Present 2 or 3 NICE static maps (max) and one final interactive map (Assignment I).

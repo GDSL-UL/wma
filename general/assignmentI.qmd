@@ -13,11 +13,11 @@ In this assessment, you will have the opportunity to explore different sources a
 1. **Context and Problem**: Identify a research problem with a geographical connotation. Discuss concisely recent research around it in physical or human geography (around 7–8 references). Introduce how you will explore and visualise dimensions of the problem (e.g., gentrification, access to healthy food in cities, urban heat islands, etc.).
 2. **Data and Backend**: Draft a list of spatial datasets relevant to your research problem and demonstrate your ability to develop your own API request function in Python. Include datasets containing spatial information or linkable to other spatial sources. Highlight the data/variables worth considering and their role in representing the problem. Demonstrate your understanding of core "backend" web mapping concepts. Include an explanation of how tilesets, client-server architecture, and APIs are implemented and contribute to your map's functionality.
 4. **Design**: Create Good Looking static maps to represent your datasets, focusing on spatial units (e.g., buildings, cities). Move onto interactive visualisation with folium, incorporating interactivity for categorical and numerical variables. Seek feedback to refine your ideas. Use inspiration from web map examples discussed in the course to ensure effective representation of data.
-5. **Assemblage**: Enhance your map by incorporating widgets for dataset exploration and experimenting with tilesets, such as creating your own in Mapbox. Address design considerations, including the map's extent, zoom levels, and variable visibility at different zoom levels. Ensure consistency and aesthetic appeal to complete this stage successfully.
+5. **Assemblage**: Address design considerations, including the map's extent, zoom levels, and variable visibility at different zoom levels. Ensure consistency and aesthetic appeal to complete this stage successfully.
 
 ## Expected Content
 
-### Text and Code, alternated:
+### Text (~1000 words) and Code, alternated:
 
 - ~250  w. introducing the research problem, the context, and existing research on the topic.
 - Code: Introductory Static Maps (2 ), presenting the topic and the context.
@@ -26,7 +26,7 @@ In this assessment, you will have the opportunity to explore different sources a
 - ~200  w. with your description of what your API is, how it works and how it will made your map possible.
 - Code: An interactive final map. This should be fed with data obtained through the API request.
 - ~200  w.  description of how your interactive map works, its components and your design ideas.
-- ~150  w. to summarise your research problem and how you tackled it by means of geovisualisation tools (Conclusion).
+- ~100  w. to summarise your research problem and how you tackled it by means of geovisualisation tools (Conclusion).
 
 
 **You CANNOT employ for your main maps the following libraries: Holoviews, Geoviews, and Plotly**

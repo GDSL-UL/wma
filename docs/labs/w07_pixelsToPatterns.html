@@ -1,0 +1,2195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Elisabetta Pietrostefani">
+<meta name="dcterms.date" content="2026-03-04">
+
+<title>6&nbsp; From Pixels to Patterns: Visualising Satellite Image Classification – Advanced Geovisualisation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../labs/w06_OSM.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2486e1f0a3ee9ee1fc393803a1361cdb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-48fdb17b64b03c2d439d40eb95f1e9dc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/w07_pixelsToPatterns.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">From Pixels to Patterns: Visualising Satellite Image Classification</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Advanced Geovisualisation</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/GDSL-UL/wma" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="../Advanced-Geovisualisation.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../general/structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../general/assessment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assessments: General Remarks</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../general/assignmentI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment I</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../general/setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Setting up the Working Environment</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w01_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction &amp; Python Refresher</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w02_staticMaps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Static Maps in Python</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w03_interactiveMaps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Interactive Maps</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w04_webArch.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Web Architectures and APIs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w06_OSM.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Retrieving Data From OpenStreetMap</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/w07_pixelsToPatterns.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">From Pixels to Patterns: Visualising Satellite Image Classification</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#from-pixels-to-patterns-visualising-satellite-image-classification" id="toc-from-pixels-to-patterns-visualising-satellite-image-classification" class="nav-link active" data-scroll-target="#from-pixels-to-patterns-visualising-satellite-image-classification"><span class="header-section-number">7</span> From Pixels to Patterns: Visualising Satellite Image Classification</a>
+  <ul class="collapse">
+  <li><a href="#key-python-libraries-used" id="toc-key-python-libraries-used" class="nav-link" data-scroll-target="#key-python-libraries-used"><span class="header-section-number">7.1</span> Key Python libraries used</a></li>
+  <li><a href="#install-import-libraries" id="toc-install-import-libraries" class="nav-link" data-scroll-target="#install-import-libraries"><span class="header-section-number">7.2</span> 0. Install &amp; Import Libraries</a></li>
+  <li><a href="#crop-and-mask-to-london-extent" id="toc-crop-and-mask-to-london-extent" class="nav-link" data-scroll-target="#crop-and-mask-to-london-extent"><span class="header-section-number">7.3</span> 1. Crop and Mask to London Extent</a>
+  <ul class="collapse">
+  <li><a href="#download-the-london-shapefile" id="toc-download-the-london-shapefile" class="nav-link" data-scroll-target="#download-the-london-shapefile"><span class="header-section-number">7.3.1</span> Download the London shapefile</a></li>
+  </ul></li>
+  <li><a href="#raster-properties-loading-bands" id="toc-raster-properties-loading-bands" class="nav-link" data-scroll-target="#raster-properties-loading-bands"><span class="header-section-number">7.4</span> 2. Raster Properties &amp; Loading Bands</a></li>
+  <li><a href="#rgb-composites-true-colour-false-colour" id="toc-rgb-composites-true-colour-false-colour" class="nav-link" data-scroll-target="#rgb-composites-true-colour-false-colour"><span class="header-section-number">7.5</span> 3. RGB Composites — True Colour &amp; False Colour</a></li>
+  <li><a href="#ndvi-normalised-difference-vegetation-index" id="toc-ndvi-normalised-difference-vegetation-index" class="nav-link" data-scroll-target="#ndvi-normalised-difference-vegetation-index"><span class="header-section-number">7.6</span> 4. NDVI — Normalised Difference Vegetation Index</a></li>
+  <li><a href="#supervised-classification" id="toc-supervised-classification" class="nav-link" data-scroll-target="#supervised-classification"><span class="header-section-number">7.7</span> 5. Supervised Classification</a>
+  <ul class="collapse">
+  <li><a href="#how-would-you-create-training-points-in-python" id="toc-how-would-you-create-training-points-in-python" class="nav-link" data-scroll-target="#how-would-you-create-training-points-in-python"><span class="header-section-number">7.7.1</span> How would you create training points in Python?</a></li>
+  </ul></li>
+  <li><a href="#spectral-profile-analysis" id="toc-spectral-profile-analysis" class="nav-link" data-scroll-target="#spectral-profile-analysis"><span class="header-section-number">7.8</span> Spectral Profile Analysis</a></li>
+  <li><a href="#decision-tree-classification" id="toc-decision-tree-classification" class="nav-link" data-scroll-target="#decision-tree-classification"><span class="header-section-number">7.9</span> Decision Tree Classification</a></li>
+  <li><a href="#model-evaluation-confusion-matrix" id="toc-model-evaluation-confusion-matrix" class="nav-link" data-scroll-target="#model-evaluation-confusion-matrix"><span class="header-section-number">7.10</span> Model Evaluation — Confusion Matrix</a></li>
+  <li><a href="#final-classification-map" id="toc-final-classification-map" class="nav-link" data-scroll-target="#final-classification-map"><span class="header-section-number">7.11</span> Final Classification Map</a></li>
+  <li><a href="#whats-next-satellite-embeddings" id="toc-whats-next-satellite-embeddings" class="nav-link" data-scroll-target="#whats-next-satellite-embeddings"><span class="header-section-number">7.12</span> What’s Next? Satellite Embeddings</a>
+  <ul class="collapse">
+  <li><a href="#what-are-embeddings" id="toc-what-are-embeddings" class="nav-link" data-scroll-target="#what-are-embeddings"><span class="header-section-number">7.12.1</span> What are embeddings?</a></li>
+  <li><a href="#why-does-this-matter" id="toc-why-does-this-matter" class="nav-link" data-scroll-target="#why-does-this-matter"><span class="header-section-number">7.12.2</span> Why does this matter?</a></li>
+  <li><a href="#where-to-explore-further" id="toc-where-to-explore-further" class="nav-link" data-scroll-target="#where-to-explore-further"><span class="header-section-number">7.12.3</span> Where to explore further</a></li>
+  </ul></li>
+  <li><a href="#summary-further-exercises" id="toc-summary-further-exercises" class="nav-link" data-scroll-target="#summary-further-exercises"><span class="header-section-number">7.13</span> Summary &amp; Further Exercises</a>
+  <ul class="collapse">
+  <li><a href="#do-it-yourself" id="toc-do-it-yourself" class="nav-link" data-scroll-target="#do-it-yourself"><span class="header-section-number">7.13.1</span> Do-it-Yourself</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.dev/GDSL-UL/wma/blob/main/labs/w07_pixelsToPatterns.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">From Pixels to Patterns: Visualising Satellite Image Classification</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Elisabetta Pietrostefani </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 4, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="from-pixels-to-patterns-visualising-satellite-image-classification" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> From Pixels to Patterns: Visualising Satellite Image Classification</h1>
+<p>This notebook is based on the tutorial by <a href="https://urbanspatial.github.io/classifying_satellite_imagery_in_R/">Sydney Goldstein</a> and adapted to Python by <a href="https://www.pietrostefani.com/">Elisabetta Pietrostefani</a> for this course.</p>
+<p><strong>Goals:</strong> - Use Landsat 8 data to classify London into <strong>developed, undeveloped, water, and clouds</strong> - Visualise satellite imagery effectively — from greyscale bands to rich composites - Find <strong>resources on the newest frontier in satellite analysis: embeddings</strong> — access ready-to-use data derived from models like <a href="https://developers.google.com/earth-engine/datasets/tags/embeddings">Google’s SatCLIP / GeoCLIP</a> and <a href="https://earthengine.google.com/">Google Embeddings Alpha</a>, which encode entire landscapes into compact vectors that can be compared, searched, and clustered at global scale</p>
+<p>We will cover: 1. Crop and mask raster data to a shapefile extent 2. Explore raster properties and load individual bands 3. Visualise true-colour and false-colour composites 4. Calculate NDVI (Normalised Difference Vegetation Index) 5. Supervised classification 6. <em>(Bonus)</em> Satellite embeddings — what they are and why the field is excited about them</p>
+<section id="key-python-libraries-used" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="key-python-libraries-used"><span class="header-section-number">7.1</span> Key Python libraries used</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Python</th>
+<th>R package</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>rasterio</code> + <code>numpy</code></td>
+<td><code>raster</code></td>
+<td>Read/write/process rasters</td>
+</tr>
+<tr class="even">
+<td><code>geopandas</code></td>
+<td><code>sf</code></td>
+<td>Vector shapefiles</td>
+</tr>
+<tr class="odd">
+<td><code>matplotlib</code> + <code>earthpy</code></td>
+<td><code>plotRGB</code> / <code>mapview</code></td>
+<td>Visualise composites</td>
+</tr>
+<tr class="even">
+<td><code>sklearn.tree.DecisionTreeClassifier</code></td>
+<td><code>rpart</code></td>
+<td>Decision tree classification</td>
+</tr>
+<tr class="odd">
+<td><code>sklearn.tree.plot_tree</code></td>
+<td><code>rpart.plot</code></td>
+<td>Visualise the decision tree</td>
+</tr>
+<tr class="even">
+<td><code>sklearn.ensemble.RandomForestClassifier</code></td>
+<td><code>randomForest</code></td>
+<td>Random forest classification</td>
+</tr>
+<tr class="odd">
+<td><code>sklearn.metrics.ConfusionMatrixDisplay</code></td>
+<td><code>caret</code> (confusionMatrix)</td>
+<td>Model evaluation</td>
+</tr>
+<tr class="even">
+<td><code>matplotlib</code> + <code>seaborn</code></td>
+<td><code>ggplot2</code> / <code>patchwork</code></td>
+<td>Plotting &amp; layout</td>
+</tr>
+<tr class="odd">
+<td><code>pandas.melt</code></td>
+<td><code>tidyr::gather</code></td>
+<td>Reshape data from wide to long</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>Lecture slides</strong> can be found <a href="https://github.com/GDSL-UL/wma/blob/main/lectures/w07_pixels.pdf">here</a>.</p>
+<p>This <strong>lab</strong>’s notebook can be downloaded from <a href="https://github.com/GDSL-UL/wma/blob/main/labs/w07_pixelsToPatterns.ipynb">here</a>.</p>
+</section>
+<section id="install-import-libraries" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="install-import-libraries"><span class="header-section-number">7.2</span> 0. Install &amp; Import Libraries</h2>
+<p>Run the cell below once to install any missing packages.</p>
+<div id="install-code" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uncomment and run this cell if you need to install the libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># !pip install rasterio geopandas earthpy matplotlib numpy pandas seaborn scikit-learn requests</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="imports" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> glob</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> zipfile</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.colors <span class="im">as</span> mcolors</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rasterio</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.mask <span class="im">import</span> mask <span class="im">as</span> rio_mask</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.plot <span class="im">import</span> show, show_hist</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rasterio.enums <span class="im">import</span> Resampling</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rasterio.warp <span class="im">as</span> warp</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> mapping, box</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> earthpy.plot <span class="im">as</span> ep</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier, plot_tree</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> (</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    classification_report, confusion_matrix, ConfusionMatrixDisplay</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"All libraries imported successfully!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>All libraries imported successfully!</code></pre>
+</div>
+</div>
+</section>
+<section id="crop-and-mask-to-london-extent" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="crop-and-mask-to-london-extent"><span class="header-section-number">7.3</span> 1. Crop and Mask to London Extent</h2>
+<p>Landsat 8 data covers large swaths of the Earth. Our first step is to <strong>crop</strong> (cut to a bounding box) and <strong>mask</strong> (remove pixels outside a polygon) the imagery to just the London boundary.</p>
+<p>We use: - <code>geopandas</code> to load the London wards shapefile - <code>rasterio.mask</code> to crop and mask each band</p>
+<section id="download-the-london-shapefile" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="download-the-london-shapefile"><span class="header-section-number">7.3.1</span> Download the London shapefile</h3>
+<p><strong>Task 1:</strong> Before running the code, visit https://earthexplorer.usgs.gov/ and explore what Landsat 8 data includes. What bands are available and what does each measure?</p>
+<div id="download-shapefile" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Download London Wards shapefile ──────────────────────────────────────────</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>SHAPEFILE_PATH <span class="op">=</span> <span class="st">"../data/pixels/statistical-gis-boundaries-london/London_ward.shp"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>ZIP_PATH <span class="op">=</span> <span class="st">"../data/pixels/statistical-gis-boundaries-london.zip"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>URL <span class="op">=</span> (</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://data.london.gov.uk/download/statistical-gis-boundary-files-london/"</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"9ba8c833-6370-4b11-abdc-314aa020d5e0/statistical-gis-boundaries-london.zip"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>os.makedirs(<span class="st">"data"</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.exists(SHAPEFILE_PATH):</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Downloading London shapefile..."</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    response <span class="op">=</span> requests.get(URL, stream<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(ZIP_PATH, <span class="st">"wb"</span>) <span class="im">as</span> f:</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> chunk <span class="kw">in</span> response.iter_content(chunk_size<span class="op">=</span><span class="dv">8192</span>):</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>            f.write(chunk)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> zipfile.ZipFile(ZIP_PATH, <span class="st">"r"</span>) <span class="im">as</span> zf:</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        zf.extractall(<span class="st">"data"</span>)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Done!"</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Shapefile already exists — skipping download."</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Load wards</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>wards <span class="op">=</span> gpd.read_file(SHAPEFILE_PATH)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Loaded </span><span class="sc">{</span><span class="bu">len</span>(wards)<span class="sc">}</span><span class="ss"> wards | CRS: </span><span class="sc">{</span>wards<span class="sc">.</span>crs<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick plot</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>wards.plot(ax<span class="op">=</span>ax, edgecolor<span class="op">=</span><span class="st">"steelblue"</span>, facecolor<span class="op">=</span><span class="st">"none"</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"London Wards"</span>)</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>ax.set_axis_off()</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Shapefile already exists — skipping download.
+Loaded 649 wards | CRS: PROJCS["OSGB36 / British National Grid",GEOGCS["OSGB36",DATUM["Ordnance_Survey_of_Great_Britain_1936",SPHEROID["Airy 1830",6377563.396,299.3249646,AUTHORITY["EPSG","7001"]],AUTHORITY["EPSG","6277"]],PRIMEM["Greenwich",0],UNIT["Degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",49],PARAMETER["central_meridian",-2],PARAMETER["scale_factor",0.999601272],PARAMETER["false_easting",400000],PARAMETER["false_northing",-100000],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH]]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w07_pixelsToPatterns_files/figure-html/cell-4-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="crop-mask" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Crop and mask each Landsat band ──────────────────────────────────────────</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># List all raw .TIF files in the data/ folder</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>tifs <span class="op">=</span> <span class="bu">sorted</span>(glob.glob(<span class="st">"../data/pixels/*.TIF"</span>))</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Found </span><span class="sc">{</span><span class="bu">len</span>(tifs)<span class="sc">}</span><span class="ss"> TIF files: </span><span class="sc">{</span>[os.path.basename(t) <span class="cf">for</span> t <span class="kw">in</span> tifs]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>os.makedirs(<span class="st">"../data/pixels/landsat"</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> crop_and_mask(tif_path: <span class="bu">str</span>, shapes, out_dir: <span class="bu">str</span> <span class="op">=</span> <span class="st">"../data/pixels/landsat"</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">    Crops and masks a single raster to the union of `shapes`.</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">    tif_path : str   Path to the input .TIF file.</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">    shapes   : list  List of GeoJSON-like geometries (from geopandas).</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">    out_dir  : str   Folder where the masked raster is saved.</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co">    str  Path to the output raster.</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    basename <span class="op">=</span> os.path.basename(tif_path).replace(<span class="st">".TIF"</span>, <span class="st">".tif"</span>)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    out_path <span class="op">=</span> os.path.join(out_dir, <span class="ss">f"London_</span><span class="sc">{</span>basename<span class="sc">}</span><span class="ss">"</span>) <span class="co"># Defining them just for London perimetre</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> os.path.exists(out_path):</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"  Already exists — skipping: </span><span class="sc">{</span>basename<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> out_path</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> rasterio.<span class="bu">open</span>(tif_path) <span class="im">as</span> src:</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Re-project the shapefile to match the raster CRS</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>        shapes_reprojected <span class="op">=</span> shapes.to_crs(src.crs)</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>        geoms <span class="op">=</span> [mapping(geom) <span class="cf">for</span> geom <span class="kw">in</span> shapes_reprojected.geometry]</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Crop (bounding box) + mask (exact polygon)</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>        out_image, out_transform <span class="op">=</span> rio_mask(src, geoms, crop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>        out_meta <span class="op">=</span> src.meta.copy()</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    out_meta.update({</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>        <span class="st">"driver"</span>: <span class="st">"GTiff"</span>,</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>        <span class="st">"height"</span>: out_image.shape[<span class="dv">1</span>],</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>        <span class="st">"width"</span>: out_image.shape[<span class="dv">2</span>],</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>        <span class="st">"transform"</span>: out_transform,</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> rasterio.<span class="bu">open</span>(out_path, <span class="st">"w"</span>, <span class="op">**</span>out_meta) <span class="im">as</span> dst:</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>        dst.write(out_image)</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  Saved: </span><span class="sc">{</span>out_path<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> out_path</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply to all bands</span></span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>cropped_paths <span class="op">=</span> [crop_and_mask(t, wards) <span class="cf">for</span> t <span class="kw">in</span> tifs]</span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">All bands cropped and masked!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Found 19 TIF files: ['LC08_L2SP_201024_20210418_20210424_02_T1_QA_PIXEL.TIF', 'LC08_L2SP_201024_20210418_20210424_02_T1_QA_RADSAT.TIF', 'LC08_L2SP_201024_20210418_20210424_02_T1_SR_B1.TIF', 'LC08_L2SP_201024_20210418_20210424_02_T1_SR_B2.TIF', 'LC08_L2SP_201024_20210418_20210424_02_T1_SR_B3.TIF', 'LC08_L2SP_201024_20210418_20210424_02_T1_SR_B4.TIF', 'LC08_L2SP_201024_20210418_20210424_02_T1_SR_B5.TIF', 'LC08_L2SP_201024_20210418_20210424_02_T1_SR_B6.TIF', 'LC08_L2SP_201024_20210418_20210424_02_T1_SR_B7.TIF', 'LC08_L2SP_201024_20210418_20210424_02_T1_SR_QA_AEROSOL.TIF', 'LC08_L2SP_201024_20210418_20210424_02_T1_ST_ATRAN.TIF', 'LC08_L2SP_201024_20210418_20210424_02_T1_ST_B10.TIF', 'LC08_L2SP_201024_20210418_20210424_02_T1_ST_CDIST.TIF', 'LC08_L2SP_201024_20210418_20210424_02_T1_ST_DRAD.TIF', 'LC08_L2SP_201024_20210418_20210424_02_T1_ST_EMIS.TIF', 'LC08_L2SP_201024_20210418_20210424_02_T1_ST_EMSD.TIF', 'LC08_L2SP_201024_20210418_20210424_02_T1_ST_QA.TIF', 'LC08_L2SP_201024_20210418_20210424_02_T1_ST_TRAD.TIF', 'LC08_L2SP_201024_20210418_20210424_02_T1_ST_URAD.TIF']
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_QA_PIXEL.tif
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_QA_RADSAT.tif
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_SR_B1.tif
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_SR_B2.tif
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_SR_B3.tif
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_SR_B4.tif
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_SR_B5.tif
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_SR_B6.tif
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_SR_B7.tif
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_SR_QA_AEROSOL.tif
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_ST_ATRAN.tif
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_ST_B10.tif
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_ST_CDIST.tif
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_ST_DRAD.tif
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_ST_EMIS.tif
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_ST_EMSD.tif
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_ST_QA.tif
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_ST_TRAD.tif
+  Saved: ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_ST_URAD.tif
+
+All bands cropped and masked!</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="raster-properties-loading-bands" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="raster-properties-loading-bands"><span class="header-section-number">7.4</span> 2. Raster Properties &amp; Loading Bands</h2>
+<p><strong>Answer to Task 1:</strong> Landsat 8 carries two sensors — the <strong>Operational Land Imager (OLI)</strong> and the <strong>Thermal Infrared Sensor (TIRS)</strong> — providing 11 spectral bands in total:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 20%">
+<col style="width: 21%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Band</th>
+<th>Name</th>
+<th>Wavelength</th>
+<th>Resolution</th>
+<th>What it’s good for</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Ultra Blue (Coastal/Aerosol)</td>
+<td>0.43–0.45 µm</td>
+<td><strong>30 m</strong></td>
+<td>Coastal water, aerosol studies — new in Landsat 8</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Blue</td>
+<td>0.45–0.51 µm</td>
+<td><strong>30 m</strong></td>
+<td>Water depth, soil/vegetation distinction</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Green</td>
+<td>0.53–0.59 µm</td>
+<td><strong>30 m</strong></td>
+<td>Peak vegetation reflectance</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Red</td>
+<td>0.64–0.67 µm</td>
+<td><strong>30 m</strong></td>
+<td>Chlorophyll absorption; vegetation vs bare soil</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Near Infrared (NIR)</td>
+<td>0.85–0.88 µm</td>
+<td><strong>30 m</strong></td>
+<td>Biomass, vegetation health, water body edges</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>SWIR-1</td>
+<td>1.57–1.65 µm</td>
+<td><strong>30 m</strong></td>
+<td>Soil moisture, snow/cloud differentiation</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>SWIR-2</td>
+<td>2.11–2.29 µm</td>
+<td><strong>30 m</strong></td>
+<td>Geology, mineralogy, fire burn scars</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Panchromatic</td>
+<td>0.50–0.68 µm</td>
+<td><strong>15 m</strong></td>
+<td>High-resolution greyscale — pan-sharpening</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Cirrus</td>
+<td>1.36–1.38 µm</td>
+<td><strong>30 m</strong></td>
+<td>Detecting high-altitude cirrus cloud contamination</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Thermal Infrared (TIRS-1)</td>
+<td>10.6–11.19 µm</td>
+<td><strong>100 m</strong></td>
+<td>Surface temperature</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Thermal Infrared (TIRS-2)</td>
+<td>11.50–12.51 µm</td>
+<td><strong>100 m</strong></td>
+<td>Surface temperature (more accurate dual-band retrieval)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>What does 30 m resolution actually mean?</strong> Each pixel covers a <strong>30 × 30 metre</strong> square on the ground — roughly the footprint of a large house. At 15 m (Band 8), a pixel is about the size of a car parking space. This is coarse compared to commercial satellites (which can reach 0.3 m), but Landsat’s free global archive stretching back to 1972 makes it uniquely valuable for long-term change detection.</p>
+<p>In this exercise we focus on <strong>Bands 1–7</strong> (all at 30 m).</p>
+<p>In Python with <code>rasterio</code>, each band is loaded as a 2D <code>numpy</code> array — giving us full numerical control for calculations.</p>
+<p><strong>Task 2:</strong> After loading the bands below, plot them one at a time. What differences do you notice in brightness and range? Why does vegetation appear brighter in Band 5 (NIR)?</p>
+<div id="load-bands" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Load individual bands by explicit filename ────────────────────────────────</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>BASE <span class="op">=</span> <span class="st">"../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_SR"</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>BAND_FILES <span class="op">=</span> {</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"band1"</span>: <span class="ss">f"</span><span class="sc">{</span>BASE<span class="sc">}</span><span class="ss">_B1.tif"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"band2"</span>: <span class="ss">f"</span><span class="sc">{</span>BASE<span class="sc">}</span><span class="ss">_B2.tif"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"band3"</span>: <span class="ss">f"</span><span class="sc">{</span>BASE<span class="sc">}</span><span class="ss">_B3.tif"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"band4"</span>: <span class="ss">f"</span><span class="sc">{</span>BASE<span class="sc">}</span><span class="ss">_B4.tif"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"band5"</span>: <span class="ss">f"</span><span class="sc">{</span>BASE<span class="sc">}</span><span class="ss">_B5.tif"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"band6"</span>: <span class="ss">f"</span><span class="sc">{</span>BASE<span class="sc">}</span><span class="ss">_B6.tif"</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"band7"</span>: <span class="ss">f"</span><span class="sc">{</span>BASE<span class="sc">}</span><span class="ss">_B7.tif"</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>bands <span class="op">=</span> {}</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>band_names <span class="op">=</span> <span class="bu">list</span>(BAND_FILES.keys())</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, path <span class="kw">in</span> BAND_FILES.items():</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> rasterio.<span class="bu">open</span>(path) <span class="im">as</span> src:</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> src.read(<span class="dv">1</span>).astype(<span class="st">"float32"</span>)  <span class="co"># read as float for NDVI etc.</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>        nodata <span class="op">=</span> src.nodata</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> nodata <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>            data[data <span class="op">==</span> nodata] <span class="op">=</span> np.nan     <span class="co"># mask no-data pixels</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        bands[name] <span class="op">=</span> data</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> name <span class="kw">in</span> (<span class="st">"band1"</span>, <span class="st">"band7"</span>):        <span class="co"># print metadata for first and last</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="sc">{</span>name<span class="sc">.</span>upper()<span class="sc">}</span><span class="ss"> — </span><span class="sc">{</span>path<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"  Shape      : </span><span class="sc">{</span>src<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"  CRS        : </span><span class="sc">{</span>src<span class="sc">.</span>crs<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"  Resolution : </span><span class="sc">{</span>src<span class="sc">.</span>res<span class="sc">}</span><span class="ss"> m"</span>)</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"  Bounds     : </span><span class="sc">{</span>src<span class="sc">.</span>bounds<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"  Min / Max  : </span><span class="sc">{</span>np<span class="sc">.</span>nanmin(data)<span class="sc">:.0f}</span><span class="ss"> / </span><span class="sc">{</span>np<span class="sc">.</span>nanmax(data)<span class="sc">:.0f}</span><span class="ss">"</span>)</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Also keep a list of the paths in band order for rasterio operations later</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>landsat_tifs <span class="op">=</span> <span class="bu">list</span>(BAND_FILES.values())</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">All 7 bands loaded:"</span>, band_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+BAND1 — ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_SR_B1.tif
+  Shape      : (1509, 1965)
+  CRS        : EPSG:32631
+  Resolution : (30.0, 30.0) m
+  Bounds     : BoundingBox(left=256185.0, bottom=5686095.0, right=315135.0, top=5731365.0)
+  Min / Max  : 38 / 60798
+
+BAND7 — ../data/pixels/landsat/London_LC08_L2SP_201024_20210418_20210424_02_T1_SR_B7.tif
+  Shape      : (1509, 1965)
+  CRS        : EPSG:32631
+  Resolution : (30.0, 30.0) m
+  Bounds     : BoundingBox(left=256185.0, bottom=5686095.0, right=315135.0, top=5731365.0)
+  Min / Max  : 6742 / 65454
+
+All 7 bands loaded: ['band1', 'band2', 'band3', 'band4', 'band5', 'band6', 'band7']</code></pre>
+</div>
+</div>
+<div id="plot-single-bands" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Plot Band 1 and Band 7 with perceptually meaningful colourmaps ───────────</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#  Each band is ONE number per pixel — to add colour we use a colourmap instead.</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#  We pick colourmaps that match what each band physically measures:</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  Band 1 (Ultra Blue / coastal aerosol) → 'Blues'  — darker = more scattering</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  Band 7 (SWIR-2 / geology &amp; burn scars) → 'YlOrBr' — warmer = more thermal emission</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># A linear percentile stretch (vmin/vmax at 2nd–98th percentile) removes</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># outlier bright pixels (clouds, water glint) that would otherwise wash out</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># the colour range across the rest of the scene.</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>BAND_CMAPS <span class="op">=</span> {</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"band1"</span>: (<span class="st">"Blues"</span>,    <span class="st">"Band 1 — Ultra Blue (Coastal/Aerosol)"</span>),</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"band7"</span>: (<span class="st">"YlOrBr"</span>,   <span class="st">"Band 7 — SWIR-2 (Geology / Burn Scars)"</span>),</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">6</span>))</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, (bname, (cmap, title)) <span class="kw">in</span> <span class="bu">zip</span>(axes, BAND_CMAPS.items()):</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> bands[bname]</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2–98th percentile stretch so outliers don't dominate the colour scale</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    vmin, vmax <span class="op">=</span> np.nanpercentile(data, [<span class="dv">2</span>, <span class="dv">98</span>])</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    im <span class="op">=</span> ax.imshow(data, cmap<span class="op">=</span>cmap, vmin<span class="op">=</span>vmin, vmax<span class="op">=</span>vmax)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    ax.set_title(title, fontsize<span class="op">=</span><span class="dv">11</span>, pad<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    ax.set_axis_off()</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    fig.colorbar(im, ax<span class="op">=</span>ax, fraction<span class="op">=</span><span class="fl">0.03</span>, pad<span class="op">=</span><span class="fl">0.04</span>, label<span class="op">=</span><span class="st">"Reflectance"</span>)</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>plt.suptitle(</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Individual Landsat 8 Bands — colourmap chosen to match each band's physics"</span>,</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    fontsize<span class="op">=</span><span class="dv">12</span>, y<span class="op">=</span><span class="fl">1.02</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w07_pixelsToPatterns_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="plot-grid-bands" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Plot Bands 2–5 in a 2×2 grid with matched colourmaps ─────────────────────</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># R equivalent: par(mfrow=c(2,2)); plot(band, col=gray(...))</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Colourmap choices:</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   Band 2 Blue  → 'Blues'    — water appears dark, urban bright</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   Band 3 Green → 'Greens'   — vegetation peaks here</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Band 4 Red   → 'Reds'     — chlorophyll absorption; veg appears dark</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Band 5 NIR   → 'RdYlGn'   — vegetation bright green, water near-black</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>BAND_GRID <span class="op">=</span> {</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"band2"</span>: (<span class="st">"Blues"</span>,   <span class="st">"Band 2 — Blue"</span>),</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"band3"</span>: (<span class="st">"Greens"</span>,  <span class="st">"Band 3 — Green"</span>),</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"band4"</span>: (<span class="st">"Reds"</span>,    <span class="st">"Band 4 — Red"</span>),</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"band5"</span>: (<span class="st">"RdYlGn"</span>,  <span class="st">"Band 5 — NIR (vegetation = bright)"</span>),</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">13</span>, <span class="dv">11</span>))</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, (bname, (cmap, label)) <span class="kw">in</span> <span class="bu">zip</span>(axes.flatten(), BAND_GRID.items()):</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> bands[bname]</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    vmin, vmax <span class="op">=</span> np.nanpercentile(data, [<span class="dv">2</span>, <span class="dv">98</span>])   <span class="co"># percentile stretch</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    im <span class="op">=</span> ax.imshow(data, cmap<span class="op">=</span>cmap, vmin<span class="op">=</span>vmin, vmax<span class="op">=</span>vmax)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    ax.set_title(label, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    ax.set_axis_off()</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    fig.colorbar(im, ax<span class="op">=</span>ax, fraction<span class="op">=</span><span class="fl">0.03</span>, pad<span class="op">=</span><span class="fl">0.04</span>, label<span class="op">=</span><span class="st">"Reflectance"</span>)</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>plt.suptitle(</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Landsat 8 Bands 2–5</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Notice: vegetation (parks, fields) is bright in NIR (Band 5) but dark in Red (Band 4)"</span>,</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>    fontsize<span class="op">=</span><span class="dv">12</span>, y<span class="op">=</span><span class="fl">1.02</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w07_pixelsToPatterns_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="rgb-composites-true-colour-false-colour" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="rgb-composites-true-colour-false-colour"><span class="header-section-number">7.5</span> 3. RGB Composites — True Colour &amp; False Colour</h2>
+<p>Individual greyscale bands don’t convey much on their own. We stack three bands into an <strong>RGB composite</strong>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Composite</th>
+<th>Red channel</th>
+<th>Green channel</th>
+<th>Blue channel</th>
+<th>What it shows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>True colour</strong></td>
+<td>Band 4 (Red)</td>
+<td>Band 3 (Green)</td>
+<td>Band 2 (Blue)</td>
+<td>How the scene looks to the human eye</td>
+</tr>
+<tr class="even">
+<td><strong>False colour (NIR)</strong></td>
+<td>Band 5 (NIR)</td>
+<td>Band 4 (Red)</td>
+<td>Band 3 (Green)</td>
+<td>Vegetation appears <strong>red/pink</strong>; built-up appears <strong>cyan/blue</strong></td>
+</tr>
+</tbody>
+</table>
+<p>We use <code>earthpy.plot.plot_rgb()</code> which handles normalisation automatically.</p>
+<div id="stack-bands" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Stack all 7 bands into a single 3D array (bands × rows × cols) ────────────</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This mirrors R's stack() / RasterStack</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>landsat_stack <span class="op">=</span> np.stack(</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    [bands[<span class="ss">f"band</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">8</span>)],</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    axis<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>)  <span class="co"># shape: (7, rows, cols)</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>n_bands, n_rows, n_cols <span class="op">=</span> landsat_stack.shape</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Stack shape : </span><span class="sc">{</span>landsat_stack<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of bands : </span><span class="sc">{</span>n_bands<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Spatial dimensions : </span><span class="sc">{</span>n_rows<span class="sc">}</span><span class="ss"> rows × </span><span class="sc">{</span>n_cols<span class="sc">}</span><span class="ss"> cols"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Stack shape : (7, 1509, 1965)
+Number of bands : 7
+Spatial dimensions : 1509 rows × 1965 cols</code></pre>
+</div>
+</div>
+<div id="true-colour" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── True Colour Composite ────────────────────────────────────────────────────</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># True colour = how the scene looks to the human eye: Red, Green, Blue channels.</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># In Landsat 8:  Red = Band 4,  Green = Band 3,  Blue = Band 2</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># This is written as '4-3-2' in remote sensing shorthand (R-G-B order).</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># earthpy uses 0-based indexing into the stack, so:</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Band 4 → stack index 3  (R)</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   Band 3 → stack index 2  (G)</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   Band 2 → stack index 1  (B)</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co"># '4-3-2' and rgb=(3,2,1) describe exactly the same composite.</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> percentile_stretch(stack, lo<span class="op">=</span><span class="dv">2</span>, hi<span class="op">=</span><span class="dv">98</span>):</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co">    Clip each band in `stack` (shape: bands × rows × cols) to the</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="co">    [lo, hi] percentile range and rescale to 0.0–1.0.</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns a float32 array of the same shape.</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> np.zeros_like(stack, dtype<span class="op">=</span><span class="st">"float32"</span>)</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(stack.shape[<span class="dv">0</span>]):</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>        band <span class="op">=</span> stack[i].astype(<span class="st">"float32"</span>)</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>        vmin, vmax <span class="op">=</span> np.nanpercentile(band, [lo, hi])</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>        out[i] <span class="op">=</span> np.clip((band <span class="op">-</span> vmin) <span class="op">/</span> (vmax <span class="op">-</span> vmin <span class="op">+</span> <span class="fl">1e-6</span>), <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> out</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>landsat_display <span class="op">=</span> percentile_stretch(landsat_stack)   <span class="co"># reuse for all composites</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>landsat_display <span class="op">=</span> np.nan_to_num(landsat_display, nan<span class="op">=</span><span class="fl">0.0</span>)  <span class="co"># nan → 0 for display only; doesn't affect bands dict</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>ep.plot_rgb(</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>    landsat_display,</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>    rgb<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>),    <span class="co"># 0-indexed: band4=index 3, band3=index 2, band2=index 1</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax,</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"True Colour Composite (Bands 4-3-2)"</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>ax.set_axis_off()</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w07_pixelsToPatterns_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="false-colour" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── False Colour / NIR Composite (RGB = Bands 5, 4, 3) ───────────────────────</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Vegetation reflects strongly in NIR → appears red/magenta</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Urban surfaces reflect less NIR → appear cyan/blue</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>ep.plot_rgb(</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    landsat_stack,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    rgb<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>),         <span class="co"># 0-indexed: band5=4, band4=3, band3=2</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    stretch<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    str_clip<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"False Colour Composite (Bands 5-4-3) — Vegetation in Red"</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>ax.set_axis_off()</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/opt/miniconda3/envs/envs363_563/lib/python3.11/site-packages/earthpy/spatial.py:561: RuntimeWarning: invalid value encountered in cast
+  return (bytedata.clip(low, high) + 0.5).astype("uint8")</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w07_pixelsToPatterns_files/figure-html/cell-11-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="side-by-side" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Side-by-side comparison ───────────────────────────────────────────────────</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">7</span>))</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>ep.plot_rgb(landsat_stack, rgb<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>), stretch<span class="op">=</span><span class="va">True</span>, str_clip<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>            ax<span class="op">=</span>axes[<span class="dv">0</span>], title<span class="op">=</span><span class="st">"True Colour (4-3-2)"</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>ep.plot_rgb(landsat_stack, rgb<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>), stretch<span class="op">=</span><span class="va">True</span>, str_clip<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>            ax<span class="op">=</span>axes[<span class="dv">1</span>], title<span class="op">=</span><span class="st">"False Colour / NIR (5-4-3)"</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes:</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    ax.set_axis_off()</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"London — Landsat 8 Composites"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w07_pixelsToPatterns_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ndvi-normalised-difference-vegetation-index" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="ndvi-normalised-difference-vegetation-index"><span class="header-section-number">7.6</span> 4. NDVI — Normalised Difference Vegetation Index</h2>
+<p>NDVI measures how much <strong>live green vegetation</strong> is present. It exploits the fact that healthy vegetation <strong>absorbs Red light</strong> and <strong>reflects NIR light</strong>:</p>
+<p><span class="math display">\[
+\text{NDVI} = \frac{\text{NIR} - \text{Red}}{\text{NIR} + \text{Red}} = \frac{\text{Band 5} - \text{Band 4}}{\text{Band 5} + \text{Band 4}}
+\]</span></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>NDVI value</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>&lt; 0</td>
+<td>Water, clouds, snow</td>
+</tr>
+<tr class="even">
+<td>0 – 0.2</td>
+<td>Bare soil, urban, rock</td>
+</tr>
+<tr class="odd">
+<td>0.2 – 0.5</td>
+<td>Sparse vegetation, shrubs</td>
+</tr>
+<tr class="even">
+<td>&gt; 0.5</td>
+<td>Dense, healthy vegetation</td>
+</tr>
+</tbody>
+</table>
+<p>In Python, this is a simple <strong>vectorised numpy operation</strong> — no loops needed.</p>
+<div id="ndvi-calc" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Calculate NDVI ────────────────────────────────────────────────────────────</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>nir <span class="op">=</span> bands[<span class="st">"band5"</span>]   <span class="co"># Near Infrared</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>red <span class="op">=</span> bands[<span class="st">"band4"</span>]   <span class="co"># Red</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Suppress divide-by-zero warnings where NIR + Red == 0</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> np.errstate(divide<span class="op">=</span><span class="st">"ignore"</span>, invalid<span class="op">=</span><span class="st">"ignore"</span>):</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    ndvi <span class="op">=</span> np.where(</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>        (nir <span class="op">+</span> red) <span class="op">==</span> <span class="dv">0</span>,</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>        np.nan,</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>        (nir <span class="op">-</span> red) <span class="op">/</span> (nir <span class="op">+</span> red)</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    ).astype(<span class="st">"float32"</span>)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"NDVI range : </span><span class="sc">{</span>np<span class="sc">.</span>nanmin(ndvi)<span class="sc">:.3f}</span><span class="ss"> to </span><span class="sc">{</span>np<span class="sc">.</span>nanmax(ndvi)<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mean NDVI  : </span><span class="sc">{</span>np<span class="sc">.</span>nanmean(ndvi)<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NDVI range : -0.235 to 0.609
+Mean NDVI  : 0.197</code></pre>
+</div>
+</div>
+<p>Let’s plot this in a “simple” way:</p>
+<div id="4de9898f-a134-4830-adda-ddadb52f60de" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Simple NDVI vegetation map ────────────────────────────────────────────────</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Classify each pixel into just two vegetation categories:</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   Sparse vegetation : 0.2 ≤ NDVI &lt; 0.5  (parks, gardens, scrub)</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   Dense vegetation  : NDVI ≥ 0.5         (woodland, large parks)</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>veg_map <span class="op">=</span> np.full_like(ndvi, np.nan)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>veg_map[(ndvi <span class="op">&gt;=</span> <span class="fl">0.2</span>) <span class="op">&amp;</span> (ndvi <span class="op">&lt;</span> <span class="fl">0.5</span>)] <span class="op">=</span> <span class="dv">1</span>   <span class="co"># sparse</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>veg_map[ndvi <span class="op">&gt;=</span> <span class="fl">0.5</span>]                  <span class="op">=</span> <span class="dv">2</span>   <span class="co"># dense</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>cmap_veg  <span class="op">=</span> mcolors.ListedColormap([<span class="st">"#91cf60"</span>, <span class="st">"#1a7837"</span>])</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>norm_veg  <span class="op">=</span> mcolors.BoundaryNorm([<span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="fl">2.5</span>], cmap_veg.N)</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">7</span>))</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>ax.imshow(ndvi, cmap<span class="op">=</span><span class="st">"Greys_r"</span>, vmin<span class="op">=-</span><span class="fl">0.2</span>, vmax<span class="op">=</span><span class="fl">0.8</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)   <span class="co"># faint grey base</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>ax.imshow(veg_map, cmap<span class="op">=</span>cmap_veg, norm<span class="op">=</span>norm_veg)                   <span class="co"># vegetation on top</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Vegetation cover — London (from NDVI)"</span>, fontsize<span class="op">=</span><span class="dv">13</span>)</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>ax.set_axis_off()</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Manual legend</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Patch</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>ax.legend(</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>    handles<span class="op">=</span>[</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>        Patch(facecolor<span class="op">=</span><span class="st">"#91cf60"</span>, label<span class="op">=</span><span class="st">"Sparse vegetation  (NDVI 0.2–0.5)"</span>),</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>        Patch(facecolor<span class="op">=</span><span class="st">"#1a7837"</span>, label<span class="op">=</span><span class="st">"Dense vegetation   (NDVI &gt; 0.5)"</span>),</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>    loc<span class="op">=</span><span class="st">"lower left"</span>, frameon<span class="op">=</span><span class="va">False</span>, fontsize<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w07_pixelsToPatterns_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Below is a <strong>full visualisation</strong> (note: the code is fairly complex).</p>
+</section>
+<section id="supervised-classification" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="supervised-classification"><span class="header-section-number">7.7</span> 5. Supervised Classification</h2>
+<p>We now classify each pixel into one of four land cover types:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Class label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>0</code></td>
+<td>Water</td>
+</tr>
+<tr class="even">
+<td><code>1</code></td>
+<td>Developed / Urban</td>
+</tr>
+<tr class="odd">
+<td><code>2</code></td>
+<td>Undeveloped / Vegetation</td>
+</tr>
+<tr class="even">
+<td><code>3</code></td>
+<td>Cloud</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Approach — Random Forest Classifier (scikit-learn):</strong> 1. Create training labels by <strong>thresholding NDVI and reflectance values</strong> (a simple rule-based proxy for hand-labelling) 2. Extract the 7-band feature vector for each labelled pixel 3. Train a <code>RandomForestClassifier</code> 4. Predict across the full image and visualise the result</p>
+<p>In a real project, training labels would come from <strong>digitised ground truth polygons</strong> in a GIS. The rule-based approach below is used here purely for demonstration.</p>
+<section id="how-would-you-create-training-points-in-python" class="level3" data-number="7.7.1">
+<h3 data-number="7.7.1" class="anchored" data-anchor-id="how-would-you-create-training-points-in-python"><span class="header-section-number">7.7.1</span> How would you create training points in Python?</h3>
+<p>This is an approach for <strong>interactive digitising</strong> in Python:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tool</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://leafmap.org/"><strong>leafmap</strong></a></td>
+<td>Draw points on an interactive Leaflet map in Jupyter, export as GeoJSON</td>
+</tr>
+<tr class="even">
+<td><a href="https://geemap.org/"><strong>geemap</strong></a></td>
+<td>Same but connected to Google Earth Engine — useful for larger areas</td>
+</tr>
+<tr class="odd">
+<td><strong>QGIS → GeoJSON</strong></td>
+<td>Digitise in QGIS, export as <code>.geojson</code> or <code>.shp</code>, load with <code>geopandas</code></td>
+</tr>
+</tbody>
+</table>
+<p>A <code>leafmap</code> workflow would look like this — <strong>you do not need to run this</strong>:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install leafmap</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> leafmap</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> leafmap.Map()</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>m.add_basemap(<span class="st">'SATELLITE'</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>m  <span class="co"># displays interactive map — draw your points using the toolbar</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># After drawing:</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> m.get_drawn_features()          <span class="co"># returns a GeoDataFrame</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>gdf[<span class="st">'class'</span>] <span class="op">=</span> <span class="st">'clouds'</span>               <span class="co"># label this batch</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="co"># ... repeat for each class, then:</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>training_points <span class="op">=</span> pd.concat([clouds, developed, undeveloped, water])</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>training_points.to_file(<span class="st">'data/london_trainingPoints_example.shp'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For this exercise, <strong>training points have already been prepared</strong> and saved as a shapefile. We load them directly below.</p>
+<div id="training-labels" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Step 1: Load pre-prepared training points ────────────────────────────────────────</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The shapefile contains hand-digitised points for four land cover classes:</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   id=1  clouds       id=2  developed</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   id=3  undeveloped  id=4  water</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>training_points <span class="op">=</span> gpd.read_file(</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"../data/pixels/london_trainingPoints/london_trainingPoints.shp"</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Loaded </span><span class="sc">{</span><span class="bu">len</span>(training_points)<span class="sc">}</span><span class="ss"> training points"</span>)</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(training_points[[<span class="st">"class"</span>, <span class="st">"id"</span>]].value_counts().sort_index())</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Reproject to raster CRS for extraction</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(landsat_tifs[<span class="dv">0</span>]) <span class="im">as</span> src:</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    raster_crs <span class="op">=</span> src.crs</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>tp_proj <span class="op">=</span> training_points.to_crs(raster_crs)</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract band values at each training point</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalent of R: df &lt;- raster::extract(landsat, training_points)</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>coords <span class="op">=</span> [(geom.x, geom.y) <span class="cf">for</span> geom <span class="kw">in</span> tp_proj.geometry]</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>extracted <span class="op">=</span> {}</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> name, path <span class="kw">in</span> BAND_FILES.items():</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> rasterio.<span class="bu">open</span>(path) <span class="im">as</span> src:</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>        extracted[name] <span class="op">=</span> [v[<span class="dv">0</span>] <span class="cf">for</span> v <span class="kw">in</span> src.sample(coords)]</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>df_extract <span class="op">=</span> pd.DataFrame(extracted)</span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>df_extract[<span class="st">"class"</span>] <span class="op">=</span> training_points[<span class="st">"class"</span>].values</span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>df_extract[<span class="st">"id"</span>]    <span class="op">=</span> training_points[<span class="st">"id"</span>].values</span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>df_extract <span class="op">=</span> df_extract.dropna()</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Extracted band values for </span><span class="sc">{</span><span class="bu">len</span>(df_extract)<span class="sc">}</span><span class="ss"> points"</span>)</span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_extract.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Loaded 57 training points
+class        id 
+clouds       1.0     9
+developed    2.0    12
+undeveloped  3.0    14
+water        4.0    22
+Name: count, dtype: int64
+
+Extracted band values for 57 points
+   band1  band2  band3  band4  band5  band6  band7   class   id
+0  11636  12300  14071  15659  17048  17925  16451  clouds  1.0
+1  13482  14387  15285  15875  16448  16042  14579  clouds  1.0
+2  14452  15474  16947  18472  20646  21577  16697  clouds  1.0
+3  12589  13673  15304  16322  16906  16274  14316  clouds  1.0
+4  12592  13407  15333  16942  19117  19893  17447  clouds  1.0</code></pre>
+</div>
+</div>
+<div id="54ea8201-d726-4f2b-9901-aa9a59964f94" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Step 2: Plot training points coloured by land use class ──────────────────────────</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>CLASS_COLOURS <span class="op">=</span> {</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"clouds"</span>:      <span class="st">"cyan"</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"developed"</span>:   <span class="st">"burlywood"</span>,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"undeveloped"</span>: <span class="st">"darkgreen"</span>,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"water"</span>:       <span class="st">"blue"</span>,</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Load city boundary and reproject everything to the same CRS</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>city_boundary <span class="op">=</span> gpd.read_file(</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"../data/pixels/statistical-gis-boundaries-london/London_ward.shp"</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>).dissolve()</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the raster CRS as the common reference</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(landsat_tifs[<span class="dv">0</span>]) <span class="im">as</span> src:</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>    plot_crs <span class="op">=</span> src.crs</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>city_boundary        <span class="op">=</span> city_boundary.to_crs(plot_crs)</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>training_points_plot <span class="op">=</span> training_points.to_crs(plot_crs)</span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">8</span>))</span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>city_boundary.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">"lightgray"</span>, edgecolor<span class="op">=</span><span class="st">"none"</span>)</span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cls, colour <span class="kw">in</span> CLASS_COLOURS.items():</span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>    subset <span class="op">=</span> training_points_plot[training_points_plot[<span class="st">"class"</span>] <span class="op">==</span> cls]</span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>    subset.plot(ax<span class="op">=</span>ax, color<span class="op">=</span>colour, markersize<span class="op">=</span><span class="dv">5</span>, label<span class="op">=</span>cls)</span>
+<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Classification points by land use"</span>, fontsize<span class="op">=</span><span class="dv">13</span>)</span>
+<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>ax.legend(markerscale<span class="op">=</span><span class="dv">3</span>, frameon<span class="op">=</span><span class="va">False</span>, fontsize<span class="op">=</span><span class="dv">10</span>, loc<span class="op">=</span><span class="st">"lower left"</span>)</span>
+<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>ax.set_axis_off()</span>
+<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w07_pixelsToPatterns_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="train-classifier" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Step 2: Train Random Forest on the loaded training points ────────────────</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Build feature matrix X and label vector y from the extracted band values</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>BAND_COLS <span class="op">=</span> [<span class="ss">f"band</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">8</span>)]</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df_extract[BAND_COLS].values</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_extract[<span class="st">"class"</span>].values</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>, stratify<span class="op">=</span>y</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Training samples : </span><span class="sc">{</span><span class="bu">len</span>(X_train)<span class="sc">:,}</span><span class="ss">"</span>)</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Test samples     : </span><span class="sc">{</span><span class="bu">len</span>(X_test)<span class="sc">:,}</span><span class="ss">"</span>)</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="co"># RandomForestClassifier is the Python equivalent of R's randomForest()</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>rf <span class="op">=</span> RandomForestClassifier(</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>    n_estimators<span class="op">=</span><span class="dv">100</span>,</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>    max_features<span class="op">=</span><span class="st">"sqrt"</span>,</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>    n_jobs<span class="op">=-</span><span class="dv">1</span>,</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>    random_state<span class="op">=</span><span class="dv">42</span></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>rf.fit(X_train, y_train)</span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Training complete!"</span>)</span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> rf.predict(X_test)</span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Classification Report:"</span>)</span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(classification_report(y_test, y_pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Training samples : 45
+Test samples     : 12
+
+Training complete!
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      clouds       1.00      1.00      1.00         2
+   developed       1.00      1.00      1.00         2
+ undeveloped       1.00      1.00      1.00         3
+       water       1.00      1.00      1.00         5
+
+    accuracy                           1.00        12
+   macro avg       1.00      1.00      1.00        12
+weighted avg       1.00      1.00      1.00        12
+</code></pre>
+</div>
+</div>
+<div id="predict-full" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Step 3: Predict across the full image ─────────────────────────────────────</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>X_full <span class="op">=</span> np.column_stack(</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    [bands[<span class="ss">f"band</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>].ravel() <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">8</span>)]</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>valid_mask <span class="op">=</span> <span class="op">~</span>np.isnan(X_full).<span class="bu">any</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>X_valid    <span class="op">=</span> X_full[valid_mask]</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>predicted_flat <span class="op">=</span> np.full(X_full.shape[<span class="dv">0</span>], fill_value<span class="op">=</span><span class="st">""</span>, dtype<span class="op">=</span><span class="bu">object</span>)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>predicted_flat[valid_mask] <span class="op">=</span> rf.predict(X_valid)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Map string class names to integers for visualisation</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>class_to_int <span class="op">=</span> {<span class="st">"clouds"</span>: <span class="dv">1</span>, <span class="st">"developed"</span>: <span class="dv">2</span>, <span class="st">"undeveloped"</span>: <span class="dv">3</span>, <span class="st">"water"</span>: <span class="dv">4</span>}</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>int_to_class <span class="op">=</span> {v: k <span class="cf">for</span> k, v <span class="kw">in</span> class_to_int.items()}</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>class_names  <span class="op">=</span> <span class="bu">list</span>(class_to_int.keys())</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>predicted_int <span class="op">=</span> np.array(</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>    [class_to_int.get(c, <span class="dv">0</span>) <span class="cf">for</span> c <span class="kw">in</span> predicted_flat], dtype<span class="op">=</span><span class="st">"float32"</span></span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>predicted_int[<span class="op">~</span>valid_mask] <span class="op">=</span> np.nan</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>predicted_map <span class="op">=</span> predicted_int.reshape(bands[<span class="st">"band1"</span>].shape)</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Prediction complete!"</span>)</span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cls, cid <span class="kw">in</span> class_to_int.items():</span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>    pct <span class="op">=</span> np.nansum(predicted_map <span class="op">==</span> cid) <span class="op">/</span> np.<span class="bu">sum</span>(<span class="op">~</span>np.isnan(predicted_map)) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"  </span><span class="sc">{</span>cls<span class="sc">:12s}</span><span class="ss"> : </span><span class="sc">{</span>pct<span class="sc">:.1f}</span><span class="ss">% of pixels"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Prediction complete!
+  clouds       : 4.5% of pixels
+  developed    : 35.6% of pixels
+  undeveloped  : 57.7% of pixels
+  water        : 2.2% of pixels</code></pre>
+</div>
+</div>
+<div id="plot-classification" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Step 5: Visualise classification result ───────────────────────────────────</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> mcolors.ListedColormap([<span class="st">"cyan"</span>, <span class="st">"burlywood"</span>, <span class="st">"darkgreen"</span>, <span class="st">"blue"</span>])</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>bounds <span class="op">=</span> [<span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="fl">2.5</span>, <span class="fl">3.5</span>, <span class="fl">4.5</span>]</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>norm <span class="op">=</span> mcolors.BoundaryNorm(bounds, cmap.N)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">7</span>))</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>ep.plot_rgb(landsat_display, rgb<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>),</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>            ax<span class="op">=</span>axes[<span class="dv">0</span>], title<span class="op">=</span><span class="st">"False Colour (5-4-3) — Reference"</span>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_axis_off()</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> axes[<span class="dv">1</span>].imshow(predicted_map, cmap<span class="op">=</span>cmap, norm<span class="op">=</span>norm)</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">"Random Forest Classification — London"</span>, fontsize<span class="op">=</span><span class="dv">13</span>)</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_axis_off()</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>cbar <span class="op">=</span> fig.colorbar(im, ax<span class="op">=</span>axes[<span class="dv">1</span>], fraction<span class="op">=</span><span class="fl">0.03</span>, pad<span class="op">=</span><span class="fl">0.04</span>, ticks<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>cbar.ax.set_yticklabels([<span class="st">"Clouds"</span>, <span class="st">"Developed"</span>, <span class="st">"Undeveloped"</span>, <span class="st">"Water"</span>])</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Land Cover Classification from Landsat 8 — Random Forest"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w07_pixelsToPatterns_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Task 3:</strong> Does this classification look correct for London? Consider what you know about the city — are the land cover classes (clouds, developed, undeveloped, and water) distributed where you would expect them to be? Are there any areas that look misclassified?</p>
+</blockquote>
+<div id="feature-importance" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Step 6: Feature importance ─────────────────────────────────────────────────</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Which Landsat band was most useful for classification?</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>importances <span class="op">=</span> rf.feature_importances_</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>band_labels_list <span class="op">=</span> [<span class="ss">f"Band </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">8</span>)]</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>bars <span class="op">=</span> ax.barh(band_labels_list, importances, color<span class="op">=</span><span class="st">"steelblue"</span>, edgecolor<span class="op">=</span><span class="st">"white"</span>)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Feature Importance (Gini)"</span>)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Random Forest — Band Importance for Land Cover Classification"</span>)</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>ax.invert_yaxis()</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> bar, val <span class="kw">in</span> <span class="bu">zip</span>(bars, importances):</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    ax.text(val <span class="op">+</span> <span class="fl">0.002</span>, bar.get_y() <span class="op">+</span> bar.get_height()<span class="op">/</span><span class="dv">2</span>,</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"</span><span class="sc">{</span>val<span class="sc">:.3f}</span><span class="ss">"</span>, va<span class="op">=</span><span class="st">"center"</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w07_pixelsToPatterns_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="spectral-profile-analysis" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="spectral-profile-analysis"><span class="header-section-number">7.8</span> Spectral Profile Analysis</h2>
+<p>Before accepting the classification, we should check whether the four classes are <strong>spectrally separable</strong> — do they reflect light differently across the 7 bands?</p>
+<p>We plot two views: 1. <strong>Line plot</strong> — mean reflectance per class across bands (the “spectral signature”) 2. <strong>Density plot</strong> — distribution of all reflectance values per class across all bands</p>
+<blockquote class="blockquote">
+<p>If two classes overlap heavily, the classifier will struggle to tell them apart — the classic example here is <strong>clouds vs developed land</strong>, which both appear bright.</p>
+</blockquote>
+<div id="5d3a1d16-f33a-42d4-b54f-f1a83d4f1bf8" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Mean spectral profile per class ──────────────────────────────────────────</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalent of R: group_by(id) %&gt;% summarise(mean per band) then ggplot line</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>BAND_COLS <span class="op">=</span> [<span class="ss">f"band</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">8</span>)]</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>profiles <span class="op">=</span> (</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    df_extract</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">"class"</span>)[BAND_COLS]</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    .mean()</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Wide → long  (equivalent of tidyr::gather)</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>profiles_long <span class="op">=</span> profiles.melt(</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    id_vars<span class="op">=</span><span class="st">"class"</span>,</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>    value_vars<span class="op">=</span>BAND_COLS,</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>    var_name<span class="op">=</span><span class="st">"band"</span>,</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>    value_name<span class="op">=</span><span class="st">"reflectance"</span></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cls, colour <span class="kw">in</span> CLASS_COLOURS.items():</span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>    subset <span class="op">=</span> profiles_long[profiles_long[<span class="st">"class"</span>] <span class="op">==</span> cls]</span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>    ax.plot(subset[<span class="st">"band"</span>], subset[<span class="st">"reflectance"</span>],</span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a>            marker<span class="op">=</span><span class="st">"o"</span>, linewidth<span class="op">=</span><span class="dv">2</span>, markersize<span class="op">=</span><span class="dv">7</span>,</span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span>colour, label<span class="op">=</span>cls)</span>
+<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Band"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Mean Reflectance"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Spectral Profile from Landsat 8 Imagery"</span>, fontsize<span class="op">=</span><span class="dv">13</span>)</span>
+<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a>ax.legend(frameon<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb31-32"><a href="#cb31-32" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a>sns.despine(ax<span class="op">=</span>ax)</span>
+<span id="cb31-34"><a href="#cb31-34" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb31-35"><a href="#cb31-35" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w07_pixelsToPatterns_files/figure-html/cell-21-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="8864457e-00e6-4918-a1ca-eff95e5bb9c8" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Density histograms of spectral profiles ───────────────────────────────────</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalent of R: geom_density() + geom_vline(grp.mean)</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># If clouds and developed land overlap heavily, expect the classifier to confuse them.</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>all_values_long <span class="op">=</span> df_extract.melt(</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    id_vars<span class="op">=</span>[<span class="st">"class"</span>],</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    value_vars<span class="op">=</span>BAND_COLS,</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    var_name<span class="op">=</span><span class="st">"band"</span>,</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    value_name<span class="op">=</span><span class="st">"reflectance"</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>class_means <span class="op">=</span> all_values_long.groupby(<span class="st">"class"</span>)[<span class="st">"reflectance"</span>].mean()</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> cls, colour <span class="kw">in</span> CLASS_COLOURS.items():</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    vals <span class="op">=</span> all_values_long[all_values_long[<span class="st">"class"</span>] <span class="op">==</span> cls][<span class="st">"reflectance"</span>]</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>    vals.plot.kde(ax<span class="op">=</span>ax, color<span class="op">=</span>colour, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span>cls)</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>    ax.fill_between(</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>        ax.lines[<span class="op">-</span><span class="dv">1</span>].get_xdata(),</span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>        ax.lines[<span class="op">-</span><span class="dv">1</span>].get_ydata(),</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>        alpha<span class="op">=</span><span class="fl">0.25</span>, color<span class="op">=</span>colour</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>    ax.axvline(class_means[cls], color<span class="op">=</span>colour, linestyle<span class="op">=</span><span class="st">"--"</span>, linewidth<span class="op">=</span><span class="fl">1.2</span>)</span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Reflectance Value"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Density"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>ax.set_title(</span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Density histograms of spectral profiles</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Dashed lines = mean reflectance per class"</span>,</span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a>    fontsize<span class="op">=</span><span class="dv">12</span></span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a>ax.legend(frameon<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a>sns.despine(ax<span class="op">=</span>ax)</span>
+<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"If there is overlap between categories, the model may struggle to differentiate them."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w07_pixelsToPatterns_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>If there is overlap between categories, the model may struggle to differentiate them.</code></pre>
+</div>
+</div>
+</section>
+<section id="decision-tree-classification" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="decision-tree-classification"><span class="header-section-number">7.9</span> Decision Tree Classification</h2>
+<p>As well as Random Forest, we can use a <strong>Decision Tree</strong> (<code>rpart</code> in R → <code>sklearn.tree.DecisionTreeClassifier</code> in Python).</p>
+<p>A decision tree asks a series of if/else questions about band values — each split is a <strong>node</strong>, each outcome is a <strong>leaf</strong>. Unlike Random Forest you can actually <em>read</em> the rules it learned, making it a great teaching tool.</p>
+<blockquote class="blockquote">
+<p><strong>Task 4:</strong> After running the classification, comment on the accuracy with your partners. Look at West London — is Heathrow Airport being misclassified as cloud?</p>
+</blockquote>
+<div id="3af9535b-8bec-4109-b96e-e511a66cf42c" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Train decision tree ───────────────────────────────────────────────────────</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df_extract[BAND_COLS].values</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df_extract[<span class="st">"class"</span>].values</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>X_tr, X_te, y_tr, y_te <span class="op">=</span> train_test_split(</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    X, y, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>, stratify<span class="op">=</span>y</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> DecisionTreeClassifier(max_depth<span class="op">=</span><span class="dv">5</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>dt.fit(X_tr, y_tr)</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Tree depth: </span><span class="sc">{</span>dt<span class="sc">.</span>get_depth()<span class="sc">}</span><span class="ss"> | Leaves: </span><span class="sc">{</span>dt<span class="sc">.</span>get_n_leaves()<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Visualise the tree ────────────────────────────────────────────────────────</span></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalent of R: rpart.plot(model.class)</span></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">8</span>))</span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>plot_tree(</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>    dt,</span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>    feature_names<span class="op">=</span>BAND_COLS,</span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>    class_names<span class="op">=</span>dt.classes_,</span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>    filled<span class="op">=</span><span class="va">True</span>, rounded<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>    fontsize<span class="op">=</span><span class="dv">9</span>, ax<span class="op">=</span>ax</span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Classification Tree"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Predict across the full image (Decision Tree) ────────────────────────────</span></span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>predicted_flat_dt <span class="op">=</span> np.full(X_full.shape[<span class="dv">0</span>], fill_value<span class="op">=</span><span class="st">""</span>, dtype<span class="op">=</span><span class="bu">object</span>)</span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>predicted_flat_dt[valid_mask] <span class="op">=</span> dt.predict(X_valid)</span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a>predicted_int_dt <span class="op">=</span> np.array(</span>
+<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a>    [class_to_int.get(c, <span class="dv">0</span>) <span class="cf">for</span> c <span class="kw">in</span> predicted_flat_dt], dtype<span class="op">=</span><span class="st">"float32"</span></span>
+<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a>predicted_int_dt[<span class="op">~</span>valid_mask] <span class="op">=</span> np.nan</span>
+<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a>predicted_map_dt <span class="op">=</span> predicted_int_dt.reshape(bands[<span class="st">"band1"</span>].shape)</span>
+<span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Decision Tree prediction complete!"</span>)</span>
+<span id="cb34-40"><a href="#cb34-40" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>({cls: <span class="bu">int</span>(np.nansum(predicted_map_dt <span class="op">==</span> idx)) <span class="cf">for</span> cls, idx <span class="kw">in</span> class_to_int.items()})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tree depth: 3 | Leaves: 4</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w07_pixelsToPatterns_files/figure-html/cell-23-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Decision Tree prediction complete!
+{'clouds': 89166, 'developed': 541257, 'undeveloped': 1104408, 'water': 38163}</code></pre>
+</div>
+</div>
+</section>
+<section id="model-evaluation-confusion-matrix" class="level2" data-number="7.10">
+<h2 data-number="7.10" class="anchored" data-anchor-id="model-evaluation-confusion-matrix"><span class="header-section-number">7.10</span> Model Evaluation — Confusion Matrix</h2>
+<p>A confusion matrix compares the <strong>predicted</strong> class to the <strong>observed</strong> (ground-truthed) class.</p>
+<blockquote class="blockquote">
+<p><strong>Task 5:</strong> Try and interpret the matrix. Which classes are most often confused? See https://www.geeksforgeeks.org/machine-learning/confusion-matrix-machine-learning/</p>
+</blockquote>
+<p>Key metrics to look for: - <strong>Accuracy</strong> — % of all points classified correctly - <strong>Sensitivity (Recall)</strong> — of points that <em>are</em> class X, how many did we catch? - <strong>Specificity</strong> — of points that <em>aren’t</em> class X, how many did we correctly exclude?</p>
+<p>Note: a 100% accuracy on training points is common with few points — it does not mean the full map is perfect!</p>
+<div id="bb2bbe8c-4173-4824-b683-20ec74b9bbb5" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Confusion matrix ─────────────────────────────────────────────────────────</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalent of R: confusionMatrix(testProbs$obs, testProbs$pred)</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>y_pred_te <span class="op">=</span> dt.predict(X_te)</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(classification_report(y_te, y_pred_te))</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">6</span>))</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>ConfusionMatrixDisplay.from_predictions(</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    y_te, y_pred_te,</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>    display_labels<span class="op">=</span>dt.classes_,</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"Blues"</span>, ax<span class="op">=</span>ax</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Confusion Matrix — Decision Tree"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"""</span></span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a><span class="st">Note: You could create more training points using leafmap (see the section above).</span></span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a><span class="st">More points don't automatically mean better accuracy — the quality and placement</span></span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a><span class="st">of training points matters more than the quantity.</span></span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              precision    recall  f1-score   support
+
+      clouds       0.67      1.00      0.80         2
+   developed       1.00      0.50      0.67         2
+ undeveloped       1.00      1.00      1.00         3
+       water       1.00      1.00      1.00         5
+
+    accuracy                           0.92        12
+   macro avg       0.92      0.88      0.87        12
+weighted avg       0.94      0.92      0.91        12
+</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w07_pixelsToPatterns_files/figure-html/cell-24-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Note: You could create more training points using leafmap (see the section above).
+More points don't automatically mean better accuracy — the quality and placement
+of training points matters more than the quantity.
+</code></pre>
+</div>
+</div>
+</section>
+<section id="final-classification-map" class="level2" data-number="7.11">
+<h2 data-number="7.11" class="anchored" data-anchor-id="final-classification-map"><span class="header-section-number">7.11</span> Final Classification Map</h2>
+<p>A richer three-panel view of the decision tree classification result for great visualisation.</p>
+<div id="77df27cf-0b97-4c59-8520-94bb958063a0" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Rich 3-panel classification visualisation ─────────────────────────────────</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Mirrors the NDVI 3-panel layout: map | pixel count bar | % share bar</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>CLASS_SCHEME <span class="op">=</span> [</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"label"</span>: <span class="st">"Clouds"</span>,      <span class="st">"id"</span>: <span class="dv">1</span>, <span class="st">"colour"</span>: <span class="st">"cyan"</span>},</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"label"</span>: <span class="st">"Developed"</span>,   <span class="st">"id"</span>: <span class="dv">2</span>, <span class="st">"colour"</span>: <span class="st">"burlywood"</span>},</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"label"</span>: <span class="st">"Undeveloped"</span>, <span class="st">"id"</span>: <span class="dv">3</span>, <span class="st">"colour"</span>: <span class="st">"darkgreen"</span>},</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"label"</span>: <span class="st">"Water"</span>,       <span class="st">"id"</span>: <span class="dv">4</span>, <span class="st">"colour"</span>: <span class="st">"#1d6fa4"</span>},</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>total_valid  <span class="op">=</span> <span class="bu">int</span>(np.<span class="bu">sum</span>(<span class="op">~</span>np.isnan(predicted_map_dt)))</span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>class_counts <span class="op">=</span> [<span class="bu">int</span>(np.nansum(predicted_map_dt <span class="op">==</span> c[<span class="st">"id"</span>])) <span class="cf">for</span> c <span class="kw">in</span> CLASS_SCHEME]</span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>pcts         <span class="op">=</span> [n <span class="op">/</span> total_valid <span class="op">*</span> <span class="dv">100</span> <span class="cf">for</span> n <span class="kw">in</span> class_counts]</span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>colours      <span class="op">=</span> [c[<span class="st">"colour"</span>] <span class="cf">for</span> c <span class="kw">in</span> CLASS_SCHEME]</span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>labels       <span class="op">=</span> [c[<span class="st">"label"</span>] <span class="cf">for</span> c <span class="kw">in</span> CLASS_SCHEME]</span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Figure layout: map | count bar | % bar ───────────────────────────────────</span></span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">7</span>))</span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>gs  <span class="op">=</span> fig.add_gridspec(<span class="dv">1</span>, <span class="dv">3</span>, width_ratios<span class="op">=</span>[<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">1</span>], wspace<span class="op">=</span><span class="fl">0.35</span>)</span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>ax_map <span class="op">=</span> fig.add_subplot(gs[<span class="dv">0</span>])</span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>ax_cnt <span class="op">=</span> fig.add_subplot(gs[<span class="dv">1</span>])</span>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>ax_pct <span class="op">=</span> fig.add_subplot(gs[<span class="dv">2</span>])</span>
+<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Panel 1: classification map with horizontal legend at bottom ──────────────</span></span>
+<span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.patches <span class="im">import</span> Patch</span>
+<span id="cb40-26"><a href="#cb40-26" aria-hidden="true" tabindex="-1"></a>cmap_cls <span class="op">=</span> mcolors.ListedColormap(colours)</span>
+<span id="cb40-27"><a href="#cb40-27" aria-hidden="true" tabindex="-1"></a>norm_cls <span class="op">=</span> mcolors.BoundaryNorm([<span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="fl">2.5</span>, <span class="fl">3.5</span>, <span class="fl">4.5</span>], cmap_cls.N)</span>
+<span id="cb40-28"><a href="#cb40-28" aria-hidden="true" tabindex="-1"></a>ax_map.imshow(predicted_map_dt, cmap<span class="op">=</span>cmap_cls, norm<span class="op">=</span>norm_cls)</span>
+<span id="cb40-29"><a href="#cb40-29" aria-hidden="true" tabindex="-1"></a>ax_map.set_title(<span class="st">"Decision Tree Classification — London"</span>, fontsize<span class="op">=</span><span class="dv">13</span>, pad<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb40-30"><a href="#cb40-30" aria-hidden="true" tabindex="-1"></a>ax_map.set_axis_off()</span>
+<span id="cb40-31"><a href="#cb40-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-32"><a href="#cb40-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Horizontal patch legend placed below the map</span></span>
+<span id="cb40-33"><a href="#cb40-33" aria-hidden="true" tabindex="-1"></a>legend_handles <span class="op">=</span> [</span>
+<span id="cb40-34"><a href="#cb40-34" aria-hidden="true" tabindex="-1"></a>    Patch(facecolor<span class="op">=</span>c[<span class="st">"colour"</span>], label<span class="op">=</span>c[<span class="st">"label"</span>]) <span class="cf">for</span> c <span class="kw">in</span> CLASS_SCHEME</span>
+<span id="cb40-35"><a href="#cb40-35" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb40-36"><a href="#cb40-36" aria-hidden="true" tabindex="-1"></a>ax_map.legend(</span>
+<span id="cb40-37"><a href="#cb40-37" aria-hidden="true" tabindex="-1"></a>    handles<span class="op">=</span>legend_handles,</span>
+<span id="cb40-38"><a href="#cb40-38" aria-hidden="true" tabindex="-1"></a>    loc<span class="op">=</span><span class="st">"lower center"</span>,</span>
+<span id="cb40-39"><a href="#cb40-39" aria-hidden="true" tabindex="-1"></a>    bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.08</span>),</span>
+<span id="cb40-40"><a href="#cb40-40" aria-hidden="true" tabindex="-1"></a>    ncol<span class="op">=</span><span class="dv">4</span>,</span>
+<span id="cb40-41"><a href="#cb40-41" aria-hidden="true" tabindex="-1"></a>    frameon<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb40-42"><a href="#cb40-42" aria-hidden="true" tabindex="-1"></a>    fontsize<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb40-43"><a href="#cb40-43" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb40-44"><a href="#cb40-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-45"><a href="#cb40-45" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Panel 2: pixel count horizontal bar ──────────────────────────────────────</span></span>
+<span id="cb40-46"><a href="#cb40-46" aria-hidden="true" tabindex="-1"></a>bars <span class="op">=</span> ax_cnt.barh(labels, class_counts, color<span class="op">=</span>colours, edgecolor<span class="op">=</span><span class="st">"white"</span>, height<span class="op">=</span><span class="fl">0.55</span>)</span>
+<span id="cb40-47"><a href="#cb40-47" aria-hidden="true" tabindex="-1"></a>ax_cnt.set_xlabel(<span class="st">"Pixel count"</span>, fontsize<span class="op">=</span><span class="dv">11</span>)</span>
+<span id="cb40-48"><a href="#cb40-48" aria-hidden="true" tabindex="-1"></a>ax_cnt.set_title(<span class="st">"Pixels per class"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb40-49"><a href="#cb40-49" aria-hidden="true" tabindex="-1"></a>ax_cnt.set_xlim(<span class="dv">0</span>, <span class="bu">max</span>(class_counts) <span class="op">*</span> <span class="fl">1.3</span>)</span>
+<span id="cb40-50"><a href="#cb40-50" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> bar, n <span class="kw">in</span> <span class="bu">zip</span>(bars, class_counts):</span>
+<span id="cb40-51"><a href="#cb40-51" aria-hidden="true" tabindex="-1"></a>    ax_cnt.text(n <span class="op">+</span> <span class="bu">max</span>(class_counts) <span class="op">*</span> <span class="fl">0.02</span>,</span>
+<span id="cb40-52"><a href="#cb40-52" aria-hidden="true" tabindex="-1"></a>                bar.get_y() <span class="op">+</span> bar.get_height() <span class="op">/</span> <span class="dv">2</span>,</span>
+<span id="cb40-53"><a href="#cb40-53" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"</span><span class="sc">{</span>n<span class="sc">:,}</span><span class="ss">"</span>, va<span class="op">=</span><span class="st">"center"</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb40-54"><a href="#cb40-54" aria-hidden="true" tabindex="-1"></a>ax_cnt.invert_yaxis()</span>
+<span id="cb40-55"><a href="#cb40-55" aria-hidden="true" tabindex="-1"></a>sns.despine(ax<span class="op">=</span>ax_cnt)</span>
+<span id="cb40-56"><a href="#cb40-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-57"><a href="#cb40-57" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Panel 3: % share horizontal bar ──────────────────────────────────────────</span></span>
+<span id="cb40-58"><a href="#cb40-58" aria-hidden="true" tabindex="-1"></a>bars2 <span class="op">=</span> ax_pct.barh(labels, pcts, color<span class="op">=</span>colours, edgecolor<span class="op">=</span><span class="st">"white"</span>, height<span class="op">=</span><span class="fl">0.55</span>)</span>
+<span id="cb40-59"><a href="#cb40-59" aria-hidden="true" tabindex="-1"></a>ax_pct.set_xlabel(<span class="st">"</span><span class="sc">% o</span><span class="st">f pixels"</span>, fontsize<span class="op">=</span><span class="dv">11</span>)</span>
+<span id="cb40-60"><a href="#cb40-60" aria-hidden="true" tabindex="-1"></a>ax_pct.set_title(<span class="st">"Land Cover Share"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb40-61"><a href="#cb40-61" aria-hidden="true" tabindex="-1"></a>ax_pct.set_xlim(<span class="dv">0</span>, <span class="bu">max</span>(pcts) <span class="op">*</span> <span class="fl">1.3</span>)</span>
+<span id="cb40-62"><a href="#cb40-62" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> bar, pct <span class="kw">in</span> <span class="bu">zip</span>(bars2, pcts):</span>
+<span id="cb40-63"><a href="#cb40-63" aria-hidden="true" tabindex="-1"></a>    ax_pct.text(pct <span class="op">+</span> <span class="bu">max</span>(pcts) <span class="op">*</span> <span class="fl">0.02</span>,</span>
+<span id="cb40-64"><a href="#cb40-64" aria-hidden="true" tabindex="-1"></a>                bar.get_y() <span class="op">+</span> bar.get_height() <span class="op">/</span> <span class="dv">2</span>,</span>
+<span id="cb40-65"><a href="#cb40-65" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"</span><span class="sc">{</span>pct<span class="sc">:.1f}</span><span class="ss">%"</span>, va<span class="op">=</span><span class="st">"center"</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
+<span id="cb40-66"><a href="#cb40-66" aria-hidden="true" tabindex="-1"></a>ax_pct.invert_yaxis()</span>
+<span id="cb40-67"><a href="#cb40-67" aria-hidden="true" tabindex="-1"></a>sns.despine(ax<span class="op">=</span>ax_pct)</span>
+<span id="cb40-68"><a href="#cb40-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-69"><a href="#cb40-69" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">"Land Cover Classification — London Landsat 8"</span>, fontsize<span class="op">=</span><span class="dv">15</span>, y<span class="op">=</span><span class="fl">1.01</span>)</span>
+<span id="cb40-70"><a href="#cb40-70" aria-hidden="true" tabindex="-1"></a>plt.subplots_adjust(top<span class="op">=</span><span class="fl">0.93</span>, wspace<span class="op">=</span><span class="fl">0.35</span>, bottom<span class="op">=</span><span class="fl">0.12</span>)</span>
+<span id="cb40-71"><a href="#cb40-71" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="w07_pixelsToPatterns_files/figure-html/cell-25-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="whats-next-satellite-embeddings" class="level2" data-number="7.12">
+<h2 data-number="7.12" class="anchored" data-anchor-id="whats-next-satellite-embeddings"><span class="header-section-number">7.12</span> What’s Next? Satellite Embeddings</h2>
+<p>Everything we have done so far — loading bands, calculating NDVI, training a classifier — treats each pixel as a set of raw reflectance numbers. The next frontier asks a different question: <strong>can we teach a model to <em>understand</em> what a landscape looks like, the same way large language models understand text?</strong></p>
+<section id="what-are-embeddings" class="level3" data-number="7.12.1">
+<h3 data-number="7.12.1" class="anchored" data-anchor-id="what-are-embeddings"><span class="header-section-number">7.12.1</span> What are embeddings?</h3>
+<p>An <strong>embedding</strong> is a compact numeric vector (e.g.&nbsp;512 numbers) that encodes the <em>meaning</em> of an image patch — not just its raw pixel values, but what it represents: a park, a motorway interchange, a reservoir, a housing estate. Two patches that look similar will have vectors that are close together in this high-dimensional space, even if they are on opposite sides of the world.</p>
+<pre><code>Raw Landsat patch (7 bands × 64×64 pixels = 28,672 numbers)
+        ↓  foundation model  ↓
+Embedding vector  (512 numbers)  ← searchable, comparable, clusterable</code></pre>
+</section>
+<section id="why-does-this-matter" class="level3" data-number="7.12.2">
+<h3 data-number="7.12.2" class="anchored" data-anchor-id="why-does-this-matter"><span class="header-section-number">7.12.2</span> Why does this matter?</h3>
+<p>Traditional classification (like what we did above) requires hand-labelled training points for every city and every time period. Embeddings change this. Note that the below points are very simplified (we would need a whole other session to tackle this properly).</p>
+<ul>
+<li><strong>Zero-shot search</strong> — <em>“find all patches that look like this neighbourhood”</em> across a global archive, no labels needed</li>
+<li><strong>Change detection</strong> — subtract embeddings over time to find where landscapes have changed</li>
+<li><strong>Cross-city transfer</strong> — a model trained on London embeddings can classify Paris without retraining</li>
+<li><strong>Multimodal fusion</strong> — combine satellite embeddings with census data, street view, or social media</li>
+</ul>
+</section>
+<section id="where-to-explore-further" class="level3" data-number="7.12.3">
+<h3 data-number="7.12.3" class="anchored" data-anchor-id="where-to-explore-further"><span class="header-section-number">7.12.3</span> Where to explore further</h3>
+<p>🔗 <strong>EMBED2Social Workshop 2026</strong> — tutorials and materials on using embeddings for social science research:<br>
+https://imago-sdruk.github.io/EMBED2Social-Workshop-2026/Materials.html</p>
+<p>🔗 <strong>Imago Data Catalogue</strong> — a UK data service for satellite imagery, including pre-computed embedding datasets ready to use:<br>
+https://data.imago.ac.uk/datasets?search=embeddings</p>
+<p>The Imago data catalogue lets you download embeddings for small admin areas directly — no GPU, no model training needed. You can load them into Python as numpy arrays and immediately run clustering, similarity search, or regression against socioeconomic variables.</p>
+<blockquote class="blockquote">
+<p>This is the direction the field is moving — from hand-crafted features like NDVI to learned representations that capture the full complexity of what a place looks like from space.</p>
+</blockquote>
+</section>
+</section>
+<section id="summary-further-exercises" class="level2" data-number="7.13">
+<h2 data-number="7.13" class="anchored" data-anchor-id="summary-further-exercises"><span class="header-section-number">7.13</span> Summary &amp; Further Exercises</h2>
+<p>You have successfully: - Cropped and masked Landsat 8 imagery to London using <code>rasterio</code> + <code>geopandas</code> - Explored raster properties (CRS, resolution, extent) - Plotted true-colour and false-colour composites with <code>earthpy</code> - Calculated NDVI using vectorised <code>numpy</code> arithmetic - Trained and evaluated a Random Forest classifier with <code>scikit-learn</code> - Started evaluating accuracy with a confusion matrix - Produced a rich 3-panel classification map</p>
+<section id="do-it-yourself" class="level3" data-number="7.13.1">
+<h3 data-number="7.13.1" class="anchored" data-anchor-id="do-it-yourself"><span class="header-section-number">7.13.1</span> Do-it-Yourself</h3>
+<ol type="1">
+<li><strong>Digitise your own points</strong> using <a href="https://leafmap.org/">leafmap</a> and compare accuracy</li>
+<li><strong>More training points</strong> — but remember: quality beats quantity</li>
+<li><strong>Add indices</strong> — NDWI <code>(Green-NIR)/(Green+NIR)</code> or NDBI <code>(SWIR-NIR)/(SWIR+NIR)</code> as extra features</li>
+<li><strong>Export</strong> the classified map as a GeoTIFF for use in QGIS</li>
+</ol>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hint for exporting:</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> rasterio.<span class="bu">open</span>(<span class="st">"data/landsat/London_classified.tif"</span>, <span class="st">"w"</span>,</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>                   driver<span class="op">=</span><span class="st">"GTiff"</span>, dtype<span class="op">=</span><span class="st">"int8"</span>,</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>                   width<span class="op">=</span>predicted_map.shape[<span class="dv">1</span>],</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>                   height<span class="op">=</span>predicted_map.shape[<span class="dv">0</span>],</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>                   count<span class="op">=</span><span class="dv">1</span>, crs<span class="op">=</span>src.crs,</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>                   transform<span class="op">=</span>src.transform) <span class="im">as</span> dst:</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>    dst.write(predicted_map.astype(<span class="st">"int8"</span>), <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/gdsl-ul\.github\.io\/wma");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../labs/w06_OSM.html" class="pagination-link" aria-label="Retrieving Data From OpenStreetMap">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Retrieving Data From OpenStreetMap</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Advanced Geovisualisation by Gabriele Filomena, Elisabetta Pietrostefani.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/GDSL-UL/wma/blob/main/labs/w07_pixelsToPatterns.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

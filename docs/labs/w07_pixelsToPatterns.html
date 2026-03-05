@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Elisabetta Pietrostefani">
-<meta name="dcterms.date" content="2026-03-04">
+<meta name="dcterms.date" content="2026-03-05">
 
 <title>6&nbsp; From Pixels to Patterns: Visualising Satellite Image Classification – Advanced Geovisualisation</title>
 <style>
@@ -254,15 +254,15 @@ window.Quarto = {
   <li><a href="#from-pixels-to-patterns-visualising-satellite-image-classification" id="toc-from-pixels-to-patterns-visualising-satellite-image-classification" class="nav-link active" data-scroll-target="#from-pixels-to-patterns-visualising-satellite-image-classification"><span class="header-section-number">7</span> From Pixels to Patterns: Visualising Satellite Image Classification</a>
   <ul class="collapse">
   <li><a href="#key-python-libraries-used" id="toc-key-python-libraries-used" class="nav-link" data-scroll-target="#key-python-libraries-used"><span class="header-section-number">7.1</span> Key Python libraries used</a></li>
-  <li><a href="#install-import-libraries" id="toc-install-import-libraries" class="nav-link" data-scroll-target="#install-import-libraries"><span class="header-section-number">7.2</span> 0. Install &amp; Import Libraries</a></li>
-  <li><a href="#crop-and-mask-to-london-extent" id="toc-crop-and-mask-to-london-extent" class="nav-link" data-scroll-target="#crop-and-mask-to-london-extent"><span class="header-section-number">7.3</span> 1. Crop and Mask to London Extent</a>
+  <li><a href="#install-import-libraries" id="toc-install-import-libraries" class="nav-link" data-scroll-target="#install-import-libraries"><span class="header-section-number">7.2</span> Install &amp; Import Libraries</a></li>
+  <li><a href="#crop-and-mask-to-london-extent" id="toc-crop-and-mask-to-london-extent" class="nav-link" data-scroll-target="#crop-and-mask-to-london-extent"><span class="header-section-number">7.3</span> Crop and Mask to London Extent</a>
   <ul class="collapse">
   <li><a href="#download-the-london-shapefile" id="toc-download-the-london-shapefile" class="nav-link" data-scroll-target="#download-the-london-shapefile"><span class="header-section-number">7.3.1</span> Download the London shapefile</a></li>
   </ul></li>
-  <li><a href="#raster-properties-loading-bands" id="toc-raster-properties-loading-bands" class="nav-link" data-scroll-target="#raster-properties-loading-bands"><span class="header-section-number">7.4</span> 2. Raster Properties &amp; Loading Bands</a></li>
-  <li><a href="#rgb-composites-true-colour-false-colour" id="toc-rgb-composites-true-colour-false-colour" class="nav-link" data-scroll-target="#rgb-composites-true-colour-false-colour"><span class="header-section-number">7.5</span> 3. RGB Composites — True Colour &amp; False Colour</a></li>
-  <li><a href="#ndvi-normalised-difference-vegetation-index" id="toc-ndvi-normalised-difference-vegetation-index" class="nav-link" data-scroll-target="#ndvi-normalised-difference-vegetation-index"><span class="header-section-number">7.6</span> 4. NDVI — Normalised Difference Vegetation Index</a></li>
-  <li><a href="#supervised-classification" id="toc-supervised-classification" class="nav-link" data-scroll-target="#supervised-classification"><span class="header-section-number">7.7</span> 5. Supervised Classification</a>
+  <li><a href="#raster-properties-loading-bands" id="toc-raster-properties-loading-bands" class="nav-link" data-scroll-target="#raster-properties-loading-bands"><span class="header-section-number">7.4</span> Raster Properties &amp; Loading Bands</a></li>
+  <li><a href="#rgb-composites-true-colour-false-colour" id="toc-rgb-composites-true-colour-false-colour" class="nav-link" data-scroll-target="#rgb-composites-true-colour-false-colour"><span class="header-section-number">7.5</span> RGB Composites — True Colour &amp; False Colour</a></li>
+  <li><a href="#ndvi-normalised-difference-vegetation-index" id="toc-ndvi-normalised-difference-vegetation-index" class="nav-link" data-scroll-target="#ndvi-normalised-difference-vegetation-index"><span class="header-section-number">7.6</span> NDVI — Normalised Difference Vegetation Index</a></li>
+  <li><a href="#supervised-classification" id="toc-supervised-classification" class="nav-link" data-scroll-target="#supervised-classification"><span class="header-section-number">7.7</span> Supervised Classification</a>
   <ul class="collapse">
   <li><a href="#how-would-you-create-training-points-in-python" id="toc-how-would-you-create-training-points-in-python" class="nav-link" data-scroll-target="#how-would-you-create-training-points-in-python"><span class="header-section-number">7.7.1</span> How would you create training points in Python?</a></li>
   </ul></li>
@@ -306,7 +306,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 4, 2026</p>
+      <p class="date">March 5, 2026</p>
     </div>
   </div>
   
@@ -390,7 +390,7 @@ window.Quarto = {
 <p>This <strong>lab</strong>’s notebook can be downloaded from <a href="https://github.com/GDSL-UL/wma/blob/main/labs/w07_pixelsToPatterns.ipynb">here</a>.</p>
 </section>
 <section id="install-import-libraries" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="install-import-libraries"><span class="header-section-number">7.2</span> 0. Install &amp; Import Libraries</h2>
+<h2 data-number="7.2" class="anchored" data-anchor-id="install-import-libraries"><span class="header-section-number">7.2</span> Install &amp; Import Libraries</h2>
 <p>Run the cell below once to install any missing packages.</p>
 <div id="install-code" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uncomment and run this cell if you need to install the libraries</span></span>
@@ -433,7 +433,7 @@ window.Quarto = {
 </div>
 </section>
 <section id="crop-and-mask-to-london-extent" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="crop-and-mask-to-london-extent"><span class="header-section-number">7.3</span> 1. Crop and Mask to London Extent</h2>
+<h2 data-number="7.3" class="anchored" data-anchor-id="crop-and-mask-to-london-extent"><span class="header-section-number">7.3</span> Crop and Mask to London Extent</h2>
 <p>Landsat 8 data covers large swaths of the Earth. Our first step is to <strong>crop</strong> (cut to a bounding box) and <strong>mask</strong> (remove pixels outside a polygon) the imagery to just the London boundary.</p>
 <p>We use: - <code>geopandas</code> to load the London wards shapefile - <code>rasterio.mask</code> to crop and mask each band</p>
 <section id="download-the-london-shapefile" class="level3" data-number="7.3.1">
@@ -571,7 +571,7 @@ All bands cropped and masked!</code></pre>
 </section>
 </section>
 <section id="raster-properties-loading-bands" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="raster-properties-loading-bands"><span class="header-section-number">7.4</span> 2. Raster Properties &amp; Loading Bands</h2>
+<h2 data-number="7.4" class="anchored" data-anchor-id="raster-properties-loading-bands"><span class="header-section-number">7.4</span> Raster Properties &amp; Loading Bands</h2>
 <p><strong>Answer to Task 1:</strong> Landsat 8 carries two sensors — the <strong>Operational Land Imager (OLI)</strong> and the <strong>Thermal Infrared Sensor (TIRS)</strong> — providing 11 spectral bands in total:</p>
 <table class="caption-top table">
 <colgroup>
@@ -817,7 +817,7 @@ All 7 bands loaded: ['band1', 'band2', 'band3', 'band4', 'band5', 'band6', 'band
 </div>
 </section>
 <section id="rgb-composites-true-colour-false-colour" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="rgb-composites-true-colour-false-colour"><span class="header-section-number">7.5</span> 3. RGB Composites — True Colour &amp; False Colour</h2>
+<h2 data-number="7.5" class="anchored" data-anchor-id="rgb-composites-true-colour-false-colour"><span class="header-section-number">7.5</span> RGB Composites — True Colour &amp; False Colour</h2>
 <p>Individual greyscale bands don’t convey much on their own. We stack three bands into an <strong>RGB composite</strong>:</p>
 <table class="caption-top table">
 <colgroup>
@@ -976,7 +976,7 @@ Spatial dimensions : 1509 rows × 1965 cols</code></pre>
 </div>
 </section>
 <section id="ndvi-normalised-difference-vegetation-index" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="ndvi-normalised-difference-vegetation-index"><span class="header-section-number">7.6</span> 4. NDVI — Normalised Difference Vegetation Index</h2>
+<h2 data-number="7.6" class="anchored" data-anchor-id="ndvi-normalised-difference-vegetation-index"><span class="header-section-number">7.6</span> NDVI — Normalised Difference Vegetation Index</h2>
 <p>NDVI measures how much <strong>live green vegetation</strong> is present. It exploits the fact that healthy vegetation <strong>absorbs Red light</strong> and <strong>reflects NIR light</strong>:</p>
 <p><span class="math display">\[
 \text{NDVI} = \frac{\text{NIR} - \text{Red}}{\text{NIR} + \text{Red}} = \frac{\text{Band 5} - \text{Band 4}}{\text{Band 5} + \text{Band 4}}
@@ -1071,7 +1071,7 @@ Mean NDVI  : 0.197</code></pre>
 <p>Below is a <strong>full visualisation</strong> (note: the code is fairly complex).</p>
 </section>
 <section id="supervised-classification" class="level2" data-number="7.7">
-<h2 data-number="7.7" class="anchored" data-anchor-id="supervised-classification"><span class="header-section-number">7.7</span> 5. Supervised Classification</h2>
+<h2 data-number="7.7" class="anchored" data-anchor-id="supervised-classification"><span class="header-section-number">7.7</span> Supervised Classification</h2>
 <p>We now classify each pixel into one of four land cover types:</p>
 <table class="caption-top table">
 <thead>

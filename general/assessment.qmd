@@ -37,13 +37,15 @@ This course follows the standard marking criteria (the general ones and those re
 
 **Requirement for Assignment II, the final Geovisualisation Project.**
 This assignment requires you to develop a final geovisualisation project on **spatial data set(s) of your choice**. This final product should be a geovisualisation interactive product (i.e., it should contain a cartographic, interactive visualisation) and should contain one analytical component developed further from the content presented in class, in relation to:
-	- Geographic/Street Network Analysis (week 6)
-	- Working with Raster Data (week 7)
-	- Working with  spatio-temporal mobility data, not necessarily urban (week 9).
+	
+- Geographic/Street Network Analysis (week 6)
+- Working with Raster Data (week 7)
+- Working with  spatio-temporal mobility data, not necessarily urban (week 9).
 
 Alternatively, it can be:
-	- a Dashboard developed with `panel` (week 10).
-	- a Dashboard developed with `pydeck` - *not discussed in class*.
+	
+- a Dashboard developed with `panel` (week 10).
+- a Dashboard developed with `pydeck` (*not discussed in class*).
 
 ## DOs and DONTs
 

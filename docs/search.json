@@ -120,6 +120,46 @@
     ]
   },
   {
+    "objectID": "general/assignmentII.html",
+    "href": "general/assignmentII.html",
+    "title": "Assignment II",
+    "section": "",
+    "text": "Expected Content\nThis assignment requires you to develop a final geovisualisation project on spatial data set(s) of your choice. To be successful, you will need to demonstrate your understanding not only of technical elements, but of the design process required to create a product that can communicate complex ideas effectively. This final product should be a geovisualisation interactive product (i.e., it should contain a cartographic, interactive visualisation) and should contain one analytical component developed further from the content presented in class, in relation to: - Geographic/Street Network Analysis (week 6). - Working with Raster Data (week 7). - Working with spatio-temporal mobility data, not necessarily urban (week 9).\nTo be successful, you will need to demonstrate your understanding not only of the technical aspects involved in the process but also of the conceptual notions underpinning them. Below are the required components for your submission:",
+    "crumbs": [
+      "Assignment II"
+    ]
+  },
+  {
+    "objectID": "general/assignmentII.html#expected-content",
+    "href": "general/assignmentII.html#expected-content",
+    "title": "Assignment II",
+    "section": "",
+    "text": "Code\n\nIntroductory Static Maps (1 to 3), presenting the topic and the geographic context.\nAPI requests (optional), data calls, and necessary data cleaning operations.\nAn interactive final geovisualisation product\nAll the necessary steps for building and refining the final geovisualisation product.\n\nYou CANNOT employ for your main maps the following libraries: Holoviews, Geoviews, and Plotly. DO not use data from Kaggle\n\n\nText in Markdown Cells, 1,000 words, distributed across the notebook\n\n~ 250 words introducing the research problem, the context, and existing recent research on the topic.\n~ 250 words presenting and motivating the chosen data sources, in relation to your research problem. Here you should engage not only with what data you are using but why and what they bring to the dashboard.\n~ 200 words for the overall idea of the final geovisualisation device/medium. What do you want to communicate? What is the story you want to tell? This final product should contain ONE analytical component developed further from the content presented in class, in relation to:\n\nGeographic/Street Network Analysis (week 6).\nWorking with Raster Data (week 7).\nWorking with spatio-temporal mobility data, not necessarily urban (week 8).\n\nOr present:\n\na Dashboard developed with panel (week 9) or pydeck.\n\n~ 200 words where you describe your design choices around interactivity, including both cartographic elements (e.g. zooming, panning).\n~ 100 words to summarise your research problem and how you tackled it by means of geovisualisation tools (Conclusion).",
+    "crumbs": [
+      "Assignment II"
+    ]
+  },
+  {
+    "objectID": "general/assignmentII.html#evaluation",
+    "href": "general/assignmentII.html#evaluation",
+    "title": "Assignment II",
+    "section": "Evaluation",
+    "text": "Evaluation\nThe assignment will be evaluated based on 3 main pillars, on which you will have to be successful to achieve a good mark:\n\nNarrative. The ability to identify and present a research problem, motivate and justify one’s map, as well as the ability to bring each component of the assignment into a coherent whole that “fits together”.\nMap(s) design. It is very important to think through every step of preparing this assignment as if it was part of something bigger towards which it contributes. Critically introduce every aspect considered when designing the map(s) andyour final product, by explicitly connecting it to the overall aim of the project. One should clearly and critically describe how they engaged with every design choice (e.g. adding certain widgets or interactivity functions).\nTechnical skills. The ability to master Python scripting and technologies that allow one to create an interactive, informative and compelling geographic product, as well as to access interesting and sophisticated data sources.",
+    "crumbs": [
+      "Assignment II"
+    ]
+  },
+  {
+    "objectID": "general/assignmentII.html#how-is-this-assignment-useful",
+    "href": "general/assignmentII.html#how-is-this-assignment-useful",
+    "title": "Assignment II",
+    "section": "How is this assignment useful?",
+    "text": "How is this assignment useful?\nThis assignment combines several elements that will help you improve critical aspects of web mapping:\n\nDesign: this is not about making maps, this is about making good maps. And behind every good map there is a set of conscious choices that you will have to think through to be successful (what map? what data? how to present the data? etc.).\nTechnology: at the end of the day, building good web maps requires familiarity with the state-of-the-art in terms of web mapping tools. In this assignment, you will need to demonstrate your mastery of some of the key tools that are leading both industry and academia.\nPresentation: in many real-world contexts, your work is as good as it can come across to the audience it is intended to. This means that it is vital to be able to communicate not only what you are doing but why and on what building blocks it is based on.",
+    "crumbs": [
+      "Assignment II"
+    ]
+  },
+  {
     "objectID": "general/setup.html",
     "href": "general/setup.html",
     "title": "Setting up the Working Environment",

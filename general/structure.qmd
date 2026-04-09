@@ -48,15 +48,15 @@
 
 **Week 9 GF** Central Teaching Lab: PC Teaching Centre BLUE ZONE (1 - 4pm)
 
--   Lecture: Simulating agents.
-
--   Lab: Agent-based modelling with Python.
-
-**Week 10 GF** Central Teaching Lab: PC Teaching Centre BLUE ZONE (1 - 4pm)
-
 -   Lecture: Time and Flows.
 
 -   Lab: Visualising Flows in Python.
+
+**Week 10 GF** Central Teaching Lab: PC Teaching Centre BLUE ZONE (1 - 4pm)
+
+-   Lecture: Dashboards.
+
+-   Lab: Dashboards with Panel.
     
 **Week 11 GF** Central Teaching Lab: PC Teaching Centre BLUE ZONE (2 - 4pm)
 

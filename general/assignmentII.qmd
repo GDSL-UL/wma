@@ -8,13 +8,12 @@
 -   Submission on Canvas, `.html` files only.
 
 This assignment requires you to develop a final geovisualisation project on **spatial data set(s) of your choice**. To be successful, you will need to demonstrate your understanding not only of technical elements, but of the design process required to create a product that can communicate complex ideas effectively. This final product should be a geovisualisation interactive product (i.e., it should contain a cartographic, interactive visualisation) and should contain one analytical component developed further from the content presented in class, in relation to:
-	- Geographic/Street Network Analysis.
-	- Working with Raster Data.
-	- Working with  spatio-temporal mobility data (not necessarily urban).
-
-Alternatively, it can be:
-	- a Dashboard developed with `panel`.
-	- a Dashboard developed with `pydeck` - *not discussed in class*.
+	- Geographic/Street Network Analysis (week 6).
+	- Working with Raster Data (week 7).
+	- Working with  spatio-temporal mobility data, not necessarily urban (week 9).
+	
+	Or present:
+	- a Dashboard developed with `panel` (week 10) or `pydeck`.
 	
 To be successful, you will need to demonstrate your understanding not only of the technical aspects involved in the process but also of the conceptual notions underpinning them. Below are the required components for your submission:
 

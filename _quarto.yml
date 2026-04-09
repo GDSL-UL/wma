@@ -25,6 +25,7 @@ book:
     - general/structure.qmd
     - general/assessment.qmd
     - general/assignmentI.qmd
+    - general/assignmentII.qmd
     - general/setup.qmd
     - labs/w01_intro.ipynb
     - labs/w02_staticMaps.ipynb

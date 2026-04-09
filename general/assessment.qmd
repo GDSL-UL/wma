@@ -1,3 +1,4 @@
+
 # Assessments: General Remarks {.unnumbered}
 
 ## Submission
@@ -5,7 +6,7 @@ Please follow these templates consistently:
 
 - [Assignment I](https://github.com/GDSL-UL/wma/blob/main/templates/Assignment1_template.ipynb)
 
-- Assignment II(soon)
+- [Assignment II](https://github.com/GDSL-UL/wma/blob/main/templates/Assignment2_template.ipynb)
 
 
 Download the template as follows:
@@ -34,6 +35,16 @@ This course follows the standard marking criteria (the general ones and those re
 | **80–100**     | Exceptional work with innovative contributions and flawless execution.| Problem and justification are expertly presented and fully integrated into a cohesive, professional narrative. | Outstanding, creative design with advanced interactivity and exceptional attention to detail.                                                     | Code runs and produces expected output. Extensive, well-formatted documentation includes novel contributions (e.g., optimisations or new methods). | Yes                                         | Yes                          |
 
 
+**Requirement for Assignment II, the final Geovisualisation Project.**
+This assignment requires you to develop a final geovisualisation project on **spatial data set(s) of your choice**. This final product should be a geovisualisation interactive product (i.e., it should contain a cartographic, interactive visualisation) and should contain one analytical component developed further from the content presented in class, in relation to:
+	- Geographic/Street Network Analysis (week 6)
+	- Working with Raster Data (week 7)
+	- Working with  spatio-temporal mobility data - not necessarily urban (week 8).
+
+Alternatively, it can be:
+	- a Dashboard developed with `panel` (week 9).
+	- a Dashboard developed with `pydeck` - *not discussed in class*.
+
 ## DOs and DONTs
 
 - DO NOT include "temporary" maps unless you really need to specifically show something to your reader.  
@@ -41,4 +52,5 @@ This course follows the standard marking criteria (the general ones and those re
 - DO Mix the accompanying text, in markdown cells, with the code. 
 - DO NOT include all the text at the beginning. 
 - DO provide theoretical context and motivation to your topic.
-- DO Present 2 or 3 NICE static maps (max) and one final interactive map (Assignment I).
+- DO Present 1 to 3 NICE static maps and one final interactive map (Assignment I) or geovisualisation product (Assignment II).
+- DO not use data from Kaggle.

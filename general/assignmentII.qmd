@@ -1,5 +1,4 @@
 
-
 # Assignment II {.unnumbered}
 
 -   **Title:** *Final Geovisualisation Project*.
@@ -41,12 +40,12 @@ To be successful, you will need to demonstrate your understanding not only of th
 - ~ 250 words introducing the research problem, the context, and existing recent research on the topic.
 - ~ 250 words presenting and motivating the chosen data sources, in relation to your research problem. Here you should engage not only with what data you are using but why and what they bring to the dashboard. 
 - ~ 200 words for the overall idea of the final geovisualisation device/medium. What do you want to communicate? What is the story you want to tell? **This final product should contain ONE analytical component developed further from the content presented in class, in relation to**:
-	- Geographic/Street Network Analysis.
-	- Working with Raster Data.
-	- Working with  spatio-temporal mobility data (not necessarily urban).
+	- Geographic/Street Network Analysis (week 6).
+	- Working with Raster Data (week 7).
+	- Working with  spatio-temporal mobility data, not necessarily urban (week 8).
 	
 	Or present:
-	- a Dashboard developed with `panel` or `pydeck`.
+	- a Dashboard developed with `panel` (week 9) or `pydeck`.
 
 - ~ 200 words where you describe your design choices around interactivity, including both cartographic elements (e.g. zooming, panning).
 - ~ 100 words  to summarise your research problem and how you tackled it by means of geovisualisation tools (Conclusion).

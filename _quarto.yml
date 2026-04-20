@@ -34,6 +34,7 @@ book:
     - labs/w06_OSM.ipynb
     - labs/w07_pixelsToPatterns.ipynb
     - labs/w09_mobility.ipynb
+    - labs/w10_dashboards.ipynb
     
 bibliography: references.bib
 
